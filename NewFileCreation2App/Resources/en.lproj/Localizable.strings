@@ -1,0 +1,452 @@
+/* English source strings. Keys are the English UI text. */
+
+" (not on PATH)" = " (not on PATH)";
+
+"%@ (%@)\nDouble-click to create a file." = "%@ (%@)\nDouble-click to create a file.";
+
+"%@ already exists and is not a symlink. Remove it manually or choose another location." = "%@ already exists and is not a symlink. Remove it manually or choose another location.";
+
+"%@ template" = "%@ template";
+
+"About" = "About";
+
+"About New File Creation 2" = "About New File Creation 2";
+
+"Add" = "Add";
+
+"Add Template" = "Add Template";
+
+"Add Templates" = "Add Templates";
+
+"Add Template…" = "Add Template…";
+
+"Add a file to use it as a template, or restore the included set." = "Add a file to use it as a template, or restore the included set.";
+
+"Add as Template" = "Add as Template";
+
+"Add files as templates" = "Add files as templates";
+
+"Add “Add as Template” for selected files" = "Add “Add as Template” for selected files";
+
+"Add “New File” to Finder menus" = "Add “New File” to Finder menus";
+
+"Added %lu template" = "Added %lu template";
+
+"Added %lu templates" = "Added %lu templates";
+
+"Add…" = "Add…";
+
+"Advanced" = "Advanced";
+
+"After creating" = "After creating";
+
+"All Templates" = "All Templates";
+
+"Allow New File Creation 2 in System Settings › General › Login Items." = "Allow New File Creation 2 in System Settings › General › Login Items.";
+
+"An unexpected error occurred." = "An unexpected error occurred.";
+
+"Application" = "Application";
+
+"Approval required" = "Approval required";
+
+"Archives" = "Archives";
+
+"Ask for a name" = "Ask for a name";
+
+"Assign a global shortcut in Settings" = "Assign a global shortcut in Settings";
+
+"At least one icon must stay visible" = "At least one icon must stay visible";
+
+"Audio" = "Audio";
+
+"Bring All to Front" = "Bring All to Front";
+
+"Cancel" = "Cancel";
+
+"Categories" = "Categories";
+
+"Category" = "Category";
+
+"Choose" = "Choose";
+
+"Choose a name and location" = "Choose a name and location";
+
+"Choose files or packages to use as templates." = "Choose files or packages to use as templates.";
+
+"Choose the folder where new files are created by default." = "Choose the folder where new files are created by default.";
+
+"Choose…" = "Choose…";
+
+"Close" = "Close";
+
+"Code" = "Code";
+
+"Command" = "Command";
+
+"Command-line tool" = "Command-line tool";
+
+"Configuration and command line" = "Configuration and command line";
+
+"Continue" = "Continue";
+
+"Control" = "Control";
+
+"Copy" = "Copy";
+
+"Copyright © 2024–2026 Sergio Martinez-Losa\nMIT License" = "Copyright © 2024–2026 Sergio Martinez-Losa\nMIT License";
+
+"Copyright © 2024–2026 Sergio Martinez-Losa. Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files, to deal in the Software without restriction." = "Copyright © 2024–2026 Sergio Martinez-Losa. Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files, to deal in the Software without restriction.";
+
+"Could not change the login item" = "Could not change the login item";
+
+"Could not create the file" = "Could not create the file";
+
+"Could not enable the Finder extension" = "Could not enable the Finder extension";
+
+"Could not export the configuration" = "Could not export the configuration";
+
+"Could not import the configuration" = "Could not import the configuration";
+
+"Could not install nfc" = "Could not install nfc";
+
+"Could not reset the configuration" = "Could not reset the configuration";
+
+"Could not uninstall nfc" = "Could not uninstall nfc";
+
+"Create" = "Create";
+
+"Create a file from a template in Finder, from the menu bar, from the template library, or with the nfc command." = "Create a file from a template in Finder, from the menu bar, from the template library, or with the nfc command.";
+
+"Create a file from the selected template" = "Create a file from the selected template";
+
+"Create a new file from a template" = "Create a new file from a template";
+
+"Create files from templates in Finder, from the menu bar, from the library, or with the nfc command.\n\n• ⌘N creates a file from the selected template.\n• ⇧⌘N lets you choose a name and location.\n• The menu bar icon opens templates and the quick panel.\n• Right-click in Finder for Finder menu items.\n• Run “nfc help” in Terminal for command-line usage." = "Create files from templates in Finder, from the menu bar, from the library, or with the nfc command.\n\n• ⌘N creates a file from the selected template.\n• ⇧⌘N lets you choose a name and location.\n• The menu bar icon opens templates and the quick panel.\n• Right-click in Finder for Finder menu items.\n• Run “nfc help” in Terminal for command-line usage.";
+
+"Create files from templates in Finder, the menu bar, the library, and the command line." = "Create files from templates in Finder, the menu bar, the library, and the command line.";
+
+"Create immediately" = "Create immediately";
+
+"Create the file in “%@”." = "Create the file in “%@”.";
+
+"Created %@" = "Created %@";
+
+"Creation:" = "Creation:";
+
+"Cut" = "Cut";
+
+"Default folder:" = "Default folder:";
+
+"Default name:" = "Default name:";
+
+"Default template:" = "Default template:";
+
+"Desktop" = "Desktop";
+
+"Disabled templates do not appear in the app, the menu bar, or Finder menus." = "Disabled templates do not appear in the app, the menu bar, or Finder menus.";
+
+"Documents" = "Documents";
+
+"Edit" = "Edit";
+
+"Enable Extension" = "Enable Extension";
+
+"Enabled" = "Enabled";
+
+"Enter Full Screen" = "Enter Full Screen";
+
+"Everything stays on your Mac. No network, analytics, or telemetry." = "Everything stays on your Mac. No network, analytics, or telemetry.";
+
+"Export…" = "Export…";
+
+"Extension: %@" = "Extension: %@";
+
+"Favorite" = "Favorite";
+
+"Favorites" = "Favorites";
+
+"File" = "File";
+
+"Finder" = "Finder";
+
+"Finder extension" = "Finder extension";
+
+"Finder extension status unavailable" = "Finder extension status unavailable";
+
+"Finder extension: disabled" = "Finder extension: disabled";
+
+"Finder extension: enabled" = "Finder extension: enabled";
+
+"Finder extension: not registered. Build and open the app once." = "Finder extension: not registered. Build and open the app once.";
+
+"Finder extension: registered" = "Finder extension: registered";
+
+"General" = "General";
+
+"Get Started" = "Get Started";
+
+"Global shortcut:" = "Global shortcut:";
+
+"Global shortcut: %@" = "Global shortcut: %@";
+
+"Group templates by category" = "Group templates by category";
+
+"Help" = "Help";
+
+"Hide New File Creation 2" = "Hide New File Creation 2";
+
+"Hide Others" = "Hide Others";
+
+"Images" = "Images";
+
+"Import…" = "Import…";
+
+"Inspector" = "Inspector";
+
+"Install nfc" = "Install nfc";
+
+"Installed at %@%@" = "Installed at %@%@";
+
+"Last used %@" = "Last used %@";
+
+"Launch New File Creation 2 at login" = "Launch New File Creation 2 at login";
+
+"Launch at login requires macOS 13 or later." = "Launch at login requires macOS 13 or later.";
+
+"Library" = "Library";
+
+"MIT License" = "MIT License";
+
+"Menu contents" = "Menu contents";
+
+"Minimize" = "Minimize";
+
+"Name" = "Name";
+
+"New %@" = "New %@";
+
+"New File" = "New File";
+
+"New File Creation 2 Help" = "New File Creation 2 Help";
+
+"New File Creation 2 could not load its configuration" = "New File Creation 2 could not load its configuration";
+
+"New File…" = "New File…";
+
+"New files" = "New files";
+
+"No Templates" = "No Templates";
+
+"No matching templates" = "No matching templates";
+
+"No templates" = "No templates";
+
+"None" = "None";
+
+"Not found; move the app to /Applications" = "Not found; move the app to /Applications";
+
+"Not installed. The bundled helper is at Contents/Helpers/nfc." = "Not installed. The bundled helper is at Contents/Helpers/nfc.";
+
+"Not registered" = "Not registered";
+
+"OK" = "OK";
+
+"On" = "On";
+
+"Open Library" = "Open Library";
+
+"Open Settings" = "Open Settings";
+
+"Open System Settings and enable “New File Creation 2 Finder” manually." = "Open System Settings and enable “New File Creation 2 Finder” manually.";
+
+"Open System Settings…" = "Open System Settings…";
+
+"Open Templates Folder" = "Open Templates Folder";
+
+"Open the new file after creating it" = "Open the new file after creating it";
+
+"Option" = "Option";
+
+"Other" = "Other";
+
+"Paste" = "Paste";
+
+"Play a sound after creating a file" = "Play a sound after creating a file";
+
+"Presentations" = "Presentations";
+
+"Quick New File" = "Quick New File";
+
+"Quick New File…" = "Quick New File…";
+
+"Quit New File Creation 2" = "Quit New File Creation 2";
+
+"Recent" = "Recent";
+
+"Redo" = "Redo";
+
+"Remove" = "Remove";
+
+"Remove Favorite" = "Remove Favorite";
+
+"Remove Template…" = "Remove Template…";
+
+"Remove “%@”?" = "Remove “%@”?";
+
+"Remove…" = "Remove…";
+
+"Rename" = "Rename";
+
+"Rename Template" = "Rename Template";
+
+"Rename…" = "Rename…";
+
+"Requires approval in System Settings" = "Requires approval in System Settings";
+
+"Reset" = "Reset";
+
+"Reset Configuration…" = "Reset Configuration…";
+
+"Reset the configuration?" = "Reset the configuration?";
+
+"Reveal Config" = "Reveal Config";
+
+"Reveal Log" = "Reveal Log";
+
+"Reveal Selected Template" = "Reveal Selected Template";
+
+"Reveal Template" = "Reveal Template";
+
+"Reveal in Finder" = "Reveal in Finder";
+
+"Reveal the new file in Finder" = "Reveal the new file in Finder";
+
+"Right-click in Finder and choose New File from the template list." = "Right-click in Finder and choose New File from the template list.";
+
+"Run nfc create \"Text File\" to make a file anywhere." = "Run nfc create \"Text File\" to make a file anywhere.";
+
+"Search" = "Search";
+
+"Search Templates" = "Search Templates";
+
+"Search templates" = "Search templates";
+
+"Select All" = "Select All";
+
+"Select a template" = "Select a template";
+
+"Services" = "Services";
+
+"Set as Default" = "Set as Default";
+
+"Settings" = "Settings";
+
+"Settings and the template library are reset. Template files in the Templates folder are kept." = "Settings and the template library are reset. Template files in the Templates folder are kept.";
+
+"Settings…" = "Settings…";
+
+"Shift" = "Shift";
+
+"Show" = "Show";
+
+"Show All" = "Show All";
+
+"Show Welcome" = "Show Welcome";
+
+"Show Welcome Again" = "Show Welcome Again";
+
+"Show a confirmation in the app window" = "Show a confirmation in the app window";
+
+"Show favorites first" = "Show favorites first";
+
+"Show or Hide Inspector" = "Show or Hide Inspector";
+
+"Show or Hide Sidebar" = "Show or Hide Sidebar";
+
+"Show or hide the inspector" = "Show or hide the inspector";
+
+"Show template icons" = "Show template icons";
+
+"Show the Dock icon" = "Show the Dock icon";
+
+"Show the menu bar icon" = "Show the menu bar icon";
+
+"Spreadsheets" = "Spreadsheets";
+
+"Template: %@" = "Template: %@";
+
+"Templates" = "Templates";
+
+"Templates included in the library" = "Templates included in the library";
+
+"The Finder extension could not be enabled" = "The Finder extension could not be enabled";
+
+"The Finder extension reads the shared configuration and creates files in the selected folder. If the extension is not listed, open System Settings › General › Login Items & Extensions › Finder Extensions." = "The Finder extension reads the shared configuration and creates files in the selected folder. If the extension is not listed, open System Settings › General › Login Items & Extensions › Finder Extensions.";
+
+"The app and nfc coordinate writes with a lock and atomic replacement. The Finder extension reads the configuration only." = "The app and nfc coordinate writes with a lock and atomic replacement. The Finder extension reads the configuration only.";
+
+"The bundled nfc helper is missing. Rebuild or reinstall the app." = "The bundled nfc helper is missing. Rebuild or reinstall the app.";
+
+"The configuration is damaged." = "The configuration is damaged.";
+
+"The default name is used by the app, the Finder extension, and the nfc command. Existing files are never overwritten." = "The default name is used by the app, the Finder extension, and the nfc command. Existing files are never overwritten.";
+
+"The existing nfc is not a symlink managed by this app." = "The existing nfc is not a symlink managed by this app.";
+
+"The file is not valid JSON." = "The file is not valid JSON.";
+
+"The shortcut could not be registered (Carbon error %d). It may conflict with another app." = "The shortcut could not be registered (Carbon error %d). It may conflict with another app.";
+
+"The shortcut is unavailable" = "The shortcut is unavailable";
+
+"The template file keeps its current name. This changes the display name only." = "The template file keeps its current name. This changes the display name only.";
+
+"The template is removed from the library and its file is moved to Trash." = "The template is removed from the library and its file is moved to Trash.";
+
+"The template “%@” was not found." = "The template “%@” was not found.";
+
+"Turn on the Dock icon or the menu bar icon before turning off the other." = "Turn on the Dock icon or the menu bar icon before turning off the other.";
+
+"Unavailable" = "Unavailable";
+
+"Undo" = "Undo";
+
+"Uninstall nfc" = "Uninstall nfc";
+
+"Unsupported shortcut key “%@”." = "Unsupported shortcut key “%@”.";
+
+"Untitled" = "Untitled";
+
+"Use the menu bar icon or the global shortcut for the quick panel." = "Use the menu bar icon or the global shortcut for the quick panel.";
+
+"Used %ld time" = "Used %ld time";
+
+"Used %ld times" = "Used %ld times";
+
+"Version %@" = "Version %@";
+
+"Video" = "Video";
+
+"View" = "View";
+
+"View License" = "View License";
+
+"Welcome" = "Welcome";
+
+"Welcome to New File Creation 2" = "Welcome to New File Creation 2";
+
+"Window" = "Window";
+
+"You can reopen this window from Settings › Advanced." = "You can reopen this window from Settings › Advanced.";
+
+"Zoom" = "Zoom";
+
+"%@ — drag to create %@" = "%@ — drag to create %@";
+
+"%@ template, drag to create a file" = "%@ template, drag to create a file";
+
+"no extension" = "no extension";
+
+"↩ Create file    ⠿ Drag to Finder    esc Close" = "↩ Create file    ⠿ Drag to Finder    esc Close";
+

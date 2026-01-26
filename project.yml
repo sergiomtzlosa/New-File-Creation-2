@@ -1,0 +1,170 @@
+name: NewFileCreation2
+options:
+  bundleIdPrefix: com.sid
+  deploymentTarget:
+    macOS: "13.0"
+  createIntermediateGroups: true
+  developmentLanguage: en
+  knownRegions: [en, es, Base]
+settings:
+  base:
+    CODE_SIGN_STYLE: Manual
+    CODE_SIGN_IDENTITY: "-"
+    DEVELOPMENT_TEAM: ""
+    MACOSX_DEPLOYMENT_TARGET: "13.0"
+    CLANG_ENABLE_MODULES: YES
+    CLANG_ENABLE_OBJC_ARC: YES
+    CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING: YES
+    CLANG_WARN_BOOL_CONVERSION: YES
+    CLANG_WARN_COMMA: YES
+    CLANG_WARN_CONSTANT_CONVERSION: YES
+    CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS: YES
+    CLANG_WARN_DIRECT_OBJC_ISA_USAGE: YES_ERROR
+    CLANG_WARN_EMPTY_BODY: YES
+    CLANG_WARN_ENUM_CONVERSION: YES
+    CLANG_WARN_INFINITE_RECURSION: YES
+    CLANG_WARN_INT_CONVERSION: YES
+    CLANG_WARN_NON_LITERAL_NULL_CONVERSION: YES
+    CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF: YES
+    CLANG_WARN_OBJC_LITERAL_CONVERSION: YES
+    CLANG_WARN_OBJC_ROOT_CLASS: YES_ERROR
+    CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER: YES
+    CLANG_WARN_RANGE_LOOP_ANALYSIS: YES
+    CLANG_WARN_STRICT_PROTOTYPES: YES
+    CLANG_WARN_SUSPICIOUS_MOVE: YES
+    CLANG_WARN_UNGUARDED_AVAILABILITY: YES_AGGRESSIVE
+    CLANG_WARN_UNREACHABLE_CODE: YES
+    CLANG_WARN__DUPLICATE_METHOD_MATCH: YES
+    GCC_C_LANGUAGE_STANDARD: gnu17
+    GCC_WARN_UNDECLARED_SELECTOR: YES
+    GCC_WARN_UNINITIALIZED_AUTOS: YES_AGGRESSIVE
+    GCC_WARN_UNUSED_FUNCTION: YES
+    GCC_WARN_UNUSED_VARIABLE: YES
+    ENABLE_HARDENED_RUNTIME: NO
+    CODE_SIGN_INJECT_BASE_ENTITLEMENTS: NO
+    ALWAYS_SEARCH_USER_PATHS: NO
+    SWIFT_VERSION: ""
+    MARKETING_VERSION: 2.0.0
+    CURRENT_PROJECT_VERSION: 1
+    ENABLE_USER_SCRIPT_SANDBOXING: NO
+targets:
+  NewFileCreation2:
+    type: application
+    platform: macOS
+    sources:
+      - path: NewFileCreation2App
+        excludes:
+          - Info.plist
+          - NewFileCreation2.entitlements
+          - Design
+      - path: NewFileCreation2Shared
+      - path: Templates
+        type: folder
+        buildPhase: resources
+      - path: README.md
+        buildPhase: resources
+    dependencies:
+      - target: NewFileCreation2Finder
+        embed: true
+        codeSign: true
+      - target: NewFileCreation2CLI
+        embed: true
+        link: false
+        codeSign: true
+        copy:
+          destination: wrapper
+          subpath: Contents/Helpers
+      - sdk: AppKit.framework
+      - sdk: Foundation.framework
+      - sdk: ServiceManagement.framework
+      - sdk: Carbon.framework
+      - sdk: UniformTypeIdentifiers.framework
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.sid.newfilecreation2
+        PRODUCT_NAME: "New File Creation 2"
+        INFOPLIST_FILE: NewFileCreation2App/Info.plist
+        CODE_SIGN_ENTITLEMENTS: NewFileCreation2App/NewFileCreation2.entitlements
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+        COMBINE_HIDPI_IMAGES: YES
+        GENERATE_INFOPLIST_FILE: NO
+        LD_RUNPATH_SEARCH_PATHS: "$(inherited) @executable_path/../Frameworks"
+  NewFileCreation2Finder:
+    type: app-extension
+    platform: macOS
+    sources:
+      - path: NewFileCreation2Finder
+        excludes: [Info.plist, NewFileCreation2Finder.entitlements]
+      - path: NewFileCreation2Shared
+      - path: NewFileCreation2App/Resources
+        excludes: [.DS_Store]
+    dependencies:
+      - sdk: AppKit.framework
+      - sdk: Foundation.framework
+      - sdk: FinderSync.framework
+      - sdk: UniformTypeIdentifiers.framework
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.sid.newfilecreation2.finder
+        PRODUCT_NAME: "New File Creation 2 Finder"
+        INFOPLIST_FILE: NewFileCreation2Finder/Info.plist
+        CODE_SIGN_ENTITLEMENTS: NewFileCreation2Finder/NewFileCreation2Finder.entitlements
+        GENERATE_INFOPLIST_FILE: NO
+        APPLICATION_EXTENSION_API_ONLY: YES
+        SKIP_INSTALL: YES
+        LD_RUNPATH_SEARCH_PATHS: "$(inherited) @executable_path/../../../../Frameworks"
+  NewFileCreation2CLI:
+    type: tool
+    platform: macOS
+    sources:
+      - path: NewFileCreation2CLI
+      - path: NewFileCreation2Shared
+    settings:
+      base:
+        PRODUCT_NAME: nfc
+        PRODUCT_BUNDLE_IDENTIFIER: com.sid.newfilecreation2.cli
+        SKIP_INSTALL: YES
+        GENERATE_INFOPLIST_FILE: NO
+        GCC_PREPROCESSOR_DEFINITIONS: "$(inherited) NFC_CLI=1"
+    dependencies:
+      - sdk: Foundation.framework
+      - sdk: AppKit.framework
+      - sdk: UniformTypeIdentifiers.framework
+      - sdk: ServiceManagement.framework
+  NewFileCreation2Tests:
+    type: bundle.unit-test
+    platform: macOS
+    sources:
+      - path: NewFileCreation2Tests
+      - path: NewFileCreation2CLI
+        excludes: [main.m]
+    dependencies:
+      - target: NewFileCreation2
+      - sdk: AppKit.framework
+      - sdk: Foundation.framework
+      - sdk: UniformTypeIdentifiers.framework
+      - sdk: ServiceManagement.framework
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.sid.newfilecreation2.tests
+        GENERATE_INFOPLIST_FILE: YES
+        TEST_HOST: "$(BUILT_PRODUCTS_DIR)/New File Creation 2.app/Contents/MacOS/New File Creation 2"
+        BUNDLE_LOADER: "$(TEST_HOST)"
+        HEADER_SEARCH_PATHS: "$(inherited) $(SRCROOT)/NewFileCreation2Shared $(SRCROOT)/NewFileCreation2Shared/Models $(SRCROOT)/NewFileCreation2Shared/Store $(SRCROOT)/NewFileCreation2Shared/Config $(SRCROOT)/NewFileCreation2Shared/Creation $(SRCROOT)/NewFileCreation2Shared/Requests $(SRCROOT)/NewFileCreation2Shared/Finder $(SRCROOT)/NewFileCreation2Shared/Support $(SRCROOT)/NewFileCreation2CLI $(SRCROOT)/NewFileCreation2CLI/Commands"
+schemes:
+  NewFileCreation2:
+    build:
+      targets:
+        NewFileCreation2: all
+        NewFileCreation2Finder: all
+        NewFileCreation2CLI: all
+        NewFileCreation2Tests: [test]
+    run:
+      config: Debug
+    test:
+      config: Debug
+      gatherCoverageData: false
+      targets:
+        - NewFileCreation2Tests
+    archive:
+      config: Release

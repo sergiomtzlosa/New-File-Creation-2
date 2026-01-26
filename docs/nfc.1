@@ -1,0 +1,374 @@
+.TH NFC 1 "November 2026" "New File Creation 2 2.0.0" "User Commands"
+.SH NAME
+nfc \- create files from New File Creation 2 templates
+.SH SYNOPSIS
+.B nfc
+.I command
+.RI [ arguments ]
+.RI [ options ]
+.br
+.B nfc help
+.RI [ command ]
+.br
+.B nfc version
+.SH DESCRIPTION
+.B nfc
+is the command-line companion to New File Creation 2. It creates files from
+templates, manages the template library, and inspects the shared configuration
+without requiring the app to be running.
+.PP
+The app, Finder extension, and
+.B nfc
+all use the same support folder and the same rules for default names and
+uniqueness. Existing files are never overwritten.
+.PP
+The tool is embedded in the app bundle at
+.IR "/Applications/New File Creation 2.app/Contents/Helpers/nfc" .
+Link it onto
+.B PATH
+with
+.BR "scripts/install-cli.sh" .
+.SH GLOBAL OPTIONS
+Global options may appear anywhere on the command line.
+.TP
+.B \-\-json
+Write exactly one JSON envelope to standard output instead of human text.
+.TP
+.BR \-\-quiet ", " \-q
+Minimal human output. The
+.B create
+and
+.B open
+commands print only the path; the
+.B add
+command prints only added file names.
+.TP
+.B \-\-plain
+Accepted for compatibility. Output is already plain and uncolored.
+.TP
+.B \-\-no\-color
+Accepted for compatibility. Output is never colored.
+.TP
+.BI \-\-config " path"
+Use
+.I path
+as the configuration file. Its parent folder becomes the support folder for
+.IR config.json ,
+.IR Templates/ ,
+.IR Backups/ ,
+and
+.IR config.lock .
+.TP
+.B \-\-verbose
+Accepted for diagnostics. Human output remains stable.
+.TP
+.BR \-\-help ", " \-h
+Show help for the selected command, or general help when no command is given.
+.TP
+.BR \-\-version ", " \-v
+With no command, print the version.
+.SH COMMANDS
+.TP
+.BI "create [template] [options]"
+Create a file by copying the selected template to a destination folder. The
+default base name is the app setting
+.BR defaultBaseName " (default: Untitled),"
+not the template display name. The extension comes from the template file.
+With no template reference, the configured default template is used. If no
+default is configured and several templates exist, the command fails with an
+ambiguous-reference error.
+.TP
+.B create options
+.BR \-\-name ", " \-n " base"
+Set the base name without the template extension.
+.TP
+.BR \-\-output ", " \-o " path"
+Set the full destination path. Overrides
+.B \-\-dir
+and
+.BR \-\-name .
+.TP
+.BR \-\-dir ", " \-d " folder"
+Set the destination folder. The default is the current directory.
+.TP
+.B \-\-no\-unique
+Fail when the destination exists instead of adding a numeric suffix.
+.TP
+.B \-\-use\-app\-location
+Use the configured default folder when one is set; otherwise use the current
+directory.
+.TP
+.B \-\-open
+Open the created file.
+.TP
+.B \-\-reveal
+Reveal the created file in Finder.
+.TP
+.B \-\-sound
+Play the completion sound.
+.TP
+.B \-\-dry\-run
+Print the destination that would be used without creating a file.
+.TP
+.BI "\-\-template " reference
+Use
+.I reference
+instead of a positional template argument.
+.TP
+.BR "list [options]" " or " "ls"
+List templates. By default all templates, including disabled ones, are shown.
+.TP
+.B list options
+.B \-\-favorites
+Only favorites.
+.TP
+.B \-\-enabled
+Only enabled templates.
+.TP
+.BI \-\-category " name"
+Only templates in the named category.
+.TP
+.B \-\-all
+Accepted; this is the default.
+.TP
+.BI "show [template]" " or " "info"
+Print the template ID, file name, display name, category, extension, enabled
+and favorite state, use count, dates, and absolute file path.
+.TP
+.BI "add " "file..." " [options]"
+Copy files, packages, or folders into the Templates folder and add template
+metadata. Existing template files are not overwritten; a unique file name is
+used when needed.
+.TP
+.B add options
+.BI \-\-name " display-name"
+Set the display name when exactly one file is added.
+.TP
+.BI \-\-category " name"
+Set the category. When omitted, the category is inferred from the extension.
+.TP
+.B \-\-favorite
+Mark the added templates as favorites.
+.TP
+.B \-\-disabled
+Add the templates disabled. They do not appear in menus.
+.TP
+.BI "remove " "template" " [options]" " or " "rm"
+Remove a template from the configuration and move its file to Trash. If the
+removed template was the default, the first remaining template becomes the
+default.
+.TP
+.B remove options
+.B \-\-keep\-file
+Leave the template file in the Templates folder. The library no longer
+references it.
+.TP
+.BR \-\-yes ", " \-y
+Skip the interactive confirmation. Required when standard input is not a
+terminal.
+.TP
+.BI "favorite [template] [\-\-on|\-\-off]" " or " "fav"
+Toggle the favorite flag when neither flag is given. Passing both flags is a
+usage error.
+.TP
+.BI "enable " template
+Enable a template.
+.TP
+.BI "disable " template
+Disable a template. Its file is kept.
+.TP
+.BI "recent [\-\-limit " count "]"
+List recently used templates, most recent first. The default limit is 5.
+.TP
+.BR categories " or " cats
+List categories present in the library and their template counts.
+.TP
+.B config
+.B config path
+prints the active configuration path.
+.B config export [path|\-]
+writes pretty-printed JSON; use
+.B \-
+or omit
+.I path
+for standard output.
+.B config import path
+replaces the configuration from a JSON file; template files are not imported.
+.B config reset \-\-yes
+restores default settings. Template files are kept on disk but are no longer
+referenced by the reset library.
+.TP
+.B status
+Print the version, configuration path, template counts, default name, app
+running state, Finder extension state, login-item status, shortcut, and CLI
+links.
+.TP
+.BI "open [template]"
+Open a template file in its default application. With no argument, open the
+Templates folder in Finder.
+.TP
+.B doctor
+Check the support directory, configuration, schema, template files, duplicate
+names and IDs, app installation, Finder extension registration, and CLI links.
+A failed check makes the command exit with status 1.
+.TP
+.BI "completion " "zsh|bash"
+Print a shell completion script.
+.TP
+.BI "help [command]"
+Print general or command-specific help.
+.TP
+.B version
+Print the version.
+.TP
+.B import\-legacy
+Hidden development helper that imports templates and settings from known
+legacy support locations. Normal installations do not need it.
+.SH TEMPLATE REFERENCES
+A template can be referenced by:
+.IP 1. 4
+Full UUID.
+.IP 2. 4
+Exact display name, file name, or file name without extension,
+case-insensitively.
+.IP 3. 4
+Normalized name with spaces and punctuation ignored.
+.IP 4. 4
+Unique case-insensitive prefix.
+.PP
+An omitted reference uses the default template. If there is no default and
+exactly one template exists, that template is used.
+.SH OUTPUT
+Human-readable data is written to standard output. Warnings and errors are
+written to standard error.
+.PP
+With
+.BR \-\-json ,
+standard output contains one envelope:
+.PP
+.nf
+{ "ok": true, "command": "create", "data": { ... } }
+.fi
+.PP
+On failure:
+.PP
+.nf
+{ "ok": false, "command": "create",
+  "error": { "code": "not_found", "message": "...",
+             "exitCode": 3, "suggestions": [ ... ] } }
+.fi
+.PP
+JSON keys and error codes are locale-independent. Human output is English in
+version 2.0.
+.SH EXIT STATUS
+.TP
+.B 0
+Success.
+.TP
+.B 1
+General error, or a failed
+.B doctor
+check.
+.TP
+.B 2
+Usage error, or a destructive command without confirmation in a
+non-interactive session.
+.TP
+.B 3
+Template or file not found.
+.TP
+.B 4
+Ambiguous template reference.
+.TP
+.B 5
+Conflict, such as
+.B \-\-no\-unique
+with an existing destination.
+.TP
+.B 6
+Configuration error: corrupt file, unsupported schema, or write failure.
+.TP
+.B 7
+Permission error: unwritable destination, unreadable template, or invalid
+destination.
+.SH ENVIRONMENT
+.TP
+.B NFC_SUPPORT_DIR
+Absolute path to an alternate support folder. Intended for tests and isolated
+automation.
+.TP
+.B HOME
+Used to locate the default support folder and CLI links.
+.SH FILES
+.TP
+.I ~/Library/Application Support/New File Creation 2/config.json
+Settings, templates, recents, and revision.
+.TP
+.I ~/Library/Application Support/New File Creation 2/Templates/
+Template files.
+.TP
+.I ~/Library/Application Support/New File Creation 2/config.json.bak
+Previous configuration written by the store.
+.TP
+.I ~/Library/Application Support/New File Creation 2/config.lock
+Interprocess lock used by writers.
+.TP
+.I ~/Library/Application Support/New File Creation 2/Backups/
+Quarantined corrupt configurations.
+.TP
+.I ~/Library/Application Support/New File Creation 2/logs/
+Local diagnostic log.
+.SH EXAMPLES
+Create a text file in the current directory:
+.PP
+.nf
+nfc create "Text File"
+.fi
+.PP
+Create a named Python file:
+.PP
+.nf
+nfc create "Python Script" \-\-name report
+.fi
+.PP
+Create in a specific folder and reveal the result:
+.PP
+.nf
+nfc create "HTML Page" \-\-dir ~/Documents \-\-reveal
+.fi
+.PP
+Find the next free name without creating a file:
+.PP
+.nf
+nfc create "Text File" \-\-dry\-run \-\-quiet
+.fi
+.PP
+Add a file as a favorite template:
+.PP
+.nf
+nfc add ~/notes.md \-\-category Documents \-\-favorite
+.fi
+.PP
+Export the configuration:
+.PP
+.nf
+nfc config export ~/Desktop/nfc-config.json
+.fi
+.PP
+Use an isolated support folder:
+.PP
+.nf
+NFC_SUPPORT_DIR=/tmp/nfc-test nfc list
+.fi
+.SH SEE ALSO
+New File Creation 2 documentation:
+.I docs/CLI.md
+and
+.I docs/ARCHITECTURE.md
+in the source distribution.
+.PP
+The app Help menu opens the bundled README.
+.SH NOTES
+.B nfc
+makes no network requests and has no accounts, analytics, or telemetry.
+Template file contents are copied byte-for-byte.

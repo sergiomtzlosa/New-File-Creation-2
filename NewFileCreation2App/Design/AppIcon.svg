@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024">
+  <defs>
+    <linearGradient id="background" x1="160" y1="96" x2="864" y2="928" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#2F6BFF"/>
+      <stop offset="1" stop-color="#7857FF"/>
+    </linearGradient>
+    <linearGradient id="paper" x1="340" y1="240" x2="680" y2="760" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FFFFFF"/>
+      <stop offset="1" stop-color="#EAF0FF"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="18" stdDeviation="24" flood-color="#101A40" flood-opacity="0.28"/>
+    </filter>
+  </defs>
+
+  <rect x="64" y="64" width="896" height="896" rx="204" fill="url(#background)"/>
+  <path d="M64 268C64 155.16 155.16 64 268 64h488c112.84 0 204 91.16 204 204v40c-120 56-338 116-604 116-103 0-199-4-292-14V268z" fill="#FFFFFF" opacity="0.10"/>
+
+  <g filter="url(#shadow)">
+    <path d="M298 260c0-33.14 26.86-60 60-60h286l142 142v422c0 33.14-26.86 60-60 60H358c-33.14 0-60-26.86-60-60V260z" fill="url(#paper)"/>
+    <path d="M644 200l142 142H674c-16.57 0-30-13.43-30-30V200z" fill="#C9D6FF"/>
+    <rect x="382" y="424" width="300" height="34" rx="17" fill="#8EA4E8"/>
+    <rect x="382" y="500" width="300" height="34" rx="17" fill="#A9BAF0"/>
+    <rect x="382" y="576" width="220" height="34" rx="17" fill="#C3D0F5"/>
+  </g>
+
+  <circle cx="748" cy="760" r="156" fill="#FF9F0A"/>
+  <circle cx="748" cy="760" r="156" fill="none" stroke="#FFFFFF" stroke-opacity="0.35" stroke-width="12"/>
+  <rect x="724" y="676" width="48" height="168" rx="24" fill="#FFFFFF"/>
+  <rect x="664" y="736" width="168" height="48" rx="24" fill="#FFFFFF"/>
+</svg>

@@ -1,0 +1,35 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon\r
+._*
+
+# Build products
+build/
+.build/
+DerivedData/
+*.xcarchive
+*.ipa
+*.dSYM
+*.dSYM.zip
+
+# Xcode user state
+xcuserdata/
+*.xcuserstate
+*.xcscmblueprint
+*.xccheckout
+*.moved-aside
+*.hmap
+NewFileCreation2.xcworkspace/xcuserdata/
+
+# Dependency managers
+Pods/
+Carthage/Build/
+.swiftpm/
+
+# Fastlane
+fastlane/
+
+# Local-only: agent notes and the legacy reference tree
+.config/

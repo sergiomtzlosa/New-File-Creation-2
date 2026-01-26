@@ -1,0 +1,411 @@
+#import "NFCQuickPanelController.h"
+#import "NFConfigStore.h"
+#import "NFConfig.h"
+#import "NFFinderMenuBuilder.h"
+#import "NFFilePromiseProvider.h"
+#import "NFLocalization.h"
+
+@interface NFCQuickPanel : NSPanel
+@end
+
+@implementation NFCQuickPanel
+- (BOOL)canBecomeKeyWindow {
+    return YES;
+}
+- (BOOL)canBecomeMainWindow {
+    return NO;
+}
+@end
+
+@interface NFCQuickPanelController () <NSTableViewDataSource, NSTableViewDelegate, NSSearchFieldDelegate, NSWindowDelegate>
+@property (nonatomic, strong) NSSearchField *searchField;
+@property (nonatomic, strong) NSTableView *tableView;
+@property (nonatomic, strong) NSArray<NFTemplate *> *templates;
+@property (nonatomic, strong) NSTextField *emptyLabel;
+@property (nonatomic, assign) BOOL draggingPromise;
+@end
+
+@implementation NFCQuickPanelController
+
+- (instancetype)init {
+    NFCQuickPanel *panel = [[NFCQuickPanel alloc] initWithContentRect:NSMakeRect(0, 0, 460, 420)
+                                                            styleMask:NSWindowStyleMaskTitled | NSWindowStyleMaskClosable |
+                                                                      NSWindowStyleMaskFullSizeContentView
+                                                              backing:NSBackingStoreBuffered
+                                                                defer:NO];
+    panel.title = NFLocalizedString(@"Quick New File");
+    panel.titleVisibility = NSWindowTitleHidden;
+    panel.titlebarAppearsTransparent = YES;
+    panel.movableByWindowBackground = YES;
+    panel.level = NSFloatingWindowLevel;
+    panel.collectionBehavior = NSWindowCollectionBehaviorCanJoinAllSpaces | NSWindowCollectionBehaviorFullScreenAuxiliary;
+    panel.hidesOnDeactivate = NO;
+    panel.releasedWhenClosed = NO;
+    panel.delegate = self;
+
+    self = [super initWithWindow:panel];
+    if (self) {
+        [self setupInterface];
+    }
+    return self;
+}
+
+- (void)setupInterface {
+    NSView *content = self.window.contentView;
+    content.wantsLayer = YES;
+
+    NSImageView *headerIcon = [[NSImageView alloc] init];
+    headerIcon.translatesAutoresizingMaskIntoConstraints = NO;
+    headerIcon.image = [NSImage imageWithSystemSymbolName:@"doc.badge.plus" accessibilityDescription:@"New File Creation 2"];
+    headerIcon.contentTintColor = NSColor.controlAccentColor;
+    headerIcon.symbolConfiguration = [NSImageSymbolConfiguration configurationWithPointSize:20 weight:NSFontWeightMedium];
+    [content addSubview:headerIcon];
+
+    NSTextField *title = [NSTextField labelWithString:NFLocalizedString(@"Quick New File")];
+    title.translatesAutoresizingMaskIntoConstraints = NO;
+    title.font = [NSFont systemFontOfSize:15 weight:NSFontWeightSemibold];
+    [content addSubview:title];
+
+    self.searchField = [[NSSearchField alloc] init];
+    self.searchField.translatesAutoresizingMaskIntoConstraints = NO;
+    self.searchField.identifier = @"QuickPanelSearchField";
+    self.searchField.placeholderString = NFLocalizedString(@"Search templates");
+    self.searchField.delegate = self;
+    self.searchField.sendsWholeSearchString = NO;
+    self.searchField.sendsSearchStringImmediately = YES;
+    self.searchField.target = self;
+    self.searchField.action = @selector(searchChanged:);
+    [content addSubview:self.searchField];
+
+    self.tableView = [[NSTableView alloc] init];
+    self.tableView.identifier = @"QuickPanelTemplateTable";
+    self.tableView.accessibilityLabel = NFLocalizedString(@"Quick New File");
+    self.tableView.headerView = nil;
+    self.tableView.rowHeight = 52;
+    self.tableView.style = NSTableViewStylePlain;
+    self.tableView.selectionHighlightStyle = NSTableViewSelectionHighlightStyleRegular;
+    self.tableView.allowsEmptySelection = YES;
+    self.tableView.backgroundColor = NSColor.clearColor;
+    self.tableView.usesAlternatingRowBackgroundColors = NO;
+    self.tableView.dataSource = self;
+    self.tableView.delegate = self;
+    self.tableView.target = self;
+    self.tableView.doubleAction = @selector(tableDoubleClicked:);
+    [self.tableView setDraggingSourceOperationMask:NSDragOperationCopy forLocal:NO];
+    NSTableColumn *column = [[NSTableColumn alloc] initWithIdentifier:@"template"];
+    column.resizingMask = NSTableColumnAutoresizingMask;
+    [self.tableView addTableColumn:column];
+
+    NSScrollView *scrollView = [[NSScrollView alloc] init];
+    scrollView.translatesAutoresizingMaskIntoConstraints = NO;
+    scrollView.documentView = self.tableView;
+    scrollView.hasVerticalScroller = YES;
+    scrollView.autohidesScrollers = YES;
+    scrollView.drawsBackground = NO;
+    [content addSubview:scrollView];
+
+    self.emptyLabel = [NSTextField labelWithString:NFLocalizedString(@"No matching templates")];
+    self.emptyLabel.translatesAutoresizingMaskIntoConstraints = NO;
+    self.emptyLabel.textColor = NSColor.secondaryLabelColor;
+    self.emptyLabel.font = [NSFont systemFontOfSize:13];
+    self.emptyLabel.hidden = YES;
+    [content addSubview:self.emptyLabel];
+
+    NSTextField *hint = [NSTextField labelWithString:NFLocalizedString(@"↩ Create file    ⠿ Drag to Finder    esc Close")];
+    hint.identifier = @"QuickPanelDragHint";
+    hint.translatesAutoresizingMaskIntoConstraints = NO;
+    hint.font = [NSFont systemFontOfSize:11];
+    hint.textColor = NSColor.tertiaryLabelColor;
+    [content addSubview:hint];
+
+    [NSLayoutConstraint activateConstraints:@[
+        [headerIcon.leadingAnchor constraintEqualToAnchor:content.leadingAnchor constant:20],
+        [headerIcon.centerYAnchor constraintEqualToAnchor:title.centerYAnchor],
+        [headerIcon.widthAnchor constraintEqualToConstant:24],
+        [headerIcon.heightAnchor constraintEqualToConstant:24],
+        [title.topAnchor constraintEqualToAnchor:content.topAnchor constant:16],
+        [title.leadingAnchor constraintEqualToAnchor:headerIcon.trailingAnchor constant:10],
+        [self.searchField.topAnchor constraintEqualToAnchor:title.bottomAnchor constant:10],
+        [self.searchField.leadingAnchor constraintEqualToAnchor:content.leadingAnchor constant:20],
+        [self.searchField.trailingAnchor constraintEqualToAnchor:content.trailingAnchor constant:-20],
+        [scrollView.topAnchor constraintEqualToAnchor:self.searchField.bottomAnchor constant:10],
+        [scrollView.leadingAnchor constraintEqualToAnchor:content.leadingAnchor constant:12],
+        [scrollView.trailingAnchor constraintEqualToAnchor:content.trailingAnchor constant:-12],
+        [scrollView.bottomAnchor constraintEqualToAnchor:hint.topAnchor constant:-8],
+        [self.emptyLabel.centerXAnchor constraintEqualToAnchor:scrollView.centerXAnchor],
+        [self.emptyLabel.centerYAnchor constraintEqualToAnchor:scrollView.centerYAnchor],
+        [hint.bottomAnchor constraintEqualToAnchor:content.bottomAnchor constant:-12],
+        [hint.centerXAnchor constraintEqualToAnchor:content.centerXAnchor]
+    ]];
+}
+
+- (NFConfig *)config {
+    return [[NFConfigStore sharedStore] loadConfigCreatingIfNeeded:YES error:nil] ?: [NFConfig defaultConfig];
+}
+
+- (void)showPanel {
+    [self showPanelAnchoredToRect:NSZeroRect];
+}
+
+- (void)showPanelAnchoredToRect:(NSRect)screenRect {
+    [self reloadData];
+    NSScreen *screen = NSScreen.mainScreen ?: NSScreen.screens.firstObject;
+    if (screen) {
+        if (!NSEqualRects(screenRect, NSZeroRect)) {
+            NSPoint midpoint = NSMakePoint(NSMidX(screenRect), NSMidY(screenRect));
+            for (NSScreen *candidate in NSScreen.screens) {
+                if (NSMouseInRect(midpoint, candidate.frame, NO)) {
+                    screen = candidate;
+                    break;
+                }
+            }
+        }
+        NSRect visible = screen.visibleFrame;
+        NSRect frame = self.window.frame;
+        NSPoint origin = NSZeroPoint;
+        if (!NSEqualRects(screenRect, NSZeroRect)) {
+            origin = NSMakePoint(NSMidX(screenRect) - NSWidth(frame) / 2.0,
+                                 NSMinY(screenRect) - NSHeight(frame) - 8.0);
+        } else {
+            origin = NSMakePoint(NSMidX(visible) - NSWidth(frame) / 2.0,
+                                 NSMaxY(visible) - NSHeight(frame) - 90);
+        }
+        CGFloat minX = NSMinX(visible) + 8.0;
+        CGFloat maxX = NSMaxX(visible) - NSWidth(frame) - 8.0;
+        origin.x = MIN(MAX(origin.x, minX), MAX(minX, maxX));
+        if (origin.y < NSMinY(visible) + 8.0) {
+            origin.y = NSMinY(visible) + 8.0;
+        }
+        [self.window setFrameOrigin:origin];
+    }
+    self.draggingPromise = NO;
+    [self.window makeKeyAndOrderFront:nil];
+    [NSApp activateIgnoringOtherApps:YES];
+    [self.window makeFirstResponder:self.searchField];
+    self.searchField.stringValue = @"";
+    [self reloadData];
+}
+
+- (void)hidePanel {
+    [self.window orderOut:nil];
+}
+
+- (void)windowDidResignKey:(NSNotification *)notification {
+    if (self.draggingPromise) {
+        return;
+    }
+    [self hidePanel];
+}
+
+- (void)reloadData {
+    if (!self.isWindowLoaded) {
+        return;
+    }
+    NFConfig *config = [self config];
+    NSString *query = self.searchField.stringValue.lowercaseString;
+    NSMutableArray<NFTemplate *> *matches = [NSMutableArray array];
+    NSArray<NFTemplate *> *ordered = [NFFinderMenuBuilder orderedTemplatesForConfig:config favoritesFirst:YES];
+    for (NFTemplate *template in ordered) {
+        if (query.length > 0) {
+            BOOL match = [template.resolvedDisplayName.lowercaseString containsString:query] ||
+                         [template.fileName.lowercaseString containsString:query] ||
+                         [template.category.lowercaseString containsString:query] ||
+                         [template.fileExtension.lowercaseString containsString:query];
+            if (!match) {
+                continue;
+            }
+        }
+        [matches addObject:template];
+    }
+    self.templates = matches;
+    [self.tableView reloadData];
+    self.emptyLabel.hidden = matches.count > 0;
+    if (matches.count > 0) {
+        [self.tableView selectRowIndexes:[NSIndexSet indexSetWithIndex:0] byExtendingSelection:NO];
+        [self.tableView scrollRowToVisible:0];
+    }
+}
+
+- (void)searchChanged:(NSSearchField *)sender {
+    [self reloadData];
+}
+
+#pragma mark - Table view
+
+- (NSInteger)numberOfRowsInTableView:(NSTableView *)tableView {
+    return (NSInteger)self.templates.count;
+}
+
+- (nullable id<NSPasteboardWriting>)tableView:(NSTableView *)tableView pasteboardWriterForRow:(NSInteger)row {
+    if (row < 0 || row >= (NSInteger)self.templates.count) {
+        return nil;
+    }
+    NFTemplate *template = self.templates[(NSUInteger)row];
+    NSURL *templateURL = [[NFConfigStore sharedStore] templateFileURLForTemplate:template];
+    if (![[NSFileManager defaultManager] fileExistsAtPath:templateURL.path]) {
+        return nil;
+    }
+    NSString *baseName = [[self config] stringSettingForKey:@"defaultBaseName" defaultValue:NFDefaultBaseName];
+    NFFilePromiseProvider *provider = [[NFFilePromiseProvider alloc] initWithTemplate:template
+                                                                         templateURL:templateURL
+                                                                            fileName:[NFFilePromiseProvider promisedFileNameForTemplate:template
+                                                                                                                         defaultBaseName:baseName]];
+    __weak typeof(self) weakSelf = self;
+    provider.didWriteFile = ^(NSURL *url) {
+        [weakSelf recordDraggedFile:url forTemplate:template];
+    };
+    return provider;
+}
+
+- (void)recordDraggedFile:(NSURL *)url forTemplate:(NFTemplate *)template {
+    NSError *error = nil;
+    [[NFConfigStore sharedStore] updateConfig:^BOOL(NFConfig *latest, NSError **blockError) {
+        NFTemplate *current = [latest templateWithIdentifier:template.identifier] ?: template;
+        [latest recordUsageOfTemplate:current];
+        [latest addRecentFile:url.path];
+        [latest setSetting:url.URLByDeletingLastPathComponent.path forKey:@"lastUsedDirectory"];
+        return YES;
+    } error:&error];
+    if (error) {
+        NSLog(@"New File Creation 2: could not save drag metadata: %@", error.localizedDescription);
+    }
+}
+
+- (void)tableView:(NSTableView *)tableView
+    draggingSession:(NSDraggingSession *)session
+   willBeginAtPoint:(NSPoint)screenPoint
+      forRowIndexes:(NSIndexSet *)rowIndexes {
+    self.draggingPromise = YES;
+    session.draggingFormation = NSDraggingFormationNone;
+}
+
+- (void)tableView:(NSTableView *)tableView
+    draggingSession:(NSDraggingSession *)session
+     endedAtPoint:(NSPoint)screenPoint
+       operation:(NSDragOperation)operation {
+    self.draggingPromise = NO;
+    if (operation != NSDragOperationNone) {
+        [self hidePanel];
+    }
+}
+
+- (NSView *)tableView:(NSTableView *)tableView viewForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row {
+    if (row < 0 || row >= (NSInteger)self.templates.count) {
+        return nil;
+    }
+    NFTemplate *template = self.templates[(NSUInteger)row];
+    NSTableCellView *cell = [tableView makeViewWithIdentifier:@"quick-cell" owner:self];
+    if (!cell) {
+        cell = [[NSTableCellView alloc] initWithFrame:NSMakeRect(0, 0, 420, 52)];
+        cell.identifier = @"quick-cell";
+        NSImageView *icon = [[NSImageView alloc] init];
+        icon.translatesAutoresizingMaskIntoConstraints = NO;
+        [cell addSubview:icon];
+        cell.imageView = icon;
+        NSTextField *name = [NSTextField labelWithString:@""];
+        name.translatesAutoresizingMaskIntoConstraints = NO;
+        name.font = [NSFont systemFontOfSize:13 weight:NSFontWeightSemibold];
+        name.lineBreakMode = NSLineBreakByTruncatingTail;
+        [cell addSubview:name];
+        cell.textField = name;
+        NSTextField *detail = [NSTextField labelWithString:@""];
+        detail.translatesAutoresizingMaskIntoConstraints = NO;
+        detail.font = [NSFont systemFontOfSize:11];
+        detail.textColor = NSColor.secondaryLabelColor;
+        detail.lineBreakMode = NSLineBreakByTruncatingTail;
+        detail.tag = 200;
+        [cell addSubview:detail];
+        NSTextField *star = [NSTextField labelWithString:@"★"];
+        star.translatesAutoresizingMaskIntoConstraints = NO;
+        star.font = [NSFont systemFontOfSize:13 weight:NSFontWeightSemibold];
+        star.textColor = NSColor.systemYellowColor;
+        star.alignment = NSTextAlignmentRight;
+        star.tag = 201;
+        [cell addSubview:star];
+        [NSLayoutConstraint activateConstraints:@[
+            [icon.leadingAnchor constraintEqualToAnchor:cell.leadingAnchor constant:10],
+            [icon.centerYAnchor constraintEqualToAnchor:cell.centerYAnchor],
+            [icon.widthAnchor constraintEqualToConstant:32],
+            [icon.heightAnchor constraintEqualToConstant:32],
+            [name.leadingAnchor constraintEqualToAnchor:icon.trailingAnchor constant:12],
+            [name.topAnchor constraintEqualToAnchor:cell.topAnchor constant:8],
+            [name.trailingAnchor constraintLessThanOrEqualToAnchor:star.leadingAnchor constant:-8],
+            [detail.leadingAnchor constraintEqualToAnchor:name.leadingAnchor],
+            [detail.topAnchor constraintEqualToAnchor:name.bottomAnchor constant:2],
+            [detail.trailingAnchor constraintLessThanOrEqualToAnchor:star.leadingAnchor constant:-8],
+            [star.trailingAnchor constraintEqualToAnchor:cell.trailingAnchor constant:-12],
+            [star.centerYAnchor constraintEqualToAnchor:cell.centerYAnchor],
+            [star.widthAnchor constraintEqualToConstant:18]
+        ]];
+    }
+    cell.imageView.image = [NFFinderMenuBuilder iconForTemplate:template];
+    cell.textField.stringValue = template.resolvedDisplayName;
+    NSString *extension = template.fileExtension.length > 0
+        ? [@"." stringByAppendingString:template.fileExtension]
+        : NFLocalizedString(@"no extension");
+    NSTextField *detail = [cell viewWithTag:200];
+    detail.stringValue = [NSString stringWithFormat:@"%@ · %@", NFLocalizedString(template.category), extension];
+    NSTextField *star = [cell viewWithTag:201];
+    star.hidden = !template.favorite;
+    cell.toolTip = [NSString stringWithFormat:NFLocalizedString(@"%@ — drag to create %@"),
+                    template.fileName, template.resolvedDisplayName];
+    cell.accessibilityLabel = [NSString stringWithFormat:NFLocalizedString(@"%@ template, drag to create a file"),
+                               template.resolvedDisplayName];
+    return cell;
+}
+
+- (void)tableViewSelectionDidChange:(NSNotification *)notification {
+}
+
+- (void)tableDoubleClicked:(id)sender {
+    [self createSelected];
+}
+
+- (void)searchFieldDidStartSearching:(NSSearchField *)sender {
+}
+
+- (BOOL)control:(NSControl *)control textView:(NSTextView *)textView doCommandBySelector:(SEL)commandSelector {
+    if (commandSelector == @selector(insertNewline:)) {
+        [self createSelected];
+        return YES;
+    }
+    if (commandSelector == @selector(cancelOperation:)) {
+        [self hidePanel];
+        return YES;
+    }
+    if (commandSelector == @selector(moveDown:)) {
+        NSInteger row = MIN(self.tableView.selectedRow + 1, (NSInteger)self.templates.count - 1);
+        if (row >= 0) {
+            [self.tableView selectRowIndexes:[NSIndexSet indexSetWithIndex:row] byExtendingSelection:NO];
+            [self.tableView scrollRowToVisible:row];
+        }
+        return YES;
+    }
+    if (commandSelector == @selector(moveUp:)) {
+        NSInteger row = MAX(self.tableView.selectedRow - 1, 0);
+        if (self.templates.count > 0) {
+            [self.tableView selectRowIndexes:[NSIndexSet indexSetWithIndex:row] byExtendingSelection:NO];
+            [self.tableView scrollRowToVisible:row];
+        }
+        return YES;
+    }
+    return NO;
+}
+
+- (void)createSelected {
+    NSInteger row = self.tableView.selectedRow;
+    if (row < 0 && self.templates.count > 0) {
+        row = 0;
+    }
+    if (row < 0 || row >= (NSInteger)self.templates.count) {
+        NSBeep();
+        return;
+    }
+    NFTemplate *template = self.templates[(NSUInteger)row];
+    [self hidePanel];
+    if (self.onCreateTemplate) {
+        self.onCreateTemplate(template);
+    }
+}
+
+@end
