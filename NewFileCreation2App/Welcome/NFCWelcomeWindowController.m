@@ -1,4 +1,5 @@
 #import "NFCWelcomeWindowController.h"
+#import "NFCFloatingPanel.h"
 #import "NFConfigStore.h"
 #import "NFConfig.h"
 #import "NFLocalization.h"
@@ -9,12 +10,9 @@
 @implementation NFCWelcomeWindowController
 
 - (instancetype)init {
-    NSWindow *window = [[NSWindow alloc] initWithContentRect:NSMakeRect(0, 0, 560, 470)
-                                                   styleMask:NSWindowStyleMaskTitled | NSWindowStyleMaskClosable
-                                                     backing:NSBackingStoreBuffered
-                                                       defer:NO];
+    NFCFloatingPanel *window = [NFCFloatingPanel floatingPanelWithContentRect:NSMakeRect(0, 0, 560, 470)
+                                                                  styleMask:NSWindowStyleMaskTitled | NSWindowStyleMaskClosable];
     window.title = NFLocalizedString(@"Welcome");
-    window.releasedWhenClosed = NO;
     [window center];
 
     self = [super initWithWindow:window];

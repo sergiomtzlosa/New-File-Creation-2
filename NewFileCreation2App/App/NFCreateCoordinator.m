@@ -23,9 +23,12 @@
 - (instancetype)init {
     self = [super init];
     if (self) {
-        _store = [NFConfigStore sharedStore];
     }
     return self;
+}
+
+- (NFConfigStore *)store {
+    return [NFConfigStore sharedStore];
 }
 
 - (NFConfig *)config {
@@ -97,9 +100,7 @@
     if ([config boolSettingForKey:@"openAfterCreate" defaultValue:NO]) {
         [[NSWorkspace sharedWorkspace] openURL:url];
     }
-    if ([config boolSettingForKey:@"playSound" defaultValue:NO]) {
-        [[NSSound soundNamed:@"Glass"] play];
-    }
+    [self playConfiguredSound];
     if ([config boolSettingForKey:@"showToast" defaultValue:YES]) {
         NSString *message = [NSString stringWithFormat:NFLocalizedString(@"Created %@"), url.lastPathComponent];
         [NFCToastPresenter showMessage:message inWindow:window actionTitle:NFLocalizedString(@"Show") action:^{
@@ -107,6 +108,24 @@
         }];
     }
 }
+
+- (void)playConfiguredSound {
+    NFConfig *config = [self config];
+    if (![config boolSettingForKey:@"playSound" defaultValue:NO]) {
+        return;
+    }
+    NSString *soundName = [config stringSettingForKey:@"soundName" defaultValue:@"Glass"];
+    soundName = [soundName stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+    if (soundName.length == 0) {
+        return;
+    }
+    if (self.soundPlayer) {
+        self.soundPlayer(soundName);
+        return;
+    }
+    [[NSSound soundNamed:soundName] play];
+}
+
 
 - (void)createInDefaultLocation:(NFTemplate *)template window:(NSWindow *)window {
     NSError *error = nil;

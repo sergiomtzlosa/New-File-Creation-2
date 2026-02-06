@@ -4,19 +4,23 @@ Create files from templates in Finder, from the menu bar, from a template librar
 
 New File Creation 2 is a native, local-first macOS utility written in Objective-C and AppKit. It never overwrites an existing file, never deletes a template without confirmation, and makes no network requests. Configuration and templates live in one shared folder so the app, the Finder extension, and the CLI always agree.
 
+![New File Creation 2 overview](docs/images/new-file-creation-2-overview.png)
+
 **Version:** 2.0.0  
 **Minimum macOS:** 13.0 Ventura  
 **License:** MIT
 
 ## Features
 
+- **Menu bar app with no Dock icon.** The permanent menu bar icon is the entry point. The library, Settings, Welcome, and quick panel are all floating panels opened from the menu bar.
 - **Template library** with a source-list sidebar, searchable card grid, inspector, favorites, recents, categories, and drag-to-Finder.
-- **Menu bar quick panel** with visual, draggable template rows, keyboard-first search, arrow-key navigation, Return to create, and Esc to close.
+- **Menu bar quick panel** with visual, draggable template rows, keyboard-first search, arrow-key navigation, Return to create, Esc to close, and a gear that opens Settings.
 - **Drag from the menu bar** into Finder or any file-promise-aware window to create a default-named file from the template.
 - **Finder Sync extension** with a New File template menu and “Add as Template” for selected Finder items.
 - **`nfc` command-line tool** for scripted creation, listing, adding, removing, favoriting, enabling, diagnostics, configuration export/import, and shell completion.
 - **Shared, versioned JSON configuration** written with an interprocess lock and atomic replacement.
 - **Never overwrites** files: names are made unique with `Untitled 2`, `Untitled 3`, and so on.
+- **Custom categories and configurable sound** in Settings, with system sounds available by name.
 - **Local only:** no accounts, network, analytics, telemetry, iCloud sync, or third-party runtime dependencies.
 - **English and Spanish** app and Finder extension UI.
 
@@ -53,10 +57,10 @@ export PATH="$HOME/.local/bin:$PATH"
 - **⇧⌘N** opens a save panel so you can choose a name and location.
 - **⌃⌥N** (Control-Option-N) opens the quick panel from anywhere. Change it in Settings › General.
 - **Right-click in Finder** and choose a template under **New File**. Choose **Add as Template** to add selected files to the library.
-- **Menu bar icon:** left-click for the visual quick panel; drag a template row into a Finder window to create a file there; right-click for library, settings, and quit.
+- **Menu bar icon:** left-click for the visual quick panel; drag a template row into a Finder window to create a file there; right-click for Library, Settings, Welcome, and Quit.
 - **`nfc create "Text File"`** creates a file in the current terminal directory.
 
-The first run seeds the 33 included templates into the support folder. They can be disabled, renamed, favorited, or removed like any other template.
+The app launches silently into the menu bar with no Dock icon. The first run seeds the 33 included templates into the support folder. They can be disabled, renamed, favorited, moved to custom categories, or removed like any other template.
 
 ## Support folder
 
@@ -102,14 +106,14 @@ See [docs/CLI.md](docs/CLI.md) for the full reference, JSON envelope, exit codes
 xcodegen generate
 ./scripts/build.sh          # Release
 CONFIG=Debug ./scripts/build.sh
-./scripts/test.sh           # XCTest suite: logic, AppKit UI, drag/drop (79 tests)
+./scripts/test.sh           # XCTest suite: logic, AppKit UI, drag/drop (84 tests)
 ./scripts/test-cli.sh       # isolated end-to-end CLI checks
 ./scripts/verify.sh         # signing, bundle, resources, tests, CLI
 ./scripts/verify.sh --quick # skip the test suites
 ./scripts/make-icon.sh      # regenerate the icon from AppIcon.svg
 ```
 
-The XCTest bundle instantiates AppKit windows and controllers directly to cover the library, quick panel, settings, welcome window, menus, and toasts. Drag/drop tests exercise quick-panel file promises and grid file URLs against custom drop windows, desktop-style folders, and optional real destinations:
+The XCTest bundle instantiates AppKit windows and controllers directly to cover the floating library panel, quick panel, Settings, Welcome panel, menu bar menu, menus, and toasts. Drag/drop tests exercise quick-panel file promises and grid file URLs against custom drop windows, desktop-style folders, and optional real destinations:
 
 ```bash
 NFC_TEST_REAL_DESKTOP=1 ./scripts/test.sh              # also write to a hidden folder on the real Desktop

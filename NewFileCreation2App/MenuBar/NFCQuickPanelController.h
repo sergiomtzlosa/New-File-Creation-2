@@ -6,6 +6,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface NFCQuickPanelController : NSWindowController
 
 @property (nonatomic, copy, nullable) void (^onCreateTemplate)(NFTemplate *template);
+@property (nonatomic, copy, nullable) void (^onOpenPreferences)(void);
 
 - (void)showPanel;
 /// Shows the panel below a rectangle in screen coordinates, such as the status item.

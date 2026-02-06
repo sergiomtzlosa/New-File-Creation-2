@@ -56,7 +56,6 @@
 
 "Assign a global shortcut in Settings" = "Assign a global shortcut in Settings";
 
-"At least one icon must stay visible" = "At least one icon must stay visible";
 
 "Audio" = "Audio";
 
@@ -368,7 +367,6 @@
 
 "Show template icons" = "Show template icons";
 
-"Show the Dock icon" = "Show the Dock icon";
 
 "Show the menu bar icon" = "Show the menu bar icon";
 
@@ -406,7 +404,6 @@
 
 "The template “%@” was not found." = "The template “%@” was not found.";
 
-"Turn on the Dock icon or the menu bar icon before turning off the other." = "Turn on the Dock icon or the menu bar icon before turning off the other.";
 
 "Unavailable" = "Unavailable";
 
@@ -450,3 +447,15 @@
 
 "↩ Create file    ⠿ Drag to Finder    esc Close" = "↩ Create file    ⠿ Drag to Finder    esc Close";
 
+
+/* Settings additions */
+"Add Category" = "Add Category";
+"Category:" = "Category:";
+"Could not add the category" = "Could not add the category";
+"Enter a category name." = "Enter a category name.";
+"Menu bar icon (always available)" = "Menu bar icon (always available)";
+"New category" = "New category";
+"Sound:" = "Sound:";
+"The menu bar icon stays available so you can always create files." = "The menu bar icon stays available so you can always create files.";
+
+"Welcome…" = "Welcome…";

@@ -1,19 +1,33 @@
 #import "NFCQuickPanelController.h"
+#import "NFCFloatingPanel.h"
 #import "NFConfigStore.h"
 #import "NFConfig.h"
 #import "NFFinderMenuBuilder.h"
 #import "NFFilePromiseProvider.h"
+#import "NFCreateCoordinator.h"
 #import "NFLocalization.h"
 
-@interface NFCQuickPanel : NSPanel
+/// The table is the first responder after a row is clicked. Return and Escape
+/// must keep working there, not only in the search field.
+@interface NFCQuickPanelTableView : NSTableView
+@property (nonatomic, copy, nullable) void (^onReturnKey)(void);
+@property (nonatomic, copy, nullable) void (^onCancelKey)(void);
 @end
 
-@implementation NFCQuickPanel
-- (BOOL)canBecomeKeyWindow {
-    return YES;
-}
-- (BOOL)canBecomeMainWindow {
-    return NO;
+@implementation NFCQuickPanelTableView
+- (void)keyDown:(NSEvent *)event {
+    if (event.keyCode == 36 || event.keyCode == 76) {
+        if (self.onReturnKey) {
+            self.onReturnKey();
+            return;
+        }
+    } else if (event.keyCode == 53) {
+        if (self.onCancelKey) {
+            self.onCancelKey();
+            return;
+        }
+    }
+    [super keyDown:event];
 }
 @end
 
@@ -28,19 +42,13 @@
 @implementation NFCQuickPanelController
 
 - (instancetype)init {
-    NFCQuickPanel *panel = [[NFCQuickPanel alloc] initWithContentRect:NSMakeRect(0, 0, 460, 420)
-                                                            styleMask:NSWindowStyleMaskTitled | NSWindowStyleMaskClosable |
-                                                                      NSWindowStyleMaskFullSizeContentView
-                                                              backing:NSBackingStoreBuffered
-                                                                defer:NO];
+    NFCFloatingPanel *panel = [NFCFloatingPanel floatingPanelWithContentRect:NSMakeRect(0, 0, 460, 420)
+                                                                  styleMask:NSWindowStyleMaskTitled | NSWindowStyleMaskClosable |
+                                                                            NSWindowStyleMaskFullSizeContentView];
     panel.title = NFLocalizedString(@"Quick New File");
     panel.titleVisibility = NSWindowTitleHidden;
     panel.titlebarAppearsTransparent = YES;
     panel.movableByWindowBackground = YES;
-    panel.level = NSFloatingWindowLevel;
-    panel.collectionBehavior = NSWindowCollectionBehaviorCanJoinAllSpaces | NSWindowCollectionBehaviorFullScreenAuxiliary;
-    panel.hidesOnDeactivate = NO;
-    panel.releasedWhenClosed = NO;
     panel.delegate = self;
 
     self = [super initWithWindow:panel];
@@ -55,6 +63,7 @@
     content.wantsLayer = YES;
 
     NSImageView *headerIcon = [[NSImageView alloc] init];
+    headerIcon.identifier = @"QuickPanelHeaderIcon";
     headerIcon.translatesAutoresizingMaskIntoConstraints = NO;
     headerIcon.image = [NSImage imageWithSystemSymbolName:@"doc.badge.plus" accessibilityDescription:@"New File Creation 2"];
     headerIcon.contentTintColor = NSColor.controlAccentColor;
@@ -62,9 +71,21 @@
     [content addSubview:headerIcon];
 
     NSTextField *title = [NSTextField labelWithString:NFLocalizedString(@"Quick New File")];
+    title.identifier = @"QuickPanelTitle";
     title.translatesAutoresizingMaskIntoConstraints = NO;
     title.font = [NSFont systemFontOfSize:15 weight:NSFontWeightSemibold];
     [content addSubview:title];
+
+    NSImage *gearImage = [NSImage imageWithSystemSymbolName:@"gearshape"
+                                  accessibilityDescription:NFLocalizedString(@"Settings…")];
+    NSButton *preferences = [NSButton buttonWithImage:gearImage target:self action:@selector(openPreferences:)];
+    preferences.identifier = @"QuickPanelPreferencesButton";
+    preferences.translatesAutoresizingMaskIntoConstraints = NO;
+    preferences.bordered = NO;
+    preferences.imagePosition = NSImageOnly;
+    preferences.toolTip = NFLocalizedString(@"Settings…");
+    preferences.accessibilityLabel = NFLocalizedString(@"Settings…");
+    [content addSubview:preferences];
 
     self.searchField = [[NSSearchField alloc] init];
     self.searchField.translatesAutoresizingMaskIntoConstraints = NO;
@@ -77,7 +98,7 @@
     self.searchField.action = @selector(searchChanged:);
     [content addSubview:self.searchField];
 
-    self.tableView = [[NSTableView alloc] init];
+    self.tableView = [[NFCQuickPanelTableView alloc] init];
     self.tableView.identifier = @"QuickPanelTemplateTable";
     self.tableView.accessibilityLabel = NFLocalizedString(@"Quick New File");
     self.tableView.headerView = nil;
@@ -91,6 +112,13 @@
     self.tableView.delegate = self;
     self.tableView.target = self;
     self.tableView.doubleAction = @selector(tableDoubleClicked:);
+    __weak typeof(self) weakSelf = self;
+    ((NFCQuickPanelTableView *)self.tableView).onReturnKey = ^{
+        [weakSelf createSelected];
+    };
+    ((NFCQuickPanelTableView *)self.tableView).onCancelKey = ^{
+        [weakSelf hidePanel];
+    };
     [self.tableView setDraggingSourceOperationMask:NSDragOperationCopy forLocal:NO];
     NSTableColumn *column = [[NSTableColumn alloc] initWithIdentifier:@"template"];
     column.resizingMask = NSTableColumnAutoresizingMask;
@@ -119,12 +147,17 @@
     [content addSubview:hint];
 
     [NSLayoutConstraint activateConstraints:@[
-        [headerIcon.leadingAnchor constraintEqualToAnchor:content.leadingAnchor constant:20],
+        [title.topAnchor constraintEqualToAnchor:content.topAnchor constant:16],
+        [title.leadingAnchor constraintEqualToAnchor:content.leadingAnchor constant:56],
+        [title.trailingAnchor constraintLessThanOrEqualToAnchor:headerIcon.leadingAnchor constant:-10],
+        [headerIcon.trailingAnchor constraintEqualToAnchor:preferences.leadingAnchor constant:-10],
         [headerIcon.centerYAnchor constraintEqualToAnchor:title.centerYAnchor],
         [headerIcon.widthAnchor constraintEqualToConstant:24],
         [headerIcon.heightAnchor constraintEqualToConstant:24],
-        [title.topAnchor constraintEqualToAnchor:content.topAnchor constant:16],
-        [title.leadingAnchor constraintEqualToAnchor:headerIcon.trailingAnchor constant:10],
+        [preferences.trailingAnchor constraintEqualToAnchor:content.trailingAnchor constant:-16],
+        [preferences.centerYAnchor constraintEqualToAnchor:title.centerYAnchor],
+        [preferences.widthAnchor constraintEqualToConstant:24],
+        [preferences.heightAnchor constraintEqualToConstant:24],
         [self.searchField.topAnchor constraintEqualToAnchor:title.bottomAnchor constant:10],
         [self.searchField.leadingAnchor constraintEqualToAnchor:content.leadingAnchor constant:20],
         [self.searchField.trailingAnchor constraintEqualToAnchor:content.trailingAnchor constant:-20],
@@ -268,6 +301,14 @@
     } error:&error];
     if (error) {
         NSLog(@"New File Creation 2: could not save drag metadata: %@", error.localizedDescription);
+    }
+    [[NFCreateCoordinator sharedCoordinator] playConfiguredSound];
+}
+
+- (void)openPreferences:(id)sender {
+    [self hidePanel];
+    if (self.onOpenPreferences) {
+        self.onOpenPreferences();
     }
 }
 

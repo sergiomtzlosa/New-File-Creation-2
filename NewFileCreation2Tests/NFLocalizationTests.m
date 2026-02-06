@@ -55,7 +55,7 @@
     XCTAssertEqualObjects([spanishBundle localizedStringForKey:@"Create a new file from a template" value:nil table:@"Localizable"], @"Crea un archivo nuevo a partir de una plantilla");
     XCTAssertEqualObjects([spanishBundle localizedStringForKey:@"Create the file in “%@”." value:nil table:@"Localizable"], @"Crea el archivo en «%@».");
     XCTAssertEqualObjects([spanishBundle localizedStringForKey:@"Search Templates" value:nil table:@"Localizable"], @"Buscar plantillas");
-    XCTAssertEqualObjects([spanishBundle localizedStringForKey:@"At least one icon must stay visible" value:nil table:@"Localizable"], @"Al menos un icono debe permanecer visible");
+    XCTAssertEqualObjects([spanishBundle localizedStringForKey:@"Menu bar icon (always available)" value:nil table:@"Localizable"], @"Icono de la barra de menús (siempre disponible)");
 }
 
 - (void)testQuickPanelDragHintIsLocalized {

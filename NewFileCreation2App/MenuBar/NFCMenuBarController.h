@@ -10,6 +10,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy, nullable) void (^onToggleQuickPanel)(NSRect anchorScreenRect);
 @property (nonatomic, copy, nullable) void (^onOpenLibrary)(void);
 @property (nonatomic, copy, nullable) void (^onSettings)(void);
+@property (nonatomic, copy, nullable) void (^onWelcome)(void);
 @property (nonatomic, copy, nullable) void (^onCreateTemplate)(NFTemplate *template);
 @property (nonatomic, copy, nullable) void (^onAddTemplate)(void);
 

@@ -11,10 +11,11 @@ New File Creation 2 is a native AppKit app designed around one idea: create a fi
 5. **Native macOS.** Semantic colors, vibrancy, SF Symbols, Auto Layout, standard controls, dark mode, and accessibility.
 6. **Progressive disclosure.** Common settings are visible; diagnostics and configuration tools live under Advanced.
 7. **Quiet feedback.** A short toast, optional sound, and optional Finder reveal/select; no persistent notifications.
+8. **Menu bar only.** New File Creation 2 has no Dock icon and no Dock-owned window. Every window is a floating panel opened from the menu bar icon.
 
 ## Visual language
 
-- **Materials:** source-list sidebar; card backgrounds from `controlBackgroundColor`; floating quick panel; standard window backgrounds.
+- **Materials:** source-list sidebar; card backgrounds from `controlBackgroundColor`; floating panels with standard window backgrounds.
 - **Accent:** system accent color for selection, focus, checkboxes, and primary actions. Brand color is limited to the icon and welcome illustration.
 - **Typography:** system font. Window title via the toolbar; section headings 13 pt semibold; body 13 pt; secondary metadata 11 pt. No hardcoded font families.
 - **Spacing:** 4/8/12/16/24/32 pt scale. Card grid uses 22 pt outer insets, 14 pt gaps, 168×150 pt cards.
@@ -24,9 +25,9 @@ New File Creation 2 is a native AppKit app designed around one idea: create a fi
 - **Motion:** standard AppKit animation only; no custom motion that ignores Reduce Motion.
 - **Accessibility:** labels and tooltips on icon-only controls, keyboard focus in the quick panel, source-list selection, standard alerts, and readable contrast in light/dark modes.
 
-## Main library window
+## Library panel
 
-Default size 1040×660; minimum 780×480; resizable; centered; unified compact toolbar; tabbing disabled.
+A 1040×660 floating panel opened from **Open Library** in the menu bar menu (and from the app menu or URL scheme when the app is already active). Minimum 780×480; resizable; centered; unified compact toolbar; no minimize button and no tabbing. The panel floats above normal windows, stays open when the app deactivates, and closing it leaves the menu bar icon running.
 
 ```
 ┌────────────────────────────────────────────────────────────────────────────┐
@@ -89,40 +90,43 @@ Default size 1040×660; minimum 780×480; resizable; centered; unified compact t
 - **File:** New File (⌘N), New File… (⇧⌘N), Add Template… (⌘O), Quick New File… (⌘P), Open Library (⌘0), Close (⌘W).
 - **Edit:** standard Undo/Redo/Cut/Copy/Paste/Select All; Search Templates (⌘F).
 - **View:** Show/Hide Sidebar (⌃⌘S), Show/Hide Inspector (⌥⌘I), Reveal Selected Template (⌘R), Enter Full Screen (⌃⌘F).
-- **Window:** Minimize, Zoom, Bring All to Front.
+- **Window:** Zoom, Bring All to Front.
 - **Help:** New File Creation 2 Help (⌘?), Open Templates Folder, Show Welcome.
 
 The app menu includes About, Settings… (⌘,), Services, Hide/Hide Others/Show All, and Quit.
 
 ## Menu bar quick panel
 
-- `NSStatusItem` with the `doc.badge.plus` symbol. Left-click toggles the visual quick panel, anchored below the status item; right-click opens a menu with quick panel, library, settings, add template, and quit.
-- Floating 460×420 non-activating panel near the top of the screen (or below the status item when opened there); hides when it resigns key.
+- `NSStatusItem` with the `doc.badge.plus` symbol. The status item is permanent and cannot be hidden. Left-click toggles the visual quick panel, anchored below the status item; right-click opens a menu with quick panel, New File templates, add template, library, settings, welcome, about, and quit.
+- Floating 460×420 panel near the top of the screen (or below the status item when opened there); hides when it resigns key.
+- A trailing app icon and gear button sit in the header. The gear closes the panel and opens Settings.
 - Search field is focused automatically; the first result is selected.
 - Rows show a 32×32 file icon, display name, category, extension, and a favorite star.
 - Keyboard: ↑/↓ move, Return creates, Esc closes; double-click creates.
 - Drag any row into a Finder window or another file-promise-aware drop target. The target chooses the folder; the file uses `defaultBaseName` plus the template extension, and the normal no-overwrite rules apply. The panel closes after a successful drop.
 - The footer reads “↩ Create file    ⠿ Drag to Finder    esc Close”.
 - If there are no matches: “No matching templates”.
-- After creating with Return or double-click: the panel closes and the normal post-create settings apply (toast, reveal, open, sound). A drag lets the destination app decide what to do with the new file.
+- After creating with Return or double-click: the panel closes and the normal post-create settings apply (toast, reveal, open, sound). A completed drag plays the same configured sound. A drag lets the destination app decide what to do with the new file.
 
-If **Show the menu bar icon** is disabled, the global shortcut still opens the quick panel. Both the Dock icon and menu bar icon cannot be disabled together; Settings prevents the last one from being turned off.
+The menu bar icon is always available and Settings disables its checkbox. The app has no Dock icon; every window is a floating panel.
 
 ## Settings
 
-A single non-modal 780×560 window with a source-list sidebar and detail panes. Changes apply immediately; there is no Save button. All destructive actions confirm first.
+A floating utility panel (680×560) opened from the menu bar menu, the quick panel gear, the app menu, or the URL scheme. It stays above normal windows, remains available when the app deactivates, and never appears as a Dock window. Five tabs carry SF Symbol icons: General, Templates, Finder, Advanced, and About. Changes apply immediately; there is no Save button. All destructive actions confirm first.
 
 ### General
 
 - **New files:** default name, default template, default folder (with Choose…).
-- **After creating:** reveal in Finder, open file, play sound, show a confirmation toast.
-- **Application:** launch at login (`SMAppService`), show menu bar icon, show Dock icon, global shortcut.
+- **After creating:** reveal in Finder, open file, play a sound, and choose the sound name from the system sound folders; show a confirmation toast.
+- **Application:** launch at login (`SMAppService`), the permanent menu bar icon (checkbox shown on and disabled), and the global shortcut.
 - Shortcut presets: Control-Option-N, Control-Option-Space, Command-Shift-N, Option-Command-N, None.
 - A note explains that the default name is shared by the app, Finder extension, and CLI, and that files are never overwritten.
 
 ### Templates
 
 - Table of all templates: enabled checkbox, name, category, stored file.
+- Category popup assigns the selected template to a category, including custom categories.
+- Inline **New category** field and **Add Category** button create a custom category and assign it to the selected template.
 - Buttons: Add…, Remove…, Set as Default.
 - Removing removes metadata and moves the template file to Trash.
 - Disabled templates do not appear in the app grid, quick panel, menu bar, or Finder menus.
@@ -151,14 +155,21 @@ A single non-modal 780×560 window with a source-list sidebar and detail panes. 
 - Tagline, MIT license/copyright, View License.
 - Link back to the welcome window.
 
-## Welcome window
+## Welcome panel
 
-- Shown on first launch and from Help/Advanced settings.
+- A floating panel opened from the menu bar menu (Welcome…), Settings, or Help. The app launches silently with only the menu bar icon; no window is opened automatically.
 - App icon, headline, short description of Finder, menu bar, library, and CLI access.
 - Finder extension status card.
-- **Get Started** opens the library; **Open Settings** opens Settings.
-- Closing the window marks onboarding complete.
-- Reopen at any time with **Show Welcome** or **Show Welcome Again**.
+- **Get Started** opens the library panel; **Open Settings** opens Settings.
+- Closing the panel marks onboarding complete.
+- Reopen at any time with **Welcome…**, **Show Welcome**, or **Show Welcome Again**.
+
+## Window behavior
+
+- The app is an `LSUIElement` menu bar accessory. It has no Dock icon and no Dock-owned window at any point.
+- The library, Settings, Welcome, and quick panel are all `NSPanel` subclasses that float above normal windows (`NSFloatingWindowLevel`), stay visible when the app deactivates, and are released only when the app quits.
+- Windows are activated and keyed when opened from the menu bar icon. Closing one never quits the app; use **Quit New File Creation 2** in the menu bar menu.
+- Panels can join all Spaces and remain available as full-screen auxiliaries. None of them can be minimized into a Dock tile.
 
 ## Finder menus
 
@@ -214,6 +225,7 @@ The global shortcut is configurable only through the presets in Settings; arbitr
 ## What is intentionally absent
 
 - Touch Bar support (discontinued hardware).
+- A Dock icon or Dock-owned main window; the app is menu-bar-only.
 - A Today widget (WidgetKit would require a Swift target; future work).
 - iCloud zip sync, accounts, telemetry, and network access.
 - A login helper app (`SMAppService.mainApp` is used instead).

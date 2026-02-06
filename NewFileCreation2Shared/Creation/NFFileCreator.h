@@ -9,7 +9,7 @@ NS_ASSUME_NONNULL_BEGIN
 + (nullable NSURL *)createFileFromTemplateAtURL:(NSURL *)templateURL
                                        template:(NFTemplate *)template
                                       directory:(NSURL *)directory
-                                       baseName:(NSString *)baseName
+                                       baseName:(nullable NSString *)baseName
                                          unique:(BOOL)unique
                                           error:(NSError **)error;
 

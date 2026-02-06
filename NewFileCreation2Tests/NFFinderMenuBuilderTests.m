@@ -27,7 +27,7 @@
     NFTemplate *code = [self templateWithName:@"Snippet.swift" category:@"Code" sortIndex:1 favorite:NO enabled:NO];
     [config.templates addObjectsFromArray:@[text, code]];
 
-    NSMenu *menu = [NFFinderMenuBuilder menuForConfig:config target:nil action:@selector(noop:) options:NFFinderMenuOptionNone];
+    NSMenu *menu = [NFFinderMenuBuilder menuForConfig:config target:nil action:NSSelectorFromString(@"noop:") options:NFFinderMenuOptionNone];
     XCTAssertEqual(menu.numberOfItems, 1);
     XCTAssertEqualObjects(menu.itemArray.firstObject.representedObject, text.identifier);
     XCTAssertEqualObjects(menu.itemArray.firstObject.title, @"New Text File");
@@ -53,7 +53,7 @@
 
     NSMenu *menu = [NFFinderMenuBuilder menuForConfig:config
                                                target:nil
-                                               action:@selector(noop:)
+                                               action:NSSelectorFromString(@"noop:")
                                               options:NFFinderMenuOptionFavoritesFirst | NFFinderMenuOptionGroupByCategory];
     XCTAssertEqual(menu.numberOfItems, 4);
     XCTAssertEqualObjects(menu.itemArray[0].title, @"New Favorite");
@@ -66,7 +66,7 @@
 
 - (void)testEmptyConfigShowsDisabledPlaceholder {
     NFConfig *config = [NFConfig defaultConfig];
-    NSMenu *menu = [NFFinderMenuBuilder menuForConfig:config target:nil action:@selector(noop:) options:NFFinderMenuOptionNone];
+    NSMenu *menu = [NFFinderMenuBuilder menuForConfig:config target:nil action:NSSelectorFromString(@"noop:") options:NFFinderMenuOptionNone];
     XCTAssertEqual(menu.numberOfItems, 1);
     XCTAssertEqualObjects(menu.itemArray.firstObject.title, @"No Templates");
     XCTAssertFalse(menu.itemArray.firstObject.enabled);
