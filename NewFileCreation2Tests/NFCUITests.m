@@ -1,5 +1,6 @@
 #import "NFTestSupport.h"
 #import "NFCMainMenuBuilder.h"
+#import "NFCAppDelegate.h"
 
 @interface NFCUITests : NFTestCase
 @end
@@ -60,6 +61,12 @@
     NSURL *readme = [[NSBundle mainBundle] URLForResource:@"README" withExtension:@"md"];
     XCTAssertNotNil(readme);
     XCTAssertTrue([[NSFileManager defaultManager] fileExistsAtPath:readme.path]);
+}
+
+- (void)testAppRunsAsMenuBarAccessoryWithoutDockWindow {
+    NSNumber *isAgent = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"LSUIElement"];
+    XCTAssertTrue(isAgent.boolValue, @"The app must be a menu bar accessory with no Dock icon");
+    XCTAssertEqual(NSApp.activationPolicy, NSApplicationActivationPolicyAccessory);
 }
 
 @end

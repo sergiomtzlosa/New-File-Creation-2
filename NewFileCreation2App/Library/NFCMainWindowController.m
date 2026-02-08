@@ -5,6 +5,7 @@
 #import "NFCreateCoordinator.h"
 #import "NFConfigStore.h"
 #import "NFConfig.h"
+#import "NFCFloatingPanel.h"
 #import "NFCToastPresenter.h"
 #import "NFLocalization.h"
 #import <UniformTypeIdentifiers/UniformTypeIdentifiers.h>
@@ -28,12 +29,10 @@ static NSToolbarItemIdentifier const NFCToolbarInspector = @"NFCToolbarInspector
 @implementation NFCMainWindowController
 
 - (instancetype)init {
-    NSWindow *window = [[NSWindow alloc] initWithContentRect:NSMakeRect(0, 0, 1040, 660)
-                                                   styleMask:NSWindowStyleMaskTitled | NSWindowStyleMaskClosable |
-                                                             NSWindowStyleMaskMiniaturizable | NSWindowStyleMaskResizable |
-                                                             NSWindowStyleMaskFullSizeContentView
-                                                     backing:NSBackingStoreBuffered
-                                                       defer:NO];
+    NFCFloatingPanel *window = [NFCFloatingPanel floatingPanelWithContentRect:NSMakeRect(0, 0, 1040, 660)
+                                                                   styleMask:NSWindowStyleMaskTitled | NSWindowStyleMaskClosable |
+                                                                             NSWindowStyleMaskResizable |
+                                                                             NSWindowStyleMaskFullSizeContentView];
     window.title = @"New File Creation 2";
     window.minSize = NSMakeSize(780, 480);
     window.titlebarAppearsTransparent = NO;
@@ -288,6 +287,7 @@ static NSToolbarItemIdentifier const NFCToolbarInspector = @"NFCToolbarInspector
         item.action = @selector(showAddTemplatesPanel);
     } else if ([itemIdentifier isEqualToString:NFCToolbarSearch]) {
         NSSearchField *field = [[NSSearchField alloc] initWithFrame:NSMakeRect(0, 0, 220, 28)];
+        field.translatesAutoresizingMaskIntoConstraints = NO;
         field.placeholderString = NFLocalizedString(@"Search templates");
         field.delegate = self;
         field.sendsWholeSearchString = NO;
@@ -298,8 +298,7 @@ static NSToolbarItemIdentifier const NFCToolbarInspector = @"NFCToolbarInspector
         item.view = field;
         item.label = NFLocalizedString(@"Search");
         item.paletteLabel = NFLocalizedString(@"Search");
-        item.minSize = NSMakeSize(160, 28);
-        item.maxSize = NSMakeSize(280, 28);
+        [field.widthAnchor constraintEqualToConstant:220].active = YES;
     } else if ([itemIdentifier isEqualToString:NFCToolbarInspector]) {
         item.label = NFLocalizedString(@"Inspector");
         item.paletteLabel = NFLocalizedString(@"Inspector");

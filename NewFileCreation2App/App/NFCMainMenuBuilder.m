@@ -1,4 +1,5 @@
 #import "NFCMainMenuBuilder.h"
+#import "NFCAppDelegate.h"
 #import "NFLocalization.h"
 
 @implementation NFCMainMenuBuilder
@@ -51,8 +52,8 @@
 
     NSMenuItem *editItem = [[NSMenuItem alloc] initWithTitle:NFLocalizedString(@"Edit") action:nil keyEquivalent:@""];
     NSMenu *editMenu = [[NSMenu alloc] initWithTitle:NFLocalizedString(@"Edit")];
-    [editMenu addItem:[self itemWithTitle:NFLocalizedString(@"Undo") action:@selector(undo:) key:@"z"]];
-    NSMenuItem *redo = [self itemWithTitle:NFLocalizedString(@"Redo") action:@selector(redo:) key:@"z"];
+    [editMenu addItem:[self itemWithTitle:NFLocalizedString(@"Undo") action:NSSelectorFromString(@"undo:") key:@"z"]];
+    NSMenuItem *redo = [self itemWithTitle:NFLocalizedString(@"Redo") action:NSSelectorFromString(@"redo:") key:@"z"];
     redo.keyEquivalentModifierMask = NSEventModifierFlagCommand | NSEventModifierFlagShift;
     [editMenu addItem:redo];
     [editMenu addItem:[NSMenuItem separatorItem]];
@@ -84,7 +85,6 @@
 
     NSMenuItem *windowItem = [[NSMenuItem alloc] initWithTitle:NFLocalizedString(@"Window") action:nil keyEquivalent:@""];
     NSMenu *windowMenu = [[NSMenu alloc] initWithTitle:NFLocalizedString(@"Window")];
-    [windowMenu addItem:[self itemWithTitle:NFLocalizedString(@"Minimize") action:@selector(performMiniaturize:) key:@"m"]];
     [windowMenu addItem:[self itemWithTitle:NFLocalizedString(@"Zoom") action:@selector(performZoom:) key:@""]];
     [windowMenu addItem:[NSMenuItem separatorItem]];
     [windowMenu addItem:[self itemWithTitle:NFLocalizedString(@"Bring All to Front") action:@selector(arrangeInFront:) key:@""]];

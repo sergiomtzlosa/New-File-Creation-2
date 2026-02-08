@@ -1,6 +1,6 @@
 # Test Matrix
 
-This document records how New File Creation 2 is verified. Automated suites cover the shared model, configuration store, naming, creation, URL handling, Finder menu composition, localization, the CLI, programmatic AppKit UI components, and drag-and-drop file promises into custom windows and folders. Manual checks cover OS-level drag gestures, Finder integration, real menu-bar interaction, and distribution behavior.
+This document records how New File Creation 2 is verified. Automated suites cover the shared model, configuration store, naming, creation, URL handling, Finder menu composition, localization, the CLI, programmatic AppKit UI components, floating-panel presentation, the permanent menu bar item, and drag-and-drop file promises into custom windows and folders. Manual checks cover OS-level drag gestures, Finder integration, real menu-bar interaction, and distribution behavior.
 
 ## Environment
 
@@ -18,18 +18,18 @@ This document records how New File Creation 2 is verified. Automated suites cove
 Run all automated checks with:
 
 ```bash
-./scripts/test.sh       # XCTest, 79 tests
+./scripts/test.sh       # XCTest, 84 tests
 ./scripts/test-cli.sh   # isolated end-to-end CLI checks
 ./scripts/verify.sh     # signing, bundle, resources, then both suites
 ```
 
-Last automated run: **2026-11-15**. XCTest: **78 passed, 1 skipped, 0 failed (~7 s)**. The skipped test is the external-volume drag test because no writable external volume was mounted. Opt-in runs also passed with `NFC_TEST_REAL_DESKTOP=1` against the real Desktop and with `NFC_TEST_EXTERNAL_VOLUME` pointing at a temporary writable disk image. CLI integration: **20 passed, 0 failed**. Release verification: **21 passed, 1 warning, 0 failed**; the warning is that the Finder extension is registered but not enabled. `scripts/verify.sh --no-build --quick` reports the 19 static bundle/signature checks.
+Last automated run: **2026-11-15**. XCTest: **83 passed, 1 skipped, 0 failed (~7 s)**. The skipped test is the external-volume drag test because no writable external volume was mounted. Opt-in runs also passed with `NFC_TEST_REAL_DESKTOP=1` against the real Desktop and with `NFC_TEST_EXTERNAL_VOLUME` pointing at a temporary writable disk image. CLI integration: **20 passed, 0 failed**. Release verification: **21 passed, 1 warning, 0 failed**; the warning is that the Finder extension is registered but not enabled. `scripts/verify.sh --no-build --quick` reports the 19 static bundle/signature checks.
 
 ### XCTest
 
 | Suite | Tests | What is covered |
 | --- | ---: | --- |
-| `NFModelTests` | 7 | Defaults, config round-trip, unknown settings, template round-trip, category inference, display-name heuristics, bounded/deduplicated recents. |
+| `NFModelTests` | 8 | Defaults, config round-trip, unknown settings, template round-trip, category inference, display-name heuristics, bounded/deduplicated recents, custom categories (trimmed, deduplicated, persisted). |
 | `NFConfigStoreTests` | 7 | First-load seeding, read-only snapshot without writes, revisioned updates, cancelled updates, serialized concurrent writers, corrupt-config quarantine and backup, config replacement, custom-store isolation. |
 | `NFFileCreatorTests` | 7 | Default name and extension, no double extension, unique suffix behavior, non-unique conflicts, missing template/destination errors, exact destination uniqueness, content copy. |
 | `NFFilePromiseProviderTests` | 5 | Default and sanitized promise names, UTI selection and fallback, directory promises, non-overwriting copy, write callbacks. |
@@ -37,10 +37,10 @@ Last automated run: **2026-11-15**. XCTest: **78 passed, 1 skipped, 0 failed (~7
 | `NFRequestTests` | 7 | Quick/library requests, create request round-trip, add-template request round-trip, scheme and host rejection, relative/traversal path rejection, missing template. |
 | `NFFinderMenuBuilderTests` | 4 | Enabled-only menus, favorites first, category submenus, empty placeholder. |
 | `NFCLITests` | 8 | Option parsing (values, flags, combined short flags, `--`), unknown/missing values, resolver by ID/name/normalized name, unique prefix, default selection, ambiguity, missing references. |
-| `NFCUITests` | 3 | Main-menu search/reveal/full-screen shortcuts, core File menu commands, bundled README for Help. |
+| `NFCUITests` | 4 | Main-menu search/reveal/full-screen shortcuts, core File menu commands, bundled README for Help, menu-bar accessory policy with no Dock icon. |
 | `NFLocalizationTests` | 5 | English/Spanish key parity, no empty values, Finder-specific translations, quick-panel drag hint, missing-key fallback. |
-| `NFCUIComponentTests` | 12 | Main menu; three-pane library window and toolbar; sidebar filters; grid search/sort/selection/empty state; context menu commands; collection card rendering and double-click; inspector metadata and commands; quick-panel rows, search, and drag hint; status-item menu and visibility; all five Settings panes; Welcome window actions; toast message and action. |
-| `NFCDragAndDropTests` | 7 | Quick-panel file promises into a Finder-style folder, a custom promise-aware window, and a desktop-style folder; grid file-URL drops into a custom drop window; opt-in real Desktop drop; opt-in external-volume drop; missing-template drag rejection; no-overwrite behavior and metadata updates. |
+| `NFCUIComponentTests` | 14 | Main menu; floating three-pane library panel and toolbar; sidebar filters and custom categories; grid search/sort/selection/empty state; context menu commands; collection card rendering and double-click; inspector metadata and commands; quick-panel rows, search, drag hint, gear, and Return; status-item menu, welcome item, and permanent visibility; five Settings panes with icons, floating panel style, sound name, and category assignment; floating Welcome panel actions; toast message and action; configured post-create sound; menu bar persists after the library closes. |
+| `NFCDragAndDropTests` | 8 | Quick-panel file promises into a Finder-style folder, a custom promise-aware window, and a desktop-style folder; grid file-URL drops into a custom drop window; opt-in real Desktop drop; opt-in external-volume drop; missing-template drag rejection; no-overwrite behavior and metadata updates; configured sound after promise completion. |
 
 Full log: `build/test.log` after `scripts/test.sh`.
 
@@ -116,27 +116,28 @@ These checks are not fully automated in the repository. Run them after UI or Fin
 
 | ID | Check | Expected | Status |
 | --- | --- | --- | --- |
-| A1 | Launch with an empty support folder | Welcome window appears; 33 templates are seeded; config is created. | Pending |
-| A2 | Relaunch | Settings and template state persist; welcome does not reappear. | Pending |
+| A1 | Launch with an empty support folder | App starts silently with only the menu bar icon (no Dock icon or window); 33 templates are seeded; config is created. | Pending |
+| A2 | Relaunch | Settings and template state persist; no window opens automatically; Welcome remains available from the menu bar menu. | Pending |
 | A3 | Launch with corrupt `config.json` | Warning is shown; corrupt file is quarantined under `Backups/`; app remains usable. | Pending |
 | A4 | Launch with newer `schemaVersion` | App refuses to downgrade and reports a clear error. | Pending |
 | A5 | Quit and reopen while `nfc` changed config | App reloads templates and settings. | Pending |
 
-### Library window
+### Library panel
 
 | ID | Check | Expected | Status |
 | --- | --- | --- | --- |
 | L1 | Sidebar counts | All, Favorites, Recent, and category counts match `nfc list`. | Pending |
-| L2 | Search | Typing filters by display name, file name, category, and extension. | Pending |
-| L3 | ⌘F | Focuses the toolbar search field, inserting it if it was removed. | Pending |
-| L4 | Return | Creates from the selected template in the default folder. | Pending |
-| L5 | Double-click a card | Creates immediately. | Pending |
-| L6 | Drag a card to Finder | Copies the template file; Finder resolves collisions. | Automated (file URL) |
-| L7 | Context menu | New File, New File…, Favorite, Reveal, Rename, Remove all work. | Pending |
-| L8 | ⌘R | Reveals the selected template in Finder; disabled with no selection. | Pending |
-| L9 | Inspector | Favorite, Enabled, Reveal, Remove, New File, and New File… reflect the selection. | Pending |
-| L10 | Add Template | Multi-select files/packages/folders; all are copied and appear in the grid. | Pending |
-| L11 | Empty library | Empty state appears with Add Template…; Finder shows “No Templates”. | Pending |
+| L2 | Open Library from the menu bar | Opens a floating panel above normal windows; no Dock icon appears; closing it leaves the menu bar icon running. | Automated (panel style) |
+| L3 | Search | Typing filters by display name, file name, category, and extension. | Pending |
+| L4 | ⌘F | Focuses the toolbar search field, inserting it if it was removed. | Pending |
+| L5 | Return | Creates from the selected template in the default folder. | Pending |
+| L6 | Double-click a card | Creates immediately. | Pending |
+| L7 | Drag a card to Finder | Copies the template file; Finder resolves collisions. | Automated (file URL) |
+| L8 | Context menu | New File, New File…, Favorite, Reveal, Rename, Remove all work. | Pending |
+| L9 | ⌘R | Reveals the selected template in Finder; disabled with no selection. | Pending |
+| L10 | Inspector | Favorite, Enabled, Reveal, Remove, New File, and New File… reflect the selection. | Pending |
+| L11 | Add Template | Multi-select files/packages/folders; all are copied and appear in the grid. | Pending |
+| L12 | Empty library | Empty state appears with Add Template…; Finder shows “No Templates”. | Pending |
 
 ### Quick panel and menu bar
 
@@ -146,12 +147,13 @@ These checks are not fully automated in the repository. Run them after UI or Fin
 | Q2 | Search and arrows | Typing filters; ↑/↓ move selection; Return creates; Esc closes. | Pending |
 | Q3 | No matches | “No matching templates” is shown; Return does nothing harmful. | Pending |
 | Q4 | Left-click status icon | Toggles the visual quick panel anchored below the icon; rows show 32×32 icons, metadata, and the drag hint. | Pending |
-| Q5 | Right-click status icon | Menu shows quick panel, New File templates, Add Template, Library, Settings, About, Quit. | Pending |
-| Q6 | Disable menu bar icon | Status item disappears; shortcut still opens the quick panel. | Pending |
-| Q7 | Disable Dock and menu bar icons | Second checkbox is refused with an explanatory alert; one remains visible. | Pending |
-| Q8 | Both icons disabled in hand-edited config | App remains reachable through the global shortcut or activation policy. | Pending |
-| Q9 | Drag a template row to Finder | A file-promise drop creates `defaultBaseName.ext` in the target folder; Finder resolves collisions; recent/last-folder metadata updates; the panel closes. | Automated (promise) |
+| Q5 | Right-click status icon | Menu shows quick panel, New File templates, Add Template, Library, Settings, Welcome, About, Quit. | Pending |
+| Q6 | Menu bar icon setting | Checkbox is shown on and disabled; the status item cannot be hidden. | Automated (settings and menu bar) |
+| Q7 | Dock presence | The app never appears in the Dock or app switcher; there is no Dock-owned window. | Automated (LSUIElement and panel policy) |
+| Q8 | Hand-edited `showMenuBarIcon=false` | Status item still appears and all floating panels remain reachable. | Automated (delegate) |
+| Q9 | Drag a template row to Finder | A file-promise drop creates `defaultBaseName.ext` in the target folder; Finder resolves collisions; recent/last-folder metadata updates; the panel closes; the configured sound plays. | Automated (promise) |
 | Q10 | Drag to another window | A file-promise-aware target such as TextEdit accepts the drop and writes a default-named copy; cancelling the drag leaves the panel usable. | Automated (mock window) |
+| Q11 | Window level | Library, Settings, Welcome, and quick panel float above normal windows and remain visible when the app deactivates. | Automated (panel style) |
 
 ### Settings
 
@@ -159,14 +161,15 @@ These checks are not fully automated in the repository. Run them after UI or Fin
 | --- | --- | --- | --- |
 | S1 | Change default name | App, Finder, and CLI all use the new `defaultBaseName`. | Pending |
 | S2 | Change default folder/template | New File uses the new values. | Pending |
-| S3 | Post-create options | Reveal, open, sound, and toast behave as checked. | Pending |
+| S3 | Post-create options | Reveal, open, configured sound, and toast behave as checked; drag/promise completion uses the same sound. | Automated (sound hook) |
 | S4 | Launch at login | `SMAppService` registers; approval state is explained. | Pending |
 | S5 | Global shortcut presets | Each preset registers; conflicts revert to the previous shortcut. | Pending |
-| S6 | Templates pane | Add, remove, enable/disable, set default; removed files go to Trash. | Pending |
+| S6 | Templates pane | Add, remove, enable/disable, set default, assign category, and create a custom category; removed files go to Trash. | Automated (category assignment) |
 | S7 | Finder pane | Status text is accurate; Enable Extension works or opens System Settings. | Pending |
 | S8 | Advanced export/import/reset | Round-trip works; reset keeps template files but clears metadata. | Pending |
 | S9 | CLI install/uninstall | Symlink is created only when safe; foreign files are not replaced. | Pending |
-| S10 | Show Welcome Again | Welcome window reopens from Settings and Help. | Pending |
+| S10 | Show Welcome Again | Welcome panel reopens from Settings and Help. | Pending |
+| S11 | Settings presentation | Opens as a floating utility panel with icons on all five tabs; no Dock icon appears. | Automated (panel style and tab icons) |
 
 ### Finder extension
 

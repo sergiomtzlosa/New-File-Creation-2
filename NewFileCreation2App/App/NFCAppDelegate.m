@@ -24,16 +24,15 @@
 @property (nonatomic, strong) NFCSettingsWindowController *settingsWindowController;
 @property (nonatomic, strong) NFCWelcomeWindowController *welcomeWindowController;
 @property (nonatomic, copy) NSString *appliedShortcut;
-@property (nonatomic, assign) BOOL appliedMenuBarVisibility;
-@property (nonatomic, assign) NSApplicationActivationPolicy appliedPolicy;
 @end
 
 @implementation NFCAppDelegate
 
 - (void)applicationWillFinishLaunching:(NSNotification *)notification {
     NSApp.mainMenu = [NFCMainMenuBuilder buildMainMenu];
-    [NSApp setActivationPolicy:NSApplicationActivationPolicyRegular];
-    self.appliedPolicy = NSApplicationActivationPolicyRegular;
+    // New File Creation 2 lives in the menu bar. It never owns a Dock window;
+    // every window is a floating panel opened from the status item.
+    [NSApp setActivationPolicy:NSApplicationActivationPolicyAccessory];
     [[NSAppleEventManager sharedAppleEventManager] setEventHandler:self
                                                        andSelector:@selector(handleGetURLEvent:withReplyEvent:)
                                                      forEventClass:kInternetEventClass
@@ -66,11 +65,8 @@
     [self setupNotifications];
     [self applyConfiguration:config];
 
-    if ([config boolSettingForKey:@"onboardingCompleted" defaultValue:NO]) {
-        [self showLibrary];
-    } else {
-        [self showWelcome];
-    }
+    // Stay silent at launch. The menu bar icon is the entry point; library,
+    // settings, welcome, and the quick panel are opened from it.
 }
 
 - (void)applicationWillTerminate:(NSNotification *)notification {
@@ -110,6 +106,9 @@
     self.quickPanelController.onCreateTemplate = ^(NFTemplate *template) {
         [weakSelf createTemplate:template];
     };
+    self.quickPanelController.onOpenPreferences = ^{
+        [weakSelf showSettings];
+    };
 }
 
 - (void)setupMenuBar {
@@ -132,6 +131,9 @@
     };
     self.menuBarController.onSettings = ^{
         [weakSelf showSettings];
+    };
+    self.menuBarController.onWelcome = ^{
+        [weakSelf showWelcome];
     };
     self.menuBarController.onCreateTemplate = ^(NFTemplate *template) {
         [weakSelf createTemplate:template];
@@ -175,19 +177,12 @@
         }
     }
 
-    BOOL showMenuBar = [config boolSettingForKey:@"showMenuBarIcon" defaultValue:YES];
-    if (showMenuBar != self.appliedMenuBarVisibility) {
-        self.menuBarController.visible = showMenuBar;
-        self.appliedMenuBarVisibility = showMenuBar;
-    } else if (showMenuBar) {
+    // The menu bar icon is the app's permanent entry point. Keep it visible
+    // even when a legacy configuration disables showMenuBarIcon.
+    if (!self.menuBarController.isVisible) {
+        self.menuBarController.visible = YES;
+    } else {
         [self.menuBarController reloadMenu];
-    }
-
-    BOOL showDock = [config boolSettingForKey:@"showDockIcon" defaultValue:YES];
-    NSApplicationActivationPolicy desired = showDock ? NSApplicationActivationPolicyRegular : NSApplicationActivationPolicyAccessory;
-    if (desired != self.appliedPolicy) {
-        [NSApp setActivationPolicy:desired];
-        self.appliedPolicy = desired;
     }
 }
 
@@ -201,9 +196,10 @@
 #pragma mark - Windows
 
 - (void)showLibrary {
-    [self.mainWindowController showWindow:nil];
-    [self.mainWindowController reloadAll];
     [NSApp activateIgnoringOtherApps:YES];
+    [self.mainWindowController showWindow:nil];
+    [self.mainWindowController.window makeKeyAndOrderFront:nil];
+    [self.mainWindowController reloadAll];
 }
 
 - (void)showQuickPanel:(id)sender {
@@ -211,7 +207,9 @@
 }
 
 - (void)showSettings {
+    [NSApp activateIgnoringOtherApps:YES];
     [self.settingsWindowController showWindow:nil];
+    [self.settingsWindowController.window makeKeyAndOrderFront:nil];
 }
 
 - (void)showWelcome {
@@ -225,8 +223,9 @@
             [weakSelf showSettings];
         };
     }
-    [self.welcomeWindowController showWindow:nil];
     [NSApp activateIgnoringOtherApps:YES];
+    [self.welcomeWindowController showWindow:nil];
+    [self.welcomeWindowController.window makeKeyAndOrderFront:nil];
 }
 
 - (void)showWelcomeFromSettings:(id)sender {

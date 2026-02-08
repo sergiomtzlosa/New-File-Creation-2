@@ -22,6 +22,9 @@ NS_ASSUME_NONNULL_BEGIN
 - (NSArray<NFTemplate *> *)enabledTemplates;
 - (NSArray<NFTemplate *> *)favoriteTemplates;
 - (NSArray<NSString *> *)categories;
+- (NSArray<NSString *> *)customCategories;
+/// Adds a user-defined category. Returns NO when the name is blank or already exists.
+- (BOOL)addCustomCategory:(NSString *)category;
 
 - (id)settingForKey:(NSString *)key;
 - (BOOL)boolSettingForKey:(NSString *)key defaultValue:(BOOL)defaultValue;

@@ -61,6 +61,8 @@ The CLI is embedded at `New File Creation 2.app/Contents/Helpers/nfc`. The Finde
 
 The app and `nfc` are coordinated writers. The Finder extension never writes `config.json`; it reads a snapshot for each menu request. A CLI write posts both a local and a distributed `com.sid.newfilecreation2.configchanged` notification, and the app reloads in response.
 
+The app target is an `LSUIElement` menu bar accessory. It never owns a Dock icon or a Dock-owned main window. The library, quick panel, Settings, and Welcome are all `NFCFloatingPanel` instances: floating-level `NSPanel`s opened from the status item, with `hidesOnDeactivate = NO`, `releasedWhenClosed = NO`, and no minimize button. Closing a panel leaves the status item and app running; Quit is available from the status menu.
+
 ## Shared core
 
 `NewFileCreation2Shared/` is compiled directly into the app, Finder extension, CLI, and tests. There is no shared framework to embed or sign separately.
@@ -99,10 +101,10 @@ The file is `config.json` in the support folder. It is versioned by `schemaVersi
     "revealAfterCreate": true,
     "openAfterCreate": false,
     "playSound": false,
+    "soundName": "Glass",
     "showToast": true,
     "launchAtLogin": false,
     "showMenuBarIcon": true,
-    "showDockIcon": true,
     "globalShortcut": "control+option+n",
     "favoritesFirst": true,
     "groupByCategory": false,
@@ -114,6 +116,7 @@ The file is `config.json` in the support folder. It is versioned by `schemaVersi
     "logLevel": "info",
     "onboardingCompleted": true,
     "lastUsedDirectory": "/Users/example/Documents",
+    "customCategories": ["Client Work"],
     "didSeedBundledTemplates": true
   },
   "templates": [
@@ -210,13 +213,14 @@ See [CLI.md](CLI.md) for the complete command reference.
 
 ## AppKit UI structure
 
-- `NFCMainWindowController` owns an `NSSplitViewController` with a source-list sidebar, a collection-view card grid, and an inspector.
-- `NFCQuickPanelController` owns a floating `NSPanel` with a search field, visual template table, and file-promise drag source.
-- `NFCMenuBarController` owns the `NSStatusItem`. Left-click toggles the quick panel; right-click or Control-click opens the status menu.
+- `NFCFloatingPanel` is the shared floating `NSPanel` base for every app window. It uses `NSFloatingWindowLevel`, does not hide on deactivation, is not released on close, can join all Spaces, and cannot become the main window.
+- `NFCMainWindowController` owns an `NSSplitViewController` with a source-list sidebar, a collection-view card grid, and an inspector inside a floating library panel.
+- `NFCQuickPanelController` owns a floating quick panel with a search field, visual template table, gear button, and file-promise drag source.
+- `NFCMenuBarController` owns the permanent `NSStatusItem`. Left-click toggles the quick panel; right-click or Control-click opens the status menu with library, settings, welcome, about, and quit.
 - `NFFilePromiseProvider` writes the template copy when a drop target asks for the promised file, using `defaultBaseName` and the template extension.
-- `NFCSettingsWindowController` owns a toolbar-style sidebar window with General, Templates, Finder, Advanced, and About panes.
-- `NFCWelcomeWindowController` handles first-run onboarding.
-- `NFCreateCoordinator` centralizes creation, post-create actions, add-template panels, save panels, and error alerts.
+- `NFCSettingsWindowController` owns a floating utility panel with icon tabs for General, Templates, Finder, Advanced, and About. Sound name and custom-category editing live here.
+- `NFCWelcomeWindowController` owns a floating Welcome panel; it is opened from the menu bar menu, Settings, or Help rather than automatically at launch.
+- `NFCreateCoordinator` centralizes creation, post-create actions, the configurable sound, add-template panels, save panels, and error alerts.
 - `NFShortcutCenter` registers a Carbon global hotkey from the string stored in config.
 - `NFLoginItemManager` wraps `SMAppService.mainApp`.
 - `NFCLIInstallController` creates or removes `~/.local/bin/nfc` only when it is a symlink managed by the app.
@@ -225,7 +229,7 @@ The app uses semantic AppKit colors, Auto Layout, SF Symbols, and system control
 
 ## Testing architecture
 
-- The hosted `NewFileCreation2Tests.xctest` bundle imports the app controllers directly. `NFCUIComponentTests` instantiates windows, split views, collection views, the quick panel, settings tabs, and the welcome window without launching the full app UI.
+- The hosted `NewFileCreation2Tests.xctest` bundle imports the app controllers directly. `NFCUIComponentTests` instantiates floating panels, split views, collection views, the quick panel, settings tabs, and the Welcome panel without launching the full app UI. It also checks that the app is an `LSUIElement` accessory and that all panels use floating-level styling.
 - `NFCDragAndDropTests` models drag destinations with an `NSView` that registers for file URLs and an object that registers for file-promise types. It tests quick-panel `NFFilePromiseProvider` output and grid file-URL pasteboard writers.
 - Tests never touch the real support folder: `NFTestCase` assigns `NFPaths` a per-test temporary directory and resets `NFConfigStore` between cases.
 - Real destinations are opt-in. `NFC_TEST_REAL_DESKTOP=1` enables the real Desktop test; `NFC_TEST_EXTERNAL_VOLUME=/path/to/volume` enables the external-volume test. `scripts/test.sh` forwards both through `launchctl` for the hosted test process and clears them afterward.

@@ -10,10 +10,10 @@ static NSDictionary<NSString *, id> *NFDefaultSettings(void) {
         @"revealAfterCreate": @YES,
         @"openAfterCreate": @NO,
         @"playSound": @NO,
+        @"soundName": @"Glass",
         @"showToast": @YES,
         @"launchAtLogin": @NO,
         @"showMenuBarIcon": @YES,
-        @"showDockIcon": @YES,
         @"globalShortcut": @"control+option+n",
         @"favoritesFirst": @YES,
         @"groupByCategory": @NO,
@@ -25,6 +25,7 @@ static NSDictionary<NSString *, id> *NFDefaultSettings(void) {
         @"logLevel": @"info",
         @"onboardingCompleted": @NO,
         @"lastUsedDirectory": @"",
+        @"customCategories": @[],
         @"didSeedBundledTemplates": @NO
     };
 }
@@ -201,6 +202,9 @@ static NSDictionary<NSString *, id> *NFDefaultSettings(void) {
 
 - (NSArray<NSString *> *)categories {
     NSMutableOrderedSet<NSString *> *categories = [NSMutableOrderedSet orderedSet];
+    for (NSString *category in [self customCategories]) {
+        [categories addObject:category];
+    }
     for (NFTemplate *template in self.templates) {
         NSString *category = template.category.length > 0 ? template.category : NFDefaultCategoryOther;
         [categories addObject:category];
@@ -209,6 +213,41 @@ static NSDictionary<NSString *, id> *NFDefaultSettings(void) {
     [result sortUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
     return result;
 }
+
+- (NSArray<NSString *> *)customCategories {
+    id stored = self.settings[@"customCategories"];
+    if (![stored isKindOfClass:[NSArray class]]) {
+        return @[];
+    }
+    NSMutableOrderedSet<NSString *> *unique = [NSMutableOrderedSet orderedSet];
+    for (id value in (NSArray *)stored) {
+        if (![value isKindOfClass:[NSString class]]) {
+            continue;
+        }
+        NSString *name = [value stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+        if (name.length > 0) {
+            [unique addObject:name];
+        }
+    }
+    return unique.array;
+}
+
+- (BOOL)addCustomCategory:(NSString *)category {
+    NSString *name = [category stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+    if (name.length == 0) {
+        return NO;
+    }
+    for (NSString *existing in [self categories]) {
+        if ([existing localizedCaseInsensitiveCompare:name] == NSOrderedSame) {
+            return NO;
+        }
+    }
+    NSMutableArray<NSString *> *custom = [[self customCategories] mutableCopy];
+    [custom addObject:name];
+    [self setSetting:custom forKey:@"customCategories"];
+    return YES;
+}
+
 
 - (id)settingForKey:(NSString *)key {
     return self.settings[key];

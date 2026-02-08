@@ -6,6 +6,7 @@
 #import "NFShortcutCenter.h"
 #import "NFLoginItemManager.h"
 #import "NFCLIInstallController.h"
+#import "NFCFloatingPanel.h"
 #import "NFPaths.h"
 #import "NFVersion.h"
 #import "NFLogger.h"
@@ -44,6 +45,29 @@ static NSGridView *NFMakeGrid(void) {
     grid.columnSpacing = 14;
     grid.xPlacement = NSGridCellPlacementLeading;
     return grid;
+}
+
+static NSArray<NSString *> *NFAvailableSoundNames(void) {
+    NSMutableOrderedSet<NSString *> *names = [NSMutableOrderedSet orderedSet];
+    NSArray<NSString *> *extensions = @[@"aiff", @"aif", @"wav", @"caf", @"m4a"];
+    NSArray<NSString *> *directories = @[
+        @"/System/Library/Sounds",
+        @"/Library/Sounds",
+        [NSHomeDirectory() stringByAppendingPathComponent:@"Library/Sounds"]
+    ];
+    NSFileManager *fm = [NSFileManager defaultManager];
+    for (NSString *directory in directories) {
+        NSArray<NSString *> *entries = [fm contentsOfDirectoryAtPath:directory error:nil];
+        for (NSString *entry in entries) {
+            if ([extensions containsObject:entry.pathExtension.lowercaseString]) {
+                [names addObject:entry.stringByDeletingPathExtension];
+            }
+        }
+    }
+    [names addObject:@"Glass"];
+    NSMutableArray<NSString *> *result = [names.array mutableCopy];
+    [result sortUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
+    return result;
 }
 
 static NSView *NFGridViewContainer(NSGridView *grid) {
@@ -86,10 +110,10 @@ static void NFShowSettingsError(NSWindow *window, NSString *message, NSString *i
 @property (nonatomic, strong) NSButton *revealCheckbox;
 @property (nonatomic, strong) NSButton *openCheckbox;
 @property (nonatomic, strong) NSButton *soundCheckbox;
+@property (nonatomic, strong) NSPopUpButton *soundPopup;
 @property (nonatomic, strong) NSButton *toastCheckbox;
 @property (nonatomic, strong) NSButton *launchCheckbox;
 @property (nonatomic, strong) NSButton *menuBarCheckbox;
-@property (nonatomic, strong) NSButton *dockCheckbox;
 @property (nonatomic, strong) NSPopUpButton *shortcutPopup;
 @property (nonatomic, copy) NSArray<NSString *> *templateIDs;
 @end
@@ -131,10 +155,16 @@ static void NFShowSettingsError(NSWindow *window, NSString *message, NSString *i
     self.revealCheckbox = NFMakeCheckbox(NFLocalizedString(@"Reveal the new file in Finder"), self, @selector(checkboxChanged:));
     self.openCheckbox = NFMakeCheckbox(NFLocalizedString(@"Open the new file after creating it"), self, @selector(checkboxChanged:));
     self.soundCheckbox = NFMakeCheckbox(NFLocalizedString(@"Play a sound after creating a file"), self, @selector(checkboxChanged:));
+    self.soundPopup = [[NSPopUpButton alloc] initWithFrame:NSMakeRect(0, 0, 180, 26) pullsDown:NO];
+    self.soundPopup.identifier = @"SoundNamePopup";
+    self.soundPopup.target = self;
+    self.soundPopup.action = @selector(soundChanged:);
+    for (NSString *name in NFAvailableSoundNames()) {
+        [self.soundPopup addItemWithTitle:name];
+    }
     self.toastCheckbox = NFMakeCheckbox(NFLocalizedString(@"Show a confirmation in the app window"), self, @selector(checkboxChanged:));
     self.launchCheckbox = NFMakeCheckbox(NFLocalizedString(@"Launch New File Creation 2 at login"), self, @selector(checkboxChanged:));
-    self.menuBarCheckbox = NFMakeCheckbox(NFLocalizedString(@"Show the menu bar icon"), self, @selector(checkboxChanged:));
-    self.dockCheckbox = NFMakeCheckbox(NFLocalizedString(@"Show the Dock icon"), self, @selector(checkboxChanged:));
+    self.menuBarCheckbox = NFMakeCheckbox(NFLocalizedString(@"Menu bar icon (always available)"), self, @selector(checkboxChanged:));
 
     self.shortcutPopup = [[NSPopUpButton alloc] initWithFrame:NSMakeRect(0, 0, 240, 26) pullsDown:NO];
     self.shortcutPopup.target = self;
@@ -153,11 +183,11 @@ static void NFShowSettingsError(NSWindow *window, NSString *message, NSString *i
         @[self.revealCheckbox, [NSGridCell emptyContentView]],
         @[self.openCheckbox, [NSGridCell emptyContentView]],
         @[self.soundCheckbox, [NSGridCell emptyContentView]],
+        @[NFMakeLabel(NFLocalizedString(@"Sound:"), [NSFont systemFontOfSize:13], NSColor.labelColor), self.soundPopup],
         @[self.toastCheckbox, [NSGridCell emptyContentView]],
         @[NFMakeSectionLabel(NFLocalizedString(@"Application")), [NSGridCell emptyContentView]],
         @[self.launchCheckbox, [NSGridCell emptyContentView]],
         @[self.menuBarCheckbox, [NSGridCell emptyContentView]],
-        @[self.dockCheckbox, [NSGridCell emptyContentView]],
         @[NFMakeLabel(NFLocalizedString(@"Global shortcut:"), [NSFont systemFontOfSize:13], NSColor.labelColor), self.shortcutPopup]
     ];
     [grid addRowWithViews:rows[0]];
@@ -207,9 +237,18 @@ static void NFShowSettingsError(NSWindow *window, NSString *message, NSString *i
     self.revealCheckbox.state = [config boolSettingForKey:@"revealAfterCreate" defaultValue:YES] ? NSControlStateValueOn : NSControlStateValueOff;
     self.openCheckbox.state = [config boolSettingForKey:@"openAfterCreate" defaultValue:NO] ? NSControlStateValueOn : NSControlStateValueOff;
     self.soundCheckbox.state = [config boolSettingForKey:@"playSound" defaultValue:NO] ? NSControlStateValueOn : NSControlStateValueOff;
+    self.soundCheckbox.enabled = YES;
+    NSString *soundName = [config stringSettingForKey:@"soundName" defaultValue:@"Glass"];
+    if ([self.soundPopup itemWithTitle:soundName]) {
+        [self.soundPopup selectItemWithTitle:soundName];
+    } else if (self.soundPopup.numberOfItems > 0) {
+        [self.soundPopup selectItemAtIndex:0];
+    }
+    self.soundPopup.enabled = self.soundCheckbox.state == NSControlStateValueOn;
     self.toastCheckbox.state = [config boolSettingForKey:@"showToast" defaultValue:YES] ? NSControlStateValueOn : NSControlStateValueOff;
-    self.menuBarCheckbox.state = [config boolSettingForKey:@"showMenuBarIcon" defaultValue:YES] ? NSControlStateValueOn : NSControlStateValueOff;
-    self.dockCheckbox.state = [config boolSettingForKey:@"showDockIcon" defaultValue:YES] ? NSControlStateValueOn : NSControlStateValueOff;
+    self.menuBarCheckbox.state = NSControlStateValueOn;
+    self.menuBarCheckbox.enabled = NO;
+    self.menuBarCheckbox.toolTip = NFLocalizedString(@"The menu bar icon stays available so you can always create files.");
     self.launchCheckbox.state = [NFLoginItemManager isEnabled] ? NSControlStateValueOn : NSControlStateValueOff;
 
     NSString *shortcut = [config stringSettingForKey:@"globalShortcut" defaultValue:@"control+option+n"];
@@ -281,8 +320,13 @@ static void NFShowSettingsError(NSWindow *window, NSString *message, NSString *i
     else if (sender == self.soundCheckbox) key = @"playSound";
     else if (sender == self.toastCheckbox) key = @"showToast";
     else if (sender == self.menuBarCheckbox) key = @"showMenuBarIcon";
-    else if (sender == self.dockCheckbox) key = @"showDockIcon";
     BOOL value = sender.state == NSControlStateValueOn;
+
+    if (sender == self.menuBarCheckbox) {
+        // The menu bar icon is the permanent entry point and cannot be hidden.
+        sender.state = NSControlStateValueOn;
+        return;
+    }
 
     if (sender == self.launchCheckbox) {
         NSError *error = nil;
@@ -299,24 +343,18 @@ static void NFShowSettingsError(NSWindow *window, NSString *message, NSString *i
         return;
     }
 
-    if (!value && (sender == self.menuBarCheckbox || sender == self.dockCheckbox)) {
-        BOOL otherVisible = sender == self.menuBarCheckbox
-            ? self.dockCheckbox.state == NSControlStateValueOn
-            : self.menuBarCheckbox.state == NSControlStateValueOn;
-        if (!otherVisible) {
-            sender.state = NSControlStateValueOn;
-            NFShowSettingsError(self.view.window,
-                                NFLocalizedString(@"At least one icon must stay visible"),
-                                NFLocalizedString(@"Turn on the Dock icon or the menu bar icon before turning off the other."));
-            return;
-        }
-    }
-
     if (key.length > 0) {
         NFSetSetting(@(value), key);
     }
-    if (sender == self.dockCheckbox) {
-        [NSApp setActivationPolicy:value ? NSApplicationActivationPolicyRegular : NSApplicationActivationPolicyAccessory];
+    if (sender == self.soundCheckbox) {
+        self.soundPopup.enabled = value;
+    }
+}
+
+- (void)soundChanged:(id)sender {
+    NSString *name = self.soundPopup.titleOfSelectedItem;
+    if (name.length > 0) {
+        NFSetSetting(name, @"soundName");
     }
 }
 
@@ -348,6 +386,9 @@ static void NFShowSettingsError(NSWindow *window, NSString *message, NSString *i
 @property (nonatomic, strong) NSArray<NFTemplate *> *templates;
 @property (nonatomic, strong) NSButton *removeButton;
 @property (nonatomic, strong) NSButton *defaultButton;
+@property (nonatomic, strong) NSPopUpButton *categoryPopup;
+@property (nonatomic, strong) NSTextField *categoryNameField;
+@property (nonatomic, strong) NSButton *addCategoryButton;
 @end
 
 @implementation NFCTemplatesSettingsViewController
@@ -411,6 +452,29 @@ static void NFShowSettingsError(NSWindow *window, NSString *message, NSString *i
         [container addSubview:button];
     }
 
+    NSTextField *categoryLabel = NFMakeLabel(NFLocalizedString(@"Category:"), [NSFont systemFontOfSize:13], NSColor.labelColor);
+    self.categoryPopup = [[NSPopUpButton alloc] initWithFrame:NSMakeRect(0, 0, 140, 26) pullsDown:NO];
+    self.categoryPopup.identifier = @"TemplateCategoryPopup";
+    self.categoryPopup.target = self;
+    self.categoryPopup.action = @selector(categoryChanged:);
+    [self.categoryPopup.widthAnchor constraintEqualToConstant:140].active = YES;
+
+    self.categoryNameField = [[NSTextField alloc] initWithFrame:NSMakeRect(0, 0, 130, 24)];
+    self.categoryNameField.identifier = @"NewCategoryField";
+    self.categoryNameField.placeholderString = NFLocalizedString(@"New category");
+    [self.categoryNameField.widthAnchor constraintEqualToConstant:130].active = YES;
+
+    self.addCategoryButton = [NSButton buttonWithTitle:NFLocalizedString(@"Add Category") target:self action:@selector(addCategory:)];
+    self.addCategoryButton.identifier = @"AddCategoryButton";
+
+    NSStackView *categoryRow = [NSStackView stackViewWithViews:@[categoryLabel, self.categoryPopup,
+                                                                 self.categoryNameField, self.addCategoryButton]];
+    categoryRow.orientation = NSUserInterfaceLayoutOrientationHorizontal;
+    categoryRow.spacing = 8;
+    categoryRow.alignment = NSLayoutAttributeCenterY;
+    categoryRow.translatesAutoresizingMaskIntoConstraints = NO;
+    [container addSubview:categoryRow];
+
     [NSLayoutConstraint activateConstraints:@[
         [heading.topAnchor constraintEqualToAnchor:container.topAnchor constant:24],
         [heading.leadingAnchor constraintEqualToAnchor:container.leadingAnchor constant:28],
@@ -421,7 +485,9 @@ static void NFShowSettingsError(NSWindow *window, NSString *message, NSString *i
         [scrollView.topAnchor constraintEqualToAnchor:subheading.bottomAnchor constant:14],
         [scrollView.leadingAnchor constraintEqualToAnchor:container.leadingAnchor constant:28],
         [scrollView.trailingAnchor constraintEqualToAnchor:container.trailingAnchor constant:-28],
-        [scrollView.bottomAnchor constraintEqualToAnchor:add.topAnchor constant:-12],
+        [scrollView.bottomAnchor constraintEqualToAnchor:categoryRow.topAnchor constant:-12],
+        [categoryRow.leadingAnchor constraintEqualToAnchor:scrollView.leadingAnchor],
+        [categoryRow.bottomAnchor constraintEqualToAnchor:add.topAnchor constant:-12],
         [add.leadingAnchor constraintEqualToAnchor:scrollView.leadingAnchor],
         [add.bottomAnchor constraintEqualToAnchor:container.bottomAnchor constant:-24],
         [self.removeButton.leadingAnchor constraintEqualToAnchor:add.trailingAnchor constant:8],
@@ -441,8 +507,27 @@ static void NFShowSettingsError(NSWindow *window, NSString *message, NSString *i
     NFConfig *config = [[NFConfigStore sharedStore] loadConfigCreatingIfNeeded:YES error:nil] ?: [NFConfig defaultConfig];
     self.templates = config.templates.copy;
     [self.tableView reloadData];
-    self.removeButton.enabled = self.tableView.selectedRow >= 0;
-    self.defaultButton.enabled = self.tableView.selectedRow >= 0;
+
+    [self.categoryPopup removeAllItems];
+    for (NSString *category in [config categories]) {
+        [self.categoryPopup addItemWithTitle:NFLocalizedString(category)];
+        self.categoryPopup.lastItem.representedObject = category;
+    }
+
+    NSInteger row = self.tableView.selectedRow;
+    BOOL hasSelection = row >= 0 && row < (NSInteger)self.templates.count;
+    self.removeButton.enabled = hasSelection;
+    self.defaultButton.enabled = hasSelection;
+    self.categoryPopup.enabled = hasSelection;
+    if (hasSelection) {
+        NSString *category = self.templates[(NSUInteger)row].category;
+        for (NSMenuItem *item in self.categoryPopup.itemArray) {
+            if ([item.representedObject isEqualToString:category]) {
+                [self.categoryPopup selectItem:item];
+                break;
+            }
+        }
+    }
 }
 
 - (NSInteger)numberOfRowsInTableView:(NSTableView *)tableView {
@@ -503,6 +588,69 @@ static void NFShowSettingsError(NSWindow *window, NSString *message, NSString *i
     BOOL hasSelection = self.tableView.selectedRow >= 0;
     self.removeButton.enabled = hasSelection;
     self.defaultButton.enabled = hasSelection;
+    self.categoryPopup.enabled = hasSelection;
+    if (hasSelection) {
+        NSString *category = self.templates[(NSUInteger)self.tableView.selectedRow].category;
+        for (NSMenuItem *item in self.categoryPopup.itemArray) {
+            if ([item.representedObject isEqualToString:category]) {
+                [self.categoryPopup selectItem:item];
+                break;
+            }
+        }
+    }
+}
+
+- (void)categoryChanged:(id)sender {
+    NSInteger row = self.tableView.selectedRow;
+    if (row < 0 || row >= (NSInteger)self.templates.count) {
+        return;
+    }
+    NSString *category = self.categoryPopup.selectedItem.representedObject;
+    if (category.length == 0) {
+        return;
+    }
+    NSString *identifier = self.templates[(NSUInteger)row].identifier;
+    [[NFConfigStore sharedStore] updateConfig:^BOOL(NFConfig *config, NSError **error) {
+        NFTemplate *template = [config templateWithIdentifier:identifier];
+        if (!template) {
+            return NO;
+        }
+        template.category = category;
+        return YES;
+    } error:nil];
+    [self reloadData];
+}
+
+- (void)addCategory:(id)sender {
+    NSString *name = [self.categoryNameField.stringValue stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+    if (name.length == 0) {
+        NFShowSettingsError(self.view.window,
+                            NFLocalizedString(@"Could not add the category"),
+                            NFLocalizedString(@"Enter a category name."));
+        return;
+    }
+    NSInteger row = self.tableView.selectedRow;
+    NSString *selectedIdentifier = (row >= 0 && row < (NSInteger)self.templates.count)
+        ? self.templates[(NSUInteger)row].identifier
+        : nil;
+    [[NFConfigStore sharedStore] updateConfig:^BOOL(NFConfig *config, NSError **error) {
+        BOOL exists = NO;
+        for (NSString *category in [config categories]) {
+            if ([category localizedCaseInsensitiveCompare:name] == NSOrderedSame) {
+                exists = YES;
+                break;
+            }
+        }
+        if (!exists) {
+            [config addCustomCategory:name];
+        }
+        if (selectedIdentifier.length > 0) {
+            [config templateWithIdentifier:selectedIdentifier].category = name;
+        }
+        return YES;
+    } error:nil];
+    self.categoryNameField.stringValue = @"";
+    [self reloadData];
 }
 
 - (void)toggleCellCheckbox:(NSButton *)sender {
@@ -1114,12 +1262,10 @@ static void NFShowSettingsError(NSWindow *window, NSString *message, NSString *i
 @implementation NFCSettingsWindowController
 
 - (instancetype)init {
-    NSWindow *window = [[NSWindow alloc] initWithContentRect:NSMakeRect(0, 0, 680, 560)
-                                                   styleMask:NSWindowStyleMaskTitled | NSWindowStyleMaskClosable | NSWindowStyleMaskResizable
-                                                     backing:NSBackingStoreBuffered
-                                                       defer:NO];
+    NFCFloatingPanel *window = [NFCFloatingPanel floatingPanelWithContentRect:NSMakeRect(0, 0, 680, 560)
+                                                                  styleMask:NSWindowStyleMaskTitled | NSWindowStyleMaskClosable |
+                                                                            NSWindowStyleMaskResizable | NSWindowStyleMaskUtilityWindow];
     window.title = NFLocalizedString(@"Settings");
-    window.releasedWhenClosed = NO;
     window.toolbarStyle = NSWindowToolbarStylePreference;
     [window center];
 
@@ -1141,6 +1287,14 @@ static void NFShowSettingsError(NSWindow *window, NSString *message, NSString *i
         for (NSViewController *pane in panes) {
             [_tabViewController addChildViewController:pane];
         }
+
+        NSArray<NSString *> *symbolNames = @[@"gearshape", @"doc.on.doc", @"folder", @"slider.horizontal.3", @"info.circle"];
+        for (NSUInteger index = 0; index < _tabViewController.tabViewItems.count; index++) {
+            NSTabViewItem *item = _tabViewController.tabViewItems[index];
+            NSString *symbolName = symbolNames[index];
+            item.image = [NSImage imageWithSystemSymbolName:symbolName accessibilityDescription:item.label];
+        }
+
         window.contentViewController = _tabViewController;
         window.contentMinSize = NSMakeSize(680, 500);
     }

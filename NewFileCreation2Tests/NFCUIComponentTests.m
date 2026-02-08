@@ -10,6 +10,8 @@
 #import "NFCSettingsWindowController.h"
 #import "NFCWelcomeWindowController.h"
 #import "NFCToastPresenter.h"
+#import "NFCAppDelegate.h"
+#import "NFCreateCoordinator.h"
 #import "NFConfigStore.h"
 #import "NFConfig.h"
 #import "NFTemplate.h"
@@ -17,6 +19,11 @@
 
 @interface NFCQuickPanelController (NFCTesting)
 - (void)searchChanged:(NSSearchField *)sender;
+- (void)openPreferences:(id)sender;
+@end
+
+@interface NFCAppDelegate (NFCTesting)
+- (void)applyConfiguration:(NFConfig *)config;
 @end
 
 @interface NFCTemplateGridViewController (NFCTesting)
@@ -40,6 +47,7 @@
 - (void)createTemplateAction:(NSMenuItem *)sender;
 - (void)quickPanelAction:(id)sender;
 - (void)statusButtonClicked:(id)sender;
+- (void)welcomeAction:(id)sender;
 @end
 
 static NSMenuItem *NFMenuItemWithAction(NSMenu *menu, SEL action) {
@@ -76,6 +84,19 @@ static NSInteger NFNumberOfItemsShownByGrid(NFCTemplateGridViewController *grid)
     NSCollectionView *collectionView = [grid valueForKey:@"collectionView"];
     id<NSCollectionViewDataSource> dataSource = (id<NSCollectionViewDataSource>)grid;
     return [dataSource collectionView:collectionView numberOfItemsInSection:0];
+}
+
+static NSView *NFViewWithIdentifier(NSView *root, NSString *identifier) {
+    if ([root.identifier isEqualToString:identifier]) {
+        return root;
+    }
+    for (NSView *subview in root.subviews) {
+        NSView *match = NFViewWithIdentifier(subview, identifier);
+        if (match) {
+            return match;
+        }
+    }
+    return nil;
 }
 
 @interface NFCUIComponentTests : NFTestCase
@@ -123,6 +144,12 @@ static NSInteger NFNumberOfItemsShownByGrid(NFCTemplateGridViewController *grid)
     NSWindow *window = controller.window;
     XCTAssertNotNil(window);
     XCTAssertEqualObjects(window.title, @"New File Creation 2");
+    XCTAssertTrue([window isKindOfClass:[NSPanel class]]);
+    XCTAssertEqual(window.level, NSFloatingWindowLevel);
+    XCTAssertFalse(window.hidesOnDeactivate);
+    XCTAssertFalse(window.releasedWhenClosed);
+    XCTAssertEqual((window.styleMask & NSWindowStyleMaskMiniaturizable), 0u,
+                   @"Floating library windows must not minimize into a Dock tile");
     XCTAssertTrue([window.contentViewController isKindOfClass:[NSSplitViewController class]]);
 
     NSSplitViewController *split = (NSSplitViewController *)window.contentViewController;
@@ -188,6 +215,21 @@ static NSInteger NFNumberOfItemsShownByGrid(NFCTemplateGridViewController *grid)
     [outline selectRowIndexes:[NSIndexSet indexSetWithIndex:(NSUInteger)favoritesRow] byExtendingSelection:NO];
     XCTAssertEqual(receivedFilter, NFCTemplateFilterFavorites);
     XCTAssertNil(receivedCategory);
+
+    NSString *customCategory = [NSString stringWithFormat:@"Category %@", NSUUID.UUID.UUIDString];
+    [[NFConfigStore sharedStore] updateConfig:^BOOL(NFConfig *latest, NSError **error) {
+        return [latest addCustomCategory:customCategory];
+    } error:nil];
+    [sidebar reloadData];
+    BOOL foundCustomCategory = NO;
+    for (NSInteger row = 0; row < outline.numberOfRows; row++) {
+        id item = [outline itemAtRow:row];
+        if ([[item valueForKey:@"title"] isEqualToString:NFLocalizedString(customCategory)]) {
+            foundCustomCategory = YES;
+            break;
+        }
+    }
+    XCTAssertTrue(foundCustomCategory, @"Custom categories should appear in the sidebar");
 
     [sidebar selectAllTemplates];
     XCTAssertEqual(receivedFilter, NFCTemplateFilterAll);
@@ -393,6 +435,44 @@ static NSInteger NFNumberOfItemsShownByGrid(NFCTemplateGridViewController *grid)
     XCTAssertNotNil(hint);
     XCTAssertEqualObjects(hint.identifier, @"QuickPanelDragHint");
 
+    [panel.window.contentView layoutSubtreeIfNeeded];
+    NSView *headerIcon = NFViewWithIdentifier(panel.window.contentView, @"QuickPanelHeaderIcon");
+    NSView *panelTitle = NFViewWithIdentifier(panel.window.contentView, @"QuickPanelTitle");
+    XCTAssertNotNil(headerIcon);
+    XCTAssertNotNil(panelTitle);
+    XCTAssertGreaterThanOrEqual(NSMinX(headerIcon.frame), NSMaxX(panelTitle.frame),
+                                @"The app icon must sit to the right of the title, away from the close button");
+
+    NSButton *preferences = (NSButton *)NFViewWithIdentifier(panel.window.contentView, @"QuickPanelPreferencesButton");
+    XCTAssertTrue([preferences isKindOfClass:[NSButton class]]);
+    XCTAssertEqualObjects(preferences.identifier, @"QuickPanelPreferencesButton");
+    __block BOOL openedPreferences = NO;
+    panel.onOpenPreferences = ^{
+        openedPreferences = YES;
+    };
+    [preferences performClick:nil];
+    XCTAssertTrue(openedPreferences);
+
+    __block NFTemplate *returnedTemplate = nil;
+    panel.onCreateTemplate = ^(NFTemplate *selected) {
+        returnedTemplate = selected;
+    };
+    [tableView selectRowIndexes:[NSIndexSet indexSetWithIndex:0] byExtendingSelection:NO];
+    NSEvent *returnEvent = [NSEvent keyEventWithType:NSEventTypeKeyDown
+                                            location:NSZeroPoint
+                                       modifierFlags:0
+                                           timestamp:0
+                                        windowNumber:panel.window.windowNumber
+                                             context:nil
+                                          characters:@"\r"
+                         charactersIgnoringModifiers:@"\r"
+                                           isARepeat:NO
+                                             keyCode:36];
+    [tableView keyDown:returnEvent];
+    XCTAssertNotNil(returnedTemplate);
+    NSArray<NFTemplate *> *panelTemplates = [panel valueForKey:@"templates"];
+    XCTAssertEqualObjects(returnedTemplate.identifier, panelTemplates.firstObject.identifier);
+
     searchField.stringValue = config.enabledTemplates.firstObject.fileName;
     [panel searchChanged:searchField];
     XCTAssertEqual(tableView.numberOfRows, 1);
@@ -413,10 +493,18 @@ static NSInteger NFNumberOfItemsShownByGrid(NFCTemplateGridViewController *grid)
     NSMenu *menu = [[NSMenu alloc] initWithTitle:@"test"];
     [menuBar menuNeedsUpdate:menu];
 
-    XCTAssertEqual(menu.numberOfItems, 9u);
+    XCTAssertEqual(menu.numberOfItems, 10u);
     NSMenuItem *quick = NFMenuItemWithAction(menu, @selector(quickPanelAction:));
     XCTAssertNotNil(quick);
     XCTAssertTrue(quick.toolTip.length > 0);
+    NSMenuItem *welcome = NFMenuItemWithAction(menu, @selector(welcomeAction:));
+    XCTAssertNotNil(welcome);
+    __block BOOL openedWelcome = NO;
+    menuBar.onWelcome = ^{
+        openedWelcome = YES;
+    };
+    [menuBar welcomeAction:welcome];
+    XCTAssertTrue(openedWelcome);
     NSMenuItem *newFile = NFMenuItemWithSubmenuContainingAction(menu, @selector(createTemplateAction:));
     XCTAssertNotNil(newFile);
     XCTAssertEqual(newFile.submenu.numberOfItems, (NSInteger)self.config.enabledTemplates.count);
@@ -450,6 +538,11 @@ static NSInteger NFNumberOfItemsShownByGrid(NFCTemplateGridViewController *grid)
     [tabs view];
     XCTAssertEqual(tabs.tabViewItems.count, 5u);
     XCTAssertEqualObjects(tabs.view.identifier, @"SettingsTabs");
+    XCTAssertTrue([settings.window isKindOfClass:[NSPanel class]]);
+    XCTAssertEqual(settings.window.level, NSFloatingWindowLevel);
+    XCTAssertTrue((settings.window.styleMask & NSWindowStyleMaskUtilityWindow) != 0);
+    XCTAssertFalse(settings.window.hidesOnDeactivate);
+    XCTAssertFalse(settings.window.releasedWhenClosed);
 
     NSArray<NSString *> *expectedTitles = @[
         NFLocalizedString(@"General"),
@@ -461,6 +554,7 @@ static NSInteger NFNumberOfItemsShownByGrid(NFCTemplateGridViewController *grid)
     for (NSUInteger index = 0; index < tabs.tabViewItems.count; index++) {
         NSTabViewItem *tab = tabs.tabViewItems[index];
         XCTAssertEqualObjects(tab.label, expectedTitles[index]);
+        XCTAssertNotNil(tab.image, @"Settings tab %@ has no icon", tab.label);
         [tab.viewController view];
         [tab.viewController.view layoutSubtreeIfNeeded];
     }
@@ -474,10 +568,45 @@ static NSInteger NFNumberOfItemsShownByGrid(NFCTemplateGridViewController *grid)
     [baseName sendAction:baseName.action to:baseName.target];
     XCTAssertEqualObjects([self.config stringSettingForKey:@"defaultBaseName" defaultValue:@""], @"Draft");
 
+    NSButton *soundCheckbox = [general valueForKey:@"soundCheckbox"];
+    NSPopUpButton *soundPopup = [general valueForKey:@"soundPopup"];
+    XCTAssertGreaterThan(soundPopup.numberOfItems, 0);
+    XCTAssertFalse(soundPopup.enabled);
+    soundCheckbox.state = NSControlStateValueOn;
+    [soundCheckbox sendAction:soundCheckbox.action to:soundCheckbox.target];
+    XCTAssertTrue([self.config boolSettingForKey:@"playSound" defaultValue:NO]);
+    XCTAssertTrue(soundPopup.enabled);
+    NSInteger soundIndex = MIN((NSInteger)1, soundPopup.numberOfItems - 1);
+    [soundPopup selectItemAtIndex:soundIndex];
+    [soundPopup sendAction:soundPopup.action to:soundPopup.target];
+    XCTAssertEqualObjects([self.config stringSettingForKey:@"soundName" defaultValue:@""], soundPopup.titleOfSelectedItem);
+
     NSViewController *templates = tabs.tabViewItems[1].viewController;
     NSTableView *table = [templates valueForKey:@"tableView"];
     XCTAssertEqual(table.numberOfRows, (NSInteger)self.config.templates.count);
     XCTAssertEqual(table.tableColumns.count, 5u);
+
+    [table selectRowIndexes:[NSIndexSet indexSetWithIndex:0] byExtendingSelection:NO];
+    NSPopUpButton *categoryPopup = [templates valueForKey:@"categoryPopup"];
+    XCTAssertTrue(categoryPopup.enabled);
+    XCTAssertGreaterThan(categoryPopup.numberOfItems, 0);
+    NSInteger categoryIndex = MIN((NSInteger)1, categoryPopup.numberOfItems - 1);
+    [categoryPopup selectItemAtIndex:categoryIndex];
+    NSString *selectedCategory = categoryPopup.selectedItem.representedObject;
+    [categoryPopup sendAction:categoryPopup.action to:categoryPopup.target];
+    NFTemplate *firstTemplate = self.config.templates.firstObject;
+    XCTAssertEqualObjects([self.config templateWithIdentifier:firstTemplate.identifier].category, selectedCategory);
+
+    [table selectRowIndexes:[NSIndexSet indexSetWithIndex:0] byExtendingSelection:NO];
+    NSTextField *categoryName = [templates valueForKey:@"categoryNameField"];
+    NSButton *addCategory = [templates valueForKey:@"addCategoryButton"];
+    NSString *customCategory = [NSString stringWithFormat:@"Custom %@", NSUUID.UUID.UUIDString];
+    categoryName.stringValue = customCategory;
+    [addCategory performClick:nil];
+    XCTAssertTrue([[self.config customCategories] containsObject:customCategory]);
+    XCTAssertEqualObjects([self.config templateWithIdentifier:firstTemplate.identifier].category, customCategory);
+    XCTAssertTrue([[self.config categories] containsObject:customCategory]);
+    XCTAssertEqualObjects(categoryName.stringValue, @"");
 
     NSViewController *finder = tabs.tabViewItems[2].viewController;
     NSTextField *status = [finder valueForKey:@"statusLabel"];
@@ -499,6 +628,10 @@ static NSInteger NFNumberOfItemsShownByGrid(NFCTemplateGridViewController *grid)
     NSWindow *window = welcome.window;
     XCTAssertNotNil(window);
     XCTAssertEqualObjects(window.title, NFLocalizedString(@"Welcome"));
+    XCTAssertTrue([window isKindOfClass:[NSPanel class]]);
+    XCTAssertEqual(window.level, NSFloatingWindowLevel);
+    XCTAssertFalse(window.hidesOnDeactivate);
+    XCTAssertFalse(window.releasedWhenClosed);
 
     NSButton *getStarted = [self buttonWithTitle:NFLocalizedString(@"Get Started") inView:window.contentView];
     NSButton *openSettings = [self buttonWithTitle:NFLocalizedString(@"Open Settings") inView:window.contentView];
@@ -546,6 +679,58 @@ static NSInteger NFNumberOfItemsShownByGrid(NFCTemplateGridViewController *grid)
     [button performClick:nil];
     XCTAssertTrue(invoked);
     [window orderOut:nil];
+}
+
+- (void)testPostCreateActionsPlayConfiguredSoundName {
+    [[NFConfigStore sharedStore] updateConfig:^BOOL(NFConfig *config, NSError **error) {
+        [config setSetting:@YES forKey:@"playSound"];
+        [config setSetting:@"Ping" forKey:@"soundName"];
+        [config setSetting:@NO forKey:@"revealAfterCreate"];
+        [config setSetting:@NO forKey:@"openAfterCreate"];
+        [config setSetting:@NO forKey:@"showToast"];
+        return YES;
+    } error:nil];
+
+    NFCreateCoordinator *coordinator = [NFCreateCoordinator sharedCoordinator];
+    NSMutableArray<NSString *> *played = [NSMutableArray array];
+    coordinator.soundPlayer = ^(NSString *soundName) {
+        [played addObject:soundName];
+    };
+    @try {
+        NSURL *file = [self writeFileNamed:@"created.txt" contents:@"created" inDirectory:self.temporaryDirectory];
+        [coordinator applyPostCreateActionsForURL:file window:nil];
+        XCTAssertEqualObjects(played, @[@"Ping"]);
+    } @finally {
+        coordinator.soundPlayer = nil;
+    }
+}
+
+- (void)testMenuBarIconRemainsVisibleWhenLegacySettingIsOffAndWindowCloses {
+    NFCAppDelegate *delegate = [[NFCAppDelegate alloc] init];
+    NFCMenuBarController *menuBar = [[NFCMenuBarController alloc] init];
+    NFCMainWindowController *mainWindow = [[NFCMainWindowController alloc] init];
+    [delegate setValue:menuBar forKey:@"menuBarController"];
+    [delegate setValue:mainWindow forKey:@"mainWindowController"];
+
+    NFConfig *config = [NFConfig defaultConfig];
+    [config setSetting:@"none" forKey:@"globalShortcut"];
+    [config setSetting:@NO forKey:@"showMenuBarIcon"];
+
+    @try {
+        [delegate applyConfiguration:config];
+        XCTAssertTrue(menuBar.isVisible);
+        NSStatusItem *statusItem = [menuBar valueForKey:@"statusItem"];
+        XCTAssertNotNil(statusItem);
+        XCTAssertNotNil(statusItem.button.image);
+
+        [mainWindow.window close];
+        XCTAssertFalse(mainWindow.window.isVisible);
+        XCTAssertNotNil([menuBar valueForKey:@"statusItem"]);
+        XCTAssertFalse([delegate applicationShouldTerminateAfterLastWindowClosed:NSApp]);
+    } @finally {
+        menuBar.visible = NO;
+        [mainWindow.window orderOut:nil];
+    }
 }
 
 @end

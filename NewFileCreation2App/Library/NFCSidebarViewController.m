@@ -43,7 +43,6 @@
     self.outlineView.style = NSTableViewStyleSourceList;
     self.outlineView.floatsGroupRows = NO;
     self.outlineView.indentationPerLevel = 12;
-    self.outlineView.selectionHighlightStyle = NSTableViewSelectionHighlightStyleSourceList;
     self.outlineView.rowSizeStyle = NSTableViewRowSizeStyleMedium;
     self.outlineView.dataSource = self;
     self.outlineView.delegate = self;

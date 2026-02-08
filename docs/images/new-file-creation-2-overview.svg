@@ -1,0 +1,259 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1000" viewBox="0 0 1600 1000">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1600" y2="1000" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#0A1024"/>
+      <stop offset="0.55" stop-color="#101936"/>
+      <stop offset="1" stop-color="#201A4A"/>
+    </linearGradient>
+    <linearGradient id="iconBg" x1="160" y1="96" x2="864" y2="928" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#2F6BFF"/>
+      <stop offset="1" stop-color="#7857FF"/>
+    </linearGradient>
+    <linearGradient id="paper" x1="340" y1="240" x2="680" y2="760" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FFFFFF"/>
+      <stop offset="1" stop-color="#EAF0FF"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#4D8DFF"/>
+      <stop offset="1" stop-color="#7D5CFF"/>
+    </linearGradient>
+    <linearGradient id="thread" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#4D8DFF" stop-opacity="0"/>
+      <stop offset="0.5" stop-color="#7D5CFF" stop-opacity="0.8"/>
+      <stop offset="1" stop-color="#4D8DFF" stop-opacity="0"/>
+    </linearGradient>
+    <filter id="windowShadow" x="-15%" y="-15%" width="130%" height="140%">
+      <feDropShadow dx="0" dy="26" stdDeviation="34" flood-color="#02050F" flood-opacity="0.55"/>
+    </filter>
+    <filter id="cardShadow" x="-20%" y="-20%" width="140%" height="150%">
+      <feDropShadow dx="0" dy="18" stdDeviation="24" flood-color="#02050F" flood-opacity="0.42"/>
+    </filter>
+    <filter id="glow" x="-80%" y="-80%" width="260%" height="260%">
+      <feGaussianBlur stdDeviation="42"/>
+    </filter>
+  </defs>
+
+  <rect width="1600" height="1000" fill="url(#bg)"/>
+  <circle cx="1300" cy="80" r="280" fill="#5B4BFF" opacity="0.20" filter="url(#glow)"/>
+  <circle cx="120" cy="880" r="240" fill="#2F6BFF" opacity="0.16" filter="url(#glow)"/>
+  <path d="M0 780C310 700 530 850 810 790c280-60 452-230 790-142v352H0z" fill="#FFFFFF" opacity="0.018"/>
+  <path d="M0 130C360 210 560 80 880 140c300 56 480 30 720-30" stroke="url(#thread)" stroke-width="1.5" fill="none"/>
+
+  <!-- App icon -->
+  <g transform="translate(76 46) scale(0.092)">
+    <rect x="64" y="64" width="896" height="896" rx="204" fill="url(#iconBg)"/>
+    <path d="M64 268C64 155.16 155.16 64 268 64h488c112.84 0 204 91.16 204 204v40c-120 56-338 116-604 116-103 0-199-4-292-14V268z" fill="#FFFFFF" opacity="0.10"/>
+    <path d="M298 260c0-33.14 26.86-60 60-60h286l142 142v422c0 33.14-26.86 60-60 60H358c-33.14 0-60-26.86-60-60V260z" fill="url(#paper)"/>
+    <path d="M644 200l142 142H674c-16.57 0-30-13.43-30-30V200z" fill="#C9D6FF"/>
+    <rect x="382" y="424" width="300" height="34" rx="17" fill="#8EA4E8"/>
+    <rect x="382" y="500" width="300" height="34" rx="17" fill="#A9BAF0"/>
+    <rect x="382" y="576" width="220" height="34" rx="17" fill="#C3D0F5"/>
+    <circle cx="748" cy="760" r="156" fill="#FF9F0A"/>
+    <rect x="724" y="676" width="48" height="168" rx="24" fill="#FFFFFF"/>
+    <rect x="664" y="736" width="168" height="48" rx="24" fill="#FFFFFF"/>
+  </g>
+
+  <text x="186" y="96" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="46" font-weight="700" fill="#FFFFFF">New File Creation 2</text>
+  <text x="188" y="132" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="19" font-weight="400" fill="#B9C6EA">Create files from templates — in Finder, the menu bar, or the terminal.</text>
+
+  <g font-family="Helvetica Neue, Helvetica, Arial, sans-serif">
+    <rect x="1210" y="62" width="132" height="34" rx="17" fill="#FFFFFF" opacity="0.08" stroke="#FFFFFF" stroke-opacity="0.14"/>
+    <text x="1276" y="84" text-anchor="middle" font-size="12" font-weight="600" fill="#D6DFF7">NATIVE APPKIT</text>
+    <rect x="1354" y="62" width="170" height="34" rx="17" fill="#FFFFFF" opacity="0.08" stroke="#FFFFFF" stroke-opacity="0.14"/>
+    <text x="1439" y="84" text-anchor="middle" font-size="12" font-weight="600" fill="#D6DFF7">LOCAL · NO NETWORK</text>
+  </g>
+
+  <!-- Main library window -->
+  <g filter="url(#windowShadow)">
+    <rect x="64" y="184" width="1000" height="612" rx="24" fill="#F7F9FF"/>
+    <path d="M64 208c0-13.25 10.75-24 24-24h952c13.25 0 24 10.75 24 24v44H64v-44z" fill="#ECEFF8"/>
+    <circle cx="96" cy="218" r="7" fill="#FF5F57"/>
+    <circle cx="120" cy="218" r="7" fill="#FEBC2E"/>
+    <circle cx="144" cy="218" r="7" fill="#28C840"/>
+    <text x="176" y="223" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="12" font-weight="600" fill="#5B647A">New File Creation 2</text>
+  </g>
+
+  <!-- Toolbar -->
+  <rect x="86" y="244" width="94" height="30" rx="8" fill="#2F6BFF"/>
+  <text x="133" y="264" text-anchor="middle" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="600" fill="#FFFFFF">New File</text>
+  <rect x="188" y="244" width="104" height="30" rx="8" fill="#FFFFFF" stroke="#D9DFEC"/>
+  <text x="240" y="264" text-anchor="middle" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="500" fill="#3D4660">New File…</text>
+  <rect x="300" y="244" width="116" height="30" rx="8" fill="#FFFFFF" stroke="#D9DFEC"/>
+  <text x="358" y="264" text-anchor="middle" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="500" fill="#3D4660">Add Template</text>
+  <rect x="654" y="244" width="210" height="30" rx="8" fill="#EDF0F7" stroke="#DDE3EF"/>
+  <circle cx="671" cy="259" r="5" fill="none" stroke="#8C97AF" stroke-width="1.5"/>
+  <path d="M675 263l5 5" stroke="#8C97AF" stroke-width="1.5" stroke-linecap="round"/>
+  <text x="688" y="264" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="11" fill="#8C97AF">Search templates</text>
+  <rect x="878" y="244" width="30" height="30" rx="8" fill="#FFFFFF" stroke="#D9DFEC"/>
+  <rect x="886" y="252" width="14" height="14" rx="3" fill="none" stroke="#59637A" stroke-width="1.5"/>
+  <path d="M886 257h14" stroke="#59637A" stroke-width="1.2"/>
+
+  <!-- Sidebar -->
+  <rect x="64" y="288" width="208" height="508" fill="#EEF2FA"/>
+  <text x="88" y="316" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="10" font-weight="700" fill="#8A94AB">LIBRARY</text>
+  <rect x="82" y="328" width="172" height="30" rx="7" fill="#DDE6FA"/>
+  <rect x="94" y="337" width="12" height="12" rx="2" fill="#4D8DFF"/>
+  <text x="116" y="348" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="12" font-weight="600" fill="#25314F">All Templates</text>
+  <text x="238" y="348" text-anchor="end" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="10.5" fill="#75809B">33</text>
+  <text x="116" y="382" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="12" font-weight="500" fill="#59637A">★  Favorites</text>
+  <text x="116" y="412" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="12" font-weight="500" fill="#59637A">◷  Recent</text>
+
+  <text x="88" y="450" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="10" font-weight="700" fill="#8A94AB">CATEGORIES</text>
+  <g font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="11.5" fill="#59637A">
+    <text x="108" y="476">Documents</text><text x="238" y="476" text-anchor="end" font-size="10.5">7</text>
+    <text x="108" y="500">Spreadsheets</text><text x="238" y="500" text-anchor="end" font-size="10.5">3</text>
+    <text x="108" y="524">Presentations</text><text x="238" y="524" text-anchor="end" font-size="10.5">3</text>
+    <text x="108" y="548">Code</text><text x="238" y="548" text-anchor="end" font-size="10.5">6</text>
+    <text x="108" y="572">Images</text><text x="238" y="572" text-anchor="end" font-size="10.5">4</text>
+    <text x="108" y="596">Web</text><text x="238" y="596" text-anchor="end" font-size="10.5">3</text>
+    <text x="108" y="620">Other</text><text x="238" y="620" text-anchor="end" font-size="10.5">7</text>
+    <text x="108" y="656" fill="#4D8DFF" font-weight="600">+  New Category…</text>
+  </g>
+
+  <text x="300" y="316" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="14" font-weight="700" fill="#202A44">All Templates</text>
+  <text x="300" y="334" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="10.5" fill="#8A94AB">33 templates · never overwrites</text>
+
+  <!-- Cards -->
+  <g filter="url(#cardShadow)">
+    <rect x="300" y="352" width="160" height="142" rx="12" fill="#FFFFFF" stroke="#E1E6F1"/>
+    <rect x="476" y="352" width="160" height="142" rx="12" fill="#FFFFFF" stroke="#E1E6F1"/>
+    <rect x="652" y="352" width="160" height="142" rx="12" fill="#FFFFFF" stroke="#4D8DFF" stroke-width="2"/>
+    <rect x="300" y="510" width="160" height="142" rx="12" fill="#FFFFFF" stroke="#E1E6F1"/>
+    <rect x="476" y="510" width="160" height="142" rx="12" fill="#FFFFFF" stroke="#E1E6F1"/>
+    <rect x="652" y="510" width="160" height="142" rx="12" fill="#FFFFFF" stroke="#E1E6F1"/>
+  </g>
+  <g font-family="Helvetica Neue, Helvetica, Arial, sans-serif" text-anchor="middle">
+    <text x="380" y="420" font-size="38">📄</text>
+    <text x="556" y="420" font-size="38">📝</text>
+    <text x="732" y="420" font-size="38">🌐</text>
+    <text x="380" y="578" font-size="38">📊</text>
+    <text x="556" y="578" font-size="38">📽</text>
+    <text x="732" y="578" font-size="38">💻</text>
+  </g>
+  <g font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="600" fill="#26314F" text-anchor="middle">
+    <text x="380" y="452">Text File</text>
+    <text x="556" y="452">Markdown</text>
+    <text x="732" y="452">HTML Page</text>
+    <text x="380" y="610">Spreadsheet</text>
+    <text x="556" y="610">Presentation</text>
+    <text x="732" y="610">Python Script</text>
+  </g>
+  <g font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="9.5" fill="#8A94AB" text-anchor="middle">
+    <text x="380" y="470">DOCUMENTS</text>
+    <text x="556" y="470">DOCUMENTS</text>
+    <text x="732" y="470">WEB</text>
+    <text x="380" y="628">SPREADSHEETS</text>
+    <text x="556" y="628">PRESENTATIONS</text>
+    <text x="732" y="628">CODE</text>
+  </g>
+  <text x="732" y="372" text-anchor="middle" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="10" fill="#4D8DFF">★</text>
+
+  <!-- Inspector -->
+  <rect x="836" y="288" width="228" height="508" fill="#F2F5FC"/>
+  <rect x="972" y="312" width="54" height="54" rx="12" fill="#FFFFFF" stroke="#DDE3EF"/>
+  <text x="999" y="350" text-anchor="middle" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="28">🌐</text>
+  <text x="856" y="398" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="16" font-weight="700" fill="#202A44">HTML Page</text>
+  <text x="856" y="418" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="10.5" fill="#8A94AB">html.html</text>
+  <text x="856" y="444" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="700" fill="#6F7B96">WEB</text>
+  <text x="856" y="464" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="10.5" fill="#8A94AB">Used 4 times</text>
+  <rect x="856" y="486" width="188" height="32" rx="8" fill="#2F6BFF"/>
+  <text x="950" y="507" text-anchor="middle" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="600" fill="#FFFFFF">New File</text>
+  <rect x="856" y="526" width="188" height="32" rx="8" fill="#FFFFFF" stroke="#D9DFEC"/>
+  <text x="950" y="547" text-anchor="middle" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="500" fill="#3D4660">New File…</text>
+  <text x="856" y="588" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="11" fill="#59637A">☐  Favorite</text>
+  <text x="856" y="612" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="11" fill="#59637A">☑  Enabled</text>
+  <text x="856" y="636" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="11" fill="#59637A">Reveal Template</text>
+  <text x="856" y="660" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="11" fill="#59637A">Remove Template…</text>
+
+  <!-- Quick panel -->
+  <g filter="url(#cardShadow)">
+    <rect x="1090" y="184" width="446" height="350" rx="20" fill="#F9FAFF"/>
+  </g>
+  <text x="1114" y="222" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="15" font-weight="700" fill="#202A44">Quick New File</text>
+  <circle cx="1479" cy="216" r="15" fill="#EDF1F9"/>
+  <path d="M1479 207a4.5 4.5 0 1 0 0 9 4.5 4.5 0 0 0 0-9zM1479 203v2m0 13v2m-7-8.5h-2m13 0h-2m-1.5-4.5-1.4 1.4m-6.2 6.2-1.4 1.4m0-8.9 1.4 1.4m6.2 6.2 1.4 1.4" stroke="#59637A" stroke-width="1.4" stroke-linecap="round" fill="none"/>
+  <g transform="translate(1431 202) scale(0.029)">
+    <rect x="64" y="64" width="896" height="896" rx="204" fill="url(#iconBg)"/>
+    <path d="M298 260c0-33.14 26.86-60 60-60h286l142 142v422c0 33.14-26.86 60-60 60H358c-33.14 0-60-26.86-60-60V260z" fill="#FFFFFF"/>
+    <circle cx="748" cy="760" r="156" fill="#FF9F0A"/>
+    <rect x="724" y="676" width="48" height="168" rx="24" fill="#FFFFFF"/>
+    <rect x="664" y="736" width="168" height="48" rx="24" fill="#FFFFFF"/>
+  </g>
+  <rect x="1114" y="240" width="398" height="30" rx="8" fill="#EDF1F9" stroke="#DFE5F1"/>
+  <circle cx="1131" cy="255" r="5" fill="none" stroke="#8C97AF" stroke-width="1.5"/>
+  <path d="M1135 259l5 5" stroke="#8C97AF" stroke-width="1.5" stroke-linecap="round"/>
+  <text x="1148" y="259" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="10.5" fill="#8C97AF">Search templates</text>
+  <rect x="1114" y="282" width="398" height="52" rx="8" fill="#FFFFFF" stroke="#DFE5F1"/>
+  <rect x="1122" y="290" width="36" height="36" rx="8" fill="#EAF0FF"/>
+  <text x="1140" y="315" text-anchor="middle" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="20">📄</text>
+  <text x="1170" y="305" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="600" fill="#26314F">Text File</text>
+  <text x="1170" y="321" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="9.5" fill="#8A94AB">Documents · .txt</text>
+  <text x="1488" y="311" text-anchor="end" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="11" fill="#FFB020">★</text>
+
+  <rect x="1114" y="340" width="398" height="52" rx="8" fill="#FFFFFF" stroke="#DFE5F1"/>
+  <rect x="1122" y="348" width="36" height="36" rx="8" fill="#EAF0FF"/>
+  <text x="1140" y="373" text-anchor="middle" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="20">🌐</text>
+  <text x="1170" y="363" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="600" fill="#26314F">HTML Page</text>
+  <text x="1170" y="379" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="9.5" fill="#8A94AB">Web · .html</text>
+
+  <rect x="1114" y="398" width="398" height="52" rx="8" fill="#FFFFFF" stroke="#DFE5F1"/>
+  <rect x="1122" y="406" width="36" height="36" rx="8" fill="#EAF0FF"/>
+  <text x="1140" y="431" text-anchor="middle" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="20">📝</text>
+  <text x="1170" y="421" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="600" fill="#26314F">Markdown</text>
+  <text x="1170" y="437" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="9.5" fill="#8A94AB">Documents · .md</text>
+
+  <text x="1313" y="486" text-anchor="middle" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="9.5" fill="#9AA4BA">↩ Create file      ⠿ Drag to Finder      esc Close</text>
+
+  <!-- Finder menu -->
+  <g filter="url(#cardShadow)">
+    <rect x="1090" y="558" width="446" height="238" rx="20" fill="#F9FAFF"/>
+  </g>
+  <text x="1114" y="594" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="14" font-weight="700" fill="#202A44">Finder integration</text>
+  <text x="1114" y="613" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="10.5" fill="#8A94AB">Right-click any folder</text>
+  <rect x="1114" y="628" width="190" height="144" rx="10" fill="#FFFFFF" stroke="#DFE5F1"/>
+  <text x="1128" y="650" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="600" fill="#26314F">New File</text>
+  <text x="1290" y="650" text-anchor="end" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="11" fill="#8A94AB">▸</text>
+  <text x="1128" y="676" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="10.5" fill="#59637A">Add as Template</text>
+  <line x1="1128" y1="690" x2="1290" y2="690" stroke="#E7EBF4"/>
+  <text x="1128" y="712" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="10.5" fill="#59637A">Services</text>
+  <text x="1290" y="712" text-anchor="end" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="11" fill="#8A94AB">▸</text>
+  <text x="1128" y="740" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="10.5" fill="#59637A">New File…</text>
+
+  <rect x="1320" y="628" width="192" height="144" rx="10" fill="#FFFFFF" stroke="#DFE5F1"/>
+  <text x="1334" y="650" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="600" fill="#26314F">Text File</text>
+  <text x="1334" y="674" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="10.5" fill="#59637A">Markdown</text>
+  <text x="1334" y="698" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="10.5" fill="#59637A">HTML Page</text>
+  <text x="1334" y="722" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="10.5" fill="#59637A">Python Script</text>
+  <text x="1334" y="746" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="10.5" fill="#59637A">Spreadsheet</text>
+
+  <!-- Feature strip -->
+  <g font-family="Helvetica Neue, Helvetica, Arial, sans-serif">
+    <rect x="64" y="838" width="350" height="74" rx="14" fill="#FFFFFF" opacity="0.055" stroke="#FFFFFF" stroke-opacity="0.10"/>
+    <rect x="426" y="838" width="350" height="74" rx="14" fill="#FFFFFF" opacity="0.055" stroke="#FFFFFF" stroke-opacity="0.10"/>
+    <rect x="788" y="838" width="350" height="74" rx="14" fill="#FFFFFF" opacity="0.055" stroke="#FFFFFF" stroke-opacity="0.10"/>
+    <rect x="1150" y="838" width="386" height="74" rx="14" fill="#FFFFFF" opacity="0.055" stroke="#FFFFFF" stroke-opacity="0.10"/>
+
+    <circle cx="96" cy="875" r="17" fill="#2F6BFF" opacity="0.22"/>
+    <text x="96" y="881" text-anchor="middle" font-size="17">⌘</text>
+    <text x="126" y="870" font-size="13.5" font-weight="700" fill="#FFFFFF">Menu-bar quick panel</text>
+    <text x="126" y="889" font-size="10.5" fill="#AAB7D8">Search, Return, or drag out</text>
+
+    <circle cx="458" cy="875" r="17" fill="#7857FF" opacity="0.24"/>
+    <text x="458" y="881" text-anchor="middle" font-size="17">▣</text>
+    <text x="488" y="870" font-size="13.5" font-weight="700" fill="#FFFFFF">Finder Sync extension</text>
+    <text x="488" y="889" font-size="10.5" fill="#AAB7D8">Create exactly where you work</text>
+
+    <circle cx="820" cy="875" r="17" fill="#28C840" opacity="0.20"/>
+    <text x="820" y="881" text-anchor="middle" font-size="15" font-weight="700" fill="#6FE38A">&gt;_</text>
+    <text x="850" y="870" font-size="13.5" font-weight="700" fill="#FFFFFF">nfc command line</text>
+    <text x="850" y="889" font-size="10.5" fill="#AAB7D8">Scriptable, JSON output</text>
+
+    <circle cx="1182" cy="875" r="17" fill="#FF9F0A" opacity="0.22"/>
+    <text x="1182" y="881" text-anchor="middle" font-size="16">↻</text>
+    <text x="1212" y="870" font-size="13.5" font-weight="700" fill="#FFFFFF">Shared, versioned JSON</text>
+    <text x="1212" y="889" font-size="10.5" fill="#AAB7D8">Atomic writes · interprocess lock</text>
+  </g>
+
+  <text x="80" y="958" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="11" fill="#8290B4">Version 2.0.0  ·  macOS 13+  ·  English &amp; Spanish  ·  No network, analytics, or third-party runtime dependencies</text>
+  <text x="1520" y="958" text-anchor="end" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="11" fill="#8290B4">MIT License</text>
+</svg>

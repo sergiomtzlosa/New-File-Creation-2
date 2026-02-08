@@ -110,4 +110,22 @@
     XCTAssertEqualObjects(config.recentTemplateIDs.firstObject, template.identifier);
 }
 
+- (void)testCustomCategoriesAreTrimmedDeduplicatedAndPersisted {
+    NFConfig *config = [NFConfig defaultConfig];
+    XCTAssertEqual([config customCategories].count, 0u);
+    XCTAssertTrue([config addCustomCategory:@"  Client Work  "]);
+    XCTAssertEqualObjects([config customCategories], (@[@"Client Work"]));
+    XCTAssertTrue([config.categories containsObject:@"Client Work"]);
+    XCTAssertFalse([config addCustomCategory:@"client work"]);
+
+    NFTemplate *template = [NFTemplate templateWithFileName:@"Notes.txt"];
+    [config.templates addObject:template];
+    XCTAssertFalse([config addCustomCategory:@"documents"]);
+    template.category = @"Client Work";
+
+    NFConfig *restored = [[NFConfig alloc] initWithDictionary:[config dictionaryRepresentation]];
+    XCTAssertEqualObjects([restored customCategories], (@[@"Client Work"]));
+    XCTAssertTrue([restored.categories containsObject:@"Client Work"]);
+}
+
 @end

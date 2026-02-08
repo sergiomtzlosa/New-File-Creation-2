@@ -2,6 +2,7 @@
 #import "NFCQuickPanelController.h"
 #import "NFCTemplateGridViewController.h"
 #import "NFFilePromiseProvider.h"
+#import "NFCreateCoordinator.h"
 #import "NFConfigStore.h"
 #import "NFConfig.h"
 #import "NFTemplate.h"
@@ -128,6 +129,8 @@ static NSString * const NFCTestRealDesktopEnvironmentKey = @"NFC_TEST_REAL_DESKT
 
 /// A dragging-info stand-in for the file-URL drop target tests. The properties
 /// required by NSDraggingInfo are sufficient for the destination methods above.
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wproperty-attribute-mismatch"
 @interface NFCTestDraggingInfo : NSObject <NSDraggingInfo>
 @property (nonatomic, strong, nullable) NSWindow *draggingDestinationWindow;
 @property (nonatomic, assign) NSDragOperation draggingSourceOperationMask;
@@ -136,13 +139,19 @@ static NSString * const NFCTestRealDesktopEnvironmentKey = @"NFC_TEST_REAL_DESKT
 @property (nonatomic, strong) NSPasteboard *draggingPasteboard;
 @property (nonatomic, weak, nullable) id draggingSource;
 @property (nonatomic, assign) NSInteger draggingSequenceNumber;
-@property (nonatomic, assign) NSDraggingFormation draggingFormation;
-@property (nonatomic, assign) BOOL animatesToDestination;
-@property (nonatomic, assign) NSInteger numberOfValidItemsForDrop;
+@property (nonatomic, assign, nonatomic) NSDraggingFormation draggingFormation;
+@property (nonatomic, assign, nonatomic) BOOL animatesToDestination;
+@property (nonatomic, assign, nonatomic) NSInteger numberOfValidItemsForDrop;
 @property (nonatomic, assign) NSSpringLoadingHighlight springLoadingHighlight;
 @end
+#pragma clang diagnostic pop
 
 @implementation NFCTestDraggingInfo
+
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-implementations"
+// NSDraggingInfo still declares these legacy methods; the stand-in only needs to
+// satisfy the protocol, and no test exercises their deprecated implementations.
 
 - (NSImage *)draggedImage {
     return nil;
@@ -154,6 +163,8 @@ static NSString * const NFCTestRealDesktopEnvironmentKey = @"NFC_TEST_REAL_DESKT
 - (NSArray<NSString *> *)namesOfPromisedFilesDroppedAtDestination:(NSURL *)dropDestination {
     return nil;
 }
+
+#pragma clang diagnostic pop
 
 - (void)enumerateDraggingItemsWithOptions:(NSDraggingItemEnumerationOptions)enumOpts
                                   forView:(NSView *)view
@@ -303,6 +314,41 @@ static NSString * const NFCTestRealDesktopEnvironmentKey = @"NFC_TEST_REAL_DESKT
     XCTAssertTrue([[NSFileManager defaultManager] fileExistsAtPath:created.path]);
     XCTAssertEqualObjects(created.pathExtension, provider.template.fileExtension);
     [panel.window orderOut:nil];
+}
+
+- (void)testQuickPanelPromiseCompletionPlaysConfiguredSound {
+    [[NFConfigStore sharedStore] updateConfig:^BOOL(NFConfig *config, NSError **error) {
+        [config setSetting:@YES forKey:@"playSound"];
+        [config setSetting:@"Glass" forKey:@"soundName"];
+        return YES;
+    } error:nil];
+
+    NFCreateCoordinator *coordinator = [NFCreateCoordinator sharedCoordinator];
+    NSMutableArray<NSString *> *played = [NSMutableArray array];
+    coordinator.soundPlayer = ^(NSString *soundName) {
+        [played addObject:soundName];
+    };
+    @try {
+        NFCQuickPanelController *panel = nil;
+        NFFilePromiseProvider *provider = [self firstPromiseFromQuickPanel:&panel];
+        NSURL *destinationDirectory = [self makeDirectoryNamed:@"Sound Destination"];
+        NSURL *destination = [destinationDirectory URLByAppendingPathComponent:provider.promisedFileName];
+        __block NSError *writeError = [NSError errorWithDomain:@"unset" code:1 userInfo:nil];
+        [provider filePromiseProvider:provider writePromiseToURL:destination completionHandler:^(NSError * _Nullable error) {
+            writeError = error;
+        }];
+        XCTAssertNil(writeError);
+
+        NSPredicate *predicate = [NSPredicate predicateWithBlock:^BOOL(id evaluatedObject, NSDictionary *bindings) {
+            return played.count > 0;
+        }];
+        XCTNSPredicateExpectation *expectation = [[XCTNSPredicateExpectation alloc] initWithPredicate:predicate object:nil];
+        [self waitForExpectations:@[expectation] timeout:2.0];
+        XCTAssertEqualObjects(played.firstObject, @"Glass");
+        [panel.window orderOut:nil];
+    } @finally {
+        coordinator.soundPlayer = nil;
+    }
 }
 
 - (void)testGridFileURLDropsIntoCustomWindow {

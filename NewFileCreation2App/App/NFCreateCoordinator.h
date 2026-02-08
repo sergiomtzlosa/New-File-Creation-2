@@ -8,6 +8,8 @@ NS_ASSUME_NONNULL_BEGIN
 + (instancetype)sharedCoordinator;
 
 @property (nonatomic, readonly) NFConfigStore *store;
+/// Override to observe or replace system-sound playback in tests.
+@property (nonatomic, copy, nullable) void (^soundPlayer)(NSString *soundName);
 
 - (NSURL *)defaultCreationDirectory;
 
@@ -22,6 +24,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)createWithSavePanel:(NFTemplate *)template window:(nullable NSWindow *)window;
 - (void)addTemplatesFromURLs:(NSArray<NSURL *> *)urls window:(nullable NSWindow *)window;
 - (void)applyPostCreateActionsForURL:(NSURL *)url window:(nullable NSWindow *)window;
+- (void)playConfiguredSound;
 
 @end
 

@@ -56,7 +56,6 @@
 
 "Assign a global shortcut in Settings" = "Asigna un atajo global en Ajustes";
 
-"At least one icon must stay visible" = "Al menos un icono debe permanecer visible";
 
 "Audio" = "Audio";
 
@@ -368,7 +367,6 @@
 
 "Show template icons" = "Mostrar iconos de plantilla";
 
-"Show the Dock icon" = "Mostrar el icono en el Dock";
 
 "Show the menu bar icon" = "Mostrar el icono en la barra de menús";
 
@@ -406,7 +404,6 @@
 
 "The template “%@” was not found." = "No se encontró la plantilla «%@».";
 
-"Turn on the Dock icon or the menu bar icon before turning off the other." = "Activa el icono del Dock o el de la barra de menús antes de desactivar el otro.";
 
 "Unavailable" = "No disponible";
 
@@ -450,3 +447,15 @@
 
 "↩ Create file    ⠿ Drag to Finder    esc Close" = "↩ Crear archivo    ⠿ Arrastrar al Finder    esc Cerrar";
 
+
+/* Settings additions */
+"Add Category" = "Añadir categoría";
+"Category:" = "Categoría:";
+"Could not add the category" = "No se pudo añadir la categoría";
+"Enter a category name." = "Escribe un nombre de categoría.";
+"Menu bar icon (always available)" = "Icono de la barra de menús (siempre disponible)";
+"New category" = "Nueva categoría";
+"Sound:" = "Sonido:";
+"The menu bar icon stays available so you can always create files." = "El icono de la barra de menús permanece disponible para que siempre puedas crear archivos.";
+
+"Welcome…" = "Bienvenida…";

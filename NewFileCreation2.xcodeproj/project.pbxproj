@@ -62,6 +62,7 @@
 		70470F37D26E9074F5AE9094 /* NFConfigStore.m in Sources */ = {isa = PBXBuildFile; fileRef = B3A9EA76FECA8A97821BE421 /* NFConfigStore.m */; };
 		71BAB12F215B8F8C8CA51E71 /* NFConfigStore.m in Sources */ = {isa = PBXBuildFile; fileRef = B3A9EA76FECA8A97821BE421 /* NFConfigStore.m */; };
 		72292F2C7DE04B22AFCC4040 /* NFLegacyMigration.m in Sources */ = {isa = PBXBuildFile; fileRef = ECE9225390325D03B1E43638 /* NFLegacyMigration.m */; };
+		72FBC99D9DDC91F65C3E1B75 /* NFCFloatingPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = C1F01EA3E9EF97BF11B537EF /* NFCFloatingPanel.m */; };
 		79D6F31E671122D336E49500 /* NFFinderMenuBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 61879C862238F578FDD74957 /* NFFinderMenuBuilder.m */; };
 		7EAFCACF2D6D5060C72DC52E /* NFSanitize.m in Sources */ = {isa = PBXBuildFile; fileRef = B692DB528CE01512B9046CB4 /* NFSanitize.m */; };
 		7FEFF378316BB06C786F088A /* NFFilePromiseProviderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 502B148D5E2E07941023AD5E /* NFFilePromiseProviderTests.m */; };
@@ -177,6 +178,7 @@
 		0B2A5F8F55091B5DDC18EC66 /* NFConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NFConfig.h; sourceTree = "<group>"; };
 		0DBC92CDD0CA61E8DE55BF2E /* NFCCLIResolver.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NFCCLIResolver.h; sourceTree = "<group>"; };
 		0FD6382B924AF26452ABEB39 /* NFCMainMenuBuilder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NFCMainMenuBuilder.h; sourceTree = "<group>"; };
+		1038191D430020F394A1B777 /* NFCFloatingPanel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NFCFloatingPanel.h; sourceTree = "<group>"; };
 		1094C92099917A6253EFE09C /* NFCMainMenuBuilder.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NFCMainMenuBuilder.m; sourceTree = "<group>"; };
 		129C884ABAF15680AB0D4517 /* NFCStrings.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NFCStrings.m; sourceTree = "<group>"; };
 		1322DA9D195392002E651D87 /* NFFileCreatorTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NFFileCreatorTests.m; sourceTree = "<group>"; };
@@ -252,6 +254,7 @@
 		BE7E678F906456DF7261220C /* NFFinderMenuBuilderTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NFFinderMenuBuilderTests.m; sourceTree = "<group>"; };
 		C028B5A7EB257911C044E5FC /* NewFileCreation2CLI */ = {isa = PBXFileReference; includeInIndex = 0; path = NewFileCreation2CLI; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0796B4C26B0BC9B2A0AE2A2 /* NFConfigStoreTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NFConfigStoreTests.m; sourceTree = "<group>"; };
+		C1F01EA3E9EF97BF11B537EF /* NFCFloatingPanel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NFCFloatingPanel.m; sourceTree = "<group>"; };
 		C377265F380DDCBC34B09B0C /* NFCInspectorViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NFCInspectorViewController.m; sourceTree = "<group>"; };
 		C38F4051EB99340B1914E847 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		C5F92A749B0536AF9E1F04F7 /* NFCCLIApplication.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NFCCLIApplication.h; sourceTree = "<group>"; };
@@ -340,6 +343,8 @@
 			children = (
 				870A84EF349160F5B1672321 /* NFCAppDelegate.h */,
 				AEA6F69335BCCB7F779FFCE6 /* NFCAppDelegate.m */,
+				1038191D430020F394A1B777 /* NFCFloatingPanel.h */,
+				C1F01EA3E9EF97BF11B537EF /* NFCFloatingPanel.m */,
 				9CC8A8CF028358E9637AC670 /* NFCLIInstallController.h */,
 				D0C2106B0C792A116FF0E14C /* NFCLIInstallController.m */,
 				0FD6382B924AF26452ABEB39 /* NFCMainMenuBuilder.h */,
@@ -804,6 +809,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0927CA8953B5A2FE371DAEB6 /* NFCAppDelegate.m in Sources */,
+				72FBC99D9DDC91F65C3E1B75 /* NFCFloatingPanel.m in Sources */,
 				4ECB4CB641ABE75508F66B75 /* NFCInspectorViewController.m in Sources */,
 				2EA4E8A30241534B5137BC2C /* NFCLIInstallController.m in Sources */,
 				868A4FF5350B82AFA19F5453 /* NFCMainMenuBuilder.m in Sources */,
@@ -959,6 +965,7 @@
 					"@executable_path/../Frameworks",
 					"@loader_path/../Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.sid.newfilecreation2.tests;
 				SDKROOT = macosx;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/New File Creation 2.app/Contents/MacOS/New File Creation 2";
@@ -1143,6 +1150,7 @@
 					"@executable_path/../Frameworks",
 					"@loader_path/../Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.sid.newfilecreation2.tests;
 				SDKROOT = macosx;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/New File Creation 2.app/Contents/MacOS/New File Creation 2";

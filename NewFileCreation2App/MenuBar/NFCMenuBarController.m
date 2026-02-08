@@ -161,6 +161,10 @@
     settings.target = self;
     [menu addItem:settings];
 
+    NSMenuItem *welcome = [[NSMenuItem alloc] initWithTitle:NFLocalizedString(@"Welcome…") action:@selector(welcomeAction:) keyEquivalent:@""];
+    welcome.target = self;
+    [menu addItem:welcome];
+
     [menu addItem:[NSMenuItem separatorItem]];
 
     NSMenuItem *about = [[NSMenuItem alloc] initWithTitle:NFLocalizedString(@"About New File Creation 2")
@@ -191,6 +195,12 @@
 - (void)settingsAction:(id)sender {
     if (self.onSettings) {
         self.onSettings();
+    }
+}
+
+- (void)welcomeAction:(id)sender {
+    if (self.onWelcome) {
+        self.onWelcome();
     }
 }
 
