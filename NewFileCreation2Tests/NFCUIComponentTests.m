@@ -20,6 +20,7 @@
 @interface NFCQuickPanelController (NFCTesting)
 - (void)searchChanged:(NSSearchField *)sender;
 - (void)openPreferences:(id)sender;
+- (void)finishDraggingWithOperation:(NSDragOperation)operation;
 @end
 
 @interface NFCAppDelegate (NFCTesting)
@@ -440,6 +441,10 @@ static NSView *NFViewWithIdentifier(NSView *root, NSString *identifier) {
     NSView *panelTitle = NFViewWithIdentifier(panel.window.contentView, @"QuickPanelTitle");
     XCTAssertNotNil(headerIcon);
     XCTAssertNotNil(panelTitle);
+    XCTAssertEqualWithAccuracy(NSMidX(panelTitle.frame), NSMidX(panel.window.contentView.bounds), 1.0,
+                               @"The panel title should be centered in the top bar");
+    XCTAssertGreaterThanOrEqual(NSMinX(panelTitle.frame), 56.0,
+                                @"The title must clear the close button");
     XCTAssertGreaterThanOrEqual(NSMinX(headerIcon.frame), NSMaxX(panelTitle.frame),
                                 @"The app icon must sit to the right of the title, away from the close button");
 
@@ -485,6 +490,27 @@ static NSView *NFViewWithIdentifier(NSView *root, NSString *identifier) {
     [panel searchChanged:searchField];
     XCTAssertEqual(tableView.numberOfRows, (NSInteger)config.enabledTemplates.count);
     XCTAssertTrue(emptyLabel.hidden);
+    [panel.window orderOut:nil];
+}
+
+- (void)testQuickPanelCanStayOpenAfterADrop {
+    NFCQuickPanelController *panel = [[NFCQuickPanelController alloc] init];
+    [panel.window orderFront:nil];
+    XCTAssertTrue(panel.window.isVisible);
+
+    [[NFConfigStore sharedStore] updateConfig:^BOOL(NFConfig *config, NSError **error) {
+        [config setSetting:@YES forKey:@"keepQuickPanelOpenAfterDrop"];
+        return YES;
+    } error:nil];
+    [panel finishDraggingWithOperation:NSDragOperationCopy];
+    XCTAssertTrue(panel.window.isVisible, @"The quick panel should remain open when configured to stay");
+
+    [[NFConfigStore sharedStore] updateConfig:^BOOL(NFConfig *config, NSError **error) {
+        [config setSetting:@NO forKey:@"keepQuickPanelOpenAfterDrop"];
+        return YES;
+    } error:nil];
+    [panel finishDraggingWithOperation:NSDragOperationCopy];
+    XCTAssertFalse(panel.window.isVisible, @"The quick panel should close after a drop by default");
     [panel.window orderOut:nil];
 }
 
@@ -580,6 +606,12 @@ static NSView *NFViewWithIdentifier(NSView *root, NSString *identifier) {
     [soundPopup selectItemAtIndex:soundIndex];
     [soundPopup sendAction:soundPopup.action to:soundPopup.target];
     XCTAssertEqualObjects([self.config stringSettingForKey:@"soundName" defaultValue:@""], soundPopup.titleOfSelectedItem);
+
+    NSButton *keepOpen = [general valueForKey:@"keepQuickPanelOpenCheckbox"];
+    XCTAssertEqual(keepOpen.state, NSControlStateValueOff);
+    keepOpen.state = NSControlStateValueOn;
+    [keepOpen sendAction:keepOpen.action to:keepOpen.target];
+    XCTAssertTrue([self.config boolSettingForKey:@"keepQuickPanelOpenAfterDrop" defaultValue:NO]);
 
     NSViewController *templates = tabs.tabViewItems[1].viewController;
     NSTableView *table = [templates valueForKey:@"tableView"];

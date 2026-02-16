@@ -154,6 +154,22 @@ targets:
         TEST_HOST: "$(BUILT_PRODUCTS_DIR)/New File Creation 2.app/Contents/MacOS/New File Creation 2"
         BUNDLE_LOADER: "$(TEST_HOST)"
         HEADER_SEARCH_PATHS: "$(inherited) $(SRCROOT)/NewFileCreation2Shared $(SRCROOT)/NewFileCreation2Shared/Models $(SRCROOT)/NewFileCreation2Shared/Store $(SRCROOT)/NewFileCreation2Shared/Config $(SRCROOT)/NewFileCreation2Shared/Creation $(SRCROOT)/NewFileCreation2Shared/Requests $(SRCROOT)/NewFileCreation2Shared/Finder $(SRCROOT)/NewFileCreation2Shared/Support $(SRCROOT)/NewFileCreation2CLI $(SRCROOT)/NewFileCreation2CLI/Commands"
+  NewFileCreation2UITests:
+    type: bundle.ui-testing
+    platform: macOS
+    sources:
+      - path: NewFileCreation2UITests
+    dependencies:
+      - target: NewFileCreation2
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.sid.newfilecreation2.uitests
+        GENERATE_INFOPLIST_FILE: YES
+        TEST_TARGET_NAME: NewFileCreation2
+        # Keep the pointer-driven suite on macOS 14+ like the unit bundle.
+        MACOSX_DEPLOYMENT_TARGET: "14.0"
+        SWIFT_VERSION: "5.0"
+        SWIFT_STRICT_CONCURRENCY: minimal
 schemes:
   NewFileCreation2:
     build:
@@ -171,3 +187,15 @@ schemes:
         - NewFileCreation2Tests
     archive:
       config: Release
+  NewFileCreation2UI:
+    build:
+      targets:
+        NewFileCreation2: all
+        NewFileCreation2UITests: [test]
+    run:
+      config: Debug
+    test:
+      config: Debug
+      gatherCoverageData: false
+      targets:
+        - NewFileCreation2UITests

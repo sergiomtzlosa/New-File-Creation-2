@@ -67,6 +67,14 @@
 
     // Stay silent at launch. The menu bar icon is the entry point; library,
     // settings, welcome, and the quick panel are opened from it.
+
+    // UI tests need a deterministic first window because they cannot click the
+    // status item through the system accessibility hierarchy.
+    if ([NSProcessInfo.processInfo.environment[@"NFC_UI_TEST_OPEN_QUICK_PANEL"] boolValue]) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self showQuickPanel:nil];
+        });
+    }
 }
 
 - (void)applicationWillTerminate:(NSNotification *)notification {

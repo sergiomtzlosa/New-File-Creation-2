@@ -7,6 +7,15 @@
 #import "NFCreateCoordinator.h"
 #import "NFLocalization.h"
 
+static NSScreen *NFCScreenContainingPoint(NSPoint point) {
+    for (NSScreen *screen in NSScreen.screens) {
+        if (NSMouseInRect(point, screen.frame, NO)) {
+            return screen;
+        }
+    }
+    return NSScreen.screens.firstObject ?: NSScreen.mainScreen;
+}
+
 /// The table is the first responder after a row is clicked. Return and Escape
 /// must keep working there, not only in the search field.
 @interface NFCQuickPanelTableView : NSTableView
@@ -74,6 +83,10 @@
     title.identifier = @"QuickPanelTitle";
     title.translatesAutoresizingMaskIntoConstraints = NO;
     title.font = [NSFont systemFontOfSize:15 weight:NSFontWeightSemibold];
+    title.alignment = NSTextAlignmentCenter;
+    title.lineBreakMode = NSLineBreakByTruncatingTail;
+    [title setContentCompressionResistancePriority:NSLayoutPriorityDefaultLow
+                                    forOrientation:NSLayoutConstraintOrientationHorizontal];
     [content addSubview:title];
 
     NSImage *gearImage = [NSImage imageWithSystemSymbolName:@"gearshape"
@@ -148,7 +161,8 @@
 
     [NSLayoutConstraint activateConstraints:@[
         [title.topAnchor constraintEqualToAnchor:content.topAnchor constant:16],
-        [title.leadingAnchor constraintEqualToAnchor:content.leadingAnchor constant:56],
+        [title.centerXAnchor constraintEqualToAnchor:content.centerXAnchor],
+        [title.leadingAnchor constraintGreaterThanOrEqualToAnchor:content.leadingAnchor constant:56],
         [title.trailingAnchor constraintLessThanOrEqualToAnchor:headerIcon.leadingAnchor constant:-10],
         [headerIcon.trailingAnchor constraintEqualToAnchor:preferences.leadingAnchor constant:-10],
         [headerIcon.centerYAnchor constraintEqualToAnchor:title.centerYAnchor],
@@ -182,17 +196,11 @@
 
 - (void)showPanelAnchoredToRect:(NSRect)screenRect {
     [self reloadData];
-    NSScreen *screen = NSScreen.mainScreen ?: NSScreen.screens.firstObject;
+    NSPoint referencePoint = NSEqualRects(screenRect, NSZeroRect)
+        ? NSEvent.mouseLocation
+        : NSMakePoint(NSMidX(screenRect), NSMidY(screenRect));
+    NSScreen *screen = NFCScreenContainingPoint(referencePoint);
     if (screen) {
-        if (!NSEqualRects(screenRect, NSZeroRect)) {
-            NSPoint midpoint = NSMakePoint(NSMidX(screenRect), NSMidY(screenRect));
-            for (NSScreen *candidate in NSScreen.screens) {
-                if (NSMouseInRect(midpoint, candidate.frame, NO)) {
-                    screen = candidate;
-                    break;
-                }
-            }
-        }
         NSRect visible = screen.visibleFrame;
         NSRect frame = self.window.frame;
         NSPoint origin = NSZeroPoint;
@@ -320,14 +328,21 @@
     session.draggingFormation = NSDraggingFormationNone;
 }
 
+- (void)finishDraggingWithOperation:(NSDragOperation)operation {
+    self.draggingPromise = NO;
+    if (operation == NSDragOperationNone) {
+        return;
+    }
+    if (![[self config] boolSettingForKey:@"keepQuickPanelOpenAfterDrop" defaultValue:NO]) {
+        [self hidePanel];
+    }
+}
+
 - (void)tableView:(NSTableView *)tableView
     draggingSession:(NSDraggingSession *)session
      endedAtPoint:(NSPoint)screenPoint
        operation:(NSDragOperation)operation {
-    self.draggingPromise = NO;
-    if (operation != NSDragOperationNone) {
-        [self hidePanel];
-    }
+    [self finishDraggingWithOperation:operation];
 }
 
 - (NSView *)tableView:(NSTableView *)tableView viewForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row {

@@ -93,6 +93,7 @@
 		B4F3D392F2EBD32CCD52A032 /* NFRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = B31C719D48ECC56A6748FF04 /* NFRequest.m */; };
 		B9F9D25E6E2D6BB2657DE44B /* NFFilePromiseProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = BBC2B4D708755F5E3DCA6BED /* NFFilePromiseProvider.m */; };
 		BA6015978BE77C8575F4B5CF /* NFLock.m in Sources */ = {isa = PBXBuildFile; fileRef = BCE67682E0FBA66794128447 /* NFLock.m */; };
+		BBBCAFDF7FDD9B44DF5B3C58 /* NFCApplicationUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB3DAEBFAC91D1F14A2BCEEB /* NFCApplicationUITests.swift */; };
 		BF0F28CDBCBC3AEC4FD65AC4 /* NFCFinderSync.m in Sources */ = {isa = PBXBuildFile; fileRef = 21E171D80F10866398DBC4D0 /* NFCFinderSync.m */; };
 		BFE1792AEDC3930393EE5A61 /* NFErrors.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B0291C6B62656FC887762A8 /* NFErrors.m */; };
 		C2A0F5BE8E16AE19776CF461 /* NFTemplate.m in Sources */ = {isa = PBXBuildFile; fileRef = F74501A8E650EE1B6EC85711 /* NFTemplate.m */; };
@@ -142,6 +143,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = 34F8489BA6BD5CBB3D4D9A23;
 			remoteInfo = NewFileCreation2CLI;
+		};
+		52ADCA7F00F6E66B5578A697 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7DED58BBB0053F28D26808F0 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 95D63B76D066A06871922162;
+			remoteInfo = NewFileCreation2;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -258,6 +266,7 @@
 		C377265F380DDCBC34B09B0C /* NFCInspectorViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NFCInspectorViewController.m; sourceTree = "<group>"; };
 		C38F4051EB99340B1914E847 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		C5F92A749B0536AF9E1F04F7 /* NFCCLIApplication.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NFCCLIApplication.h; sourceTree = "<group>"; };
+		CB3DAEBFAC91D1F14A2BCEEB /* NFCApplicationUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NFCApplicationUITests.swift; sourceTree = "<group>"; };
 		CB84DB95B92DB64E3B648D50 /* NFPaths.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NFPaths.h; sourceTree = "<group>"; };
 		CBDD27A9205E33287101910D /* NFShortcutCenter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NFShortcutCenter.h; sourceTree = "<group>"; };
 		CC813665DAFD3ED959EEA5E8 /* NFCMenuBarController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NFCMenuBarController.m; sourceTree = "<group>"; };
@@ -274,6 +283,7 @@
 		EE80FA7461DE81E02AE98A35 /* NFVersion.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NFVersion.m; sourceTree = "<group>"; };
 		F48B47FA7AF1F8BE081E011D /* NFLocalizationTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NFLocalizationTests.m; sourceTree = "<group>"; };
 		F6043677F05525BA0A36CCD4 /* NFLoginItemManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NFLoginItemManager.m; sourceTree = "<group>"; };
+		F6A4DF6AEFB5741157BA89DC /* NewFileCreation2UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NewFileCreation2UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6C36EF3ACD60231A1C6C534 /* NFLogger.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NFLogger.h; sourceTree = "<group>"; };
 		F74501A8E650EE1B6EC85711 /* NFTemplate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NFTemplate.m; sourceTree = "<group>"; };
 		F8FA3B11D63BDC4F6F0B4FDE /* NFPaths.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NFPaths.m; sourceTree = "<group>"; };
@@ -368,6 +378,7 @@
 				C028B5A7EB257911C044E5FC /* NewFileCreation2CLI */,
 				8EA526B3E2BA7DE48BF8599C /* NewFileCreation2Finder.appex */,
 				7E678D18204BE53B624287C3 /* NewFileCreation2Tests.xctest */,
+				F6A4DF6AEFB5741157BA89DC /* NewFileCreation2UITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -382,6 +393,7 @@
 				07C264D04C1643D5EC2AE498 /* NewFileCreation2Finder */,
 				88E7C56AD39BEBD2ECEF7ABC /* NewFileCreation2Shared */,
 				9AE89A3AD2F7B6854BDCFD77 /* NewFileCreation2Tests */,
+				53B850F470455FAC6A0DA185 /* NewFileCreation2UITests */,
 				D2C1E972BB042331780D23FB /* Frameworks */,
 				2C054B1496C38713F7ADC426 /* Products */,
 			);
@@ -421,6 +433,14 @@
 				D15D29F0A7481829FB930C39 /* NFCWelcomeWindowController.m */,
 			);
 			path = Welcome;
+			sourceTree = "<group>";
+		};
+		53B850F470455FAC6A0DA185 /* NewFileCreation2UITests */ = {
+			isa = PBXGroup;
+			children = (
+				CB3DAEBFAC91D1F14A2BCEEB /* NFCApplicationUITests.swift */,
+			);
+			path = NewFileCreation2UITests;
 			sourceTree = "<group>";
 		};
 		57A2085845ECBAB4FD55EFA3 /* Requests */ = {
@@ -664,6 +684,24 @@
 			productReference = 4948B4E02679B4C5B85A67A4 /* NewFileCreation2.app */;
 			productType = "com.apple.product-type.application";
 		};
+		D747FA5B26451FCE88803A41 /* NewFileCreation2UITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3749FCB5891A110AC9F8EF2C /* Build configuration list for PBXNativeTarget "NewFileCreation2UITests" */;
+			buildPhases = (
+				4FDA783EF61BB9F1EE8E9E0B /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				397E650210B319E7ACF9D884 /* PBXTargetDependency */,
+			);
+			name = NewFileCreation2UITests;
+			packageProductDependencies = (
+			);
+			productName = NewFileCreation2UITests;
+			productReference = F6A4DF6AEFB5741157BA89DC /* NewFileCreation2UITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 		EFF2C140888452CFF2876FA2 /* NewFileCreation2Tests */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6A6CED01741BADF2AAB13A7E /* Build configuration list for PBXNativeTarget "NewFileCreation2Tests" */;
@@ -704,6 +742,11 @@
 						DevelopmentTeam = "";
 						ProvisioningStyle = Manual;
 					};
+					D747FA5B26451FCE88803A41 = {
+						DevelopmentTeam = "";
+						ProvisioningStyle = Manual;
+						TestTargetID = 95D63B76D066A06871922162;
+					};
 					EFF2C140888452CFF2876FA2 = {
 						DevelopmentTeam = "";
 						ProvisioningStyle = Manual;
@@ -729,6 +772,7 @@
 				22733F3EDBF2855C2C82F248 /* NewFileCreation2Finder */,
 				34F8489BA6BD5CBB3D4D9A23 /* NewFileCreation2CLI */,
 				EFF2C140888452CFF2876FA2 /* NewFileCreation2Tests */,
+				D747FA5B26451FCE88803A41 /* NewFileCreation2UITests */,
 			);
 		};
 /* End PBXProject section */
@@ -756,6 +800,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		4FDA783EF61BB9F1EE8E9E0B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BBBCAFDF7FDD9B44DF5B3C58 /* NFCApplicationUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		6F67928A4E9761B0E8AD5B50 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -875,6 +927,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		397E650210B319E7ACF9D884 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 95D63B76D066A06871922162 /* NewFileCreation2 */;
+			targetProxy = 52ADCA7F00F6E66B5578A697 /* PBXContainerItemProxy */;
+		};
 		5EF76616859E24F7302CF05B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 95D63B76D066A06871922162 /* NewFileCreation2 */;
@@ -1051,6 +1108,26 @@
 			};
 			name = Release;
 		};
+		679412ACCC10D21FA3EE6517 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sid.newfilecreation2.uitests;
+				SDKROOT = macosx;
+				SWIFT_STRICT_CONCURRENCY = minimal;
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = NewFileCreation2;
+			};
+			name = Debug;
+		};
 		84C9C68688A2DA91A67F29CE /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1064,6 +1141,26 @@
 				PRODUCT_NAME = "New File Creation 2 Finder";
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		DA70C022299390DE296A9863 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sid.newfilecreation2.uitests;
+				SDKROOT = macosx;
+				SWIFT_STRICT_CONCURRENCY = minimal;
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = NewFileCreation2;
 			};
 			name = Release;
 		};
@@ -1182,6 +1279,15 @@
 			buildConfigurations = (
 				E47591DF88D363DE4E3E932E /* Debug */,
 				52A2587ACCC231EB2210469C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		3749FCB5891A110AC9F8EF2C /* Build configuration list for PBXNativeTarget "NewFileCreation2UITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				679412ACCC10D21FA3EE6517 /* Debug */,
+				DA70C022299390DE296A9863 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;

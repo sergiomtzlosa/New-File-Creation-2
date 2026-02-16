@@ -453,6 +453,7 @@
 "Category:" = "Category:";
 "Could not add the category" = "Could not add the category";
 "Enter a category name." = "Enter a category name.";
+"Keep the quick panel open after dropping a file" = "Keep the quick panel open after dropping a file";
 "Menu bar icon (always available)" = "Menu bar icon (always available)";
 "New category" = "New category";
 "Sound:" = "Sound:";

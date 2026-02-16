@@ -5,6 +5,7 @@
 #import "NFLocalization.h"
 
 @interface NFCWelcomeWindowController () <NSWindowDelegate>
+@property (nonatomic, assign) BOOL didPositionWindow;
 @end
 
 @implementation NFCWelcomeWindowController
@@ -13,7 +14,6 @@
     NFCFloatingPanel *window = [NFCFloatingPanel floatingPanelWithContentRect:NSMakeRect(0, 0, 560, 470)
                                                                   styleMask:NSWindowStyleMaskTitled | NSWindowStyleMaskClosable];
     window.title = NFLocalizedString(@"Welcome");
-    [window center];
 
     self = [super initWithWindow:window];
     if (self) {
@@ -21,6 +21,14 @@
         [self setupInterface];
     }
     return self;
+}
+
+- (void)showWindow:(id)sender {
+    if (!self.didPositionWindow) {
+        [(NFCFloatingPanel *)self.window centerOnActiveScreen];
+        self.didPositionWindow = YES;
+    }
+    [super showWindow:sender];
 }
 
 - (void)setupInterface {
