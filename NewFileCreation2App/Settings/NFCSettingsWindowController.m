@@ -112,6 +112,7 @@ static void NFShowSettingsError(NSWindow *window, NSString *message, NSString *i
 @property (nonatomic, strong) NSButton *soundCheckbox;
 @property (nonatomic, strong) NSPopUpButton *soundPopup;
 @property (nonatomic, strong) NSButton *toastCheckbox;
+@property (nonatomic, strong) NSButton *keepQuickPanelOpenCheckbox;
 @property (nonatomic, strong) NSButton *launchCheckbox;
 @property (nonatomic, strong) NSButton *menuBarCheckbox;
 @property (nonatomic, strong) NSPopUpButton *shortcutPopup;
@@ -163,6 +164,7 @@ static void NFShowSettingsError(NSWindow *window, NSString *message, NSString *i
         [self.soundPopup addItemWithTitle:name];
     }
     self.toastCheckbox = NFMakeCheckbox(NFLocalizedString(@"Show a confirmation in the app window"), self, @selector(checkboxChanged:));
+    self.keepQuickPanelOpenCheckbox = NFMakeCheckbox(NFLocalizedString(@"Keep the quick panel open after dropping a file"), self, @selector(checkboxChanged:));
     self.launchCheckbox = NFMakeCheckbox(NFLocalizedString(@"Launch New File Creation 2 at login"), self, @selector(checkboxChanged:));
     self.menuBarCheckbox = NFMakeCheckbox(NFLocalizedString(@"Menu bar icon (always available)"), self, @selector(checkboxChanged:));
 
@@ -185,6 +187,7 @@ static void NFShowSettingsError(NSWindow *window, NSString *message, NSString *i
         @[self.soundCheckbox, [NSGridCell emptyContentView]],
         @[NFMakeLabel(NFLocalizedString(@"Sound:"), [NSFont systemFontOfSize:13], NSColor.labelColor), self.soundPopup],
         @[self.toastCheckbox, [NSGridCell emptyContentView]],
+        @[self.keepQuickPanelOpenCheckbox, [NSGridCell emptyContentView]],
         @[NFMakeSectionLabel(NFLocalizedString(@"Application")), [NSGridCell emptyContentView]],
         @[self.launchCheckbox, [NSGridCell emptyContentView]],
         @[self.menuBarCheckbox, [NSGridCell emptyContentView]],
@@ -246,6 +249,7 @@ static void NFShowSettingsError(NSWindow *window, NSString *message, NSString *i
     }
     self.soundPopup.enabled = self.soundCheckbox.state == NSControlStateValueOn;
     self.toastCheckbox.state = [config boolSettingForKey:@"showToast" defaultValue:YES] ? NSControlStateValueOn : NSControlStateValueOff;
+    self.keepQuickPanelOpenCheckbox.state = [config boolSettingForKey:@"keepQuickPanelOpenAfterDrop" defaultValue:NO] ? NSControlStateValueOn : NSControlStateValueOff;
     self.menuBarCheckbox.state = NSControlStateValueOn;
     self.menuBarCheckbox.enabled = NO;
     self.menuBarCheckbox.toolTip = NFLocalizedString(@"The menu bar icon stays available so you can always create files.");
@@ -319,6 +323,7 @@ static void NFShowSettingsError(NSWindow *window, NSString *message, NSString *i
     else if (sender == self.openCheckbox) key = @"openAfterCreate";
     else if (sender == self.soundCheckbox) key = @"playSound";
     else if (sender == self.toastCheckbox) key = @"showToast";
+    else if (sender == self.keepQuickPanelOpenCheckbox) key = @"keepQuickPanelOpenAfterDrop";
     else if (sender == self.menuBarCheckbox) key = @"showMenuBarIcon";
     BOOL value = sender.state == NSControlStateValueOn;
 
@@ -1257,6 +1262,7 @@ static void NFShowSettingsError(NSWindow *window, NSString *message, NSString *i
 
 @interface NFCSettingsWindowController ()
 @property (nonatomic, strong) NSTabViewController *tabViewController;
+@property (nonatomic, assign) BOOL didPositionWindow;
 @end
 
 @implementation NFCSettingsWindowController
@@ -1267,7 +1273,6 @@ static void NFShowSettingsError(NSWindow *window, NSString *message, NSString *i
                                                                             NSWindowStyleMaskResizable | NSWindowStyleMaskUtilityWindow];
     window.title = NFLocalizedString(@"Settings");
     window.toolbarStyle = NSWindowToolbarStylePreference;
-    [window center];
 
     self = [super initWithWindow:window];
     if (self) {
@@ -1302,6 +1307,10 @@ static void NFShowSettingsError(NSWindow *window, NSString *message, NSString *i
 }
 
 - (void)showWindow:(id)sender {
+    if (!self.didPositionWindow) {
+        [(NFCFloatingPanel *)self.window centerOnActiveScreen];
+        self.didPositionWindow = YES;
+    }
     [self reloadPanes];
     [super showWindow:sender];
     [NSApp activateIgnoringOtherApps:YES];

@@ -10,6 +10,14 @@ NS_ASSUME_NONNULL_BEGIN
 + (instancetype)floatingPanelWithContentRect:(NSRect)contentRect
                                   styleMask:(NSWindowStyleMask)styleMask;
 
+/// The screen under the pointer. Menu bar panels should open where the user is
+/// looking, not necessarily on the screen that owns the key window.
++ (nullable NSScreen *)screenContainingMouse;
+
+/// Centers the panel on the screen under the pointer, keeping it inside the
+/// visible frame.
+- (void)centerOnActiveScreen;
+
 @end
 
 NS_ASSUME_NONNULL_END

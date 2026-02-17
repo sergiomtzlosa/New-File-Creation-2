@@ -12,6 +12,7 @@ static NSDictionary<NSString *, id> *NFDefaultSettings(void) {
         @"playSound": @NO,
         @"soundName": @"Glass",
         @"showToast": @YES,
+        @"keepQuickPanelOpenAfterDrop": @NO,
         @"launchAtLogin": @NO,
         @"showMenuBarIcon": @YES,
         @"globalShortcut": @"control+option+n",

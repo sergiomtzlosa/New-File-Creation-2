@@ -24,6 +24,7 @@ static NSToolbarItemIdentifier const NFCToolbarInspector = @"NFCToolbarInspector
 @property (nonatomic, strong) NSSplitViewItem *sidebarItem;
 @property (nonatomic, strong) NSSplitViewItem *inspectorItem;
 @property (nonatomic, strong) NSSearchField *searchField;
+@property (nonatomic, assign) BOOL didPositionWindow;
 @end
 
 @implementation NFCMainWindowController
@@ -38,7 +39,6 @@ static NSToolbarItemIdentifier const NFCToolbarInspector = @"NFCToolbarInspector
     window.titlebarAppearsTransparent = NO;
     window.toolbarStyle = NSWindowToolbarStyleUnified;
     window.tabbingMode = NSWindowTabbingModeDisallowed;
-    [window center];
 
     self = [super initWithWindow:window];
     if (self) {
@@ -46,6 +46,14 @@ static NSToolbarItemIdentifier const NFCToolbarInspector = @"NFCToolbarInspector
         [self setupToolbar];
     }
     return self;
+}
+
+- (void)showWindow:(id)sender {
+    if (!self.didPositionWindow) {
+        [(NFCFloatingPanel *)self.window centerOnActiveScreen];
+        self.didPositionWindow = YES;
+    }
+    [super showWindow:sender];
 }
 
 - (void)setupInterface {
