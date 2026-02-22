@@ -21,6 +21,17 @@ typedef NS_OPTIONS(NSUInteger, NFFinderMenuOptions) {
 + (NSArray<NFTemplate *> *)orderedTemplatesForConfig:(NFConfig *)config
                                       favoritesFirst:(BOOL)favoritesFirst;
 
++ (NSArray<NFTemplate *> *)orderedTemplatesForConfig:(NFConfig *)config
+                                      favoritesFirst:(BOOL)favoritesFirst
+                                            sortMode:(NFTemplateSortMode)sortMode;
+
+/// Reads the persisted `sortMode` setting (manual by default).
++ (NFTemplateSortMode)sortModeForConfig:(NFConfig *)config;
+
++ (NSComparisonResult)compareTemplate:(NFTemplate *)a
+                             toTemplate:(NFTemplate *)b
+                               sortMode:(NFTemplateSortMode)sortMode;
+
 + (NSImage *)iconForTemplate:(NFTemplate *)template;
 
 @end

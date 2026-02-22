@@ -249,6 +249,47 @@ static NSDictionary<NSString *, id> *NFDefaultSettings(void) {
     return YES;
 }
 
+- (BOOL)removeCustomCategory:(NSString *)category {
+    NSString *name = [category stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+    if (name.length == 0) {
+        return NO;
+    }
+    NSMutableArray<NSString *> *custom = [[self customCategories] mutableCopy];
+    NSInteger match = -1;
+    for (NSUInteger index = 0; index < custom.count; index++) {
+        if ([custom[index] localizedCaseInsensitiveCompare:name] == NSOrderedSame) {
+            match = (NSInteger)index;
+            break;
+        }
+    }
+    if (match < 0) {
+        return NO;
+    }
+    [custom removeObjectAtIndex:(NSUInteger)match];
+    [self setSetting:custom forKey:@"customCategories"];
+    for (NFTemplate *template in self.templates) {
+        if ([template.category localizedCaseInsensitiveCompare:name] == NSOrderedSame) {
+            template.category = NFDefaultCategoryOther;
+        }
+    }
+    return YES;
+}
+
+- (BOOL)removeCategory:(NSString *)category {
+    NSString *name = [category stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+    if (name.length == 0) {
+        return NO;
+    }
+    BOOL found = [self removeCustomCategory:name];
+    for (NFTemplate *template in self.templates) {
+        if ([template.category localizedCaseInsensitiveCompare:name] == NSOrderedSame) {
+            template.category = NFDefaultCategoryOther;
+            found = YES;
+        }
+    }
+    return found;
+}
+
 
 - (id)settingForKey:(NSString *)key {
     return self.settings[key];

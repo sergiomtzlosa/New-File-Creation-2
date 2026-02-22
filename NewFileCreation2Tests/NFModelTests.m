@@ -128,4 +128,37 @@
     XCTAssertTrue([restored.categories containsObject:@"Client Work"]);
 }
 
+- (void)testRemovingCategoriesMovesTemplatesToOther {
+    NFConfig *config = [NFConfig defaultConfig];
+    XCTAssertTrue([config addCustomCategory:@"Client Work"]);
+
+    NFTemplate *client = [NFTemplate templateWithFileName:@"Brief.md"];
+    client.category = @"Client Work";
+    NFTemplate *document = [NFTemplate templateWithFileName:@"Notes.txt"];
+    document.category = @"Documents";
+    [config.templates addObjectsFromArray:@[client, document]];
+
+    XCTAssertTrue([config removeCategory:@"Client Work"]);
+    XCTAssertEqualObjects(client.category, NFDefaultCategoryOther);
+    XCTAssertFalse([config.categories containsObject:@"Client Work"]);
+    XCTAssertEqual(config.customCategories.count, 0u);
+
+    XCTAssertTrue([config removeCategory:@"Documents"]);
+    XCTAssertEqualObjects(document.category, NFDefaultCategoryOther);
+    XCTAssertFalse([config removeCategory:@"Documents"]);
+    XCTAssertFalse([config removeCategory:@"   "]);
+}
+
+- (void)testSortModeStringsRoundTrip {
+    NSArray<NSNumber *> *modes = @[@(NFTemplateSortManual), @(NFTemplateSortName),
+                                   @(NFTemplateSortCategory), @(NFTemplateSortFileType),
+                                   @(NFTemplateSortLastUsed), @(NFTemplateSortMostUsed)];
+    for (NSNumber *mode in modes) {
+        NSString *value = NFTemplateSortModeString((NFTemplateSortMode)mode.integerValue);
+        XCTAssertEqual(NFTemplateSortModeFromString(value), (NFTemplateSortMode)mode.integerValue);
+    }
+    XCTAssertEqual(NFTemplateSortModeFromString(@"file-type"), NFTemplateSortFileType);
+    XCTAssertEqual(NFTemplateSortModeFromString(@"unknown-value"), NFTemplateSortManual);
+}
+
 @end

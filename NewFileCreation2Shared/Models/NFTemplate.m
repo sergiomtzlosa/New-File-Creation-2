@@ -3,6 +3,40 @@
 NSString * const NFDefaultBaseName = @"Untitled";
 NSString * const NFDefaultCategoryOther = @"Other";
 
+NSString *NFTemplateSortModeString(NFTemplateSortMode mode) {
+    switch (mode) {
+        case NFTemplateSortName: return @"name";
+        case NFTemplateSortCategory: return @"category";
+        case NFTemplateSortFileType: return @"fileType";
+        case NFTemplateSortLastUsed: return @"lastUsed";
+        case NFTemplateSortMostUsed: return @"mostUsed";
+        case NFTemplateSortManual:
+        default: return @"manual";
+    }
+}
+
+NFTemplateSortMode NFTemplateSortModeFromString(NSString *value) {
+    NSString *normalized = [value.lowercaseString stringByReplacingOccurrencesOfString:@"-" withString:@""];
+    normalized = [normalized stringByReplacingOccurrencesOfString:@"_" withString:@""];
+    if ([normalized isEqualToString:@"name"] || [normalized isEqualToString:@"displayname"]) {
+        return NFTemplateSortName;
+    }
+    if ([normalized isEqualToString:@"category"] || [normalized isEqualToString:@"categories"]) {
+        return NFTemplateSortCategory;
+    }
+    if ([normalized isEqualToString:@"filetype"] || [normalized isEqualToString:@"extension"] ||
+        [normalized isEqualToString:@"type"]) {
+        return NFTemplateSortFileType;
+    }
+    if ([normalized isEqualToString:@"lastused"] || [normalized isEqualToString:@"recent"]) {
+        return NFTemplateSortLastUsed;
+    }
+    if ([normalized isEqualToString:@"mostused"] || [normalized isEqualToString:@"usage"]) {
+        return NFTemplateSortMostUsed;
+    }
+    return NFTemplateSortManual;
+}
+
 static NSString *NFStringOr(NSDictionary *dict, NSString *key, NSString *fallback) {
     id value = dict[key];
     if ([value isKindOfClass:[NSString class]] && [value length] > 0) {

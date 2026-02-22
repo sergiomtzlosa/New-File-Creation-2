@@ -25,6 +25,11 @@ NS_ASSUME_NONNULL_BEGIN
 - (NSArray<NSString *> *)customCategories;
 /// Adds a user-defined category. Returns NO when the name is blank or already exists.
 - (BOOL)addCustomCategory:(NSString *)category;
+/// Removes a user-defined category and moves its templates to Other.
+- (BOOL)removeCustomCategory:(NSString *)category;
+/// Removes any category from the library, moving its templates to Other.
+/// Built-in categories can reappear when a matching template is added.
+- (BOOL)removeCategory:(NSString *)category;
 
 - (id)settingForKey:(NSString *)key;
 - (BOOL)boolSettingForKey:(NSString *)key defaultValue:(BOOL)defaultValue;
