@@ -219,40 +219,49 @@ static NSString * const NFCFinderBundleIdentifier = @"com.sid.newfilecreation2";
         }
     }
 
-    NSError *error = nil;
-    NSURL *templateURL = [self templateURLForTemplate:template];
-    NSURL *created = [NFFileCreator createFileFromTemplateAtURL:templateURL
-                                                       template:template
-                                                      directory:directory
-                                                       baseName:baseName
-                                                         unique:YES
-                                                          error:&error];
-    if (!created) {
-        // The extension is sandboxed. If the direct copy is denied, ask the
-        // non-sandboxed app to perform the same request through its URL scheme.
-        if (error.code == NFErrorDestinationNotWritable || error.code == NFErrorTemplateUnreadable) {
-            NFRequest *request = [[NFRequest alloc] init];
-            request.kind = NFRequestKindCreate;
-            request.templateIdentifier = template.identifier;
-            request.directoryPath = directory.path;
-            request.baseName = baseName;
-            request.unique = YES;
-            request.revealAfterCreate = YES;
-            [[NSWorkspace sharedWorkspace] openURL:[request URLRepresentation]];
-            return;
-        }
-        NSLog(@"Finder extension could not create a file: %@", error.localizedDescription);
-        NSAlert *alert = [[NSAlert alloc] init];
-        alert.messageText = NFLocalizedString(@"Could not create the file");
-        alert.informativeText = error.localizedDescription ?: NFLocalizedString(@"An unexpected error occurred.");
-        [alert runModal];
+    // Finder extensions are sandboxed and cannot write to arbitrary folders or
+    // the Desktop. Hand the request to the non-sandboxed app, which performs the
+    // copy, applies post-create actions, and updates recents.
+    NFRequest *request = [[NFRequest alloc] init];
+    request.kind = NFRequestKindCreate;
+    request.templateIdentifier = template.identifier;
+    request.directoryPath = directory.path;
+    request.baseName = baseName;
+    request.unique = YES;
+    request.revealAfterCreate = YES;
+    [self openCreateRequestInApp:request];
+}
+
+- (void)openCreateRequestInApp:(NFRequest *)request {
+    NSURL *url = [request URLRepresentation];
+    if (!url) {
+        NSBeep();
         return;
     }
 
-    NSLog(@"Finder extension created %@", created.path);
-    [[NSWorkspace sharedWorkspace] activateFileViewerSelectingURLs:@[created]];
-    if ([config boolSettingForKey:@"openAfterCreate" defaultValue:NO]) {
-        [[NSWorkspace sharedWorkspace] openURL:created];
+    void (^fallback)(void) = ^{
+        if (![[NSWorkspace sharedWorkspace] openURL:url]) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                NSAlert *alert = [[NSAlert alloc] init];
+                alert.messageText = NFLocalizedString(@"Could not create the file");
+                alert.informativeText = NFLocalizedString(@"Open New File Creation 2 once, then try the Finder menu again.");
+                [alert addButtonWithTitle:NFLocalizedString(@"OK")];
+                [alert runModal];
+            });
+        }
+    };
+
+    NSExtensionContext *context = (NSExtensionContext *)[FIFinderSyncController defaultController];
+    if ([context respondsToSelector:@selector(openURL:completionHandler:)]) {
+        [context openURL:url completionHandler:^(BOOL success) {
+            if (!success) {
+                dispatch_async(dispatch_get_main_queue(), fallback);
+            }
+        }];
+        return;
+    }
+    if (![[NSWorkspace sharedWorkspace] openURL:url]) {
+        fallback();
     }
 }
 

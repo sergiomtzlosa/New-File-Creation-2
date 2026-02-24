@@ -72,4 +72,38 @@
     XCTAssertFalse(menu.itemArray.firstObject.enabled);
 }
 
+- (void)testSortModesOrderByNameCategoryAndFileType {
+    NFConfig *config = [NFConfig defaultConfig];
+    NFTemplate *zeta = [self templateWithName:@"Zeta.md" category:@"Work" sortIndex:0 favorite:NO enabled:YES];
+    NFTemplate *alpha = [self templateWithName:@"Alpha.txt" category:@"Home" sortIndex:1 favorite:NO enabled:YES];
+    NFTemplate *beta = [self templateWithName:@"Beta.swift" category:@"Home" sortIndex:2 favorite:NO enabled:YES];
+    [config.templates addObjectsFromArray:@[zeta, alpha, beta]];
+    [config setSetting:@"name" forKey:@"sortMode"];
+
+    NSArray<NFTemplate *> *byName = [NFFinderMenuBuilder orderedTemplatesForConfig:config favoritesFirst:NO];
+    XCTAssertEqualObjects(byName, (@[alpha, beta, zeta]));
+
+    [config setSetting:@"category" forKey:@"sortMode"];
+    NSArray<NFTemplate *> *byCategory = [NFFinderMenuBuilder orderedTemplatesForConfig:config favoritesFirst:NO];
+    XCTAssertEqualObjects(byCategory, (@[alpha, beta, zeta]),
+                          @"Templates are grouped by category, then sorted by display name");
+
+    [config setSetting:@"fileType" forKey:@"sortMode"];
+    NSArray<NFTemplate *> *byType = [NFFinderMenuBuilder orderedTemplatesForConfig:config favoritesFirst:NO];
+    XCTAssertEqualObjects(byType, (@[zeta, beta, alpha]),
+                          @"File type sorting compares extensions: md, swift, txt");
+    XCTAssertEqual([NFFinderMenuBuilder sortModeForConfig:config], NFTemplateSortFileType);
+}
+
+- (void)testFavoritesRemainFirstWithANonManualSortMode {
+    NFConfig *config = [NFConfig defaultConfig];
+    NFTemplate *zeta = [self templateWithName:@"Zeta.txt" category:@"Documents" sortIndex:0 favorite:NO enabled:YES];
+    NFTemplate *alpha = [self templateWithName:@"Alpha.txt" category:@"Documents" sortIndex:1 favorite:YES enabled:YES];
+    [config.templates addObjectsFromArray:@[zeta, alpha]];
+    [config setSetting:@"name" forKey:@"sortMode"];
+
+    NSArray<NFTemplate *> *ordered = [NFFinderMenuBuilder orderedTemplatesForConfig:config favoritesFirst:YES];
+    XCTAssertEqualObjects(ordered, (@[alpha, zeta]));
+}
+
 @end

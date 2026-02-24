@@ -5,6 +5,18 @@ NS_ASSUME_NONNULL_BEGIN
 FOUNDATION_EXPORT NSString * const NFDefaultBaseName;
 FOUNDATION_EXPORT NSString * const NFDefaultCategoryOther;
 
+typedef NS_ENUM(NSInteger, NFTemplateSortMode) {
+    NFTemplateSortManual = 0,
+    NFTemplateSortName,
+    NFTemplateSortCategory,
+    NFTemplateSortFileType,
+    NFTemplateSortLastUsed,
+    NFTemplateSortMostUsed
+};
+
+FOUNDATION_EXPORT NSString *NFTemplateSortModeString(NFTemplateSortMode mode);
+FOUNDATION_EXPORT NFTemplateSortMode NFTemplateSortModeFromString(NSString *value);
+
 @interface NFTemplate : NSObject <NSCopying>
 
 @property (nonatomic, copy) NSString *identifier;

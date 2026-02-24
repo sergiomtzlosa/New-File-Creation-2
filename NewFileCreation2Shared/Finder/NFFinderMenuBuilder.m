@@ -4,16 +4,70 @@
 
 @implementation NFFinderMenuBuilder
 
++ (NFTemplateSortMode)sortModeForConfig:(NFConfig *)config {
+    return NFTemplateSortModeFromString([config stringSettingForKey:@"sortMode" defaultValue:@"manual"]);
+}
+
++ (NSComparisonResult)compareTemplate:(NFTemplate *)a
+                             toTemplate:(NFTemplate *)b
+                               sortMode:(NFTemplateSortMode)sortMode {
+    switch (sortMode) {
+        case NFTemplateSortName:
+            return [a.resolvedDisplayName localizedCaseInsensitiveCompare:b.resolvedDisplayName];
+        case NFTemplateSortCategory: {
+            NSComparisonResult result = [a.category localizedCaseInsensitiveCompare:b.category];
+            if (result != NSOrderedSame) {
+                return result;
+            }
+            return [a.resolvedDisplayName localizedCaseInsensitiveCompare:b.resolvedDisplayName];
+        }
+        case NFTemplateSortFileType: {
+            NSComparisonResult result = [a.fileExtension localizedCaseInsensitiveCompare:b.fileExtension];
+            if (result != NSOrderedSame) {
+                return result;
+            }
+            return [a.resolvedDisplayName localizedCaseInsensitiveCompare:b.resolvedDisplayName];
+        }
+        case NFTemplateSortLastUsed:
+            if (!a.lastUsedAt && !b.lastUsedAt) {
+                return [a.resolvedDisplayName localizedCaseInsensitiveCompare:b.resolvedDisplayName];
+            }
+            if (!a.lastUsedAt) {
+                return NSOrderedDescending;
+            }
+            if (!b.lastUsedAt) {
+                return NSOrderedAscending;
+            }
+            return [b.lastUsedAt compare:a.lastUsedAt];
+        case NFTemplateSortMostUsed:
+            if (a.useCount == b.useCount) {
+                return [a.resolvedDisplayName localizedCaseInsensitiveCompare:b.resolvedDisplayName];
+            }
+            return a.useCount > b.useCount ? NSOrderedAscending : NSOrderedDescending;
+        case NFTemplateSortManual:
+        default:
+            if (a.sortIndex != b.sortIndex) {
+                return a.sortIndex < b.sortIndex ? NSOrderedAscending : NSOrderedDescending;
+            }
+            return [a.resolvedDisplayName localizedCaseInsensitiveCompare:b.resolvedDisplayName];
+    }
+}
+
 + (NSArray<NFTemplate *> *)orderedTemplatesForConfig:(NFConfig *)config favoritesFirst:(BOOL)favoritesFirst {
+    return [self orderedTemplatesForConfig:config
+                            favoritesFirst:favoritesFirst
+                                  sortMode:[self sortModeForConfig:config]];
+}
+
++ (NSArray<NFTemplate *> *)orderedTemplatesForConfig:(NFConfig *)config
+                                      favoritesFirst:(BOOL)favoritesFirst
+                                            sortMode:(NFTemplateSortMode)sortMode {
     NSArray<NFTemplate *> *enabled = config.enabledTemplates;
     return [enabled sortedArrayUsingComparator:^NSComparisonResult(NFTemplate *a, NFTemplate *b) {
         if (favoritesFirst && a.favorite != b.favorite) {
             return a.favorite ? NSOrderedAscending : NSOrderedDescending;
         }
-        if (a.sortIndex != b.sortIndex) {
-            return a.sortIndex < b.sortIndex ? NSOrderedAscending : NSOrderedDescending;
-        }
-        return [a.resolvedDisplayName localizedCaseInsensitiveCompare:b.resolvedDisplayName];
+        return [self compareTemplate:a toTemplate:b sortMode:sortMode];
     }];
 }
 
