@@ -62,7 +62,7 @@
     self = [super initWithNibName:nil bundle:nil];
     if (self) {
         _filter = NFCTemplateFilterAll;
-        _sortMode = NFCTemplateSortManual;
+        _sortMode = NFTemplateSortManual;
         _displayedTemplates = @[];
     }
     return self;
@@ -218,26 +218,35 @@
 
     [templates sortUsingComparator:^NSComparisonResult(NFTemplate *a, NFTemplate *b) {
         switch (self.sortMode) {
-            case NFCTemplateSortName:
+            case NFTemplateSortName:
                 return [a.resolvedDisplayName localizedCaseInsensitiveCompare:b.resolvedDisplayName];
-            case NFCTemplateSortCategory:
+            case NFTemplateSortCategory:
                 if ([a.category isEqualToString:b.category]) {
                     return [a.resolvedDisplayName localizedCaseInsensitiveCompare:b.resolvedDisplayName];
                 }
                 return [a.category localizedCaseInsensitiveCompare:b.category];
-            case NFCTemplateSortLastUsed:
+            case NFTemplateSortFileType: {
+                NSString *aType = a.fileExtension.length > 0 ? a.fileExtension : a.resolvedDisplayName.pathExtension;
+                NSString *bType = b.fileExtension.length > 0 ? b.fileExtension : b.resolvedDisplayName.pathExtension;
+                NSComparisonResult typeOrder = [aType localizedCaseInsensitiveCompare:bType];
+                if (typeOrder != NSOrderedSame) {
+                    return typeOrder;
+                }
+                return [a.resolvedDisplayName localizedCaseInsensitiveCompare:b.resolvedDisplayName];
+            }
+            case NFTemplateSortLastUsed:
                 if (!a.lastUsedAt && !b.lastUsedAt) {
                     return [a.resolvedDisplayName localizedCaseInsensitiveCompare:b.resolvedDisplayName];
                 }
                 if (!a.lastUsedAt) return NSOrderedDescending;
                 if (!b.lastUsedAt) return NSOrderedAscending;
                 return [b.lastUsedAt compare:a.lastUsedAt];
-            case NFCTemplateSortMostUsed:
+            case NFTemplateSortMostUsed:
                 if (a.useCount == b.useCount) {
                     return [a.resolvedDisplayName localizedCaseInsensitiveCompare:b.resolvedDisplayName];
                 }
                 return a.useCount > b.useCount ? NSOrderedAscending : NSOrderedDescending;
-            case NFCTemplateSortManual:
+            case NFTemplateSortManual:
             default:
                 if (a.sortIndex != b.sortIndex) {
                     return a.sortIndex < b.sortIndex ? NSOrderedAscending : NSOrderedDescending;
@@ -271,7 +280,7 @@
     [self reloadData];
 }
 
-- (void)setSortMode:(NFCTemplateSortMode)sortMode {
+- (void)setSortMode:(NFTemplateSortMode)sortMode {
     _sortMode = sortMode;
     [self reloadData];
 }
@@ -348,8 +357,8 @@
     }
     self.contextTemplate = template;
     NSMenu *menu = [[NSMenu alloc] initWithTitle:@""];
-    [menu addItemWithTitle:NFLocalizedString(@"New File") action:@selector(createContextTemplate:) keyEquivalent:@""].target = self;
-    [menu addItemWithTitle:NFLocalizedString(@"New File…") action:@selector(createContextTemplateWithPanel:) keyEquivalent:@""].target = self;
+    [menu addItemWithTitle:NFLocalizedString(@"Create in Default Folder") action:@selector(createContextTemplate:) keyEquivalent:@""].target = self;
+    [menu addItemWithTitle:NFLocalizedString(@"Choose Name and Location…") action:@selector(createContextTemplateWithPanel:) keyEquivalent:@""].target = self;
     [menu addItem:[NSMenuItem separatorItem]];
     NSMenuItem *favorite = [menu addItemWithTitle:template.favorite ? NFLocalizedString(@"Remove Favorite") : NFLocalizedString(@"Favorite") action:@selector(toggleContextFavorite:) keyEquivalent:@""];
     favorite.target = self;

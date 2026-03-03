@@ -10,20 +10,12 @@ typedef NS_ENUM(NSInteger, NFCTemplateFilter) {
     NFCTemplateFilterCategory
 };
 
-typedef NS_ENUM(NSInteger, NFCTemplateSortMode) {
-    NFCTemplateSortManual = 0,
-    NFCTemplateSortName,
-    NFCTemplateSortCategory,
-    NFCTemplateSortLastUsed,
-    NFCTemplateSortMostUsed
-};
-
 @interface NFCTemplateGridViewController : NSViewController
 
 @property (nonatomic, assign) NFCTemplateFilter filter;
 @property (nonatomic, copy, nullable) NSString *categoryFilter;
 @property (nonatomic, copy, nullable) NSString *searchQuery;
-@property (nonatomic, assign) NFCTemplateSortMode sortMode;
+@property (nonatomic, assign) NFTemplateSortMode sortMode;
 
 @property (nonatomic, readonly, nullable) NFTemplate *selectedTemplate;
 @property (nonatomic, copy, nullable) void (^onCreate)(NFTemplate *template);

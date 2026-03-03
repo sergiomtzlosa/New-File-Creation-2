@@ -161,8 +161,14 @@
     settings.target = self;
     [menu addItem:settings];
 
-    NSMenuItem *welcome = [[NSMenuItem alloc] initWithTitle:NFLocalizedString(@"Welcome…") action:@selector(welcomeAction:) keyEquivalent:@""];
+    NSMenuItem *welcome = [[NSMenuItem alloc] initWithTitle:NFLocalizedString(@"Get Started…") action:@selector(welcomeAction:) keyEquivalent:@""];
     welcome.target = self;
+    NSImage *appIcon = NSApp.applicationIconImage;
+    if (appIcon) {
+        NSImage *menuIcon = [appIcon copy];
+        menuIcon.size = NSMakeSize(16, 16);
+        welcome.image = menuIcon;
+    }
     [menu addItem:welcome];
 
     [menu addItem:[NSMenuItem separatorItem]];

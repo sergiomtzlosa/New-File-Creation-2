@@ -7,6 +7,7 @@
 #import "NFConfig.h"
 #import "NFCFloatingPanel.h"
 #import "NFCToastPresenter.h"
+#import "NFFinderMenuBuilder.h"
 #import "NFLocalization.h"
 #import <UniformTypeIdentifiers/UniformTypeIdentifiers.h>
 
@@ -149,6 +150,8 @@ static NSToolbarItemIdentifier const NFCToolbarInspector = @"NFCToolbarInspector
 }
 
 - (void)reloadAll {
+    NFConfig *config = [[NFConfigStore sharedStore] loadConfigCreatingIfNeeded:YES error:nil] ?: [NFConfig defaultConfig];
+    self.gridViewController.sortMode = [NFFinderMenuBuilder sortModeForConfig:config];
     [self.sidebarViewController reloadData];
     [self.gridViewController reloadData];
     NFTemplate *selected = self.gridViewController.selectedTemplate;
@@ -273,17 +276,17 @@ static NSToolbarItemIdentifier const NFCToolbarInspector = @"NFCToolbarInspector
  willBeInsertedIntoToolbar:(BOOL)flag {
     NSToolbarItem *item = [[NSToolbarItem alloc] initWithItemIdentifier:itemIdentifier];
     if ([itemIdentifier isEqualToString:NFCToolbarNewFile]) {
-        item.label = NFLocalizedString(@"New File");
-        item.paletteLabel = NFLocalizedString(@"New File");
-        item.toolTip = NFLocalizedString(@"Create a file from the selected template");
-        item.image = [NSImage imageWithSystemSymbolName:@"doc.badge.plus" accessibilityDescription:NFLocalizedString(@"New File")];
+        item.label = NFLocalizedString(@"Create File");
+        item.paletteLabel = NFLocalizedString(@"Create File");
+        item.toolTip = NFLocalizedString(@"Create the selected template in the default folder");
+        item.image = [NSImage imageWithSystemSymbolName:@"doc.badge.plus" accessibilityDescription:NFLocalizedString(@"Create File")];
         item.target = self;
         item.action = @selector(createSelectedTemplate);
     } else if ([itemIdentifier isEqualToString:NFCToolbarNewFilePanel]) {
-        item.label = NFLocalizedString(@"New File…");
-        item.paletteLabel = NFLocalizedString(@"New File…");
-        item.toolTip = NFLocalizedString(@"Choose a name and location");
-        item.image = [NSImage imageWithSystemSymbolName:@"square.and.pencil" accessibilityDescription:NFLocalizedString(@"New File…")];
+        item.label = NFLocalizedString(@"Create with Name…");
+        item.paletteLabel = NFLocalizedString(@"Create with Name…");
+        item.toolTip = NFLocalizedString(@"Choose a name and location for the new file");
+        item.image = [NSImage imageWithSystemSymbolName:@"square.and.pencil" accessibilityDescription:NFLocalizedString(@"Create with Name…")];
         item.target = self;
         item.action = @selector(createSelectedTemplateWithPanel);
     } else if ([itemIdentifier isEqualToString:NFCToolbarAddTemplate]) {
@@ -307,6 +310,8 @@ static NSToolbarItemIdentifier const NFCToolbarInspector = @"NFCToolbarInspector
         item.label = NFLocalizedString(@"Search");
         item.paletteLabel = NFLocalizedString(@"Search");
         [field.widthAnchor constraintEqualToConstant:220].active = YES;
+        [field setContentHuggingPriority:NSLayoutPriorityRequired
+                          forOrientation:NSLayoutConstraintOrientationHorizontal];
     } else if ([itemIdentifier isEqualToString:NFCToolbarInspector]) {
         item.label = NFLocalizedString(@"Inspector");
         item.paletteLabel = NFLocalizedString(@"Inspector");

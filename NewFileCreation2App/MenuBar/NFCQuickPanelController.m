@@ -63,21 +63,44 @@ static NSScreen *NFCScreenContainingPoint(NSPoint point) {
     self = [super initWithWindow:panel];
     if (self) {
         [self setupInterface];
+        NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
+        [center addObserver:self selector:@selector(configDidChange:) name:NFConfigDidChangeNotification object:nil];
+        [[NSDistributedNotificationCenter defaultCenter] addObserver:self
+                                                            selector:@selector(configDidChange:)
+                                                                name:NFConfigDistributedChangeNotification
+                                                              object:nil];
     }
     return self;
+}
+
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    [[NSDistributedNotificationCenter defaultCenter] removeObserver:self];
+}
+
+- (void)configDidChange:(NSNotification *)notification {
+    dispatch_async(dispatch_get_main_queue(), ^{
+        if (self.window.isVisible) {
+            [self reloadData];
+        }
+    });
 }
 
 - (void)setupInterface {
     NSView *content = self.window.contentView;
     content.wantsLayer = YES;
 
-    NSImageView *headerIcon = [[NSImageView alloc] init];
-    headerIcon.identifier = @"QuickPanelHeaderIcon";
-    headerIcon.translatesAutoresizingMaskIntoConstraints = NO;
-    headerIcon.image = [NSImage imageWithSystemSymbolName:@"doc.badge.plus" accessibilityDescription:@"New File Creation 2"];
-    headerIcon.contentTintColor = NSColor.controlAccentColor;
-    headerIcon.symbolConfiguration = [NSImageSymbolConfiguration configurationWithPointSize:20 weight:NSFontWeightMedium];
-    [content addSubview:headerIcon];
+    NSButton *getStarted = [NSButton buttonWithImage:NSApp.applicationIconImage
+                                              target:self
+                                              action:@selector(openGetStarted:)];
+    getStarted.identifier = @"QuickPanelGetStartedButton";
+    getStarted.translatesAutoresizingMaskIntoConstraints = NO;
+    getStarted.bordered = NO;
+    getStarted.imagePosition = NSImageOnly;
+    getStarted.imageScaling = NSImageScaleProportionallyUpOrDown;
+    getStarted.toolTip = NFLocalizedString(@"Get Started");
+    getStarted.accessibilityLabel = NFLocalizedString(@"Get Started");
+    [content addSubview:getStarted];
 
     NSTextField *title = [NSTextField labelWithString:NFLocalizedString(@"Quick New File")];
     title.identifier = @"QuickPanelTitle";
@@ -163,11 +186,11 @@ static NSScreen *NFCScreenContainingPoint(NSPoint point) {
         [title.topAnchor constraintEqualToAnchor:content.topAnchor constant:16],
         [title.centerXAnchor constraintEqualToAnchor:content.centerXAnchor],
         [title.leadingAnchor constraintGreaterThanOrEqualToAnchor:content.leadingAnchor constant:56],
-        [title.trailingAnchor constraintLessThanOrEqualToAnchor:headerIcon.leadingAnchor constant:-10],
-        [headerIcon.trailingAnchor constraintEqualToAnchor:preferences.leadingAnchor constant:-10],
-        [headerIcon.centerYAnchor constraintEqualToAnchor:title.centerYAnchor],
-        [headerIcon.widthAnchor constraintEqualToConstant:24],
-        [headerIcon.heightAnchor constraintEqualToConstant:24],
+        [title.trailingAnchor constraintLessThanOrEqualToAnchor:getStarted.leadingAnchor constant:-10],
+        [getStarted.trailingAnchor constraintEqualToAnchor:preferences.leadingAnchor constant:-8],
+        [getStarted.centerYAnchor constraintEqualToAnchor:title.centerYAnchor],
+        [getStarted.widthAnchor constraintEqualToConstant:22],
+        [getStarted.heightAnchor constraintEqualToConstant:22],
         [preferences.trailingAnchor constraintEqualToAnchor:content.trailingAnchor constant:-16],
         [preferences.centerYAnchor constraintEqualToAnchor:title.centerYAnchor],
         [preferences.widthAnchor constraintEqualToConstant:24],
@@ -317,6 +340,13 @@ static NSScreen *NFCScreenContainingPoint(NSPoint point) {
     [self hidePanel];
     if (self.onOpenPreferences) {
         self.onOpenPreferences();
+    }
+}
+
+- (void)openGetStarted:(id)sender {
+    [self hidePanel];
+    if (self.onOpenGetStarted) {
+        self.onOpenGetStarted();
     }
 }
 
