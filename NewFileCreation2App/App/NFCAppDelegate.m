@@ -117,6 +117,9 @@
     self.quickPanelController.onOpenPreferences = ^{
         [weakSelf showSettings];
     };
+    self.quickPanelController.onOpenGetStarted = ^{
+        [weakSelf showWelcome];
+    };
 }
 
 - (void)setupMenuBar {

@@ -57,14 +57,14 @@
     self.categoryLabel.alignment = NSTextAlignmentCenter;
     [self.contentView addSubview:self.categoryLabel];
 
-    self.createButton = [NSButton buttonWithTitle:NFLocalizedString(@"New File") target:self action:@selector(createAction:)];
+    self.createButton = [NSButton buttonWithTitle:NFLocalizedString(@"Create in Default Folder") target:self action:@selector(createAction:)];
     self.createButton.translatesAutoresizingMaskIntoConstraints = NO;
     self.createButton.bezelStyle = NSBezelStyleRounded;
     self.createButton.controlSize = NSControlSizeLarge;
     self.createButton.keyEquivalent = @"\r";
     [self.contentView addSubview:self.createButton];
 
-    self.createPanelButton = [NSButton buttonWithTitle:NFLocalizedString(@"New File…") target:self action:@selector(createPanelAction:)];
+    self.createPanelButton = [NSButton buttonWithTitle:NFLocalizedString(@"Choose Name and Location…") target:self action:@selector(createPanelAction:)];
     self.createPanelButton.translatesAutoresizingMaskIntoConstraints = NO;
     self.createPanelButton.bezelStyle = NSBezelStyleRounded;
     self.createPanelButton.controlSize = NSControlSizeLarge;

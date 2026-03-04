@@ -7,6 +7,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, copy, nullable) void (^onCreateTemplate)(NFTemplate *template);
 @property (nonatomic, copy, nullable) void (^onOpenPreferences)(void);
+@property (nonatomic, copy, nullable) void (^onOpenGetStarted)(void);
 
 - (void)showPanel;
 /// Shows the panel below a rectangle in screen coordinates, such as the status item.

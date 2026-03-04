@@ -264,7 +264,7 @@ static NSView *NFViewWithIdentifier(NSView *root, NSString *identifier) {
     XCTAssertEqual(NFNumberOfItemsShownByGrid(grid), 1);
 
     grid.filter = NFCTemplateFilterAll;
-    grid.sortMode = NFCTemplateSortName;
+    grid.sortMode = NFTemplateSortName;
     NSArray<NFTemplate *> *displayed = [grid valueForKey:@"displayedTemplates"];
     for (NSUInteger index = 1; index < displayed.count; index++) {
         NSComparisonResult result = [displayed[index - 1].resolvedDisplayName
@@ -296,8 +296,8 @@ static NSView *NFViewWithIdentifier(NSView *root, NSString *identifier) {
     XCTAssertNotNil(menu);
 
     NSArray<NSString *> *expectedTitles = @[
-        NFLocalizedString(@"New File"),
-        NFLocalizedString(@"New File…"),
+        NFLocalizedString(@"Create in Default Folder"),
+        NFLocalizedString(@"Choose Name and Location…"),
         NFLocalizedString(@"Favorite"),
         NFLocalizedString(@"Reveal in Finder"),
         NFLocalizedString(@"Rename…"),
@@ -437,16 +437,24 @@ static NSView *NFViewWithIdentifier(NSView *root, NSString *identifier) {
     XCTAssertEqualObjects(hint.identifier, @"QuickPanelDragHint");
 
     [panel.window.contentView layoutSubtreeIfNeeded];
-    NSView *headerIcon = NFViewWithIdentifier(panel.window.contentView, @"QuickPanelHeaderIcon");
+    NSButton *getStarted = (NSButton *)NFViewWithIdentifier(panel.window.contentView, @"QuickPanelGetStartedButton");
     NSView *panelTitle = NFViewWithIdentifier(panel.window.contentView, @"QuickPanelTitle");
-    XCTAssertNotNil(headerIcon);
+    XCTAssertNotNil(getStarted);
     XCTAssertNotNil(panelTitle);
+    XCTAssertEqualObjects(getStarted.toolTip, NFLocalizedString(@"Get Started"));
     XCTAssertEqualWithAccuracy(NSMidX(panelTitle.frame), NSMidX(panel.window.contentView.bounds), 1.0,
                                @"The panel title should be centered in the top bar");
     XCTAssertGreaterThanOrEqual(NSMinX(panelTitle.frame), 56.0,
                                 @"The title must clear the close button");
-    XCTAssertGreaterThanOrEqual(NSMinX(headerIcon.frame), NSMaxX(panelTitle.frame),
+    XCTAssertGreaterThanOrEqual(NSMinX(getStarted.frame), NSMaxX(panelTitle.frame),
                                 @"The app icon must sit to the right of the title, away from the close button");
+
+    __block BOOL openedGetStarted = NO;
+    panel.onOpenGetStarted = ^{
+        openedGetStarted = YES;
+    };
+    [getStarted performClick:nil];
+    XCTAssertTrue(openedGetStarted);
 
     NSButton *preferences = (NSButton *)NFViewWithIdentifier(panel.window.contentView, @"QuickPanelPreferencesButton");
     XCTAssertTrue([preferences isKindOfClass:[NSButton class]]);
@@ -562,7 +570,7 @@ static NSView *NFViewWithIdentifier(NSView *root, NSString *identifier) {
     NFCSettingsWindowController *settings = [[NFCSettingsWindowController alloc] init];
     NSTabViewController *tabs = [settings valueForKey:@"tabViewController"];
     [tabs view];
-    XCTAssertEqual(tabs.tabViewItems.count, 5u);
+    XCTAssertEqual(tabs.tabViewItems.count, 6u);
     XCTAssertEqualObjects(tabs.view.identifier, @"SettingsTabs");
     XCTAssertTrue([settings.window isKindOfClass:[NSPanel class]]);
     XCTAssertEqual(settings.window.level, NSFloatingWindowLevel);
@@ -575,6 +583,7 @@ static NSView *NFViewWithIdentifier(NSView *root, NSString *identifier) {
         NFLocalizedString(@"Templates"),
         NFLocalizedString(@"Finder"),
         NFLocalizedString(@"Advanced"),
+        NFLocalizedString(@"Help"),
         NFLocalizedString(@"About")
     ];
     for (NSUInteger index = 0; index < tabs.tabViewItems.count; index++) {
@@ -640,6 +649,29 @@ static NSView *NFViewWithIdentifier(NSView *root, NSString *identifier) {
     XCTAssertTrue([[self.config categories] containsObject:customCategory]);
     XCTAssertEqualObjects(categoryName.stringValue, @"");
 
+    NSButton *removeCategory = [templates valueForKey:@"removeCategoryButton"];
+    XCTAssertNotNil(removeCategory);
+    XCTAssertTrue(removeCategory.enabled);
+
+    NSPopUpButton *sortPopup = [templates valueForKey:@"sortPopup"];
+    XCTAssertEqual(sortPopup.numberOfItems, 6);
+    NSMenuItem *categorySortItem = nil;
+    for (NSMenuItem *item in sortPopup.itemArray) {
+        if ([item.representedObject isEqualToString:@"category"]) {
+            categorySortItem = item;
+            break;
+        }
+    }
+    XCTAssertNotNil(categorySortItem);
+    [sortPopup selectItem:categorySortItem];
+    [sortPopup sendAction:sortPopup.action to:sortPopup.target];
+    XCTAssertEqualObjects([self.config stringSettingForKey:@"sortMode" defaultValue:@""], @"category");
+    NSArray<NFTemplate *> *sortedTemplates = [templates valueForKey:@"templates"];
+    for (NSUInteger index = 1; index < sortedTemplates.count; index++) {
+        NSComparisonResult result = [sortedTemplates[index - 1].category localizedCaseInsensitiveCompare:sortedTemplates[index].category];
+        XCTAssertNotEqual(result, NSOrderedDescending);
+    }
+
     NSViewController *finder = tabs.tabViewItems[2].viewController;
     NSTextField *status = [finder valueForKey:@"statusLabel"];
     XCTAssertTrue(status.stringValue.length > 0);
@@ -650,7 +682,23 @@ static NSView *NFViewWithIdentifier(NSView *root, NSString *identifier) {
     NSTextField *templatesPath = [advanced valueForKey:@"templatesPathLabel"];
     XCTAssertTrue([templatesPath.stringValue hasSuffix:@"Templates"]);
 
-    NSViewController *about = tabs.tabViewItems[4].viewController;
+    NSViewController *help = tabs.tabViewItems[4].viewController;
+    XCTAssertNotNil([self labelWithString:NFLocalizedString(@"Help and getting started") inView:help.view]);
+    NSButton *showGetStarted = [self buttonWithTitle:NFLocalizedString(@"Show Get Started") inView:help.view];
+    XCTAssertNotNil(showGetStarted);
+    NSButton *openTemplates = [self buttonWithTitle:NFLocalizedString(@"Open Templates Folder") inView:help.view];
+    XCTAssertNotNil(openTemplates);
+
+    __block BOOL helpOpenedGetStarted = NO;
+    settings.onShowWelcome = ^{
+        helpOpenedGetStarted = YES;
+    };
+    [showGetStarted performClick:nil];
+    XCTAssertTrue(helpOpenedGetStarted);
+    [settings showWindow:nil];
+    [settings.window orderOut:nil];
+
+    NSViewController *about = tabs.tabViewItems[5].viewController;
     XCTAssertNotNil([self buttonWithTitle:NFLocalizedString(@"View License") inView:about.view]);
     [settings.window orderOut:nil];
 }
@@ -659,17 +707,32 @@ static NSView *NFViewWithIdentifier(NSView *root, NSString *identifier) {
     NFCWelcomeWindowController *welcome = [[NFCWelcomeWindowController alloc] init];
     NSWindow *window = welcome.window;
     XCTAssertNotNil(window);
-    XCTAssertEqualObjects(window.title, NFLocalizedString(@"Welcome"));
+    XCTAssertEqualObjects(window.title, NFLocalizedString(@"Get Started"));
     XCTAssertTrue([window isKindOfClass:[NSPanel class]]);
     XCTAssertEqual(window.level, NSFloatingWindowLevel);
     XCTAssertFalse(window.hidesOnDeactivate);
     XCTAssertFalse(window.releasedWhenClosed);
+    XCTAssertGreaterThanOrEqual(window.minSize.width, 600.0);
 
-    NSButton *getStarted = [self buttonWithTitle:NFLocalizedString(@"Get Started") inView:window.contentView];
+    NSButton *getStarted = [self buttonWithTitle:NFLocalizedString(@"Open Template Library") inView:window.contentView];
     NSButton *openSettings = [self buttonWithTitle:NFLocalizedString(@"Open Settings") inView:window.contentView];
     XCTAssertNotNil(getStarted);
     XCTAssertNotNil(openSettings);
     XCTAssertNotNil([self labelWithString:NFLocalizedString(@"Welcome to New File Creation 2") inView:window.contentView]);
+
+    NSButton *inspector = (NSButton *)NFViewWithIdentifier(window.contentView, @"WelcomeInspectorButton");
+    XCTAssertNotNil(inspector);
+    NSView *aside = [welcome valueForKey:@"asideView"];
+    XCTAssertNotNil(aside);
+    XCTAssertTrue(aside.hidden);
+    CGFloat widthBefore = window.frame.size.width;
+    [inspector performClick:nil];
+    [self spinMainRunLoopForInterval:0.4];
+    XCTAssertFalse(aside.hidden);
+    XCTAssertGreaterThan(window.frame.size.width, widthBefore);
+    [inspector performClick:nil];
+    [self spinMainRunLoopForInterval:0.4];
+    XCTAssertTrue(aside.hidden);
 
     __block BOOL started = NO;
     welcome.onGetStarted = ^{

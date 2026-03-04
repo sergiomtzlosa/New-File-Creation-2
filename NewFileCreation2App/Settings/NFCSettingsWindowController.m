@@ -3,6 +3,7 @@
 #import "NFConfig.h"
 #import "NFTemplate.h"
 #import "NFCreateCoordinator.h"
+#import "NFFinderMenuBuilder.h"
 #import "NFShortcutCenter.h"
 #import "NFLoginItemManager.h"
 #import "NFCLIInstallController.h"
@@ -125,6 +126,7 @@ static void NFShowSettingsError(NSWindow *window, NSString *message, NSString *i
     self = [super initWithNibName:nil bundle:nil];
     if (self) {
         self.title = NFLocalizedString(@"General");
+        self.preferredContentSize = NSMakeSize(680, 620);
     }
     return self;
 }
@@ -394,6 +396,8 @@ static void NFShowSettingsError(NSWindow *window, NSString *message, NSString *i
 @property (nonatomic, strong) NSPopUpButton *categoryPopup;
 @property (nonatomic, strong) NSTextField *categoryNameField;
 @property (nonatomic, strong) NSButton *addCategoryButton;
+@property (nonatomic, strong) NSButton *removeCategoryButton;
+@property (nonatomic, strong) NSPopUpButton *sortPopup;
 @end
 
 @implementation NFCTemplatesSettingsViewController
@@ -402,6 +406,7 @@ static void NFShowSettingsError(NSWindow *window, NSString *message, NSString *i
     self = [super initWithNibName:nil bundle:nil];
     if (self) {
         self.title = NFLocalizedString(@"Templates");
+        self.preferredContentSize = NSMakeSize(780, 620);
     }
     return self;
 }
@@ -417,6 +422,30 @@ static void NFShowSettingsError(NSWindow *window, NSString *message, NSString *i
                                           [NSFont systemFontOfSize:11], NSColor.secondaryLabelColor);
     subheading.translatesAutoresizingMaskIntoConstraints = NO;
     [container addSubview:subheading];
+
+    NSTextField *sortLabel = NFMakeLabel(NFLocalizedString(@"Sort by:"), [NSFont systemFontOfSize:12], NSColor.secondaryLabelColor);
+    self.sortPopup = [[NSPopUpButton alloc] initWithFrame:NSMakeRect(0, 0, 170, 26) pullsDown:NO];
+    self.sortPopup.identifier = @"TemplateSortPopup";
+    self.sortPopup.target = self;
+    self.sortPopup.action = @selector(sortChanged:);
+    NSArray<NSArray<NSString *> *> *sortOptions = @[
+        @[NFLocalizedString(@"Manual order"), @"manual"],
+        @[NFLocalizedString(@"Name"), @"name"],
+        @[NFLocalizedString(@"Category"), @"category"],
+        @[NFLocalizedString(@"File type"), @"fileType"],
+        @[NFLocalizedString(@"Last used"), @"lastUsed"],
+        @[NFLocalizedString(@"Most used"), @"mostUsed"]
+    ];
+    for (NSArray<NSString *> *option in sortOptions) {
+        [self.sortPopup addItemWithTitle:option[0]];
+        self.sortPopup.lastItem.representedObject = option[1];
+    }
+    NSStackView *sortRow = [NSStackView stackViewWithViews:@[sortLabel, self.sortPopup]];
+    sortRow.orientation = NSUserInterfaceLayoutOrientationHorizontal;
+    sortRow.spacing = 8;
+    sortRow.alignment = NSLayoutAttributeCenterY;
+    sortRow.translatesAutoresizingMaskIntoConstraints = NO;
+    [container addSubview:sortRow];
 
     self.tableView = [[NSTableView alloc] init];
     self.tableView.style = NSTableViewStyleInset;
@@ -472,7 +501,11 @@ static void NFShowSettingsError(NSWindow *window, NSString *message, NSString *i
     self.addCategoryButton = [NSButton buttonWithTitle:NFLocalizedString(@"Add Category") target:self action:@selector(addCategory:)];
     self.addCategoryButton.identifier = @"AddCategoryButton";
 
+    self.removeCategoryButton = [NSButton buttonWithTitle:NFLocalizedString(@"Remove Category") target:self action:@selector(removeCategory:)];
+    self.removeCategoryButton.identifier = @"RemoveCategoryButton";
+
     NSStackView *categoryRow = [NSStackView stackViewWithViews:@[categoryLabel, self.categoryPopup,
+                                                                 self.removeCategoryButton,
                                                                  self.categoryNameField, self.addCategoryButton]];
     categoryRow.orientation = NSUserInterfaceLayoutOrientationHorizontal;
     categoryRow.spacing = 8;
@@ -487,7 +520,9 @@ static void NFShowSettingsError(NSWindow *window, NSString *message, NSString *i
         [subheading.topAnchor constraintEqualToAnchor:heading.bottomAnchor constant:4],
         [subheading.leadingAnchor constraintEqualToAnchor:heading.leadingAnchor],
         [subheading.trailingAnchor constraintEqualToAnchor:heading.trailingAnchor],
-        [scrollView.topAnchor constraintEqualToAnchor:subheading.bottomAnchor constant:14],
+        [sortRow.topAnchor constraintEqualToAnchor:subheading.bottomAnchor constant:12],
+        [sortRow.leadingAnchor constraintEqualToAnchor:heading.leadingAnchor],
+        [scrollView.topAnchor constraintEqualToAnchor:sortRow.bottomAnchor constant:12],
         [scrollView.leadingAnchor constraintEqualToAnchor:container.leadingAnchor constant:28],
         [scrollView.trailingAnchor constraintEqualToAnchor:container.trailingAnchor constant:-28],
         [scrollView.bottomAnchor constraintEqualToAnchor:categoryRow.topAnchor constant:-12],
@@ -510,8 +545,19 @@ static void NFShowSettingsError(NSWindow *window, NSString *message, NSString *i
         return;
     }
     NFConfig *config = [[NFConfigStore sharedStore] loadConfigCreatingIfNeeded:YES error:nil] ?: [NFConfig defaultConfig];
-    self.templates = config.templates.copy;
+    NFTemplateSortMode sortMode = [NFFinderMenuBuilder sortModeForConfig:config];
+    self.templates = [config.templates sortedArrayUsingComparator:^NSComparisonResult(NFTemplate *a, NFTemplate *b) {
+        return [NFFinderMenuBuilder compareTemplate:a toTemplate:b sortMode:sortMode];
+    }];
     [self.tableView reloadData];
+
+    NSString *sortValue = NFTemplateSortModeString(sortMode);
+    for (NSMenuItem *item in self.sortPopup.itemArray) {
+        if ([item.representedObject isEqualToString:sortValue]) {
+            [self.sortPopup selectItem:item];
+            break;
+        }
+    }
 
     [self.categoryPopup removeAllItems];
     for (NSString *category in [config categories]) {
@@ -524,6 +570,7 @@ static void NFShowSettingsError(NSWindow *window, NSString *message, NSString *i
     self.removeButton.enabled = hasSelection;
     self.defaultButton.enabled = hasSelection;
     self.categoryPopup.enabled = hasSelection;
+    self.removeCategoryButton.enabled = self.categoryPopup.numberOfItems > 0;
     if (hasSelection) {
         NSString *category = self.templates[(NSUInteger)row].category;
         for (NSMenuItem *item in self.categoryPopup.itemArray) {
@@ -624,6 +671,48 @@ static void NFShowSettingsError(NSWindow *window, NSString *message, NSString *i
         return YES;
     } error:nil];
     [self reloadData];
+}
+
+- (void)sortChanged:(id)sender {
+    NSString *value = self.sortPopup.selectedItem.representedObject;
+    if (value.length == 0) {
+        return;
+    }
+    NFSetSetting(value, @"sortMode");
+    [self reloadData];
+}
+
+- (void)removeCategory:(id)sender {
+    NSString *category = self.categoryPopup.selectedItem.representedObject;
+    if (category.length == 0) {
+        return;
+    }
+    NSInteger affected = 0;
+    NFConfig *config = [[NFConfigStore sharedStore] readOnlySnapshot];
+    for (NFTemplate *template in config.templates) {
+        if ([template.category localizedCaseInsensitiveCompare:category] == NSOrderedSame) {
+            affected++;
+        }
+    }
+    NSString *message = [NSString stringWithFormat:NFLocalizedString(@"Remove the “%@” category?"), NFLocalizedString(category)];
+    NSString *informative = affected > 0
+        ? [NSString stringWithFormat:NFLocalizedString(@"%ld template(s) will move to Other."), (long)affected]
+        : NFLocalizedString(@"The category will be removed from the library.");
+    NSAlert *alert = [[NSAlert alloc] init];
+    alert.messageText = message;
+    alert.informativeText = informative;
+    alert.alertStyle = NSAlertStyleWarning;
+    [alert addButtonWithTitle:NFLocalizedString(@"Remove Category")];
+    [alert addButtonWithTitle:NFLocalizedString(@"Cancel")];
+    [alert beginSheetModalForWindow:self.view.window completionHandler:^(NSModalResponse response) {
+        if (response != NSAlertFirstButtonReturn) {
+            return;
+        }
+        [[NFConfigStore sharedStore] updateConfig:^BOOL(NFConfig *latest, NSError **error) {
+            return [latest removeCategory:category];
+        } error:nil];
+        [self reloadData];
+    }];
 }
 
 - (void)addCategory:(id)sender {
@@ -762,6 +851,7 @@ static void NFShowSettingsError(NSWindow *window, NSString *message, NSString *i
     self = [super initWithNibName:nil bundle:nil];
     if (self) {
         self.title = NFLocalizedString(@"Finder");
+        self.preferredContentSize = NSMakeSize(680, 600);
     }
     return self;
 }
@@ -931,6 +1021,7 @@ static void NFShowSettingsError(NSWindow *window, NSString *message, NSString *i
     self = [super initWithNibName:nil bundle:nil];
     if (self) {
         self.title = NFLocalizedString(@"Advanced");
+        self.preferredContentSize = NSMakeSize(680, 560);
     }
     return self;
 }
@@ -1172,6 +1263,141 @@ static void NFShowSettingsError(NSWindow *window, NSString *message, NSString *i
 
 @end
 
+#pragma mark - Help
+
+@interface NFCHelpSettingsViewController : NSViewController
+@property (nonatomic, copy, nullable) void (^onShowGetStarted)(void);
+@end
+
+@implementation NFCHelpSettingsViewController
+
+- (instancetype)init {
+    self = [super initWithNibName:nil bundle:nil];
+    if (self) {
+        self.title = NFLocalizedString(@"Help");
+        self.preferredContentSize = NSMakeSize(720, 640);
+    }
+    return self;
+}
+
+- (NSView *)helpRowWithSymbol:(NSString *)symbol title:(NSString *)title body:(NSString *)body {
+    NSImageView *icon = [[NSImageView alloc] init];
+    icon.translatesAutoresizingMaskIntoConstraints = NO;
+    icon.image = [NSImage imageWithSystemSymbolName:symbol accessibilityDescription:title];
+    icon.contentTintColor = NSColor.controlAccentColor;
+    icon.symbolConfiguration = [NSImageSymbolConfiguration configurationWithPointSize:18 weight:NSFontWeightMedium];
+    [icon.widthAnchor constraintEqualToConstant:24].active = YES;
+    [icon.heightAnchor constraintEqualToConstant:24].active = YES;
+
+    NSTextField *titleLabel = NFMakeLabel(title, [NSFont systemFontOfSize:13 weight:NSFontWeightSemibold], NSColor.labelColor);
+    titleLabel.translatesAutoresizingMaskIntoConstraints = NO;
+    NSTextField *bodyLabel = [NSTextField wrappingLabelWithString:body];
+    bodyLabel.translatesAutoresizingMaskIntoConstraints = NO;
+    bodyLabel.font = [NSFont systemFontOfSize:11];
+    bodyLabel.textColor = NSColor.secondaryLabelColor;
+    bodyLabel.maximumNumberOfLines = 3;
+
+    NSStackView *text = [NSStackView stackViewWithViews:@[titleLabel, bodyLabel]];
+    text.orientation = NSUserInterfaceLayoutOrientationVertical;
+    text.alignment = NSLayoutAttributeLeading;
+    text.spacing = 2;
+
+    NSStackView *row = [NSStackView stackViewWithViews:@[icon, text]];
+    row.orientation = NSUserInterfaceLayoutOrientationHorizontal;
+    row.alignment = NSLayoutAttributeTop;
+    row.spacing = 12;
+    [bodyLabel.widthAnchor constraintLessThanOrEqualToConstant:600].active = YES;
+    return row;
+}
+
+- (void)loadView {
+    NSView *container = [[NSView alloc] initWithFrame:NSMakeRect(0, 0, 720, 640)];
+
+    NSTextField *heading = NFMakeLabel(NFLocalizedString(@"Help and getting started"), [NSFont systemFontOfSize:17 weight:NSFontWeightBold], NSColor.labelColor);
+    heading.translatesAutoresizingMaskIntoConstraints = NO;
+    [container addSubview:heading];
+
+    NSTextField *intro = [NSTextField wrappingLabelWithString:NFLocalizedString(@"New File Creation 2 keeps your reusable templates in one place and creates a fresh copy wherever you are working. Everything runs locally on your Mac.")];
+    intro.translatesAutoresizingMaskIntoConstraints = NO;
+    intro.font = [NSFont systemFontOfSize:12];
+    intro.textColor = NSColor.secondaryLabelColor;
+    intro.maximumNumberOfLines = 3;
+    [container addSubview:intro];
+
+    NSStackView *rows = [NSStackView stackViewWithViews:@[
+        [self helpRowWithSymbol:@"menubar.rectangle"
+                          title:NFLocalizedString(@"Create from the menu bar")
+                           body:NFLocalizedString(@"Left-click the menu bar icon to open Quick New File. Search, press Return to create, or drag a row into Finder. Right-click for the full menu and Get Started.")],
+        [self helpRowWithSymbol:@"folder.badge.plus"
+                          title:NFLocalizedString(@"Create from Finder")
+                           body:NFLocalizedString(@"Enable the Finder extension, then right-click in a folder or on a file and choose New File. The new file is created in the folder you are browsing.")],
+        [self helpRowWithSymbol:@"doc.on.doc"
+                          title:NFLocalizedString(@"Manage templates")
+                           body:NFLocalizedString(@"Add files in Settings › Templates, assign categories, remove categories you no longer need, choose a sort order, or drag templates to the Desktop and Finder.")],
+        [self helpRowWithSymbol:@"terminal"
+                          title:NFLocalizedString(@"Use the command line")
+                           body:NFLocalizedString(@"Install nfc from Settings › Advanced, then run nfc create \"Text File\" in Terminal to create a file in the current folder.")],
+        [self helpRowWithSymbol:@"lock.shield"
+                          title:NFLocalizedString(@"Private by design")
+                           body:NFLocalizedString(@"No accounts, network requests, analytics, or telemetry. The app, Finder extension, Today widget, and nfc helper share one local configuration folder.")]
+    ]];
+    rows.translatesAutoresizingMaskIntoConstraints = NO;
+    rows.orientation = NSUserInterfaceLayoutOrientationVertical;
+    rows.alignment = NSLayoutAttributeLeading;
+    rows.spacing = 18;
+    [container addSubview:rows];
+
+    NSButton *getStarted = [NSButton buttonWithTitle:NFLocalizedString(@"Show Get Started") target:self action:@selector(showGetStarted:)];
+    getStarted.identifier = @"HelpShowGetStartedButton";
+    getStarted.translatesAutoresizingMaskIntoConstraints = NO;
+    getStarted.bezelStyle = NSBezelStyleRounded;
+    [container addSubview:getStarted];
+
+    NSButton *templates = [NSButton buttonWithTitle:NFLocalizedString(@"Open Templates Folder") target:self action:@selector(openTemplates:)];
+    templates.identifier = @"HelpOpenTemplatesButton";
+    templates.translatesAutoresizingMaskIntoConstraints = NO;
+    templates.bezelStyle = NSBezelStyleRounded;
+    [container addSubview:templates];
+
+    NSTextField *note = NFMakeLabel(NFLocalizedString(@"Tip: the global shortcut opens Quick New File from any app. Change it in Settings › General."),
+                                    [NSFont systemFontOfSize:11], NSColor.tertiaryLabelColor);
+    note.translatesAutoresizingMaskIntoConstraints = NO;
+    [container addSubview:note];
+
+    [NSLayoutConstraint activateConstraints:@[
+        [heading.topAnchor constraintEqualToAnchor:container.topAnchor constant:24],
+        [heading.leadingAnchor constraintEqualToAnchor:container.leadingAnchor constant:28],
+        [heading.trailingAnchor constraintEqualToAnchor:container.trailingAnchor constant:-28],
+        [intro.topAnchor constraintEqualToAnchor:heading.bottomAnchor constant:8],
+        [intro.leadingAnchor constraintEqualToAnchor:heading.leadingAnchor],
+        [intro.trailingAnchor constraintEqualToAnchor:heading.trailingAnchor],
+        [rows.topAnchor constraintEqualToAnchor:intro.bottomAnchor constant:24],
+        [rows.leadingAnchor constraintEqualToAnchor:heading.leadingAnchor],
+        [rows.trailingAnchor constraintLessThanOrEqualToAnchor:heading.trailingAnchor],
+        [getStarted.topAnchor constraintEqualToAnchor:rows.bottomAnchor constant:26],
+        [getStarted.leadingAnchor constraintEqualToAnchor:heading.leadingAnchor],
+        [templates.leadingAnchor constraintEqualToAnchor:getStarted.trailingAnchor constant:8],
+        [templates.centerYAnchor constraintEqualToAnchor:getStarted.centerYAnchor],
+        [note.topAnchor constraintEqualToAnchor:getStarted.bottomAnchor constant:16],
+        [note.leadingAnchor constraintEqualToAnchor:heading.leadingAnchor],
+        [note.trailingAnchor constraintEqualToAnchor:heading.trailingAnchor]
+    ]];
+
+    self.view = container;
+}
+
+- (void)showGetStarted:(id)sender {
+    if (self.onShowGetStarted) {
+        self.onShowGetStarted();
+    }
+}
+
+- (void)openTemplates:(id)sender {
+    [[NSWorkspace sharedWorkspace] openURL:[NFConfigStore sharedStore].templatesURL];
+}
+
+@end
+
 #pragma mark - About
 
 @interface NFCAboutSettingsViewController : NSViewController
@@ -1183,6 +1409,7 @@ static void NFShowSettingsError(NSWindow *window, NSString *message, NSString *i
     self = [super initWithNibName:nil bundle:nil];
     if (self) {
         self.title = NFLocalizedString(@"About");
+        self.preferredContentSize = NSMakeSize(560, 460);
     }
     return self;
 }
@@ -1260,8 +1487,23 @@ static void NFShowSettingsError(NSWindow *window, NSString *message, NSString *i
 
 #pragma mark - Window controller
 
+@interface NFCSettingsTabViewController : NSTabViewController
+@property (nonatomic, copy, nullable) void (^onSelectTab)(NSTabViewItem *item);
+@end
+
+@implementation NFCSettingsTabViewController
+
+- (void)tabView:(NSTabView *)tabView didSelectTabViewItem:(NSTabViewItem *)tabViewItem {
+    [super tabView:tabView didSelectTabViewItem:tabViewItem];
+    if (self.onSelectTab) {
+        self.onSelectTab(tabViewItem);
+    }
+}
+
+@end
+
 @interface NFCSettingsWindowController ()
-@property (nonatomic, strong) NSTabViewController *tabViewController;
+@property (nonatomic, strong) NFCSettingsTabViewController *tabViewController;
 @property (nonatomic, assign) BOOL didPositionWindow;
 @end
 
@@ -1276,24 +1518,36 @@ static void NFShowSettingsError(NSWindow *window, NSString *message, NSString *i
 
     self = [super initWithWindow:window];
     if (self) {
-        _tabViewController = [[NSTabViewController alloc] init];
+        _tabViewController = [[NFCSettingsTabViewController alloc] init];
         _tabViewController.tabStyle = NSTabViewControllerTabStyleToolbar;
         _tabViewController.transitionOptions = NSViewControllerTransitionCrossfade;
         _tabViewController.view.identifier = @"SettingsTabs";
         _tabViewController.view.accessibilityLabel = NFLocalizedString(@"Settings");
 
+        NFCHelpSettingsViewController *helpPane = [[NFCHelpSettingsViewController alloc] init];
+        __weak typeof(self) weakSelf = self;
+        helpPane.onShowGetStarted = ^{
+            if (weakSelf.onShowWelcome) {
+                weakSelf.onShowWelcome();
+            }
+        };
+        _tabViewController.onSelectTab = ^(NSTabViewItem *item) {
+            [weakSelf resizeWindowForPane:item.viewController];
+        };
         NSArray<NSViewController *> *panes = @[
             [[NFCGeneralSettingsViewController alloc] init],
             [[NFCTemplatesSettingsViewController alloc] init],
             [[NFCFinderSettingsViewController alloc] init],
             [[NFCAdvancedSettingsViewController alloc] init],
+            helpPane,
             [[NFCAboutSettingsViewController alloc] init]
         ];
         for (NSViewController *pane in panes) {
             [_tabViewController addChildViewController:pane];
         }
 
-        NSArray<NSString *> *symbolNames = @[@"gearshape", @"doc.on.doc", @"folder", @"slider.horizontal.3", @"info.circle"];
+        NSArray<NSString *> *symbolNames = @[@"gearshape", @"doc.on.doc", @"folder", @"slider.horizontal.3",
+                                             @"questionmark.circle", @"info.circle"];
         for (NSUInteger index = 0; index < _tabViewController.tabViewItems.count; index++) {
             NSTabViewItem *item = _tabViewController.tabViewItems[index];
             NSString *symbolName = symbolNames[index];
@@ -1301,9 +1555,48 @@ static void NFShowSettingsError(NSWindow *window, NSString *message, NSString *i
         }
 
         window.contentViewController = _tabViewController;
-        window.contentMinSize = NSMakeSize(680, 500);
+        window.contentMinSize = NSMakeSize(540, 420);
+        [self resizeWindowForPane:_tabViewController.tabViewItems.firstObject.viewController];
+
+        NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
+        [center addObserver:self selector:@selector(configDidChange:) name:NFConfigDidChangeNotification object:nil];
+        [[NSDistributedNotificationCenter defaultCenter] addObserver:self
+                                                            selector:@selector(configDidChange:)
+                                                                name:NFConfigDistributedChangeNotification
+                                                              object:nil];
     }
     return self;
+}
+
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    [[NSDistributedNotificationCenter defaultCenter] removeObserver:self];
+}
+
+- (void)configDidChange:(NSNotification *)notification {
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self reloadPanes];
+    });
+}
+
+- (void)resizeWindowForPane:(NSViewController *)pane {
+    NSSize size = pane.preferredContentSize;
+    if (size.width < 400 || size.height < 300) {
+        return;
+    }
+    NSWindow *window = self.window;
+    if (!window) {
+        return;
+    }
+    BOOL animate = window.isVisible;
+    [window setContentSize:size];
+    if (animate) {
+        [window setFrame:window.frame display:YES animate:YES];
+    }
+}
+
+- (void)tabViewController:(NSTabViewController *)tabViewController didSelectTabViewItem:(NSTabViewItem *)tabViewItem {
+    [self resizeWindowForPane:tabViewItem.viewController];
 }
 
 - (void)showWindow:(id)sender {
@@ -1313,6 +1606,10 @@ static void NFShowSettingsError(NSWindow *window, NSString *message, NSString *i
     }
     [self reloadPanes];
     [super showWindow:sender];
+    NSInteger index = self.tabViewController.selectedTabViewItemIndex;
+    if (index >= 0 && index < (NSInteger)self.tabViewController.tabViewItems.count) {
+        [self resizeWindowForPane:self.tabViewController.tabViewItems[(NSUInteger)index].viewController];
+    }
     [NSApp activateIgnoringOtherApps:YES];
 }
 
