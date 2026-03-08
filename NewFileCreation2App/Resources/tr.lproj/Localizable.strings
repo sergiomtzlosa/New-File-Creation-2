@@ -1,0 +1,545 @@
+/* tr localization. Generated from the English source strings. */
+
+" (not on PATH)" = " (not on PATH)";
+
+"%@ (%@)\nDouble-click to create a file." = "%@ (%@)\nBir dosya oluşturmak için çift tıklayın.";
+
+"%@ already exists and is not a symlink. Remove it manually or choose another location." = "%@ zaten mevcut ve bir sembolik bağlantı değil. Lütfen elle kaldırın veya başka bir konum seçin.";
+
+"%@ template" = "%@ şablon";
+
+"%@ template, drag to create a file" = "%@ şablon, dosya oluşturmak için sürükleyin";
+
+"%@ — drag to create %@" = "%@ — dosya oluşturmak için sürükleyin %@";
+
+"%ld template(s) will move to Other." = "%ld şablon(lar) Diğer'e taşınacak.";
+
+"%lu templates in the library" = "%lu şablon kütüphanede";
+
+"About" = "Hakkında";
+
+"About New File Creation 2" = "New File Creation 2 Hakkında";
+
+"Add" = "Ekle";
+
+"Add a file to use it as a template, or restore the included set." = "Bir dosyayı şablon olarak kullanmak için ekleyin veya dahil edilmiş seti geri yükleyin.";
+
+"Add as Template" = "Şablon Olarak Ekle";
+
+"Add Category" = "Kategori Ekle";
+
+"Add files as templates" = "Dosyaları şablon olarak ekle";
+
+"Add files in Settings › Templates, assign categories, remove categories you no longer need, choose a sort order, or drag templates to the Desktop and Finder." = "Ayarlar › Şablonlar bölümüne dosyaları ekleyin, kategorileri atayın, artık ihtiyaç duymadığınız kategorileri kaldırın, bir sıralama düzeni seçin veya şablonları Masaüstü ve Finder'a sürükleyin.";
+
+"Add Template" = "Şablon Ekle";
+
+"Add Templates" = "Şablonlar Ekle";
+
+"Add Template…" = "Şablon Ekle…";
+
+"Add “Add as Template” for selected files" = "Seçili dosyalar için “Şablon Olarak Ekle”yi ekle";
+
+"Add “New File” to Finder menus" = "Finder menülerine “Yeni Dosya” ekle";
+
+"Added %lu template" = " %lu şablon eklendi";
+
+"Added %lu templates" = " %lu şablon eklendi";
+
+"Add…" = " Ekle…";
+
+"Advanced" = " Gelişmiş";
+
+"After creating" = " Oluşturduktan sonra";
+
+"All Templates" = " Tüm Şablonlar";
+
+"Allow New File Creation 2 in System Settings › General › Login Items." = " Sistem Ayarları › Genel › Giriş Öğeleri içinde New File Creation 2'a izin ver.";
+
+"An unexpected error occurred." = " Beklenmeyen bir hata oluştu.";
+
+"Application" = " Uygulama";
+
+"Approval required" = " Onay gerekli";
+
+"Archives" = "Arşivler";
+
+"Ask for a name" = " Bir isim sor";
+
+"Assign a global shortcut in Settings" = " Ayarlarda global bir kısayol atayın";
+
+"At a glance" = " Bir bakışta";
+
+"Audio" = "Ses";
+
+"Bring All to Front" = "Tümünü Öne Getir";
+
+"Cancel" = " İptal";
+
+"Categories" = "Kategoriler";
+
+"Category" = " Kategori";
+
+"Category:" = " Kategori:";
+
+"Choose" = " Seç";
+
+"Choose a name and location for the new file" = " Yeni dosya için bir isim ve konum seçin";
+
+"Choose files or packages to use as templates." = " Şablon olarak kullanılacak dosya veya paketleri seçin.";
+
+"Choose Name and Location…" = " İsim ve Konumu Seç…";
+
+"Choose the folder where new files are created by default." = "Yeni dosyaların varsayılan olarak oluşturulacağı klasörü seçin.";
+
+"Choose…" = "Seç…";
+
+"Close" = "Kapat";
+
+"Code" = "Kod";
+
+"Command" = "Komut";
+
+"Command-line tool" = "Komut satırı aracı";
+
+"Configuration and command line" = "Yapılandırma ve komut satırı";
+
+"Continue" = "Devam et";
+
+"Control" = "Kontrol";
+
+"Copy" = "Kopyala";
+
+"Copyright © 2024–2026 Sergio Martinez-Losa\nMIT License" = "Telif Hakkı © 2024–2026 Sergio Martinez-Losa\nMIT Lisansı";
+
+"Copyright © 2024–2026 Sergio Martinez-Losa. Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files, to deal in the Software without restriction." = "Telif Hakkı © 2024–2026 Sergio Martinez-Losa. İşbu belge ile, bu yazılımın ve ilişkili dokümantasyon dosyalarının bir kopyasını alan herhangi bir kişiye, yazılımı sınırlama olmaksızın kullanma hakkı ücretsiz olarak verilir.";
+
+"Could not add the category" = "Kategori eklenemedi";
+
+"Could not change the login item" = "Giriş öğesi değiştirilemedi";
+
+"Could not create the file" = "Dosya oluşturulamadı";
+
+"Could not enable the Finder extension" = "Finder uzantısı etkinleştirilemedi";
+
+"Could not export the configuration" = "Yapılandırma dışa aktarılamadı";
+
+"Could not import the configuration" = "Yapılandırma içe aktarılamadı";
+
+"Could not install nfc" = "nfc yüklenemedi";
+
+"Could not reset the configuration" = "Yapılandırma sıfırlanamadı";
+
+"Could not uninstall nfc" = "nfc kaldırılamadı";
+
+"Create" = "Oluştur";
+
+"Create a file from a template in Finder, from the menu bar, from the template library, or with the nfc command." = "Finder'da, menü çubuğunda, şablon kütüphanesinden veya nfc komutuyla bir şablondan dosya oluşturun.";
+
+"Create a new file from a template" = "Bir şablondan yeni bir dosya oluştur";
+
+"Create File" = "Dosya Oluştur";
+
+"Create files from templates in Finder, from the menu bar, from the library, or with the nfc command.\n\n• ⌘N creates a file from the selected template.\n• ⇧⌘N lets you choose a name and location.\n• The menu bar icon opens templates and the quick panel.\n• Right-click in Finder for Finder menu items.\n• Run “nfc help” in Terminal for command-line usage." = "Finder’da, menü çubuğundan, kütüphaneden veya nfc komutuyla şablonlardan dosya oluşturun.\n\n• ⌘N seçilen şablondan dosya oluşturur.\n• ⇧⌘N bir ad ve konum seçmenizi sağlar.\n• Menü çubuğu simgesi şablonları ve hızlı paneli açar.\n• Finder’da sağ tıklayarak Finder menü öğelerine erişin.\n• Komut satırı kullanımı için Terminal’de “nfc help” çalıştırın.";
+
+"Create files from templates in Finder, the menu bar, the library, and the command line." = "Finder, menü çubuğu, kütüphane ve komut satırında şablonlardan dosya oluştur.";
+
+"Create from Finder" = "Bulucu'dan Oluştur";
+
+"Create from the menu bar" = "Menü çubuğundan oluştur";
+
+"Create immediately" = "Hemen oluştur";
+
+"Create in Default Folder" = "Varsayılan Klasörde Oluştur";
+
+"Create the file in “%@”." = "“%@” içinde dosya oluşturun.";
+
+"Create the selected template in the default folder" = "Seçili şablonu varsayılan klasörde oluştur";
+
+"Create with Name…" = "İsim ile oluştur…";
+
+"Created %@" = "Oluşturuldu %@";
+
+"Creation:" = "Yaratılış:";
+
+"Cut" = "Kes";
+
+"Default folder:" = "Varsayılan klasör:";
+
+"Default name:" = "Varsayılan ad:";
+
+"Default template:" = "Varsayılan şablon:";
+
+"Desktop" = "Masaüstü";
+
+"Disabled templates do not appear in the app, the menu bar, or Finder menus." = "Devre dışı bırakılmış şablonlar uygulamada, menü çubuğunda veya Finder menülerinde görünmez.";
+
+"Documents" = "Belgeler";
+
+"Drag a template row to Finder or the Desktop." = "Bir şablon satırını Finder'a veya Masaüstü'ne sürükleyin.";
+
+"Drag a template to a folder or the Desktop." = "Bir şablonu bir klasöre veya Masaüstüne sürükleyin.";
+
+"Edit" = "Düzenle";
+
+"Enable Extension" = "Uzantıyı Etkinleştir";
+
+"Enable the Finder extension, then right-click in a folder or on a file and choose New File. The new file is created in the folder you are browsing." = "Finder uzantısını etkinleştirin, ardından bir klasörde veya bir dosyada sağ tıklayın ve Yeni Dosya'yı seçin. Yeni dosya gezindiğiniz klasörde oluşturulur.";
+
+"Enabled" = "Etkinleştirildi";
+
+"Enter a category name." = "Bir kategori adı girin.";
+
+"Enter Full Screen" = "Tam Ekrana Gir";
+
+"Everything stays on your Mac. No network, analytics, or telemetry." = "Her şey Mac'inizde kalır. Ağ, analiz veya telemetri yok.";
+
+"Export…" = "Dışa aktar…";
+
+"Extension: %@" = "Uzantı: %@";
+
+"Favorite" = "Favori";
+
+"Favorites" = "Favoriler";
+
+"File" = "Dosya";
+
+"File type" = "Dosya türü";
+
+"Finder" = "Finder";
+
+"Finder extension" = "Finder uzantısı";
+
+"Finder extension status unavailable" = "Finder uzantısı durumu kullanılamıyor";
+
+"Finder extension: disabled" = "Finder uzantısı: devre dışı";
+
+"Finder extension: enabled" = "Finder uzantısı: etkin";
+
+"Finder extension: not registered. Build and open the app once." = "Finder uzantısı: kayıtlı değil. Uygulamayı bir kez derleyip açın.";
+
+"Finder extension: registered" = "Finder uzantısı: kayıtlı";
+
+"General" = "Genel";
+
+"Get Started" = "Başlayın";
+
+"Get Started…" = " Başla... ";
+
+"Global shortcut:" = " Küresel kestirme: ";
+
+"Global shortcut: %@" = " Küresel kısayol: %@ ";
+
+"Group templates by category" = " Şablonları kategoriye göre gruplayın";
+
+"Help" = " Yardım edin";
+
+"Help and getting started" = " Yardım ve başlamak";
+
+"Hide New File Creation 2" = " New File Creation 2'ı gizle";
+
+"Hide Others" = " Diğerlerini Gizle";
+
+"Images" = "Resimler";
+
+"Import…" = "İçe aktar…";
+
+"Inspector" = "Müfettiş";
+
+"Install nfc" = " NFC'yi kur";
+
+"Install nfc from Settings › Advanced, then run nfc create \"Text File\" in Terminal to create a file in the current folder." = " Ayarlardan › İleri'den nfc yükleyin, ardından nfc'yi çalıştırın, Terminal'de \"Metin Dosyası\" oluşturarak mevcut klasörde bir dosya oluşturun. ";
+
+"Installed at %@%@" = " %@%@ adresine yüklendi ";
+
+"Keep the quick panel open after dropping a file" = " Dosyayı bıraktıktan sonra hızlı paneli açık tutun";
+
+"Last used" = " Son kullanım";
+
+"Last used %@" = " Son kullanılan %@ ";
+
+"Launch at login requires macOS 13 or later." = " Giriş sırasında başlatmak için macOS 13 veya daha yeni bir işlem gereklidir. ";
+
+"Launch New File Creation 2 at login" = " New File Creation 2'ı girişte başlatın";
+
+"Left-click the menu bar icon for Quick New File." = " Hızlı Yeni Dosya için menü çubuğu simgesine sol tıklayın. ";
+
+"Left-click the menu bar icon to open Quick New File. Search, press Return to create, or drag a row into Finder. Right-click for the full menu and Get Started." = " Hızlı Yeni Dosya'yı açmak için menü çubuğu simgesine sol tıklayın. Arama yapın, Return tuşuna basın ve Finder'a bir satır sürükleyin. Tam menü için sağ tıklayın ve Başlayın. ";
+
+"Library" = " Kütüphane";
+
+"Manage templates" = " Şablonları yönet";
+
+"Manual order" = "Elle sıralama";
+
+"Menu bar icon (always available)" = "Menü çubuğu simgesi (her zaman kullanılabilir)";
+
+"Menu contents" = "Menü içeriği";
+
+"Minimize" = "Simge durumuna küçült";
+
+"MIT License" = "MIT Lisansı";
+
+"Most used" = "En çok kullanılan";
+
+"Name" = "İsim";
+
+"New %@" = "Yeni %@";
+
+"New category" = "Yeni kategori";
+
+"New File" = "Yeni Dosya";
+
+"New File Creation 2" = "New File Creation 2";
+
+"New File Creation 2 could not load its configuration" = "New File Creation 2 yapılandırmasını yükleyemedi";
+
+"New File Creation 2 Help" = "New File Creation 2 Yardım";
+
+"New File Creation 2 keeps your reusable templates in one place and creates a fresh copy wherever you are working. Everything runs locally on your Mac." = "New File Creation 2, yeniden kullanılabilir şablonlarınızı tek bir yerde tutar ve çalıştığınız her yerde yeni bir kopyasını oluşturur. Her şey Mac'inizde yerel olarak çalışır.";
+
+"New files" = "Yeni dosyalar";
+
+"New File…" = "Yeni Dosya…";
+
+"No accounts, network requests, analytics, or telemetry. The app, Finder extension, Today widget, and nfc helper share one local configuration folder." = "Hesap yok, ağ isteği yok, analiz veya telemetri yok. Uygulama, Finder uzantısı, Bugün widget'ı ve nfc yardımcı uygulaması tek bir yerel yapılandırma klasörünü paylaşır.";
+
+"no extension" = "uzantı yok";
+
+"No matching templates" = "Eşleşen şablon yok";
+
+"No Templates" = "Şablon Yok";
+
+"No templates" = "Şablon yok";
+
+"No templates to show" = "Gösterilecek şablon yok";
+
+"None" = "Hiçbiri";
+
+"Not found; move the app to /Applications" = "Bulunamadı; uygulamayı /Applications klasörüne taşıyın";
+
+"Not installed. The bundled helper is at Contents/Helpers/nfc." = "Yüklü değil. Paketlenmiş yardımcı Contents/Helpers/nfc konumunda.";
+
+"Not registered" = "Kayıtlı değil";
+
+"OK" = "Tamam";
+
+"On" = "Açık";
+
+"Open Library" = "Kütüphaneyi Aç";
+
+"Open New File Creation 2 once, then try the Finder menu again." = "Önce New File Creation 2 uygulamasını açın, ardından Finder menüsünü tekrar deneyin.";
+
+"Open Settings" = "Ayarları Aç";
+
+"Open System Settings and enable “New File Creation 2 Finder” manually." = "Sistem Ayarlarını Açın ve “New File Creation 2 Finder” özelliğini manuel olarak etkinleştirin.";
+
+"Open System Settings…" = "Sistem Ayarlarını Aç…";
+
+"Open Template Library" = "Şablon Kütüphanesini Aç";
+
+"Open Templates Folder" = "Şablonlar Klasörünü Aç";
+
+"Open the new file after creating it" = "Yeni dosyayı oluşturduktan sonra aç";
+
+"Option" = "Seçenek";
+
+"Other" = "Diğer";
+
+"Paste" = "Yapıştır";
+
+"Play a sound after creating a file" = "Dosya oluşturulduktan sonra bir ses çal";
+
+"Presentations" = "Sunumlar";
+
+"Private by design" = "Tasarım gereği özel";
+
+"Quick New File" = "Hızlı Yeni Dosya";
+
+"Quick New File…" = " Hızlı yeni dosya... ";
+
+"Quit New File Creation 2" = " New File Creation 2 çık";
+
+"Recent" = "Son";
+
+"Redo" = " Yeniden";
+
+"Remove" = " Kaldır";
+
+"Remove Category" = " Kategoriyi kaldır";
+
+"Remove Favorite" = " Favori'yi kaldır";
+
+"Remove Template…" = " Şablonu kaldır... ";
+
+"Remove the “%@” category?" = " \"%@\" kategorisini mi kaldıracağız? ";
+
+"Remove “%@”?" = " \"%@\"i kaldırır mısınız? ";
+
+"Remove…" = " Kaldır... ";
+
+"Rename" = " Yeniden Adlandırma";
+
+"Rename Template" = " Yeniden Adlandırma Şablonu";
+
+"Rename…" = " Adını değiştir... ";
+
+"Requires approval in System Settings" = " Sistem Ayarlarında onay gerektirir";
+
+"Reset" = " Sıfırlama";
+
+"Reset Configuration…" = " Konfigürasyonu Sıfırla... ";
+
+"Reset the configuration?" = " Konfigürasyonu sıfırlayalım mı? ";
+
+"Return creates the selected template." = " Return seçilmiş şablonu oluşturur. ";
+
+"Reveal Config" = "Yapılandırmayı Göster";
+
+"Reveal in Finder" = " Finder'da Açıklayın";
+
+"Reveal Log" = " Açıklama Günlüğü";
+
+"Reveal Selected Template" = " Seçilmiş Şablonu Göster";
+
+"Reveal Template" = " Göster Şablonu";
+
+"Reveal the new file in Finder" = " Finder'da yeni dosyayı ortaya çıkarın";
+
+"Right-click in Finder and choose New File from the template list." = " Finder'da sağ tıklayın ve şablon listesinden Yeni Dosya'yı seçin. ";
+
+"Run nfc create \"Text File\" to make a file anywhere." = " Herhangi bir yerde dosya oluşturmak için \"Metin Dosyası\" oluştur nfc çalıştırın. ";
+
+"Search" = " Arama";
+
+"Search Templates" = " Arama Şablonları";
+
+"Search templates" = " Arama şablonları";
+
+"Select a template" = " Bir şablon seç";
+
+"Select All" = " Herkesi Seç";
+
+"Services" = " Hizmetler";
+
+"Set as Default" = " Varsayılan olarak ayarlanır";
+
+"Settings" = " Ortamlar";
+
+"Settings and the template library are reset. Template files in the Templates folder are kept." = " Ayarlar ve şablon kütüphanesi sıfırlanıyor. Şablonlar klasöründeki şablon dosyaları saklanıyor. ";
+
+"Settings › Finder enables Finder menus." = " Ayarlar › Finder, Finder menülerini etkinleştiriyor. ";
+
+"Settings › Help explains every workflow." = " Ayarlar › Yardım her iş akışını açıklar. ";
+
+"Settings › Templates manages categories and sorting." = " Settings › Templates kategorileri ve sıralamayı yönetir. ";
+
+"Settings…" = " Ayarlar... ";
+
+"Shift" = " Vardiyası";
+
+"Show" = " Gösteri";
+
+"Show a confirmation in the app window" = "Uygulama penceresinde onay göster";
+
+"Show All" = "Tümünü Göster";
+
+"Show favorites first" = "Önce favorileri göster";
+
+"Show Get Started" = "Başlamayı Göster";
+
+"Show Get Started details" = "Başlamayı detaylarıyla göster";
+
+"Show or Hide Inspector" = "Denetleyiciyi Göster veya Gizle";
+
+"Show or Hide Sidebar" = "Yan Çubuğu Göster veya Gizle";
+
+"Show or hide the inspector" = "Denetleyiciyi göster veya gizle";
+
+"Show template icons" = "Şablon simgelerini göster";
+
+"Show the menu bar icon" = "Menü çubuğu simgesini göster";
+
+"Show Welcome" = "Hoş Geldiniz'i göster";
+
+"Show Welcome Again" = "Yeniden Hoş Geldiniz'i göster";
+
+"Sort by:" = "Sırala:";
+
+"Sound:" = "Ses:";
+
+"Spreadsheets" = "Elektronik Tablolar";
+
+"Template: %@" = "Şablon: %@";
+
+"Templates" = "Şablonlar";
+
+"Templates included in the library" = "Kütüphanede yer alan şablonlar";
+
+"The app and nfc coordinate writes with a lock and atomic replacement. The Finder extension reads the configuration only." = "Uygulama ve nfc yazmaları kilit ve atomik değişim ile koordine edilir. Finder uzantısı yalnızca yapılandırmayı okur.";
+
+"The bundled nfc helper is missing. Rebuild or reinstall the app." = "Paketlenmiş nfc yardımcısı eksik. Uygulamayı yeniden derleyin veya yeniden yükleyin.";
+
+"The category will be removed from the library." = "Kategori kütüphaneden kaldırılacak.";
+
+"The configuration is damaged." = "Yapılandırma hasar görmüş.";
+
+"The default name is used by the app, the Finder extension, and the nfc command. Existing files are never overwritten." = "Varsayılan ad, uygulama tarafından, Finder uzantısı tarafından ve nfc komutu tarafından kullanılır. Mevcut dosyaların üzerine asla yazılmaz.";
+
+"The existing nfc is not a symlink managed by this app." = "Mevcut nfc bu uygulama tarafından yönetilen bir sembolik bağlantı değil.";
+
+"The file is not valid JSON." = "Dosya geçerli JSON değil.";
+
+"The Finder extension could not be enabled" = "Finder uzantısı etkinleştirilemedi";
+
+"The Finder extension reads the shared configuration and creates files in the selected folder. If the extension is not listed, open System Settings › General › Login Items & Extensions › Finder Extensions." = "Finder uzantısı paylaşılan yapılandırmayı okur ve seçilen klasörde dosyalar oluşturur. Uzantı listede yoksa, Sistem Ayarları › Genel › Giriş Öğeleri ve Uzantılar › Finder Uzantıları öğesini açın.";
+
+"The menu bar icon stays available so you can always create files." = "Menü çubuğu simgesi her zaman kullanılabilir durumda kalır, böylece her zaman dosya oluşturabilirsiniz.";
+
+"The shortcut could not be registered (Carbon error %d). It may conflict with another app." = "Kısayol kayıt edilemedi (Carbon hatası %d). Başka bir uygulama ile çakışıyor olabilir.";
+
+"The shortcut is unavailable" = "Kısayol kullanılamıyor";
+
+"The template file keeps its current name. This changes the display name only." = "Şablon dosyası mevcut adını korur. Bu yalnızca görüntülenen adı değiştirir.";
+
+"The template is removed from the library and its file is moved to Trash." = "Şablon kütüphaneden kaldırıldı ve dosyası Çöpe taşındı.";
+
+"The template “%@” was not found." = "“%@” şablonu bulunamadı.";
+
+"Tip: the global shortcut opens Quick New File from any app. Change it in Settings › General." = "İpucu: Küresel kısayol, herhangi bir uygulamadan Hızlı Yeni Dosya açar. Ayarlar › Genel bölümünden değiştirebilirsiniz.";
+
+"Unavailable" = "Mevcut değil";
+
+"Undo" = "Geri Al";
+
+"Uninstall nfc" = "nfc kaldır";
+
+"Unsupported shortcut key “%@”." = "Desteklenmeyen kısayol tuşu “%@”.";
+
+"Untitled" = "Başlıksız";
+
+"Use the command line" = "Komut satırını kullan";
+
+"Use the menu bar icon or the global shortcut for the quick panel." = "Hızlı panel için menü çubuğu simgesini veya küresel kısayolu kullanın.";
+
+"Used %ld time" = " %ld kez kullanıldı";
+
+"Used %ld times" = " %ld kez kullanıldı";
+
+"Version %@" = "Sürüm %@";
+
+"Video" = "Video";
+
+"View" = " Görüntüle";
+
+"View License" = " Lisansı Görüntüle";
+
+"Welcome to New File Creation 2" = " New File Creation 2'ya hoş geldiniz";
+
+"Window" = " Pencere";
+
+"You can reopen this window from Settings › Help or from the menu bar." = " Bu pencereyi Ayarlar › Yardım veya menü çubuğundan yeniden açabilirsiniz.";
+
+"Zoom" = "Yakınlaştır";
+
+"↩ Create file    ⠿ Drag to Finder    esc Close" = " ↩ Dosya oluştur    ⠿ Finder'a sürükle    esc Kapat";

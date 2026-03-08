@@ -1,0 +1,545 @@
+/* ko localization. Generated from the English source strings. */
+
+" (not on PATH)" = " (not on PATH)";
+
+"%@ (%@)\nDouble-click to create a file." = "%@ (%@)\n파일을 생성하려면 더블클릭하세요.";
+
+"%@ already exists and is not a symlink. Remove it manually or choose another location." = "%@이(가) 이미 존재하며 심볼릭 링크가 아닙니다. 수동으로 제거하거나 다른 위치를 선택하십시오.";
+
+"%@ template" = "%@ 템플릿";
+
+"%@ template, drag to create a file" = "%@ 템플릿, 드래그하여 파일 생성";
+
+"%@ — drag to create %@" = "%@ — 드래그하여 %@ 생성";
+
+"%ld template(s) will move to Other." = "%ld 템플릿이 기타로 이동됩니다.";
+
+"%lu templates in the library" = "라이브러리에 있는 %lu 템플릿";
+
+"About" = "정보";
+
+"About New File Creation 2" = "New File Creation 2 정보";
+
+"Add" = "추가";
+
+"Add a file to use it as a template, or restore the included set." = "파일을 추가하여 템플릿으로 사용하거나 포함된 세트를 복원하세요.";
+
+"Add as Template" = "템플릿으로 추가";
+
+"Add Category" = "카테고리 추가";
+
+"Add files as templates" = "파일을 템플릿으로 추가";
+
+"Add files in Settings › Templates, assign categories, remove categories you no longer need, choose a sort order, or drag templates to the Desktop and Finder." = "설정 › 템플릿에 파일을 추가하고, 카테고리를 할당하고, 더 이상 필요하지 않은 카테고리를 제거하고, 정렬 순서를 선택하거나 템플릿을 데스크탑 및 Finder로 드래그하세요.";
+
+"Add Template" = "템플릿 추가";
+
+"Add Templates" = "템플릿 추가";
+
+"Add Template…" = "템플릿 추가…";
+
+"Add “Add as Template” for selected files" = "선택한 파일에 대해 \"템플릿으로 추가\" 추가";
+
+"Add “New File” to Finder menus" = "Finder 메뉴에 \"새 파일\" 추가";
+
+"Added %lu template" = "%lu 템플릿을 추가했습니다.";
+
+"Added %lu templates" = "%lu 템플릿을 추가했습니다.";
+
+"Add…" = "추가…";
+
+"Advanced" = "고급";
+
+"After creating" = "생성 후";
+
+"All Templates" = "모든 템플릿";
+
+"Allow New File Creation 2 in System Settings › General › Login Items." = "시스템 설정 › 일반 › 로그인 항목에서 New File Creation 2 허용";
+
+"An unexpected error occurred." = "예상치 못한 오류가 발생했습니다.";
+
+"Application" = "응용 프로그램";
+
+"Approval required" = "승인 필요";
+
+"Archives" = "기록 보관소";
+
+"Ask for a name" = "이름을 물어보세요";
+
+"Assign a global shortcut in Settings" = "설정에서 전역 바로가기 할당";
+
+"At a glance" = "개요";
+
+"Audio" = "오디오";
+
+"Bring All to Front" = "모두 앞으로 가져오기";
+
+"Cancel" = "취소";
+
+"Categories" = "카테고리";
+
+"Category" = "범주";
+
+"Category:" = "범주:";
+
+"Choose" = "선택";
+
+"Choose a name and location for the new file" = "새 파일의 이름과 위치를 선택하세요.";
+
+"Choose files or packages to use as templates." = "템플릿으로 사용할 파일이나 패키지를 선택하세요.";
+
+"Choose Name and Location…" = "이름과 위치를 선택하세요...";
+
+"Choose the folder where new files are created by default." = "기본적으로 새 파일이 생성되는 폴더를 선택하세요.";
+
+"Choose…" = "선택…";
+
+"Close" = "닫기";
+
+"Code" = "코드";
+
+"Command" = "명령";
+
+"Command-line tool" = "명령줄 도구";
+
+"Configuration and command line" = "구성 및 명령줄";
+
+"Continue" = "계속";
+
+"Control" = "제어";
+
+"Copy" = "복사";
+
+"Copyright © 2024–2026 Sergio Martinez-Losa\nMIT License" = "저작권 © 2024–2026 Sergio Martinez-Losa\nMIT 라이센스";
+
+"Copyright © 2024–2026 Sergio Martinez-Losa. Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files, to deal in the Software without restriction." = "저작권 © 2024–2026 Sergio Martinez-Losa. 이에 따라 이 소프트웨어 및 관련 문서 파일의 사본을 취득한 모든 사람에게 제한 없이 소프트웨어를 취급할 수 있는 권한이 무료로 부여됩니다.";
+
+"Could not add the category" = "카테고리를 추가할 수 없습니다.";
+
+"Could not change the login item" = "로그인 항목을 변경할 수 없습니다.";
+
+"Could not create the file" = "파일을 생성할 수 없습니다.";
+
+"Could not enable the Finder extension" = "Finder 확장 프로그램을 활성화할 수 없습니다.";
+
+"Could not export the configuration" = "구성을 내보낼 수 없습니다.";
+
+"Could not import the configuration" = "구성을 가져올 수 없습니다.";
+
+"Could not install nfc" = "NFC를 설치할 수 없습니다.";
+
+"Could not reset the configuration" = "구성을 재설정할 수 없습니다.";
+
+"Could not uninstall nfc" = "NFC를 제거할 수 없습니다.";
+
+"Create" = "만들기";
+
+"Create a file from a template in Finder, from the menu bar, from the template library, or with the nfc command." = "Finder의 템플릿, 메뉴 표시줄, 템플릿 라이브러리 또는 nfc 명령을 사용하여 파일을 만듭니다.";
+
+"Create a new file from a template" = "템플릿에서 새 파일 만들기";
+
+"Create File" = "파일 생성";
+
+"Create files from templates in Finder, from the menu bar, from the library, or with the nfc command.\n\n• ⌘N creates a file from the selected template.\n• ⇧⌘N lets you choose a name and location.\n• The menu bar icon opens templates and the quick panel.\n• Right-click in Finder for Finder menu items.\n• Run “nfc help” in Terminal for command-line usage." = "Finder의 템플릿, 메뉴 표시줄, 라이브러리 또는 nfc 명령을 사용하여 파일을 만듭니다.\n\n• ⌘N은 선택한 템플릿에서 파일을 만듭니다.\n• ⇧⌘N을 사용하면 이름과 위치를 선택할 수 있습니다.\n• 메뉴바 아이콘은 템플릿과 퀵패널을 엽니다.\n• Finder 메뉴 항목을 보려면 Finder를 마우스 오른쪽 버튼으로 클릭하세요.\n• 명령줄을 사용하려면 터미널에서 \"nfc help\"를 실행하세요.";
+
+"Create files from templates in Finder, the menu bar, the library, and the command line." = "Finder, 메뉴 표시줄, 라이브러리 및 명령줄의 템플릿에서 파일을 만듭니다.";
+
+"Create from Finder" = "Finder에서 만들기";
+
+"Create from the menu bar" = "메뉴바에서 생성";
+
+"Create immediately" = "즉시 생성";
+
+"Create in Default Folder" = "기본 폴더에 생성";
+
+"Create the file in “%@”." = "\"%@\"에 파일을 생성합니다.";
+
+"Create the selected template in the default folder" = "기본 폴더에 선택한 템플릿을 생성합니다.";
+
+"Create with Name…" = "이름으로 생성…";
+
+"Created %@" = "%@ 생성됨";
+
+"Creation:" = "생성:";
+
+"Cut" = "잘라내기";
+
+"Default folder:" = "기본 폴더:";
+
+"Default name:" = "기본 이름:";
+
+"Default template:" = "기본 템플릿:";
+
+"Desktop" = "데스크톱";
+
+"Disabled templates do not appear in the app, the menu bar, or Finder menus." = "비활성화된 템플릿은 앱, 메뉴 표시줄 또는 Finder 메뉴에 표시되지 않습니다.";
+
+"Documents" = "문서";
+
+"Drag a template row to Finder or the Desktop." = "템플릿 행을 Finder 또는 데스크탑으로 드래그합니다.";
+
+"Drag a template to a folder or the Desktop." = "템플릿을 폴더나 바탕화면으로 끌어놓으세요.";
+
+"Edit" = "편집";
+
+"Enable Extension" = "확장 기능 활성화";
+
+"Enable the Finder extension, then right-click in a folder or on a file and choose New File. The new file is created in the folder you are browsing." = "Finder 확장을 활성화한 다음 폴더나 파일을 마우스 오른쪽 버튼으로 클릭하고 새 파일을 선택합니다. 탐색 중인 폴더에 새 파일이 생성됩니다.";
+
+"Enabled" = "활성화됨";
+
+"Enter a category name." = "분류명을 입력하세요.";
+
+"Enter Full Screen" = "전체 화면으로 전환";
+
+"Everything stays on your Mac. No network, analytics, or telemetry." = "모든 것이 Mac에 유지됩니다. 네트워크, 분석 또는 원격 측정이 없습니다.";
+
+"Export…" = "내보내기…";
+
+"Extension: %@" = "확장자: %@";
+
+"Favorite" = "즐겨찾기";
+
+"Favorites" = "즐겨찾기";
+
+"File" = "파일";
+
+"File type" = "파일 형식";
+
+"Finder" = "찾기";
+
+"Finder extension" = "파인더 확장";
+
+"Finder extension status unavailable" = "Finder 확장 상태를 사용할 수 없습니다.";
+
+"Finder extension: disabled" = "Finder 확장: 비활성화됨";
+
+"Finder extension: enabled" = "Finder 확장: 활성화됨";
+
+"Finder extension: not registered. Build and open the app once." = "파인더 확장자: 등록되지 않았습니다. 앱을 한 번 빌드하고 엽니다.";
+
+"Finder extension: registered" = "파인더 확장자: 등록됨";
+
+"General" = "일반";
+
+"Get Started" = "시작하기";
+
+"Get Started…" = "시작하기…";
+
+"Global shortcut:" = "전체 단축키:";
+
+"Global shortcut: %@" = "전역 바로가기: %@";
+
+"Group templates by category" = "카테고리별로 템플릿 그룹화";
+
+"Help" = "도움말";
+
+"Help and getting started" = "도움말 및 시작하기";
+
+"Hide New File Creation 2" = "New File Creation 2 숨기기";
+
+"Hide Others" = "다른 항목 숨기기";
+
+"Images" = "이미지";
+
+"Import…" = "가져오기…";
+
+"Inspector" = "검사관";
+
+"Install nfc" = "NFC 설치";
+
+"Install nfc from Settings › Advanced, then run nfc create \"Text File\" in Terminal to create a file in the current folder." = "설정 > 고급에서 nfc를 설치한 다음 터미널에서 nfc create \"Text File\"을 실행하여 현재 폴더에 파일을 만듭니다.";
+
+"Installed at %@%@" = "%@%@에 설치됨";
+
+"Keep the quick panel open after dropping a file" = "파일을 놓은 후에도 빠른 패널을 열어 두세요";
+
+"Last used" = "마지막 사용";
+
+"Last used %@" = "마지막 사용 %@";
+
+"Launch at login requires macOS 13 or later." = "로그인 시 실행하려면 macOS 13 이상이 필요합니다.";
+
+"Launch New File Creation 2 at login" = "로그인 시 New File Creation 2 실행";
+
+"Left-click the menu bar icon for Quick New File." = "빠른 새 파일 메뉴 표시줄 아이콘을 마우스 왼쪽 버튼으로 클릭하세요.";
+
+"Left-click the menu bar icon to open Quick New File. Search, press Return to create, or drag a row into Finder. Right-click for the full menu and Get Started." = "빠른 새 파일을 열려면 메뉴 표시줄 아이콘을 마우스 왼쪽 버튼으로 클릭하세요. 검색하거나 Return을 눌러 생성하거나 행을 Finder로 드래그하세요. 전체 메뉴를 보려면 마우스 오른쪽 버튼을 클릭하고 시작하세요.";
+
+"Library" = "도서관";
+
+"Manage templates" = "템플릿 관리";
+
+"Manual order" = "수동 주문";
+
+"Menu bar icon (always available)" = "메뉴바 아이콘(항상 사용 가능)";
+
+"Menu contents" = "메뉴 내용";
+
+"Minimize" = "최소화";
+
+"MIT License" = "MIT 라이센스";
+
+"Most used" = "가장 많이 사용됨";
+
+"Name" = "이름";
+
+"New %@" = "새로운 %@";
+
+"New category" = "새 카테고리";
+
+"New File" = "새 파일";
+
+"New File Creation 2" = "New File Creation 2";
+
+"New File Creation 2 could not load its configuration" = "New File Creation 2가 구성을 로드할 수 없습니다.";
+
+"New File Creation 2 Help" = "New File Creation 2 도움말";
+
+"New File Creation 2 keeps your reusable templates in one place and creates a fresh copy wherever you are working. Everything runs locally on your Mac." = "New File Creation 2는 재사용 가능한 템플릿을 한 곳에 보관하고, 작업 중인 위치에서 새 복사본을 생성합니다. 모든 작업은 Mac에서 로컬로 실행됩니다.";
+
+"New files" = "새 파일";
+
+"New File…" = "새 파일…";
+
+"No accounts, network requests, analytics, or telemetry. The app, Finder extension, Today widget, and nfc helper share one local configuration folder." = "계정, 네트워크 요청, 분석 또는 원격 측정이 없습니다. 앱, Finder 확장 프로그램, Today 위젯 및 nfc 도우미는 하나의 로컬 구성 폴더를 공유합니다.";
+
+"no extension" = "확장자 없음";
+
+"No matching templates" = "일치하는 템플릿이 없습니다.";
+
+"No Templates" = "템플릿 없음";
+
+"No templates" = "템플릿 없음";
+
+"No templates to show" = "표시할 템플릿이 없습니다.";
+
+"None" = "없음";
+
+"Not found; move the app to /Applications" = "찾을 수 없습니다. 앱을 /Applications로 이동하세요.";
+
+"Not installed. The bundled helper is at Contents/Helpers/nfc." = "설치되지 않았습니다. 번들 도우미는 Contents/Helpers/nfc에 있습니다.";
+
+"Not registered" = "등록되지 않음";
+
+"OK" = "확인";
+
+"On" = "켜기";
+
+"Open Library" = "라이브러리 열기";
+
+"Open New File Creation 2 once, then try the Finder menu again." = "먼저 New File Creation 2를 열고, Finder 메뉴를 다시 시도하세요.";
+
+"Open Settings" = "설정 열기";
+
+"Open System Settings and enable “New File Creation 2 Finder” manually." = "시스템 설정을 열고 “New File Creation 2 Finder”를 수동으로 활성화하세요.";
+
+"Open System Settings…" = "시스템 설정 열기…";
+
+"Open Template Library" = "템플릿 라이브러리 열기";
+
+"Open Templates Folder" = "템플릿 폴더 열기";
+
+"Open the new file after creating it" = "새 파일을 생성한 후 열기";
+
+"Option" = "옵션";
+
+"Other" = "기타";
+
+"Paste" = "붙여넣기";
+
+"Play a sound after creating a file" = "파일 생성 후 소리 재생";
+
+"Presentations" = "프레젠테이션";
+
+"Private by design" = "개인정보 보호를 위한 설계";
+
+"Quick New File" = "빠른 새 파일";
+
+"Quick New File…" = "빠른 새 파일…";
+
+"Quit New File Creation 2" = "New File Creation 2 종료";
+
+"Recent" = "최근";
+
+"Redo" = "다시 실행";
+
+"Remove" = "제거";
+
+"Remove Category" = "카테고리 삭제";
+
+"Remove Favorite" = "즐겨찾기 삭제";
+
+"Remove Template…" = "템플릿 제거…";
+
+"Remove the “%@” category?" = "'%@' 카테고리를 삭제하시겠습니까?";
+
+"Remove “%@”?" = "\"%@\"을(를) 제거하시겠습니까?";
+
+"Remove…" = "제거…";
+
+"Rename" = "이름 바꾸기";
+
+"Rename Template" = "템플릿 이름 바꾸기";
+
+"Rename…" = "이름 바꾸기…";
+
+"Requires approval in System Settings" = "시스템 설정에서 승인이 필요합니다.";
+
+"Reset" = "초기화";
+
+"Reset Configuration…" = "구성 재설정…";
+
+"Reset the configuration?" = "구성을 재설정하시겠습니까?";
+
+"Return creates the selected template." = "Return은 선택한 템플릿을 생성합니다.";
+
+"Reveal Config" = "구성 공개";
+
+"Reveal in Finder" = "Finder에 공개";
+
+"Reveal Log" = "기록 공개";
+
+"Reveal Selected Template" = "선택한 템플릿 공개";
+
+"Reveal Template" = "템플릿 공개";
+
+"Reveal the new file in Finder" = "Finder에서 새 파일 공개";
+
+"Right-click in Finder and choose New File from the template list." = "Finder를 마우스 오른쪽 버튼으로 클릭하고 템플릿 목록에서 새 파일을 선택합니다.";
+
+"Run nfc create \"Text File\" to make a file anywhere." = "nfc create \"Text File\"을 실행하면 어디에서나 파일을 만들 수 있습니다.";
+
+"Search" = "검색";
+
+"Search Templates" = "검색 템플릿";
+
+"Search templates" = "템플릿 검색";
+
+"Select a template" = "템플릿 선택";
+
+"Select All" = "모두 선택";
+
+"Services" = "서비스";
+
+"Set as Default" = "기본값으로 설정";
+
+"Settings" = "설정";
+
+"Settings and the template library are reset. Template files in the Templates folder are kept." = "설정 및 템플릿 라이브러리가 재설정됩니다. Templates 폴더의 템플릿 파일은 유지됩니다.";
+
+"Settings › Finder enables Finder menus." = "설정 › Finder는 Finder 메뉴를 활성화합니다.";
+
+"Settings › Help explains every workflow." = "설정 › 도움말은 모든 작업 흐름을 설명합니다.";
+
+"Settings › Templates manages categories and sorting." = "설정 › 템플릿은 카테고리 및 정렬을 관리합니다.";
+
+"Settings…" = "설정…";
+
+"Shift" = "교대";
+
+"Show" = "표시";
+
+"Show a confirmation in the app window" = "앱 창에 확인 표시";
+
+"Show All" = "모두 표시";
+
+"Show favorites first" = "즐겨찾기 먼저 표시";
+
+"Show Get Started" = "쇼 시작하기";
+
+"Show Get Started details" = "시작하기 세부정보 표시";
+
+"Show or Hide Inspector" = "검사기 표시 또는 숨기기";
+
+"Show or Hide Sidebar" = "사이드바 표시 또는 숨기기";
+
+"Show or hide the inspector" = "검사기 표시 또는 숨기기";
+
+"Show template icons" = "템플릿 아이콘 표시";
+
+"Show the menu bar icon" = "메뉴바 아이콘 표시";
+
+"Show Welcome" = "환영 표시";
+
+"Show Welcome Again" = "다시 오신 것을 환영합니다 표시";
+
+"Sort by:" = "정렬 기준:";
+
+"Sound:" = "소리:";
+
+"Spreadsheets" = "스프레드시트";
+
+"Template: %@" = "템플릿: %@";
+
+"Templates" = "템플릿";
+
+"Templates included in the library" = "라이브러리에 포함된 템플릿";
+
+"The app and nfc coordinate writes with a lock and atomic replacement. The Finder extension reads the configuration only." = "앱과 nfc 좌표는 잠금 및 원자 대체를 사용하여 기록합니다. Finder 확장은 구성만 읽습니다.";
+
+"The bundled nfc helper is missing. Rebuild or reinstall the app." = "번들 nfc 도우미가 없습니다. 앱을 다시 빌드하거나 다시 설치하세요.";
+
+"The category will be removed from the library." = "해당 카테고리가 라이브러리에서 제거됩니다.";
+
+"The configuration is damaged." = "구성이 손상되었습니다.";
+
+"The default name is used by the app, the Finder extension, and the nfc command. Existing files are never overwritten." = "기본 이름은 앱, Finder 확장 프로그램 및 nfc 명령에서 사용됩니다. 기존 파일은 덮어쓰지 않습니다.";
+
+"The existing nfc is not a symlink managed by this app." = "기존 NFC는 이 앱에서 관리하는 심볼릭 링크가 아닙니다.";
+
+"The file is not valid JSON." = "파일이 유효한 JSON이 아닙니다.";
+
+"The Finder extension could not be enabled" = "Finder 확장 프로그램을 활성화할 수 없습니다.";
+
+"The Finder extension reads the shared configuration and creates files in the selected folder. If the extension is not listed, open System Settings › General › Login Items & Extensions › Finder Extensions." = "Finder 확장은 공유 구성을 읽고 선택한 폴더에 파일을 생성합니다. 확장 프로그램이 목록에 없으면 시스템 설정 > 일반 > 로그인 항목 및 확장 프로그램 > Finder 확장 프로그램을 엽니다.";
+
+"The menu bar icon stays available so you can always create files." = "메뉴 표시줄 아이콘은 계속 사용 가능하므로 언제든지 파일을 생성할 수 있습니다.";
+
+"The shortcut could not be registered (Carbon error %d). It may conflict with another app." = "바로가기를 등록하지 못했습니다(카본 오류 %d). 다른 앱과 충돌할 수 있습니다.";
+
+"The shortcut is unavailable" = "바로가기를 사용할 수 없습니다.";
+
+"The template file keeps its current name. This changes the display name only." = "템플릿 파일은 현재 이름을 유지합니다. 이렇게 하면 표시 이름만 변경됩니다.";
+
+"The template is removed from the library and its file is moved to Trash." = "템플릿이 라이브러리에서 제거되고 해당 파일이 휴지통으로 이동됩니다.";
+
+"The template “%@” was not found." = "\"%@\" 템플릿을 찾을 수 없습니다.";
+
+"Tip: the global shortcut opens Quick New File from any app. Change it in Settings › General." = "팁: 전역 단축키는 모든 앱에서 빠른 새 파일을 엽니다. 설정 › 일반에서 변경하세요.";
+
+"Unavailable" = "사용할 수 없음";
+
+"Undo" = "실행 취소";
+
+"Uninstall nfc" = "NFC 제거";
+
+"Unsupported shortcut key “%@”." = "지원되지 않는 단축키 \"%@\"입니다.";
+
+"Untitled" = "제목 없음";
+
+"Use the command line" = "명령줄 사용";
+
+"Use the menu bar icon or the global shortcut for the quick panel." = "메뉴바 아이콘이나 퀵패널의 글로벌 단축키를 이용하세요.";
+
+"Used %ld time" = "%ld번 사용됨";
+
+"Used %ld times" = "%ld회 사용됨";
+
+"Version %@" = "버전 %@";
+
+"Video" = "동영상";
+
+"View" = "보기";
+
+"View License" = "라이센스 보기";
+
+"Welcome to New File Creation 2" = "New File Creation 2에 오신 것을 환영합니다.";
+
+"Window" = "창";
+
+"You can reopen this window from Settings › Help or from the menu bar." = "설정 › 도움말 또는 메뉴 모음에서 이 창을 다시 열 수 있습니다.";
+
+"Zoom" = "확대/축소";
+
+"↩ Create file    ⠿ Drag to Finder    esc Close" = "↩ 파일 생성 ⠿ Finder로 드래그 esc 닫기";

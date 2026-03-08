@@ -1,0 +1,545 @@
+/* da localization. Generated from the English source strings. */
+
+" (not on PATH)" = " (not on PATH)";
+
+"%@ (%@)\nDouble-click to create a file." = "%@ (%@)\nDobbeltklik for at oprette en fil.";
+
+"%@ already exists and is not a symlink. Remove it manually or choose another location." = "%@ eksisterer allerede og er ikke et symbollink. Fjern den manuelt, eller vælg en anden placering.";
+
+"%@ template" = "%@ skabelon";
+
+"%@ template, drag to create a file" = "%@ skabelon, træk for at oprette en fil";
+
+"%@ — drag to create %@" = "%@ — træk for at oprette %@";
+
+"%ld template(s) will move to Other." = "%ld skabelon(er) flyttes til Andet.";
+
+"%lu templates in the library" = "%lu skabeloner i biblioteket";
+
+"About" = "Om";
+
+"About New File Creation 2" = "Om New File Creation 2";
+
+"Add" = "Tilføj";
+
+"Add a file to use it as a template, or restore the included set." = "Tilføj en fil for at bruge den som skabelon, eller gendan det medfølgende sæt.";
+
+"Add as Template" = "Tilføj som skabelon";
+
+"Add Category" = "Tilføj kategori";
+
+"Add files as templates" = "Tilføj filer som skabeloner";
+
+"Add files in Settings › Templates, assign categories, remove categories you no longer need, choose a sort order, or drag templates to the Desktop and Finder." = "Tilføj filer i Indstillinger › Skabeloner, tildel kategorier, fjern kategorier, du ikke længere har brug for, vælg en sorteringsrækkefølge, eller træk skabeloner til skrivebordet og Finder.";
+
+"Add Template" = "Tilføj skabelon";
+
+"Add Templates" = "Tilføj skabeloner";
+
+"Add Template…" = "Tilføj skabelon...";
+
+"Add “Add as Template” for selected files" = "Tilføj \"Tilføj som skabelon\" for udvalgte filer";
+
+"Add “New File” to Finder menus" = "Tilføj \"Ny fil\" til Finder-menuerne";
+
+"Added %lu template" = "Tilføjet %lu skabelon";
+
+"Added %lu templates" = "Tilføjede %lu skabeloner";
+
+"Add…" = "Tilføj...";
+
+"Advanced" = "Avanceret";
+
+"After creating" = "Efter oprettelse";
+
+"All Templates" = "Alle skabeloner";
+
+"Allow New File Creation 2 in System Settings › General › Login Items." = "Tillad New File Creation 2 i Systemindstillinger › Generelt › Login-elementer.";
+
+"An unexpected error occurred." = "Der opstod en uventet fejl.";
+
+"Application" = "Ansøgning";
+
+"Approval required" = "Godkendelse påkrævet";
+
+"Archives" = "Arkiv";
+
+"Ask for a name" = "Spørg efter et navn";
+
+"Assign a global shortcut in Settings" = "Tildel en global genvej i Indstillinger";
+
+"At a glance" = "Et øjeblik";
+
+"Audio" = "Lyd";
+
+"Bring All to Front" = "Bring alle foran";
+
+"Cancel" = "Annuller";
+
+"Categories" = "Kategorier";
+
+"Category" = "Kategori";
+
+"Category:" = "Kategori:";
+
+"Choose" = "Vælg";
+
+"Choose a name and location for the new file" = "Vælg et navn og en placering for den nye fil";
+
+"Choose files or packages to use as templates." = "Vælg filer eller pakker, der skal bruges som skabeloner.";
+
+"Choose Name and Location…" = "Vælg navn og sted…";
+
+"Choose the folder where new files are created by default." = "Vælg den mappe, hvor nye filer oprettes som standard.";
+
+"Choose…" = "Vælg...";
+
+"Close" = "Luk";
+
+"Code" = "Kode";
+
+"Command" = "Kommando";
+
+"Command-line tool" = "Kommandolinjeværktøj";
+
+"Configuration and command line" = "Konfiguration og kommandolinje";
+
+"Continue" = "Fortsæt";
+
+"Control" = "Kontrol";
+
+"Copy" = "Kopiér";
+
+"Copyright © 2024–2026 Sergio Martinez-Losa\nMIT License" = "Copyright © 2024–2026 Sergio Martinez-Losa\nMIT-licens";
+
+"Copyright © 2024–2026 Sergio Martinez-Losa. Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files, to deal in the Software without restriction." = "Copyright © 2024–2026 Sergio Martinez-Losa. Tilladelse gives hermed gratis til enhver person, der får en kopi af denne software og tilhørende dokumentationsfiler, til at handle med softwaren uden begrænsninger.";
+
+"Could not add the category" = "Kunne ikke tilføje kategorien";
+
+"Could not change the login item" = "Kunne ikke ændre login-elementet";
+
+"Could not create the file" = "Kunne ikke oprette filen";
+
+"Could not enable the Finder extension" = "Kunne ikke aktivere Finder-udvidelsen";
+
+"Could not export the configuration" = "Kunne ikke eksportere konfigurationen";
+
+"Could not import the configuration" = "Konfigurationen kunne ikke importeres";
+
+"Could not install nfc" = "Kunne ikke installere nfc";
+
+"Could not reset the configuration" = "Konfigurationen kunne ikke nulstilles";
+
+"Could not uninstall nfc" = "Kunne ikke afinstallere nfc";
+
+"Create" = "Opret";
+
+"Create a file from a template in Finder, from the menu bar, from the template library, or with the nfc command." = "Opret en fil fra en skabelon i Finder, fra menulinjen, fra skabelonbiblioteket eller med kommandoen nfc.";
+
+"Create a new file from a template" = "Opret en ny fil fra en skabelon";
+
+"Create File" = "Opret fil";
+
+"Create files from templates in Finder, from the menu bar, from the library, or with the nfc command.\n\n• ⌘N creates a file from the selected template.\n• ⇧⌘N lets you choose a name and location.\n• The menu bar icon opens templates and the quick panel.\n• Right-click in Finder for Finder menu items.\n• Run “nfc help” in Terminal for command-line usage." = "Opret filer fra skabeloner i Finder, fra menulinjen, fra biblioteket eller med kommandoen nfc.\n\n• ⌘N opretter en fil fra den valgte skabelon.\n• ⇧⌘N lader dig vælge et navn og en placering.\n• Menulinjeikonet åbner skabeloner og hurtigpanelet.\n• Højreklik i Finder for menupunkter i Finder.\n• Kør \"nfc help\" i Terminal til kommandolinjebrug.";
+
+"Create files from templates in Finder, the menu bar, the library, and the command line." = "Opret filer fra skabeloner i Finder, menulinjen, biblioteket og kommandolinjen.";
+
+"Create from Finder" = "Opret fra Finder";
+
+"Create from the menu bar" = "Opret fra menulinjen";
+
+"Create immediately" = "Opret med det samme";
+
+"Create in Default Folder" = "Opret i standardmappe";
+
+"Create the file in “%@”." = "Opret filen i “%@”.";
+
+"Create the selected template in the default folder" = "Opret den valgte skabelon i standardmappen";
+
+"Create with Name…" = "Opret med navn...";
+
+"Created %@" = "Oprettet %@";
+
+"Creation:" = "Oprettelse:";
+
+"Cut" = "Klip";
+
+"Default folder:" = "Standardmappe:";
+
+"Default name:" = "Standardnavn:";
+
+"Default template:" = "Standard skabelon:";
+
+"Desktop" = "Skrivebord";
+
+"Disabled templates do not appear in the app, the menu bar, or Finder menus." = "Deaktiverede skabeloner vises ikke i appen, menulinjen eller Finder-menuerne.";
+
+"Documents" = "Dokumenter";
+
+"Drag a template row to Finder or the Desktop." = "Træk en skabelonrække til Finder eller skrivebordet.";
+
+"Drag a template to a folder or the Desktop." = "Træk en skabelon til en mappe eller til skrivebordet.";
+
+"Edit" = "Rediger";
+
+"Enable Extension" = "Aktiver udvidelse";
+
+"Enable the Finder extension, then right-click in a folder or on a file and choose New File. The new file is created in the folder you are browsing." = "Aktiver Finder-udvidelsen, højreklik derefter i en mappe eller på en fil, og vælg Ny fil. Den nye fil oprettes i den mappe, du gennemser.";
+
+"Enabled" = "Aktiveret";
+
+"Enter a category name." = "Indtast et kategorinavn.";
+
+"Enter Full Screen" = "Gå ind i fuld skærm";
+
+"Everything stays on your Mac. No network, analytics, or telemetry." = "Alt forbliver på din Mac. Intet netværk, analyser eller telemetri.";
+
+"Export…" = "Eksporter...";
+
+"Extension: %@" = "Udvidelse: %@";
+
+"Favorite" = "Favorit";
+
+"Favorites" = "Favoritter";
+
+"File" = "Fil";
+
+"File type" = "Filtype";
+
+"Finder" = "Finder";
+
+"Finder extension" = "Finder-udvidelse";
+
+"Finder extension status unavailable" = "Finder-udvidelsesstatus er ikke tilgængelig";
+
+"Finder extension: disabled" = "Finderudvidelse: deaktiveret";
+
+"Finder extension: enabled" = "Finderudvidelse: aktiveret";
+
+"Finder extension: not registered. Build and open the app once." = "Finderudvidelse: ikke registreret. Byg og åbn appen én gang.";
+
+"Finder extension: registered" = "Finderudvidelse: registreret";
+
+"General" = "Generelt";
+
+"Get Started" = "Kom godt i gang";
+
+"Get Started…" = "Kom godt i gang...";
+
+"Global shortcut:" = "Global genvej:";
+
+"Global shortcut: %@" = "Global genvej: %@";
+
+"Group templates by category" = "Gruppér skabeloner efter kategori";
+
+"Help" = "Hjælp";
+
+"Help and getting started" = "Hjælp og kom godt i gang";
+
+"Hide New File Creation 2" = "Skjul New File Creation 2";
+
+"Hide Others" = "Skjul andre";
+
+"Images" = "Billeder";
+
+"Import…" = "Importer...";
+
+"Inspector" = "Inspektør";
+
+"Install nfc" = "Installer nfc";
+
+"Install nfc from Settings › Advanced, then run nfc create \"Text File\" in Terminal to create a file in the current folder." = "Installer nfc fra Indstillinger › Avanceret, og kør derefter nfc create \"Text File\" i Terminal for at oprette en fil i den aktuelle mappe.";
+
+"Installed at %@%@" = "Installeret på %@%@";
+
+"Keep the quick panel open after dropping a file" = "Hold hurtigpanelet åbent efter at have droppet en fil";
+
+"Last used" = "Sidst brugt";
+
+"Last used %@" = "Sidst brugt %@";
+
+"Launch at login requires macOS 13 or later." = "Lancering ved login kræver macOS 13 eller nyere.";
+
+"Launch New File Creation 2 at login" = "Start New File Creation 2 ved login";
+
+"Left-click the menu bar icon for Quick New File." = "Venstreklik på menulinjeikonet for Hurtig ny fil.";
+
+"Left-click the menu bar icon to open Quick New File. Search, press Return to create, or drag a row into Finder. Right-click for the full menu and Get Started." = "Venstreklik på menulinjeikonet for at åbne Hurtig ny fil. Søg, tryk på Retur for at oprette, eller træk en række ind i Finder. Højreklik for at se den fulde menu og Kom godt i gang.";
+
+"Library" = "Bibliotek";
+
+"Manage templates" = "Administrer skabeloner";
+
+"Manual order" = "Manuel bestilling";
+
+"Menu bar icon (always available)" = "Menulinjeikon (altid tilgængelig)";
+
+"Menu contents" = "Menuindhold";
+
+"Minimize" = "Minimer";
+
+"MIT License" = "MIT-licens";
+
+"Most used" = "Mest brugt";
+
+"Name" = "Navn";
+
+"New %@" = "Ny %@";
+
+"New category" = "Ny kategori";
+
+"New File" = "Ny fil";
+
+"New File Creation 2" = "New File Creation 2";
+
+"New File Creation 2 could not load its configuration" = "New File Creation 2 kunne ikke indlæse sin konfiguration";
+
+"New File Creation 2 Help" = "New File Creation 2 Hjælp";
+
+"New File Creation 2 keeps your reusable templates in one place and creates a fresh copy wherever you are working. Everything runs locally on your Mac." = "New File Creation 2 holder dine genanvendelige skabeloner ét sted og opretter en ny kopi, uanset hvor du arbejder. Alt kører lokalt på din Mac.";
+
+"New files" = "Nye filer";
+
+"New File…" = "Ny fil...";
+
+"No accounts, network requests, analytics, or telemetry. The app, Finder extension, Today widget, and nfc helper share one local configuration folder." = "Ingen konti, netværksanmodninger, analyser eller telemetri. Appen, Finder-udvidelsen, Today-widgeten og nfc-hjælperen deler én lokal konfigurationsmappe.";
+
+"no extension" = "ingen forlængelse";
+
+"No matching templates" = "Ingen matchende skabeloner";
+
+"No Templates" = "Ingen skabeloner";
+
+"No templates" = "Ingen skabeloner";
+
+"No templates to show" = "Ingen skabeloner at vise";
+
+"None" = "Ingen";
+
+"Not found; move the app to /Applications" = "Ikke fundet; flyt appen til /Applikationer";
+
+"Not installed. The bundled helper is at Contents/Helpers/nfc." = "Ikke installeret. Den medfølgende hjælper er på Contents/Helpers/nfc.";
+
+"Not registered" = "Ikke registreret";
+
+"OK" = "OK";
+
+"On" = "Til";
+
+"Open Library" = "Åben bibliotek";
+
+"Open New File Creation 2 once, then try the Finder menu again." = "Åbn New File Creation 2 én gang, og prøv derefter Finder-menuen igen.";
+
+"Open Settings" = "Åbn Indstillinger";
+
+"Open System Settings and enable “New File Creation 2 Finder” manually." = "Åbn Systemindstillinger og aktiver \"New File Creation 2 Finder\" manuelt.";
+
+"Open System Settings…" = "Åbn systemindstillinger...";
+
+"Open Template Library" = "Åbn skabelonbibliotek";
+
+"Open Templates Folder" = "Åbn skabelonmappen";
+
+"Open the new file after creating it" = "Åbn den nye fil efter oprettelse af den";
+
+"Option" = "Mulighed";
+
+"Other" = "Andet";
+
+"Paste" = "Indsæt";
+
+"Play a sound after creating a file" = "Afspil en lyd efter oprettelse af en fil";
+
+"Presentations" = "Præsentationer";
+
+"Private by design" = "Privat af design";
+
+"Quick New File" = "Hurtig ny fil";
+
+"Quick New File…" = "Hurtig ny fil...";
+
+"Quit New File Creation 2" = "Afslut New File Creation 2";
+
+"Recent" = "Seneste";
+
+"Redo" = "Gentag";
+
+"Remove" = "Fjern";
+
+"Remove Category" = "Fjern kategori";
+
+"Remove Favorite" = "Fjern favorit";
+
+"Remove Template…" = "Fjern skabelon...";
+
+"Remove the “%@” category?" = "Vil du fjerne kategorien \"%@\"?";
+
+"Remove “%@”?" = "Vil du fjerne \"%@\"?";
+
+"Remove…" = "Fjern...";
+
+"Rename" = "Omdøb";
+
+"Rename Template" = "Omdøb skabelon";
+
+"Rename…" = "Omdøb...";
+
+"Requires approval in System Settings" = "Kræver godkendelse i systemindstillinger";
+
+"Reset" = "Nulstil";
+
+"Reset Configuration…" = "Nulstil konfiguration...";
+
+"Reset the configuration?" = "Nulstille konfigurationen?";
+
+"Return creates the selected template." = "Return opretter den valgte skabelon.";
+
+"Reveal Config" = "Vis konfig";
+
+"Reveal in Finder" = "Afslør i Finder";
+
+"Reveal Log" = "Afslør log";
+
+"Reveal Selected Template" = "Vis den valgte skabelon";
+
+"Reveal Template" = "Afslør skabelon";
+
+"Reveal the new file in Finder" = "Afslør den nye fil i Finder";
+
+"Right-click in Finder and choose New File from the template list." = "Højreklik i Finder og vælg Ny fil fra skabelonlisten.";
+
+"Run nfc create \"Text File\" to make a file anywhere." = "Kør nfc create \"Text File\" for at lave en fil hvor som helst.";
+
+"Search" = "Søg";
+
+"Search Templates" = "Søg skabeloner";
+
+"Search templates" = "Søg skabeloner";
+
+"Select a template" = "Vælg en skabelon";
+
+"Select All" = "Vælg alle";
+
+"Services" = "Tjenester";
+
+"Set as Default" = "Indstil som standard";
+
+"Settings" = "Indstillinger";
+
+"Settings and the template library are reset. Template files in the Templates folder are kept." = "Indstillinger og skabelonbiblioteket nulstilles. Skabelonfiler i mappen Skabeloner bevares.";
+
+"Settings › Finder enables Finder menus." = "Indstillinger › Finder aktiverer Finder-menuer.";
+
+"Settings › Help explains every workflow." = "Indstillinger › Hjælp forklarer alle arbejdsgange.";
+
+"Settings › Templates manages categories and sorting." = "Indstillinger › Skabeloner administrerer kategorier og sortering.";
+
+"Settings…" = "Indstillinger...";
+
+"Shift" = "Skift";
+
+"Show" = "Vis";
+
+"Show a confirmation in the app window" = "Vis en bekræftelse i appvinduet";
+
+"Show All" = "Vis alle";
+
+"Show favorites first" = "Vis favoritter først";
+
+"Show Get Started" = "Vis Kom godt i gang";
+
+"Show Get Started details" = "Vis Kom godt i gang detaljer";
+
+"Show or Hide Inspector" = "Vis eller skjul inspektør";
+
+"Show or Hide Sidebar" = "Vis eller skjul sidepanel";
+
+"Show or hide the inspector" = "Vis eller skjul inspektøren";
+
+"Show template icons" = "Vis skabelonikoner";
+
+"Show the menu bar icon" = "Vis menulinjeikonet";
+
+"Show Welcome" = "Vis velkommen";
+
+"Show Welcome Again" = "Vis velkommen igen";
+
+"Sort by:" = "Sortér efter:";
+
+"Sound:" = "Lyd:";
+
+"Spreadsheets" = "Regneark";
+
+"Template: %@" = "Skabelon: %@";
+
+"Templates" = "Skabeloner";
+
+"Templates included in the library" = "Skabeloner inkluderet i biblioteket";
+
+"The app and nfc coordinate writes with a lock and atomic replacement. The Finder extension reads the configuration only." = "Appen og nfc-koordinaten skriver med en lås og atomudskiftning. Finder-udvidelsen læser kun konfigurationen.";
+
+"The bundled nfc helper is missing. Rebuild or reinstall the app." = "Den medfølgende nfc-hjælper mangler. Genopbyg eller geninstaller appen.";
+
+"The category will be removed from the library." = "Kategorien vil blive fjernet fra biblioteket.";
+
+"The configuration is damaged." = "Konfigurationen er beskadiget.";
+
+"The default name is used by the app, the Finder extension, and the nfc command. Existing files are never overwritten." = "Standardnavnet bruges af appen, Finder-udvidelsen og nfc-kommandoen. Eksisterende filer overskrives aldrig.";
+
+"The existing nfc is not a symlink managed by this app." = "Den eksisterende nfc er ikke et symlink, der administreres af denne app.";
+
+"The file is not valid JSON." = "Filen er ikke gyldig JSON.";
+
+"The Finder extension could not be enabled" = "Finder-udvidelsen kunne ikke aktiveres";
+
+"The Finder extension reads the shared configuration and creates files in the selected folder. If the extension is not listed, open System Settings › General › Login Items & Extensions › Finder Extensions." = "Finder-udvidelsen læser den delte konfiguration og opretter filer i den valgte mappe. Hvis udvidelsen ikke er på listen, skal du åbne Systemindstillinger › Generelt › Login-elementer og udvidelser › Finder-udvidelser.";
+
+"The menu bar icon stays available so you can always create files." = "Menulinjeikonet forbliver tilgængeligt, så du altid kan oprette filer.";
+
+"The shortcut could not be registered (Carbon error %d). It may conflict with another app." = "Genvejen kunne ikke registreres (kulstoffejl %d). Det kan være i konflikt med en anden app.";
+
+"The shortcut is unavailable" = "Genvejen er ikke tilgængelig";
+
+"The template file keeps its current name. This changes the display name only." = "Skabelonfilen beholder sit nuværende navn. Dette ændrer kun visningsnavnet.";
+
+"The template is removed from the library and its file is moved to Trash." = "Skabelonen fjernes fra biblioteket, og dens fil flyttes til papirkurven.";
+
+"The template “%@” was not found." = "Skabelonen \"%@\" blev ikke fundet.";
+
+"Tip: the global shortcut opens Quick New File from any app. Change it in Settings › General." = "Tip: Den globale genvej åbner Hurtig ny fil fra enhver app. Skift det i Indstillinger › Generelt.";
+
+"Unavailable" = "Utilgængelig";
+
+"Undo" = "Fortryd";
+
+"Uninstall nfc" = "Afinstaller nfc";
+
+"Unsupported shortcut key “%@”." = "Ikke-understøttet genvejstast “%@”.";
+
+"Untitled" = "Uden titel";
+
+"Use the command line" = "Brug kommandolinjen";
+
+"Use the menu bar icon or the global shortcut for the quick panel." = "Brug menulinjeikonet eller den globale genvej til hurtigpanelet.";
+
+"Used %ld time" = "Brugt %ld tid";
+
+"Used %ld times" = "Brugt %ld gange";
+
+"Version %@" = "Version %@";
+
+"Video" = "Video";
+
+"View" = "Se";
+
+"View License" = "Se licens";
+
+"Welcome to New File Creation 2" = "Velkommen til New File Creation 2";
+
+"Window" = "Vindue";
+
+"You can reopen this window from Settings › Help or from the menu bar." = "Du kan genåbne dette vindue fra Indstillinger › Hjælp eller fra menulinjen.";
+
+"Zoom" = "Zoom";
+
+"↩ Create file    ⠿ Drag to Finder    esc Close" = "↩ Opret fil ⠿ Træk til Finder esc Luk";

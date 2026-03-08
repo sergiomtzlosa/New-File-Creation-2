@@ -1,0 +1,545 @@
+/* gl localization. Generated from the English source strings. */
+
+" (not on PATH)" = " (not on PATH)";
+
+"%@ (%@)\nDouble-click to create a file." = "%@ (%@)\nFai dobre clic para crear un ficheiro.";
+
+"%@ already exists and is not a symlink. Remove it manually or choose another location." = "%@ xa existe e non é unha ligazón simbólica. Elimínao manualmente ou escolle outra localización.";
+
+"%@ template" = "%@ modelo";
+
+"%@ template, drag to create a file" = "%@ modelo, arrastra para crear un ficheiro";
+
+"%@ — drag to create %@" = "%@ — arrastra para crear %@";
+
+"%ld template(s) will move to Other." = "%ld modelo(s) moverase a Outros.";
+
+"%lu templates in the library" = "%lu modelos na biblioteca";
+
+"About" = "Acerca de";
+
+"About New File Creation 2" = "Acerca de New File Creation 2";
+
+"Add" = "Engadir";
+
+"Add a file to use it as a template, or restore the included set." = "Engade un ficheiro para usalo como modelo ou restaura o conxunto incluído.";
+
+"Add as Template" = "Engadir como modelo";
+
+"Add Category" = "Engadir categoría";
+
+"Add files as templates" = "Engadir ficheiros como modelos";
+
+"Add files in Settings › Templates, assign categories, remove categories you no longer need, choose a sort order, or drag templates to the Desktop and Finder." = "Engade ficheiros en Configuración › Modelos, asigna categorías, elimina categorías que xa non necesitas, escolla unha orde de clasificación ou arrastra modelos ao escritorio e ao Finder.";
+
+"Add Template" = "Engadir modelo";
+
+"Add Templates" = "Engadir modelos";
+
+"Add Template…" = "Engadir modelo...";
+
+"Add “Add as Template” for selected files" = "Engadir \"Engadir como modelo\" para os ficheiros seleccionados";
+
+"Add “New File” to Finder menus" = "Engadir \"Novo ficheiro\" aos menús do Finder";
+
+"Added %lu template" = "Engadiuse o modelo %lu";
+
+"Added %lu templates" = "Engadíronse modelos %lu";
+
+"Add…" = "Engadir...";
+
+"Advanced" = "Avanzado";
+
+"After creating" = "Despois de crear";
+
+"All Templates" = "Todos os modelos";
+
+"Allow New File Creation 2 in System Settings › General › Login Items." = "Permitir New File Creation 2 en Configuración do Sistema › Xeral › Elementos de inicio de sesión.";
+
+"An unexpected error occurred." = "Produciuse un erro inesperado.";
+
+"Application" = "Solicitude";
+
+"Approval required" = "Requírese aprobación";
+
+"Archives" = "Arquivos";
+
+"Ask for a name" = "Solicitar un nome";
+
+"Assign a global shortcut in Settings" = "Asigna un atallo global en Configuración";
+
+"At a glance" = "Dunha ollada";
+
+"Audio" = "Audio";
+
+"Bring All to Front" = "Trae todo á fronte";
+
+"Cancel" = "Cancelar";
+
+"Categories" = "Categorías";
+
+"Category" = "Categoría";
+
+"Category:" = "Categoría:";
+
+"Choose" = "Escolla";
+
+"Choose a name and location for the new file" = "Escolle un nome e unha localización para o ficheiro novo";
+
+"Choose files or packages to use as templates." = "Escolle ficheiros ou paquetes para usar como modelos.";
+
+"Choose Name and Location…" = "Escolle o nome e a localización...";
+
+"Choose the folder where new files are created by default." = "Escolle o cartafol onde se crean novos ficheiros por defecto.";
+
+"Choose…" = "Escolla...";
+
+"Close" = "Pechar";
+
+"Code" = "Código";
+
+"Command" = "Comando";
+
+"Command-line tool" = "Ferramenta de liña de comandos";
+
+"Configuration and command line" = "Configuración e liña de comandos";
+
+"Continue" = "Continuar";
+
+"Control" = "Control";
+
+"Copy" = "Copiar";
+
+"Copyright © 2024–2026 Sergio Martinez-Losa\nMIT License" = "Copyright © 2024–2026 Sergio Martinez-Losa\nLicenza MIT";
+
+"Copyright © 2024–2026 Sergio Martinez-Losa. Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files, to deal in the Software without restriction." = "Copyright © 2024–2026 Sergio Martinez-Losa. Concédese permiso, de xeito gratuíto, a calquera persoa que obteña unha copia deste software e os ficheiros de documentación asociados, para que trate co Software sen restricións.";
+
+"Could not add the category" = "Non se puido engadir a categoría";
+
+"Could not change the login item" = "Non se puido cambiar o elemento de inicio de sesión";
+
+"Could not create the file" = "Non se puido crear o ficheiro";
+
+"Could not enable the Finder extension" = "Non se puido activar a extensión do Finder";
+
+"Could not export the configuration" = "Non se puido exportar a configuración";
+
+"Could not import the configuration" = "Non se puido importar a configuración";
+
+"Could not install nfc" = "Non se puido instalar nfc";
+
+"Could not reset the configuration" = "Non se puido restablecer a configuración";
+
+"Could not uninstall nfc" = "Non se puido desinstalar nfc";
+
+"Create" = "Crear";
+
+"Create a file from a template in Finder, from the menu bar, from the template library, or with the nfc command." = "Cree un ficheiro desde un modelo no Finder, desde a barra de menús, desde a biblioteca de modelos ou co comando nfc.";
+
+"Create a new file from a template" = "Crear un ficheiro novo a partir dun modelo";
+
+"Create File" = "Crear ficheiro";
+
+"Create files from templates in Finder, from the menu bar, from the library, or with the nfc command.\n\n• ⌘N creates a file from the selected template.\n• ⇧⌘N lets you choose a name and location.\n• The menu bar icon opens templates and the quick panel.\n• Right-click in Finder for Finder menu items.\n• Run “nfc help” in Terminal for command-line usage." = "Cree ficheiros a partir de modelos no Finder, desde a barra de menús, desde a biblioteca ou co comando nfc.\n\n• ⌘N crea un ficheiro a partir do modelo seleccionado.\n• ⇧⌘N permíteche escoller un nome e unha localización.\n• A icona da barra de menú abre os modelos e o panel rápido.\n• Fai clic co botón dereito do rato nos elementos do menú do Finder.\n• Executar “nfc help” no Terminal para usar a liña de comandos.";
+
+"Create files from templates in Finder, the menu bar, the library, and the command line." = "Cree ficheiros a partir de modelos no Finder, a barra de menús, a biblioteca e a liña de comandos.";
+
+"Create from Finder" = "Crear desde Finder";
+
+"Create from the menu bar" = "Crear desde a barra de menú";
+
+"Create immediately" = "Crear inmediatamente";
+
+"Create in Default Folder" = "Crear no cartafol predeterminado";
+
+"Create the file in “%@”." = "Crear o ficheiro en “%@”.";
+
+"Create the selected template in the default folder" = "Crea o modelo seleccionado no cartafol predeterminado";
+
+"Create with Name…" = "Crear co nome...";
+
+"Created %@" = "Creouse %@";
+
+"Creation:" = "Creación:";
+
+"Cut" = "Cortar";
+
+"Default folder:" = "Cartafol predeterminado:";
+
+"Default name:" = "Nome predeterminado:";
+
+"Default template:" = "Modelo predeterminado:";
+
+"Desktop" = "Escritorio";
+
+"Disabled templates do not appear in the app, the menu bar, or Finder menus." = "Os modelos desactivados non aparecen na aplicación, na barra de menús nin nos menús do Finder.";
+
+"Documents" = "Documentos";
+
+"Drag a template row to Finder or the Desktop." = "Arrastra unha fila de modelo ao Finder ou ao Escritorio.";
+
+"Drag a template to a folder or the Desktop." = "Arrastra unha plantilla a unha carpeta ou ao Escritorio.";
+
+"Edit" = "Editar";
+
+"Enable Extension" = "Activar a extensión";
+
+"Enable the Finder extension, then right-click in a folder or on a file and choose New File. The new file is created in the folder you are browsing." = "Activa a extensión do Finder, fai clic co botón dereito nun cartafol ou nun ficheiro e selecciona Novo ficheiro. O ficheiro novo créase no cartafol que está a navegar.";
+
+"Enabled" = "Activado";
+
+"Enter a category name." = "Introduce un nome de categoría.";
+
+"Enter Full Screen" = "Accede a pantalla completa";
+
+"Everything stays on your Mac. No network, analytics, or telemetry." = "Todo queda no teu Mac. Sen rede, analítica ou telemetría.";
+
+"Export…" = "Exportar...";
+
+"Extension: %@" = "Extensión: %@";
+
+"Favorite" = "Favorito";
+
+"Favorites" = "Favoritos";
+
+"File" = "Ficheiro";
+
+"File type" = "Tipo de ficheiro";
+
+"Finder" = "Buscador";
+
+"Finder extension" = "Extensión do Finder";
+
+"Finder extension status unavailable" = "O estado da extensión do Finder non está dispoñible";
+
+"Finder extension: disabled" = "Extensión do buscador: desactivada";
+
+"Finder extension: enabled" = "Extensión do buscador: activada";
+
+"Finder extension: not registered. Build and open the app once." = "Extensión do buscador: non rexistrada. Crea e abre a aplicación unha vez.";
+
+"Finder extension: registered" = "Extensión do buscador: rexistrada";
+
+"General" = "Xerais";
+
+"Get Started" = "Comezar";
+
+"Get Started…" = "Comezar...";
+
+"Global shortcut:" = "Atallo global:";
+
+"Global shortcut: %@" = "Atallo global: %@";
+
+"Group templates by category" = "Agrupar modelos por categoría";
+
+"Help" = "Axuda";
+
+"Help and getting started" = "Axuda e comezar";
+
+"Hide New File Creation 2" = "Agochar New File Creation 2";
+
+"Hide Others" = "Ocultar outros";
+
+"Images" = "Imaxes";
+
+"Import…" = "Importar...";
+
+"Inspector" = "Inspector";
+
+"Install nfc" = "Instalar nfc";
+
+"Install nfc from Settings › Advanced, then run nfc create \"Text File\" in Terminal to create a file in the current folder." = "Instale nfc desde Configuración › Avanzado, despois executa nfc create \"Ficheiro de texto\" no Terminal para crear un ficheiro no cartafol actual.";
+
+"Installed at %@%@" = "Instalouse en %@%@";
+
+"Keep the quick panel open after dropping a file" = "Mantén o panel rápido aberto despois de soltar un ficheiro";
+
+"Last used" = "Último uso";
+
+"Last used %@" = "Último uso %@";
+
+"Launch at login requires macOS 13 or later." = "O inicio ao iniciar sesión require macOS 13 ou posterior.";
+
+"Launch New File Creation 2 at login" = "Abrir New File Creation 2 ao iniciar sesión";
+
+"Left-click the menu bar icon for Quick New File." = "Fai clic co botón esquerdo na icona da barra de menú para Quick New File.";
+
+"Left-click the menu bar icon to open Quick New File. Search, press Return to create, or drag a row into Finder. Right-click for the full menu and Get Started." = "Fai clic co botón esquerdo na icona da barra de menú para abrir un ficheiro novo rápido. Busca, preme Intro para crear ou arrastra unha fila ao Finder. Fai clic co botón dereito para acceder ao menú completo e Comezar.";
+
+"Library" = "Biblioteca";
+
+"Manage templates" = "Xestionar modelos";
+
+"Manual order" = "Pedido manual";
+
+"Menu bar icon (always available)" = "Icona da barra de menús (sempre dispoñible)";
+
+"Menu contents" = "Contido do menú";
+
+"Minimize" = "Minimizar";
+
+"MIT License" = "Licenza MIT";
+
+"Most used" = "O máis usado";
+
+"Name" = "Nome";
+
+"New %@" = "Novo %@";
+
+"New category" = "Nova categoría";
+
+"New File" = "Ficheiro novo";
+
+"New File Creation 2" = "New File Creation 2";
+
+"New File Creation 2 could not load its configuration" = "New File Creation 2 non puido cargar a súa configuración";
+
+"New File Creation 2 Help" = "Axuda de New File Creation 2";
+
+"New File Creation 2 keeps your reusable templates in one place and creates a fresh copy wherever you are working. Everything runs locally on your Mac." = "New File Creation 2 mantén as túas plantillas reutilizables nun único lugar e crea unha copia nova en calquera lugar que esteas a traballar. Todo se executa localmente no teu Mac.";
+
+"New files" = "Ficheiros novos";
+
+"New File…" = "Ficheiro novo...";
+
+"No accounts, network requests, analytics, or telemetry. The app, Finder extension, Today widget, and nfc helper share one local configuration folder." = "Non hai contas, solicitudes de rede, análises ou telemetría. A aplicación, a extensión Finder, o widget Today e o asistente nfc comparten un cartafol de configuración local.";
+
+"no extension" = "sen extensión";
+
+"No matching templates" = "Non hai modelos coincidentes";
+
+"No Templates" = "Non hai modelos";
+
+"No templates" = "Non hai modelos";
+
+"No templates to show" = "Non hai plantillas para amosar";
+
+"None" = "Ningún";
+
+"Not found; move the app to /Applications" = "Non se atopou; mover a aplicación a /Aplicacións";
+
+"Not installed. The bundled helper is at Contents/Helpers/nfc." = "Non instalado. O axudante incluído está en Contents/Helpers/nfc.";
+
+"Not registered" = "Non rexistrado";
+
+"OK" = "Aceptar";
+
+"On" = "Activado";
+
+"Open Library" = "Abrir biblioteca";
+
+"Open New File Creation 2 once, then try the Finder menu again." = "Abre New File Creation 2 unha vez, logo tenta de novo o menú Finder.";
+
+"Open Settings" = "Abre Configuración";
+
+"Open System Settings and enable “New File Creation 2 Finder” manually." = "Abre Configuración do Sistema e activa manualmente “Finder de New File Creation 2”.";
+
+"Open System Settings…" = "Abre a configuración do sistema...";
+
+"Open Template Library" = "Abre a biblioteca de modelos";
+
+"Open Templates Folder" = "Abre o cartafol de modelos";
+
+"Open the new file after creating it" = "Abre o ficheiro novo despois de crealo";
+
+"Option" = "Opción";
+
+"Other" = "Outro";
+
+"Paste" = "Pegar";
+
+"Play a sound after creating a file" = "Reproduce un son despois de crear un ficheiro";
+
+"Presentations" = "Presentacións";
+
+"Private by design" = "Privado por deseño";
+
+"Quick New File" = "Novo ficheiro rápido";
+
+"Quick New File…" = "Novo ficheiro rápido...";
+
+"Quit New File Creation 2" = "Saír de New File Creation 2";
+
+"Recent" = "Recente";
+
+"Redo" = "Refacer";
+
+"Remove" = "Eliminar";
+
+"Remove Category" = "Eliminar categoría";
+
+"Remove Favorite" = "Eliminar favorito";
+
+"Remove Template…" = "Eliminar modelo...";
+
+"Remove the “%@” category?" = "Queres eliminar a categoría “%@”?";
+
+"Remove “%@”?" = "Queres eliminar “%@”?";
+
+"Remove…" = "Eliminar...";
+
+"Rename" = "Cambiar o nome";
+
+"Rename Template" = "Cambiar o nome do modelo";
+
+"Rename…" = "Renomear...";
+
+"Requires approval in System Settings" = "Require aprobación na configuración do sistema";
+
+"Reset" = "Restablecer";
+
+"Reset Configuration…" = "Restablecer configuración...";
+
+"Reset the configuration?" = "Queres restablecer a configuración?";
+
+"Return creates the selected template." = "Retorno crea o modelo seleccionado.";
+
+"Reveal Config" = "Revelar configuración";
+
+"Reveal in Finder" = "Revelar no Finder";
+
+"Reveal Log" = "Revelar rexistro";
+
+"Reveal Selected Template" = "Revelar o modelo seleccionado";
+
+"Reveal Template" = "Mostrar modelo";
+
+"Reveal the new file in Finder" = "Revela o novo ficheiro no Finder";
+
+"Right-click in Finder and choose New File from the template list." = "Fai clic co botón dereito do rato no Finder e escolla Novo ficheiro na lista de modelos.";
+
+"Run nfc create \"Text File\" to make a file anywhere." = "Executa nfc create \"Ficheiro de texto\" para crear un ficheiro en calquera lugar.";
+
+"Search" = "Buscar";
+
+"Search Templates" = "Buscar modelos";
+
+"Search templates" = "Buscar modelos";
+
+"Select a template" = "Selecciona un modelo";
+
+"Select All" = "Seleccionar todo";
+
+"Services" = "Servizos";
+
+"Set as Default" = "Establecer como predeterminado";
+
+"Settings" = "Configuración";
+
+"Settings and the template library are reset. Template files in the Templates folder are kept." = "A configuración e a biblioteca de modelos restablecéronse. Consérvanse os ficheiros de modelos no cartafol de modelos.";
+
+"Settings › Finder enables Finder menus." = "Configuración › Finder activa os menús do Finder.";
+
+"Settings › Help explains every workflow." = "Configuración › A Axuda explica cada fluxo de traballo.";
+
+"Settings › Templates manages categories and sorting." = "Configuración › Os modelos xestionan categorías e clasificación.";
+
+"Settings…" = "Configuración...";
+
+"Shift" = "Maiús";
+
+"Show" = "Amosar";
+
+"Show a confirmation in the app window" = "Mostrar unha confirmación na xanela da aplicación";
+
+"Show All" = "Mostrar todo";
+
+"Show favorites first" = "Amosar os favoritos primeiro";
+
+"Show Get Started" = "Mostrar Comeza";
+
+"Show Get Started details" = "Mostrar detalles de Iniciación";
+
+"Show or Hide Inspector" = "Mostrar ou ocultar o inspector";
+
+"Show or Hide Sidebar" = "Mostrar ou agochar a barra lateral";
+
+"Show or hide the inspector" = "Mostrar ou ocultar o inspector";
+
+"Show template icons" = "Mostrar iconas de modelos";
+
+"Show the menu bar icon" = "Mostra a icona da barra de menú";
+
+"Show Welcome" = "Mostrar benvida";
+
+"Show Welcome Again" = "Mostrar benvida de novo";
+
+"Sort by:" = "Ordenar por:";
+
+"Sound:" = "Son:";
+
+"Spreadsheets" = "Follas de cálculo";
+
+"Template: %@" = "Modelo: %@";
+
+"Templates" = "Modelos";
+
+"Templates included in the library" = "Modelos incluídos na biblioteca";
+
+"The app and nfc coordinate writes with a lock and atomic replacement. The Finder extension reads the configuration only." = "A aplicación e as coordenadas nfc escriben cun bloqueo e unha substitución atómica. A extensión do Finder só le a configuración.";
+
+"The bundled nfc helper is missing. Rebuild or reinstall the app." = "Falta o axudante nfc incluído. Reconstrúe ou reinstale a aplicación.";
+
+"The category will be removed from the library." = "A categoría eliminarase da biblioteca.";
+
+"The configuration is damaged." = "A configuración está danada.";
+
+"The default name is used by the app, the Finder extension, and the nfc command. Existing files are never overwritten." = "A aplicación, a extensión Finder e o comando nfc usan o nome predeterminado. Os ficheiros existentes nunca se sobrescriben.";
+
+"The existing nfc is not a symlink managed by this app." = "O nfc existente non é unha ligazón simbólica xestionada por esta aplicación.";
+
+"The file is not valid JSON." = "O ficheiro non é un JSON válido.";
+
+"The Finder extension could not be enabled" = "Non se puido activar a extensión do Finder";
+
+"The Finder extension reads the shared configuration and creates files in the selected folder. If the extension is not listed, open System Settings › General › Login Items & Extensions › Finder Extensions." = "A extensión do Finder le a configuración compartida e crea ficheiros no cartafol seleccionado. Se a extensión non aparece na lista, abra Configuración do sistema › Xeral › Elementos e extensións de inicio de sesión › Extensións do buscador.";
+
+"The menu bar icon stays available so you can always create files." = "A icona da barra de menús permanece dispoñible para que sempre poidas crear ficheiros.";
+
+"The shortcut could not be registered (Carbon error %d). It may conflict with another app." = "Non se puido rexistrar o atallo (erro de carbono %d). Pode entrar en conflito con outra aplicación.";
+
+"The shortcut is unavailable" = "O atallo non está dispoñible";
+
+"The template file keeps its current name. This changes the display name only." = "O ficheiro de modelo mantén o seu nome actual. Isto cambia só o nome para mostrar.";
+
+"The template is removed from the library and its file is moved to Trash." = "Elimínase o modelo da biblioteca e o seu ficheiro móvese á papeleira.";
+
+"The template “%@” was not found." = "Non se atopou o modelo “%@”.";
+
+"Tip: the global shortcut opens Quick New File from any app. Change it in Settings › General." = "Consello: o atallo global abre un ficheiro novo rápido desde calquera aplicación. Cambialo en Configuración › Xeral.";
+
+"Unavailable" = "Non dispoñible";
+
+"Undo" = "Desfacer";
+
+"Uninstall nfc" = "Desinstalar nfc";
+
+"Unsupported shortcut key “%@”." = "Tecla de atallo non compatible \"%@\".";
+
+"Untitled" = "Sen título";
+
+"Use the command line" = "Usa a liña de comandos";
+
+"Use the menu bar icon or the global shortcut for the quick panel." = "Usa a icona da barra de menú ou o atallo global para o panel rápido.";
+
+"Used %ld time" = "Utilizado %ld tempo";
+
+"Used %ld times" = "Utilizado %ld veces";
+
+"Version %@" = "Versión %@";
+
+"Video" = "Vídeo";
+
+"View" = "Ver";
+
+"View License" = "Ver licenza";
+
+"Welcome to New File Creation 2" = "Benvido a New File Creation 2";
+
+"Window" = "Xanela";
+
+"You can reopen this window from Settings › Help or from the menu bar." = "Podes volver abrir esta ventá desde Configuración › Axuda ou desde a barra de menú.";
+
+"Zoom" = "Ampliar";
+
+"↩ Create file    ⠿ Drag to Finder    esc Close" = "↩ Crear ficheiro ⠿ Arrastra ata Finder esc Pechar";

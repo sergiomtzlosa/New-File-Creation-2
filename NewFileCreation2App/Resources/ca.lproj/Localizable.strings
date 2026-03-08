@@ -1,0 +1,545 @@
+/* ca localization. Generated from the English source strings. */
+
+" (not on PATH)" = " (not on PATH)";
+
+"%@ (%@)\nDouble-click to create a file." = "%@ (%@)\nFeu doble clic per crear un fitxer.";
+
+"%@ already exists and is not a symlink. Remove it manually or choose another location." = "%@ ja existeix i no és un enllaç simbòlic. Elimineu-lo manualment o trieu una altra ubicació.";
+
+"%@ template" = "%@ plantilla";
+
+"%@ template, drag to create a file" = "%@ plantilla, arrossegueu per crear un fitxer";
+
+"%@ — drag to create %@" = "%@ — arrossegueu per crear %@";
+
+"%ld template(s) will move to Other." = "%ld plantilles es mouran a Altres.";
+
+"%lu templates in the library" = "%lu plantilles a la biblioteca";
+
+"About" = "Quant a";
+
+"About New File Creation 2" = "Quant a New File Creation 2";
+
+"Add" = "Afegeix";
+
+"Add a file to use it as a template, or restore the included set." = "Afegiu un fitxer per utilitzar-lo com a plantilla o restaura el conjunt inclòs.";
+
+"Add as Template" = "Afegeix com a plantilla";
+
+"Add Category" = "Afegeix una categoria";
+
+"Add files as templates" = "Afegiu fitxers com a plantilles";
+
+"Add files in Settings › Templates, assign categories, remove categories you no longer need, choose a sort order, or drag templates to the Desktop and Finder." = "Afegiu fitxers a Configuració › Plantilles, assigneu categories, elimineu les categories que ja no necessiteu, trieu un ordre d'ordenació o arrossegueu plantilles a l'escriptori i al cercador.";
+
+"Add Template" = "Afegeix una plantilla";
+
+"Add Templates" = "Afegeix plantilles";
+
+"Add Template…" = "Afegeix una plantilla...";
+
+"Add “Add as Template” for selected files" = "Afegeix \"Afegeix com a plantilla\" per als fitxers seleccionats";
+
+"Add “New File” to Finder menus" = "Afegiu \"Fitxer nou\" als menús del Cercador";
+
+"Added %lu template" = "S'ha afegit la plantilla %lu";
+
+"Added %lu templates" = "S'han afegit %lu plantilles";
+
+"Add…" = "Afegeix...";
+
+"Advanced" = "Avançat";
+
+"After creating" = "Després de crear";
+
+"All Templates" = "Totes les plantilles";
+
+"Allow New File Creation 2 in System Settings › General › Login Items." = "Permet New File Creation 2 en Configuració del Sistema › General › Elements d'inici de sessió.";
+
+"An unexpected error occurred." = "S'ha produït un error inesperat.";
+
+"Application" = "Aplicació";
+
+"Approval required" = "Cal aprovació";
+
+"Archives" = "Arxius";
+
+"Ask for a name" = "Demana un nom";
+
+"Assign a global shortcut in Settings" = "Assigna una drecera global a Configuració";
+
+"At a glance" = "D'un cop d'ull";
+
+"Audio" = "Àudio";
+
+"Bring All to Front" = "Porta-ho tot al davant";
+
+"Cancel" = "Cancel·la";
+
+"Categories" = "Categories";
+
+"Category" = "Categoria";
+
+"Category:" = "Categoria:";
+
+"Choose" = "Tria";
+
+"Choose a name and location for the new file" = "Trieu un nom i una ubicació per al fitxer nou";
+
+"Choose files or packages to use as templates." = "Trieu fitxers o paquets per utilitzar-los com a plantilles.";
+
+"Choose Name and Location…" = "Tria un nom i una ubicació...";
+
+"Choose the folder where new files are created by default." = "Trieu la carpeta on es creen els fitxers nous per defecte.";
+
+"Choose…" = "Tria...";
+
+"Close" = "Tancar";
+
+"Code" = "Codi";
+
+"Command" = "Comandament";
+
+"Command-line tool" = "Eina de línia d'ordres";
+
+"Configuration and command line" = "Configuració i línia d'ordres";
+
+"Continue" = "Continua";
+
+"Control" = "Control";
+
+"Copy" = "Copia";
+
+"Copyright © 2024–2026 Sergio Martinez-Losa\nMIT License" = "Dret d'autor © 2024–2026 Sergio Martinez-Losa\nLlicència MIT";
+
+"Copyright © 2024–2026 Sergio Martinez-Losa. Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files, to deal in the Software without restriction." = "Dret d'autor © 2024–2026 Sergio Martinez-Losa. Es concedeix permís, de manera gratuïta, a qualsevol persona que obtingui una còpia d'aquest programari i els fitxers de documentació associats, per tractar el Programari sense restriccions.";
+
+"Could not add the category" = "No s'ha pogut afegir la categoria";
+
+"Could not change the login item" = "No s'ha pogut canviar l'element d'inici de sessió";
+
+"Could not create the file" = "No s'ha pogut crear el fitxer";
+
+"Could not enable the Finder extension" = "No s'ha pogut activar l'extensió del Finder";
+
+"Could not export the configuration" = "No s'ha pogut exportar la configuració";
+
+"Could not import the configuration" = "No s'ha pogut importar la configuració";
+
+"Could not install nfc" = "No s'ha pogut instal·lar nfc";
+
+"Could not reset the configuration" = "No s'ha pogut restablir la configuració";
+
+"Could not uninstall nfc" = "No s'ha pogut desinstal·lar nfc";
+
+"Create" = "Crea";
+
+"Create a file from a template in Finder, from the menu bar, from the template library, or with the nfc command." = "Creeu un fitxer des d'una plantilla al Finder, des de la barra de menús, des de la biblioteca de plantilles o amb l'ordre nfc.";
+
+"Create a new file from a template" = "Creeu un fitxer nou a partir d'una plantilla";
+
+"Create File" = "Crea un fitxer";
+
+"Create files from templates in Finder, from the menu bar, from the library, or with the nfc command.\n\n• ⌘N creates a file from the selected template.\n• ⇧⌘N lets you choose a name and location.\n• The menu bar icon opens templates and the quick panel.\n• Right-click in Finder for Finder menu items.\n• Run “nfc help” in Terminal for command-line usage." = "Creeu fitxers a partir de plantilles al Finder, des de la barra de menús, des de la biblioteca o amb l'ordre nfc.\n\n• ⌘N crea un fitxer a partir de la plantilla seleccionada.\n• ⇧⌘N us permet triar un nom i una ubicació.\n• La icona de la barra de menú obre les plantilles i el tauler ràpid.\n• Feu clic amb el botó dret als elements del menú del Finder.\n• Executeu “nfc help” a la terminal per utilitzar la línia d'ordres.";
+
+"Create files from templates in Finder, the menu bar, the library, and the command line." = "Creeu fitxers a partir de plantilles al Finder, la barra de menús, la biblioteca i la línia d'ordres.";
+
+"Create from Finder" = "Crea des del Finder";
+
+"Create from the menu bar" = "Crea des de la barra de menú";
+
+"Create immediately" = "Crea immediatament";
+
+"Create in Default Folder" = "Crea a la carpeta predeterminada";
+
+"Create the file in “%@”." = "Creeu el fitxer a “%@”.";
+
+"Create the selected template in the default folder" = "Creeu la plantilla seleccionada a la carpeta predeterminada";
+
+"Create with Name…" = "Crea amb el nom...";
+
+"Created %@" = "S'ha creat %@";
+
+"Creation:" = "Creació:";
+
+"Cut" = "Tallar";
+
+"Default folder:" = "Carpeta per defecte:";
+
+"Default name:" = "Nom per defecte:";
+
+"Default template:" = "Plantilla per defecte:";
+
+"Desktop" = "Escriptori";
+
+"Disabled templates do not appear in the app, the menu bar, or Finder menus." = "Les plantilles desactivades no apareixen a l'aplicació, a la barra de menús ni als menús del Finder.";
+
+"Documents" = "Documents";
+
+"Drag a template row to Finder or the Desktop." = "Arrossegueu una fila de plantilla al Finder o a l'escriptori.";
+
+"Drag a template to a folder or the Desktop." = "Arrossega una plantilla a una carpeta o al escriptori.";
+
+"Edit" = "Edita";
+
+"Enable Extension" = "Activa l'extensió";
+
+"Enable the Finder extension, then right-click in a folder or on a file and choose New File. The new file is created in the folder you are browsing." = "Activeu l'extensió del Finder, feu clic amb el botó dret en una carpeta o en un fitxer i trieu Fitxer nou. El nou fitxer es crea a la carpeta que esteu navegant.";
+
+"Enabled" = "Activat";
+
+"Enter a category name." = "Introduïu un nom de categoria.";
+
+"Enter Full Screen" = "Entreu a pantalla completa";
+
+"Everything stays on your Mac. No network, analytics, or telemetry." = "Tot es queda al teu Mac. Sense xarxa, analítica o telemetria.";
+
+"Export…" = "Exporta...";
+
+"Extension: %@" = "Extensió: %@";
+
+"Favorite" = "Preferit";
+
+"Favorites" = "Preferits";
+
+"File" = "Fitxer";
+
+"File type" = "Tipus de fitxer";
+
+"Finder" = "Cercador";
+
+"Finder extension" = "Extensió del cercador";
+
+"Finder extension status unavailable" = "L'estat de l'extensió del cercador no està disponible";
+
+"Finder extension: disabled" = "Extensió del cercador: desactivada";
+
+"Finder extension: enabled" = "Extensió del cercador: activada";
+
+"Finder extension: not registered. Build and open the app once." = "Extensió del cercador: no registrada. Creeu i obriu l'aplicació una vegada.";
+
+"Finder extension: registered" = "Extensió del cercador: registrada";
+
+"General" = "General";
+
+"Get Started" = "Comença";
+
+"Get Started…" = "Comença...";
+
+"Global shortcut:" = "Drecera global:";
+
+"Global shortcut: %@" = "Drecera global: %@";
+
+"Group templates by category" = "Agrupa les plantilles per categoria";
+
+"Help" = "Ajuda";
+
+"Help and getting started" = "Ajuda i com començar";
+
+"Hide New File Creation 2" = "Amaga New File Creation 2";
+
+"Hide Others" = "Amaga els altres";
+
+"Images" = "Imatges";
+
+"Import…" = "Importa...";
+
+"Inspector" = "Inspector";
+
+"Install nfc" = "Instal·la nfc";
+
+"Install nfc from Settings › Advanced, then run nfc create \"Text File\" in Terminal to create a file in the current folder." = "Instal·leu nfc des de Configuració › Avançat i, a continuació, executeu nfc create \"Fitxer de text\" al Terminal per crear un fitxer a la carpeta actual.";
+
+"Installed at %@%@" = "S'ha instal·lat a %@%@";
+
+"Keep the quick panel open after dropping a file" = "Manteniu el tauler ràpid obert després de deixar caure un fitxer";
+
+"Last used" = "Últim ús";
+
+"Last used %@" = "Últim ús %@";
+
+"Launch at login requires macOS 13 or later." = "El llançament en iniciar sessió requereix macOS 13 o posterior.";
+
+"Launch New File Creation 2 at login" = "Inicia New File Creation 2 en iniciar la sessió";
+
+"Left-click the menu bar icon for Quick New File." = "Feu clic amb el botó esquerre a la icona de la barra de menú per a Fitxer nou ràpid.";
+
+"Left-click the menu bar icon to open Quick New File. Search, press Return to create, or drag a row into Finder. Right-click for the full menu and Get Started." = "Feu clic amb el botó esquerre a la icona de la barra de menú per obrir un fitxer nou ràpid. Cerca, premeu Retorn per crear o arrossegueu una fila al Finder. Feu clic amb el botó dret per veure el menú complet i Comença.";
+
+"Library" = "Biblioteca";
+
+"Manage templates" = "Gestiona les plantilles";
+
+"Manual order" = "Comanda manual";
+
+"Menu bar icon (always available)" = "Icona de la barra de menús (sempre disponible)";
+
+"Menu contents" = "Continguts del menú";
+
+"Minimize" = "Minimitza";
+
+"MIT License" = "Llicència MIT";
+
+"Most used" = "El més utilitzat";
+
+"Name" = "Nom";
+
+"New %@" = "Nou %@";
+
+"New category" = "Categoria nova";
+
+"New File" = "Fitxer nou";
+
+"New File Creation 2" = "New File Creation 2";
+
+"New File Creation 2 could not load its configuration" = "New File Creation 2 no ha pogut carregar la seva configuració";
+
+"New File Creation 2 Help" = "Ajuda de New File Creation 2";
+
+"New File Creation 2 keeps your reusable templates in one place and creates a fresh copy wherever you are working. Everything runs locally on your Mac." = "New File Creation 2 manté les teves plantilles reutilitzables en un sol lloc i crea una còpia nova allà on estiguis treballant. Tot funciona localment al teu Mac.";
+
+"New files" = "Fitxers nous";
+
+"New File…" = "Fitxer nou...";
+
+"No accounts, network requests, analytics, or telemetry. The app, Finder extension, Today widget, and nfc helper share one local configuration folder." = "No hi ha comptes, sol·licituds de xarxa, analítiques ni telemetria. L'aplicació, l'extensió Finder, el giny d'avui i l'ajudant de nfc comparteixen una carpeta de configuració local.";
+
+"no extension" = "cap extensió";
+
+"No matching templates" = "No hi ha cap plantilla coincident";
+
+"No Templates" = "No hi ha plantilles";
+
+"No templates" = "No hi ha plantilles";
+
+"No templates to show" = "No hi ha plantilles per mostrar";
+
+"None" = "Cap";
+
+"Not found; move the app to /Applications" = "No s'ha trobat; moveu l'aplicació a /Aplicacions";
+
+"Not installed. The bundled helper is at Contents/Helpers/nfc." = "No instal·lat. L'ajudant inclòs es troba a Contents/Helpers/nfc.";
+
+"Not registered" = "No registrat";
+
+"OK" = "D'acord";
+
+"On" = "Activat";
+
+"Open Library" = "Biblioteca oberta";
+
+"Open New File Creation 2 once, then try the Finder menu again." = "Obre New File Creation 2 una vegada, després prova de nou el menú del Finder.";
+
+"Open Settings" = "Obre Configuració";
+
+"Open System Settings and enable “New File Creation 2 Finder” manually." = "Obre Configuració del Sistema i habilita manualment \"New File Creation 2 Finder\".";
+
+"Open System Settings…" = "Obre la configuració del sistema...";
+
+"Open Template Library" = "Obre la biblioteca de plantilles";
+
+"Open Templates Folder" = "Obre la carpeta Plantilles";
+
+"Open the new file after creating it" = "Obre el fitxer nou després de crear-lo";
+
+"Option" = "Opció";
+
+"Other" = "Altres";
+
+"Paste" = "Enganxa";
+
+"Play a sound after creating a file" = "Reprodueix un so després de crear un fitxer";
+
+"Presentations" = "Presentacions";
+
+"Private by design" = "Privat per disseny";
+
+"Quick New File" = "Fitxer nou ràpid";
+
+"Quick New File…" = "Fitxer nou ràpid...";
+
+"Quit New File Creation 2" = "Tanca New File Creation 2";
+
+"Recent" = "Recents";
+
+"Redo" = "Refer";
+
+"Remove" = "Elimina";
+
+"Remove Category" = "Elimina la categoria";
+
+"Remove Favorite" = "Elimina el preferit";
+
+"Remove Template…" = "Elimina la plantilla...";
+
+"Remove the “%@” category?" = "Vols eliminar la categoria “%@”?";
+
+"Remove “%@”?" = "Vols eliminar “%@”?";
+
+"Remove…" = "Elimina...";
+
+"Rename" = "Canvia el nom";
+
+"Rename Template" = "Canvia el nom de la plantilla";
+
+"Rename…" = "Canvia el nom...";
+
+"Requires approval in System Settings" = "Requereix aprovació a la configuració del sistema";
+
+"Reset" = "Restableix";
+
+"Reset Configuration…" = "Restableix la configuració...";
+
+"Reset the configuration?" = "Vols restablir la configuració?";
+
+"Return creates the selected template." = "Retorn crea la plantilla seleccionada.";
+
+"Reveal Config" = "Revela la configuració";
+
+"Reveal in Finder" = "Revela al Finder";
+
+"Reveal Log" = "Registre de revelació";
+
+"Reveal Selected Template" = "Revela la plantilla seleccionada";
+
+"Reveal Template" = "Revela la plantilla";
+
+"Reveal the new file in Finder" = "Revela el fitxer nou al Finder";
+
+"Right-click in Finder and choose New File from the template list." = "Feu clic amb el botó dret al Finder i seleccioneu Fitxer nou de la llista de plantilles.";
+
+"Run nfc create \"Text File\" to make a file anywhere." = "Executeu nfc create \"Fitxer de text\" per crear un fitxer a qualsevol lloc.";
+
+"Search" = "Cerca";
+
+"Search Templates" = "Cerca plantilles";
+
+"Search templates" = "Cerca plantilles";
+
+"Select a template" = "Seleccioneu una plantilla";
+
+"Select All" = "Selecciona-ho tot";
+
+"Services" = "Serveis";
+
+"Set as Default" = "Estableix com a predeterminat";
+
+"Settings" = "Configuració";
+
+"Settings and the template library are reset. Template files in the Templates folder are kept." = "La configuració i la biblioteca de plantilles es restableixen. Els fitxers de plantilles a la carpeta Plantilles es conserven.";
+
+"Settings › Finder enables Finder menus." = "Configuració › El Finder activa els menús del Finder.";
+
+"Settings › Help explains every workflow." = "Configuració › L'ajuda explica cada flux de treball.";
+
+"Settings › Templates manages categories and sorting." = "Configuració › Plantilles gestiona les categories i l'ordenació.";
+
+"Settings…" = "Configuració...";
+
+"Shift" = "Majús";
+
+"Show" = "Mostra";
+
+"Show a confirmation in the app window" = "Mostra una confirmació a la finestra de l'aplicació";
+
+"Show All" = "Mostra-ho tot";
+
+"Show favorites first" = "Mostra els preferits primer";
+
+"Show Get Started" = "Mostra Comenceu";
+
+"Show Get Started details" = "Mostra els detalls d'Introducció";
+
+"Show or Hide Inspector" = "Mostra o amaga l'inspector";
+
+"Show or Hide Sidebar" = "Mostra o amaga la barra lateral";
+
+"Show or hide the inspector" = "Mostra o amaga l'inspector";
+
+"Show template icons" = "Mostra les icones de plantilla";
+
+"Show the menu bar icon" = "Mostra la icona de la barra de menús";
+
+"Show Welcome" = "Mostra la benvinguda";
+
+"Show Welcome Again" = "Mostra la benvinguda de nou";
+
+"Sort by:" = "Ordena per:";
+
+"Sound:" = "So:";
+
+"Spreadsheets" = "Fulls de càlcul";
+
+"Template: %@" = "Plantilla: %@";
+
+"Templates" = "Plantilles";
+
+"Templates included in the library" = "Plantilles incloses a la biblioteca";
+
+"The app and nfc coordinate writes with a lock and atomic replacement. The Finder extension reads the configuration only." = "L'aplicació i la coordenada nfc s'escriuen amb un bloqueig i un reemplaçament atòmic. L'extensió del Finder només llegeix la configuració.";
+
+"The bundled nfc helper is missing. Rebuild or reinstall the app." = "Falta l'ajudant nfc inclòs. Reconstrueix o reinstal·la l'aplicació.";
+
+"The category will be removed from the library." = "La categoria s'eliminarà de la biblioteca.";
+
+"The configuration is damaged." = "La configuració està danyada.";
+
+"The default name is used by the app, the Finder extension, and the nfc command. Existing files are never overwritten." = "L'aplicació, l'extensió Finder i l'ordre nfc fan servir el nom predeterminat. Els fitxers existents mai es sobreescriuen.";
+
+"The existing nfc is not a symlink managed by this app." = "El nfc existent no és un enllaç simbòlic gestionat per aquesta aplicació.";
+
+"The file is not valid JSON." = "El fitxer no és un JSON vàlid.";
+
+"The Finder extension could not be enabled" = "L'extensió del Finder no s'ha pogut activar";
+
+"The Finder extension reads the shared configuration and creates files in the selected folder. If the extension is not listed, open System Settings › General › Login Items & Extensions › Finder Extensions." = "L'extensió del Finder llegeix la configuració compartida i crea fitxers a la carpeta seleccionada. Si l'extensió no apareix a la llista, obriu Configuració del sistema › General › Elements i extensions d'inici de sessió › Extensions del cercador.";
+
+"The menu bar icon stays available so you can always create files." = "La icona de la barra de menús continua disponible perquè sempre puguis crear fitxers.";
+
+"The shortcut could not be registered (Carbon error %d). It may conflict with another app." = "La drecera no s'ha pogut registrar (error de carboni %d). Pot entrar en conflicte amb una altra aplicació.";
+
+"The shortcut is unavailable" = "La drecera no està disponible";
+
+"The template file keeps its current name. This changes the display name only." = "El fitxer de plantilla manté el seu nom actual. Això només canvia el nom de visualització.";
+
+"The template is removed from the library and its file is moved to Trash." = "La plantilla s'elimina de la biblioteca i el seu fitxer es mou a la Paperera.";
+
+"The template “%@” was not found." = "No s'ha trobat la plantilla “%@”.";
+
+"Tip: the global shortcut opens Quick New File from any app. Change it in Settings › General." = "Consell: la drecera global obre un fitxer nou ràpid des de qualsevol aplicació. Canvieu-lo a Configuració › General.";
+
+"Unavailable" = "No disponible";
+
+"Undo" = "Desfés";
+
+"Uninstall nfc" = "Desinstal·leu nfc";
+
+"Unsupported shortcut key “%@”." = "Tecla de drecera “%@” no admesa.";
+
+"Untitled" = "Sense títol";
+
+"Use the command line" = "Utilitzeu la línia d'ordres";
+
+"Use the menu bar icon or the global shortcut for the quick panel." = "Feu servir la icona de la barra de menús o la drecera global per al tauler ràpid.";
+
+"Used %ld time" = "S'ha utilitzat %ld temps";
+
+"Used %ld times" = "S'ha utilitzat %ld vegades";
+
+"Version %@" = "Versió %@";
+
+"Video" = "Vídeo";
+
+"View" = "Veure";
+
+"View License" = "Mostra la llicència";
+
+"Welcome to New File Creation 2" = "Benvingut a New File Creation 2";
+
+"Window" = "Finestra";
+
+"You can reopen this window from Settings › Help or from the menu bar." = "Pots tornar a obrir aquesta finestra des de Configuració › Ajuda o des de la barra de menú.";
+
+"Zoom" = "Amplia";
+
+"↩ Create file    ⠿ Drag to Finder    esc Close" = "↩ Crea un fitxer ⠿ Arrossega al Finder esc Tanca";

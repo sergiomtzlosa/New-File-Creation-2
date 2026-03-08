@@ -1,0 +1,545 @@
+/* ar localization. Generated from the English source strings. */
+
+" (not on PATH)" = " (not on PATH)";
+
+"%@ (%@)\nDouble-click to create a file." = "%@ (%@)\nانقر نقرًا مزدوجًا لإنشاء ملف.";
+
+"%@ already exists and is not a symlink. Remove it manually or choose another location." = "%@ موجود بالفعل وليس رابطًا رمزيًا. قم بإزالته يدويًا أو اختر موقعًا آخر.";
+
+"%@ template" = "%@ القالب\nقالب ";
+
+"%@ template, drag to create a file" = "%@، اسحب لإنشاء ملف";
+
+"%@ — drag to create %@" = "%@ — اسحب لإنشاء %@";
+
+"%ld template(s) will move to Other." = " سيتم نقل %ld قالب (قوالب) إلى أخرى.";
+
+"%lu templates in the library" = "%lu قوالب في المكتبة";
+
+"About" = "حول";
+
+"About New File Creation 2" = "حول New File Creation 2";
+
+"Add" = "إضافة";
+
+"Add a file to use it as a template, or restore the included set." = "أضف ملفًا لاستخدامه كقالب، أو قم باستعادة المجموعة المضمنة.";
+
+"Add as Template" = "إضافة كقالب";
+
+"Add Category" = "أضف فئة";
+
+"Add files as templates" = "إضافة الملفات كقوالب";
+
+"Add files in Settings › Templates, assign categories, remove categories you no longer need, choose a sort order, or drag templates to the Desktop and Finder." = "أضف ملفات في الإعدادات › القوالب، أو قم بتعيين الفئات، أو قم بإزالة الفئات التي لم تعد بحاجة إليها، أو اختر ترتيب فرز، أو اسحب القوالب إلى سطح المكتب والباحث.";
+
+"Add Template" = "إضافة قالب";
+
+"Add Templates" = "إضافة قوالب";
+
+"Add Template…" = "إضافة قالب...";
+
+"Add “Add as Template” for selected files" = "أضف \"إضافة كقالب\" للملفات المحددة";
+
+"Add “New File” to Finder menus" = "أضف \"ملف جديد\" إلى قوائم Finder";
+
+"Added %lu template" = "تمت إضافة قالب %lu";
+
+"Added %lu templates" = "تمت إضافة %lu من القوالب";
+
+"Add…" = "إضافة…";
+
+"Advanced" = "متقدم";
+
+"After creating" = "بعد الإنشاء";
+
+"All Templates" = "جميع القوالب";
+
+"Allow New File Creation 2 in System Settings › General › Login Items." = "السماح لـ New File Creation 2 في إعدادات النظام › عام › عناصر تسجيل الدخول.";
+
+"An unexpected error occurred." = "حدث خطأ غير متوقع.";
+
+"Application" = "التطبيق";
+
+"Approval required" = "الموافقة مطلوبة";
+
+"Archives" = "الارشيف";
+
+"Ask for a name" = "اطلب اسما";
+
+"Assign a global shortcut in Settings" = "قم بتعيين اختصار عام في الإعدادات";
+
+"At a glance" = "في لمحة";
+
+"Audio" = "الصوت";
+
+"Bring All to Front" = "أحضر الكل إلى المقدمة";
+
+"Cancel" = "إلغاء";
+
+"Categories" = "الفئات";
+
+"Category" = "الفئة";
+
+"Category:" = "الفئة:";
+
+"Choose" = "اختر";
+
+"Choose a name and location for the new file" = "اختر اسمًا وموقعًا للملف الجديد";
+
+"Choose files or packages to use as templates." = "اختر الملفات أو الحزم لاستخدامها كقوالب.";
+
+"Choose Name and Location…" = "اختر الاسم والموقع...";
+
+"Choose the folder where new files are created by default." = "اختر المجلد الذي يتم إنشاء الملفات الجديدة فيه افتراضيًا.";
+
+"Choose…" = "اختر...";
+
+"Close" = "إغلاق";
+
+"Code" = "الكود";
+
+"Command" = "الأمر";
+
+"Command-line tool" = "أداة سطر الأوامر";
+
+"Configuration and command line" = "التكوين وسطر الأوامر";
+
+"Continue" = "تابع";
+
+"Control" = "التحكم";
+
+"Copy" = "نسخ";
+
+"Copyright © 2024–2026 Sergio Martinez-Losa\nMIT License" = "حقوق الطبع والنشر © 2024–2026 سيرجيو مارتينيز-لوسا\nرخصة معهد ماساتشوستس للتكنولوجيا";
+
+"Copyright © 2024–2026 Sergio Martinez-Losa. Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files, to deal in the Software without restriction." = " حقوق الطبع والنشر © 2024–2026 سيرجيو مارتينيز-لوسا. يتم منح الإذن مجانًا لأي شخص يحصل على نسخة من هذا البرنامج وملفات الوثائق المرتبطة به، للتعامل في البرنامج دون قيود.";
+
+"Could not add the category" = "تعذر إضافة الفئة";
+
+"Could not change the login item" = "تعذر تغيير عنصر تسجيل الدخول";
+
+"Could not create the file" = "تعذر إنشاء الملف";
+
+"Could not enable the Finder extension" = "تعذر تمكين ملحق Finder";
+
+"Could not export the configuration" = "تعذر تصدير التكوين";
+
+"Could not import the configuration" = "تعذر استيراد التكوين";
+
+"Could not install nfc" = "تعذر تثبيت NFC";
+
+"Could not reset the configuration" = "تعذر إعادة تعيين التكوين";
+
+"Could not uninstall nfc" = "تعذر إلغاء تثبيت NFC";
+
+"Create" = "إنشاء";
+
+"Create a file from a template in Finder, from the menu bar, from the template library, or with the nfc command." = "قم بإنشاء ملف من قالب في Finder، أو من شريط القائمة، أو من مكتبة القوالب، أو باستخدام الأمر nfc.";
+
+"Create a new file from a template" = "إنشاء ملف جديد من القالب";
+
+"Create File" = "إنشاء ملف";
+
+"Create files from templates in Finder, from the menu bar, from the library, or with the nfc command.\n\n• ⌘N creates a file from the selected template.\n• ⇧⌘N lets you choose a name and location.\n• The menu bar icon opens templates and the quick panel.\n• Right-click in Finder for Finder menu items.\n• Run “nfc help” in Terminal for command-line usage." = "قم بإنشاء ملفات من القوالب في Finder، أو من شريط القائمة، أو من المكتبة، أو باستخدام الأمر nfc.\n\n• ⌘N يقوم بإنشاء ملف من القالب المحدد.\n• ⇧⌘N يتيح لك اختيار الاسم والموقع.\n• يفتح رمز شريط القائمة القوالب واللوحة السريعة.\n• انقر بزر الماوس الأيمن في Finder بحثًا عن عناصر قائمة Finder.\n• قم بتشغيل \"مساعدة NFC\" في الوحدة الطرفية لاستخدام سطر الأوامر.";
+
+"Create files from templates in Finder, the menu bar, the library, and the command line." = "قم بإنشاء ملفات من القوالب في Finder وشريط القائمة والمكتبة وسطر الأوامر.";
+
+"Create from Finder" = "إنشاء من Finder";
+
+"Create from the menu bar" = "إنشاء من شريط القائمة";
+
+"Create immediately" = "الإنشاء فورًا";
+
+"Create in Default Folder" = "إنشاء في المجلد الافتراضي";
+
+"Create the file in “%@”." = "قم بإنشاء الملف في \"%@\".";
+
+"Create the selected template in the default folder" = "قم بإنشاء القالب المحدد في المجلد الافتراضي";
+
+"Create with Name…" = "إنشاء بالاسم…";
+
+"Created %@" = "تم الإنشاء %@";
+
+"Creation:" = "الخلق:";
+
+"Cut" = "القطع";
+
+"Default folder:" = "المجلد الافتراضي:";
+
+"Default name:" = "الاسم الافتراضي:";
+
+"Default template:" = "القالب الافتراضي:";
+
+"Desktop" = "سطح المكتب";
+
+"Disabled templates do not appear in the app, the menu bar, or Finder menus." = "لا تظهر القوالب المعطلة في التطبيق أو شريط القائمة أو قوائم Finder.";
+
+"Documents" = "الوثائق";
+
+"Drag a template row to Finder or the Desktop." = "اسحب صف القالب إلى Finder أو سطح المكتب.";
+
+"Drag a template to a folder or the Desktop." = "اسحب قالبًا إلى مجلد أو إلى سطح المكتب.";
+
+"Edit" = "تحرير";
+
+"Enable Extension" = "تمكين الامتداد";
+
+"Enable the Finder extension, then right-click in a folder or on a file and choose New File. The new file is created in the folder you are browsing." = "قم بتمكين ملحق Finder، ثم انقر بزر الماوس الأيمن فوق مجلد أو ملف واختر ملف جديد. يتم إنشاء الملف الجديد في المجلد الذي تتصفحه.";
+
+"Enabled" = "ممكّن";
+
+"Enter a category name." = "أدخل اسم الفئة.";
+
+"Enter Full Screen" = "الدخول إلى وضع ملء الشاشة";
+
+"Everything stays on your Mac. No network, analytics, or telemetry." = "يبقى كل شيء على جهاز Mac الخاص بك. لا توجد شبكة أو تحليلات أو قياس عن بعد.";
+
+"Export…" = "تصدير…";
+
+"Extension: %@" = "الامتداد: %@";
+
+"Favorite" = "المفضلة";
+
+"Favorites" = "المفضلة";
+
+"File" = "الملف";
+
+"File type" = "نوع الملف";
+
+"Finder" = "المكتشف";
+
+"Finder extension" = "امتداد الباحث";
+
+"Finder extension status unavailable" = "حالة ملحق Finder غير متاحة";
+
+"Finder extension: disabled" = "ملحق Finder: معطل";
+
+"Finder extension: enabled" = "ملحق Finder: ممكّن";
+
+"Finder extension: not registered. Build and open the app once." = "امتداد Finder: غير مسجل. قم ببناء التطبيق وفتحه مرة واحدة.";
+
+"Finder extension: registered" = "امتداد الباحث: مسجل";
+
+"General" = "عامة";
+
+"Get Started" = "ابدأ";
+
+"Get Started…" = "ابدأ…";
+
+"Global shortcut:" = "الاختصار العالمي:";
+
+"Global shortcut: %@" = "الاختصار العام: %@";
+
+"Group templates by category" = "تجميع القوالب حسب الفئة";
+
+"Help" = "المساعدة";
+
+"Help and getting started" = "المساعدة والبدء";
+
+"Hide New File Creation 2" = "إخفاء New File Creation 2";
+
+"Hide Others" = "إخفاء الآخرين";
+
+"Images" = "صور";
+
+"Import…" = "استيراد…";
+
+"Inspector" = "المفتش";
+
+"Install nfc" = "تثبيت NFC";
+
+"Install nfc from Settings › Advanced, then run nfc create \"Text File\" in Terminal to create a file in the current folder." = "قم بتثبيت nfc من الإعدادات › متقدم، ثم قم بتشغيل nfc لإنشاء \"ملف نصي\" في الوحدة الطرفية لإنشاء ملف في المجلد الحالي.";
+
+"Installed at %@%@" = "تم التثبيت في %@%@";
+
+"Keep the quick panel open after dropping a file" = "احتفظ باللوحة السريعة مفتوحة بعد إسقاط الملف";
+
+"Last used" = "آخر استخدام";
+
+"Last used %@" = "آخر استخدام %@";
+
+"Launch at login requires macOS 13 or later." = "يتطلب التشغيل عند تسجيل الدخول نظام التشغيل macOS 13 أو إصدار أحدث.";
+
+"Launch New File Creation 2 at login" = "تشغيل New File Creation 2 عند تسجيل الدخول";
+
+"Left-click the menu bar icon for Quick New File." = "انقر بزر الماوس الأيسر على أيقونة شريط القائمة لملف جديد سريع.";
+
+"Left-click the menu bar icon to open Quick New File. Search, press Return to create, or drag a row into Finder. Right-click for the full menu and Get Started." = "انقر بزر الماوس الأيسر على أيقونة شريط القائمة لفتح ملف جديد سريع. ابحث، اضغط على \"رجوع\" لإنشاء صف، أو اسحبه إلى Finder. انقر بزر الماوس الأيمن للحصول على القائمة الكاملة وابدأ.";
+
+"Library" = "المكتبة";
+
+"Manage templates" = "إدارة القوالب";
+
+"Manual order" = "الطلب اليدوي";
+
+"Menu bar icon (always available)" = "رمز شريط القوائم (متوفر دائمًا)";
+
+"Menu contents" = "محتويات القائمة";
+
+"Minimize" = "تصغير";
+
+"MIT License" = "رخصة معهد ماساتشوستس للتكنولوجيا";
+
+"Most used" = "الأكثر استخداما";
+
+"Name" = "الاسم";
+
+"New %@" = "جديد %@";
+
+"New category" = "فئة جديدة";
+
+"New File" = "ملف جديد";
+
+"New File Creation 2" = "New File Creation 2";
+
+"New File Creation 2 could not load its configuration" = "لم يتمكن New File Creation 2 من تحميل إعداداته";
+
+"New File Creation 2 Help" = "مساعدة New File Creation 2";
+
+"New File Creation 2 keeps your reusable templates in one place and creates a fresh copy wherever you are working. Everything runs locally on your Mac." = "يحافظ New File Creation 2 على قوالبك القابلة لإعادة الاستخدام في مكان واحد ويخلق نسخة جديدة أينما كنت تعمل. كل شيء يعمل محليًا على جهاز Mac الخاص بك.";
+
+"New files" = "ملفات جديدة";
+
+"New File…" = "ملف جديد…";
+
+"No accounts, network requests, analytics, or telemetry. The app, Finder extension, Today widget, and nfc helper share one local configuration folder." = "لا توجد حسابات أو طلبات شبكة أو تحليلات أو قياس عن بعد. يشترك التطبيق وملحق Finder وأداة Today ومساعد nfc في مجلد تكوين محلي واحد.";
+
+"no extension" = "لا يوجد تمديد";
+
+"No matching templates" = "لا توجد قوالب مطابقة";
+
+"No Templates" = "لا توجد قوالب";
+
+"No templates" = "لا توجد قوالب";
+
+"No templates to show" = "لا توجد قوالب للعرض";
+
+"None" = "لا شيء";
+
+"Not found; move the app to /Applications" = "لم يتم العثور عليه؛ انقل التطبيق إلى /التطبيقات";
+
+"Not installed. The bundled helper is at Contents/Helpers/nfc." = "غير مثبت. المساعد المجمع موجود في Contents/Helpers/nfc.";
+
+"Not registered" = "غير مسجل";
+
+"OK" = "حسنا";
+
+"On" = "على";
+
+"Open Library" = "افتح المكتبة";
+
+"Open New File Creation 2 once, then try the Finder menu again." = "افتح New File Creation 2 مرة واحدة، ثم حاول قائمة Finder مرة أخرى.";
+
+"Open Settings" = "افتح الإعدادات";
+
+"Open System Settings and enable “New File Creation 2 Finder” manually." = "افتح إعدادات النظام وقم بتمكين \"New File Creation 2 Finder\" يدويًا.";
+
+"Open System Settings…" = "فتح إعدادات النظام...";
+
+"Open Template Library" = "افتح مكتبة النماذج";
+
+"Open Templates Folder" = "افتح مجلد النماذج";
+
+"Open the new file after creating it" = "افتح الملف الجديد بعد إنشائه";
+
+"Option" = "الخيار";
+
+"Other" = "أخرى";
+
+"Paste" = "لصق";
+
+"Play a sound after creating a file" = "تشغيل صوت بعد إنشاء ملف";
+
+"Presentations" = "العروض التقديمية";
+
+"Private by design" = "خاصة بالتصميم";
+
+"Quick New File" = "ملف جديد سريع";
+
+"Quick New File…" = "ملف جديد سريع...";
+
+"Quit New File Creation 2" = "إنهاء New File Creation 2";
+
+"Recent" = "الأخيرة";
+
+"Redo" = "إعادة";
+
+"Remove" = "إزالة";
+
+"Remove Category" = "إزالة الفئة";
+
+"Remove Favorite" = "إزالة المفضلة";
+
+"Remove Template…" = "إزالة القالب...";
+
+"Remove the “%@” category?" = "هل تريد إزالة الفئة \"%@\"؟";
+
+"Remove “%@”?" = "هل تريد إزالة \"%@\"؟";
+
+"Remove…" = "إزالة…";
+
+"Rename" = "إعادة التسمية";
+
+"Rename Template" = "إعادة تسمية القالب";
+
+"Rename…" = "إعادة التسمية...";
+
+"Requires approval in System Settings" = "يتطلب الموافقة في إعدادات النظام";
+
+"Reset" = "إعادة تعيين";
+
+"Reset Configuration…" = "إعادة ضبط التكوين...";
+
+"Reset the configuration?" = "إعادة ضبط التكوين؟";
+
+"Return creates the selected template." = "الإرجاع يقوم بإنشاء القالب المحدد.";
+
+"Reveal Config" = "كشف التكوين";
+
+"Reveal in Finder" = "كشف في الباحث";
+
+"Reveal Log" = "كشف السجل";
+
+"Reveal Selected Template" = "الكشف عن القالب المحدد";
+
+"Reveal Template" = "كشف القالب";
+
+"Reveal the new file in Finder" = "الكشف عن الملف الجديد في Finder";
+
+"Right-click in Finder and choose New File from the template list." = "انقر بزر الماوس الأيمن في Finder واختر ملف جديد من قائمة القوالب.";
+
+"Run nfc create \"Text File\" to make a file anywhere." = "قم بتشغيل nfc وإنشاء \"ملف نصي\" لإنشاء ملف في أي مكان.";
+
+"Search" = "البحث";
+
+"Search Templates" = "نماذج البحث";
+
+"Search templates" = "قوالب البحث";
+
+"Select a template" = "اختر قالبًا";
+
+"Select All" = "حدد الكل";
+
+"Services" = "الخدمات";
+
+"Set as Default" = "تعيين كافتراضي";
+
+"Settings" = "الإعدادات";
+
+"Settings and the template library are reset. Template files in the Templates folder are kept." = "يتم إعادة تعيين الإعدادات ومكتبة القوالب. يتم الاحتفاظ بملفات القالب في مجلد القوالب.";
+
+"Settings › Finder enables Finder menus." = "الإعدادات › يقوم Finder بتمكين قوائم Finder.";
+
+"Settings › Help explains every workflow." = "الإعدادات › مساعدة تشرح كل سير عمل.";
+
+"Settings › Templates manages categories and sorting." = "الإعدادات › تدير القوالب الفئات والفرز.";
+
+"Settings…" = "الإعدادات…";
+
+"Shift" = "التحول";
+
+"Show" = "عرض";
+
+"Show a confirmation in the app window" = "إظهار التأكيد في نافذة التطبيق";
+
+"Show All" = "إظهار الكل";
+
+"Show favorites first" = "إظهار المفضلة أولاً";
+
+"Show Get Started" = "عرض البدء";
+
+"Show Get Started details" = "إظهار تفاصيل البدء";
+
+"Show or Hide Inspector" = "إظهار أو إخفاء المفتش";
+
+"Show or Hide Sidebar" = "إظهار أو إخفاء الشريط الجانبي";
+
+"Show or hide the inspector" = "إظهار أو إخفاء المفتش";
+
+"Show template icons" = "إظهار أيقونات القالب";
+
+"Show the menu bar icon" = "إظهار أيقونة شريط القوائم";
+
+"Show Welcome" = "إظهار الترحيب";
+
+"Show Welcome Again" = "إظهار الترحيب مرة أخرى";
+
+"Sort by:" = "الفرز حسب:";
+
+"Sound:" = "الصوت:";
+
+"Spreadsheets" = "جداول البيانات";
+
+"Template: %@" = "القالب: %@";
+
+"Templates" = "النماذج";
+
+"Templates included in the library" = "القوالب الموجودة بالمكتبة";
+
+"The app and nfc coordinate writes with a lock and atomic replacement. The Finder extension reads the configuration only." = "يكتب تنسيق التطبيق و NFC بقفل واستبدال ذري. يقرأ ملحق Finder التكوين فقط.";
+
+"The bundled nfc helper is missing. Rebuild or reinstall the app." = "مساعد NFC المجمع مفقود. إعادة إنشاء التطبيق أو إعادة تثبيته.";
+
+"The category will be removed from the library." = "ستتم إزالة الفئة من المكتبة.";
+
+"The configuration is damaged." = "التكوين تالف.";
+
+"The default name is used by the app, the Finder extension, and the nfc command. Existing files are never overwritten." = "يتم استخدام الاسم الافتراضي بواسطة التطبيق وامتداد Finder والأمر nfc. لا يتم الكتابة فوق الملفات الموجودة أبدًا.";
+
+"The existing nfc is not a symlink managed by this app." = "إن NFC الحالي ليس رابطًا رمزيًا يديره هذا التطبيق.";
+
+"The file is not valid JSON." = "الملف غير صالح بتنسيق JSON.";
+
+"The Finder extension could not be enabled" = "تعذر تمكين ملحق Finder";
+
+"The Finder extension reads the shared configuration and creates files in the selected folder. If the extension is not listed, open System Settings › General › Login Items & Extensions › Finder Extensions." = "يقرأ ملحق Finder التكوين المشترك ويقوم بإنشاء ملفات في المجلد المحدد. إذا لم يكن الامتداد مدرجًا، فافتح إعدادات النظام > عام > عناصر وملحقات تسجيل الدخول > ملحقات الباحث.";
+
+"The menu bar icon stays available so you can always create files." = "يظل رمز شريط القائمة متاحًا حتى تتمكن دائمًا من إنشاء الملفات.";
+
+"The shortcut could not be registered (Carbon error %d). It may conflict with another app." = "تعذر تسجيل الاختصار (خطأ كربوني %d). قد يتعارض مع تطبيق آخر.";
+
+"The shortcut is unavailable" = "الاختصار غير متاح";
+
+"The template file keeps its current name. This changes the display name only." = "يحتفظ ملف القالب باسمه الحالي. يؤدي هذا إلى تغيير اسم العرض فقط.";
+
+"The template is removed from the library and its file is moved to Trash." = "تتم إزالة القالب من المكتبة ونقل ملفه إلى سلة المهملات.";
+
+"The template “%@” was not found." = "لم يتم العثور على القالب \"%@\".";
+
+"Tip: the global shortcut opens Quick New File from any app. Change it in Settings › General." = "نصيحة: يفتح الاختصار العام Quick New File من أي تطبيق. قم بتغييره في الإعدادات › عام.";
+
+"Unavailable" = "غير متوفر";
+
+"Undo" = "تراجع";
+
+"Uninstall nfc" = "إلغاء تثبيت NFC";
+
+"Unsupported shortcut key “%@”." = "مفتاح الاختصار غير مدعوم \"%@\".";
+
+"Untitled" = "بدون عنوان";
+
+"Use the command line" = "استخدم سطر الأوامر";
+
+"Use the menu bar icon or the global shortcut for the quick panel." = "استخدم رمز شريط القائمة أو الاختصار العام للوحة السريعة.";
+
+"Used %ld time" = "تم الاستخدام %ld مرة";
+
+"Used %ld times" = "تم استخدامه %ld مرة";
+
+"Version %@" = "الإصدار %@";
+
+"Video" = "فيديو";
+
+"View" = "عرض";
+
+"View License" = "عرض الترخيص";
+
+"Welcome to New File Creation 2" = "مرحبًا بك في New File Creation 2";
+
+"Window" = "نافذة";
+
+"You can reopen this window from Settings › Help or from the menu bar." = "يمكنك إعادة فتح هذه النافذة من الإعدادات › المساعدة أو من شريط القائمة.";
+
+"Zoom" = "التكبير";
+
+"↩ Create file    ⠿ Drag to Finder    esc Close" = "↩ إنشاء ملف ⠿ اسحب إلى Finder esc إغلاق";

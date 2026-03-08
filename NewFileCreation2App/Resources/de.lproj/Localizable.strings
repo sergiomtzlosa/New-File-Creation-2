@@ -1,0 +1,545 @@
+/* de localization. Generated from the English source strings. */
+
+" (not on PATH)" = " (not on PATH)";
+
+"%@ (%@)\nDouble-click to create a file." = "%@ (%@)\nDoppelklicken Sie, um eine Datei zu erstellen.";
+
+"%@ already exists and is not a symlink. Remove it manually or choose another location." = "%@ existiert bereits und ist kein Symlink. Entfernen Sie es manuell oder wählen Sie einen anderen Speicherort.";
+
+"%@ template" = "%@ Vorlage";
+
+"%@ template, drag to create a file" = "%@ Vorlage, ziehen Sie, um eine Datei zu erstellen";
+
+"%@ — drag to create %@" = "%@ – ziehen, um %@ zu erstellen";
+
+"%ld template(s) will move to Other." = "%ld-Vorlage(n) werden in „Andere“ verschoben.";
+
+"%lu templates in the library" = "%lu-Vorlagen in der Bibliothek";
+
+"About" = "Über";
+
+"About New File Creation 2" = "Über New File Creation 2";
+
+"Add" = "Hinzufügen";
+
+"Add a file to use it as a template, or restore the included set." = "Fügen Sie eine Datei hinzu, um sie als Vorlage zu verwenden, oder stellen Sie den enthaltenen Satz wieder her.";
+
+"Add as Template" = "Als Vorlage hinzufügen";
+
+"Add Category" = "Kategorie hinzufügen";
+
+"Add files as templates" = "Dateien als Vorlagen hinzufügen";
+
+"Add files in Settings › Templates, assign categories, remove categories you no longer need, choose a sort order, or drag templates to the Desktop and Finder." = "Fügen Sie Dateien unter „Einstellungen“ > „Vorlagen“ hinzu, weisen Sie Kategorien zu, entfernen Sie Kategorien, die Sie nicht mehr benötigen, wählen Sie eine Sortierreihenfolge oder ziehen Sie Vorlagen auf den Desktop und den Finder.";
+
+"Add Template" = "Vorlage hinzufügen";
+
+"Add Templates" = "Vorlagen hinzufügen";
+
+"Add Template…" = "Vorlage hinzufügen…";
+
+"Add “Add as Template” for selected files" = "Fügen Sie „Als Vorlage hinzufügen“ für ausgewählte Dateien hinzu";
+
+"Add “New File” to Finder menus" = "Fügen Sie „Neue Datei“ zu den Finder-Menüs hinzu";
+
+"Added %lu template" = "%lu-Vorlage hinzugefügt";
+
+"Added %lu templates" = "%lu-Vorlagen hinzugefügt";
+
+"Add…" = "Hinzufügen…";
+
+"Advanced" = "Fortgeschritten";
+
+"After creating" = "Nach dem Erstellen";
+
+"All Templates" = "Alle Vorlagen";
+
+"Allow New File Creation 2 in System Settings › General › Login Items." = "Erlaube New File Creation 2 in Systemeinstellungen › Allgemein › Anmeldeobjekte.";
+
+"An unexpected error occurred." = "Es ist ein unerwarteter Fehler aufgetreten.";
+
+"Application" = "Anwendung";
+
+"Approval required" = "Genehmigung erforderlich";
+
+"Archives" = "Archive";
+
+"Ask for a name" = "Fragen Sie nach einem Namen";
+
+"Assign a global shortcut in Settings" = "In den Einstellungen eine globale Verknüpfung zuweisen";
+
+"At a glance" = "Auf einen Blick";
+
+"Audio" = "Audio";
+
+"Bring All to Front" = "Bringt alles in den Vordergrund";
+
+"Cancel" = "Abbrechen";
+
+"Categories" = "Kategorien";
+
+"Category" = "Kategorie";
+
+"Category:" = "Kategorie:";
+
+"Choose" = "Wählen";
+
+"Choose a name and location for the new file" = "Wählen Sie einen Namen und einen Speicherort für die neue Datei";
+
+"Choose files or packages to use as templates." = "Wählen Sie Dateien oder Pakete aus, die Sie als Vorlagen verwenden möchten.";
+
+"Choose Name and Location…" = "Name und Ort auswählen…";
+
+"Choose the folder where new files are created by default." = "Wählen Sie den Ordner, in dem neue Dateien standardmäßig erstellt werden.";
+
+"Choose…" = "Wählen Sie…";
+
+"Close" = "Schließen";
+
+"Code" = "Code";
+
+"Command" = "Befehl";
+
+"Command-line tool" = "Befehlszeilentool";
+
+"Configuration and command line" = "Konfiguration und Befehlszeile";
+
+"Continue" = "Weiter";
+
+"Control" = "Kontrolle";
+
+"Copy" = "Kopieren";
+
+"Copyright © 2024–2026 Sergio Martinez-Losa\nMIT License" = "Copyright © 2024–2026 Sergio Martinez-Losa\nMIT-Lizenz";
+
+"Copyright © 2024–2026 Sergio Martinez-Losa. Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files, to deal in the Software without restriction." = "Copyright © 2024–2026 Sergio Martinez-Losa. Hiermit wird jeder Person, die eine Kopie dieser Software und der zugehörigen Dokumentationsdateien erhält, kostenlos die Erlaubnis erteilt, mit der Software ohne Einschränkungen zu handeln.";
+
+"Could not add the category" = "Die Kategorie konnte nicht hinzugefügt werden";
+
+"Could not change the login item" = "Das Anmeldeelement konnte nicht geändert werden";
+
+"Could not create the file" = "Die Datei konnte nicht erstellt werden";
+
+"Could not enable the Finder extension" = "Die Finder-Erweiterung konnte nicht aktiviert werden";
+
+"Could not export the configuration" = "Die Konfiguration konnte nicht exportiert werden";
+
+"Could not import the configuration" = "Die Konfiguration konnte nicht importiert werden";
+
+"Could not install nfc" = "NFC konnte nicht installiert werden";
+
+"Could not reset the configuration" = "Die Konfiguration konnte nicht zurückgesetzt werden";
+
+"Could not uninstall nfc" = "NFC konnte nicht deinstalliert werden";
+
+"Create" = "Erstellen";
+
+"Create a file from a template in Finder, from the menu bar, from the template library, or with the nfc command." = "Erstellen Sie eine Datei aus einer Vorlage im Finder, über die Menüleiste, aus der Vorlagenbibliothek oder mit dem Befehl nfc.";
+
+"Create a new file from a template" = "Erstellen Sie eine neue Datei aus einer Vorlage";
+
+"Create File" = "Datei erstellen";
+
+"Create files from templates in Finder, from the menu bar, from the library, or with the nfc command.\n\n• ⌘N creates a file from the selected template.\n• ⇧⌘N lets you choose a name and location.\n• The menu bar icon opens templates and the quick panel.\n• Right-click in Finder for Finder menu items.\n• Run “nfc help” in Terminal for command-line usage." = "Erstellen Sie Dateien aus Vorlagen im Finder, über die Menüleiste, aus der Bibliothek oder mit dem NFC-Befehl.\n\n• ⌘N erstellt eine Datei aus der ausgewählten Vorlage.\n• Mit ⇧⌘N können Sie einen Namen und einen Ort auswählen.\n• Das Menüleistensymbol öffnet Vorlagen und das Schnellbedienfeld.\n• Klicken Sie mit der rechten Maustaste in den Finder, um Finder-Menüelemente aufzurufen.\n• Führen Sie „nfc help“ im Terminal aus, um es über die Befehlszeile zu verwenden.";
+
+"Create files from templates in Finder, the menu bar, the library, and the command line." = "Erstellen Sie Dateien aus Vorlagen im Finder, der Menüleiste, der Bibliothek und der Befehlszeile.";
+
+"Create from Finder" = "Aus dem Finder erstellen";
+
+"Create from the menu bar" = "Erstellen Sie über die Menüleiste";
+
+"Create immediately" = "Sofort erstellen";
+
+"Create in Default Folder" = "Im Standardordner erstellen";
+
+"Create the file in “%@”." = "Erstellen Sie die Datei in „%@“.";
+
+"Create the selected template in the default folder" = "Erstellen Sie die ausgewählte Vorlage im Standardordner";
+
+"Create with Name…" = "Mit Namen erstellen…";
+
+"Created %@" = "Erstellt %@";
+
+"Creation:" = "Erstellung:";
+
+"Cut" = "Schnitt";
+
+"Default folder:" = "Standardordner:";
+
+"Default name:" = "Standardname:";
+
+"Default template:" = "Standardvorlage:";
+
+"Desktop" = "Desktop";
+
+"Disabled templates do not appear in the app, the menu bar, or Finder menus." = "Deaktivierte Vorlagen werden nicht in der App, der Menüleiste oder den Finder-Menüs angezeigt.";
+
+"Documents" = "Dokumente";
+
+"Drag a template row to Finder or the Desktop." = "Ziehen Sie eine Vorlagenzeile in den Finder oder den Desktop.";
+
+"Drag a template to a folder or the Desktop." = "Ziehe eine Vorlage in einen Ordner oder auf den Desktop.";
+
+"Edit" = "Bearbeiten";
+
+"Enable Extension" = "Erweiterung aktivieren";
+
+"Enable the Finder extension, then right-click in a folder or on a file and choose New File. The new file is created in the folder you are browsing." = "Aktivieren Sie die Finder-Erweiterung, klicken Sie dann mit der rechten Maustaste in einen Ordner oder auf eine Datei und wählen Sie „Neue Datei“. Die neue Datei wird in dem Ordner erstellt, den Sie durchsuchen.";
+
+"Enabled" = "Aktiviert";
+
+"Enter a category name." = "Geben Sie einen Kategorienamen ein.";
+
+"Enter Full Screen" = "Vollbildmodus aufrufen";
+
+"Everything stays on your Mac. No network, analytics, or telemetry." = "Alles bleibt auf Ihrem Mac. Kein Netzwerk, keine Analyse oder Telemetrie.";
+
+"Export…" = "Exportieren…";
+
+"Extension: %@" = "Erweiterung: %@";
+
+"Favorite" = "Favorit";
+
+"Favorites" = "Favoriten";
+
+"File" = "Datei";
+
+"File type" = "Dateityp";
+
+"Finder" = "Finder";
+
+"Finder extension" = "Finder-Erweiterung";
+
+"Finder extension status unavailable" = "Finder-Erweiterungsstatus nicht verfügbar";
+
+"Finder extension: disabled" = "Finder-Erweiterung: deaktiviert";
+
+"Finder extension: enabled" = "Finder-Erweiterung: aktiviert";
+
+"Finder extension: not registered. Build and open the app once." = "Finder-Erweiterung: nicht registriert. Erstellen und öffnen Sie die App einmal.";
+
+"Finder extension: registered" = "Finder-Erweiterung: registriert";
+
+"General" = "Allgemein";
+
+"Get Started" = "Erste Schritte";
+
+"Get Started…" = "Erste Schritte…";
+
+"Global shortcut:" = "Globale Verknüpfung:";
+
+"Global shortcut: %@" = "Globale Verknüpfung: %@";
+
+"Group templates by category" = "Gruppieren Sie Vorlagen nach Kategorie";
+
+"Help" = "Hilfe";
+
+"Help and getting started" = "Hilfe und erste Schritte";
+
+"Hide New File Creation 2" = "Verstecke New File Creation 2";
+
+"Hide Others" = "Andere ausblenden";
+
+"Images" = "Bilder";
+
+"Import…" = "Importieren…";
+
+"Inspector" = "Inspektor";
+
+"Install nfc" = "NFC installieren";
+
+"Install nfc from Settings › Advanced, then run nfc create \"Text File\" in Terminal to create a file in the current folder." = "Installieren Sie nfc über Einstellungen › Erweitert und führen Sie dann nfc create „Text File“ im Terminal aus, um eine Datei im aktuellen Ordner zu erstellen.";
+
+"Installed at %@%@" = "Installiert bei %@%@";
+
+"Keep the quick panel open after dropping a file" = "Lassen Sie das Schnellbedienfeld geöffnet, nachdem Sie eine Datei abgelegt haben";
+
+"Last used" = "Zuletzt verwendet";
+
+"Last used %@" = "Zuletzt verwendet %@";
+
+"Launch at login requires macOS 13 or later." = "Für den Start beim Anmelden ist macOS 13 oder höher erforderlich.";
+
+"Launch New File Creation 2 at login" = "Starte New File Creation 2 beim Anmelden";
+
+"Left-click the menu bar icon for Quick New File." = "Klicken Sie mit der linken Maustaste auf das Menüleistensymbol für „Schnelle neue Datei“.";
+
+"Left-click the menu bar icon to open Quick New File. Search, press Return to create, or drag a row into Finder. Right-click for the full menu and Get Started." = "Klicken Sie mit der linken Maustaste auf das Menüleistensymbol, um Quick New File zu öffnen. Suchen Sie, drücken Sie die Eingabetaste, um eine Zeile zu erstellen, oder ziehen Sie eine Zeile in den Finder. Klicken Sie mit der rechten Maustaste, um das vollständige Menü und „Erste Schritte“ anzuzeigen.";
+
+"Library" = "Bibliothek";
+
+"Manage templates" = "Vorlagen verwalten";
+
+"Manual order" = "Manuelle Bestellung";
+
+"Menu bar icon (always available)" = "Menüleistensymbol (immer verfügbar)";
+
+"Menu contents" = "Menüinhalte";
+
+"Minimize" = "Minimieren";
+
+"MIT License" = "MIT-Lizenz";
+
+"Most used" = "Am häufigsten verwendet";
+
+"Name" = "Name";
+
+"New %@" = "Neu %@";
+
+"New category" = "Neue Kategorie";
+
+"New File" = "Neue Datei";
+
+"New File Creation 2" = "New File Creation 2";
+
+"New File Creation 2 could not load its configuration" = "New File Creation 2 konnte seine Konfiguration nicht laden";
+
+"New File Creation 2 Help" = "New File Creation 2 Hilfe";
+
+"New File Creation 2 keeps your reusable templates in one place and creates a fresh copy wherever you are working. Everything runs locally on your Mac." = "New File Creation 2 bewahrt deine wiederverwendbaren Vorlagen an einem Ort auf und erstellt eine frische Kopie, egal wo du arbeitest. Alles läuft lokal auf deinem Mac.";
+
+"New files" = "Neue Dateien";
+
+"New File…" = "Neue Datei…";
+
+"No accounts, network requests, analytics, or telemetry. The app, Finder extension, Today widget, and nfc helper share one local configuration folder." = "Keine Konten, Netzwerkanfragen, Analysen oder Telemetrie. Die App, die Finder-Erweiterung, das Today-Widget und der NFC-Helfer teilen sich einen lokalen Konfigurationsordner.";
+
+"no extension" = "keine Erweiterung";
+
+"No matching templates" = "Keine passenden Vorlagen";
+
+"No Templates" = "Keine Vorlagen";
+
+"No templates" = "Keine Vorlagen";
+
+"No templates to show" = "Keine Vorlagen zum Anzeigen";
+
+"None" = "Keine";
+
+"Not found; move the app to /Applications" = "Nicht gefunden; Verschieben Sie die App nach /Anwendungen";
+
+"Not installed. The bundled helper is at Contents/Helpers/nfc." = "Nicht installiert. Der gebündelte Helfer befindet sich unter Contents/Helpers/nfc.";
+
+"Not registered" = "Nicht registriert";
+
+"OK" = "OK";
+
+"On" = "Ein";
+
+"Open Library" = "Bibliothek öffnen";
+
+"Open New File Creation 2 once, then try the Finder menu again." = "Öffne New File Creation 2 einmal, und versuche dann erneut das Finder-Menü.";
+
+"Open Settings" = "Öffnen Sie die Einstellungen";
+
+"Open System Settings and enable “New File Creation 2 Finder” manually." = "Öffne Systemeinstellungen und aktiviere „New File Creation 2 Finder“ manuell.";
+
+"Open System Settings…" = "Systemeinstellungen öffnen…";
+
+"Open Template Library" = "Vorlagenbibliothek öffnen";
+
+"Open Templates Folder" = "Öffnen Sie den Vorlagenordner";
+
+"Open the new file after creating it" = "Öffnen Sie die neue Datei, nachdem Sie sie erstellt haben";
+
+"Option" = "Option";
+
+"Other" = "Andere";
+
+"Paste" = "Einfügen";
+
+"Play a sound after creating a file" = "Spielen Sie einen Ton ab, nachdem Sie eine Datei erstellt haben";
+
+"Presentations" = "Präsentationen";
+
+"Private by design" = "Privat durch Design";
+
+"Quick New File" = "Schnelle neue Datei";
+
+"Quick New File…" = "Schnelle neue Datei…";
+
+"Quit New File Creation 2" = "Beende New File Creation 2";
+
+"Recent" = "Aktuell";
+
+"Redo" = "Wiederholen";
+
+"Remove" = "Entfernen";
+
+"Remove Category" = "Kategorie entfernen";
+
+"Remove Favorite" = "Favorit entfernen";
+
+"Remove Template…" = "Vorlage entfernen…";
+
+"Remove the “%@” category?" = "Kategorie „%@“ entfernen?";
+
+"Remove “%@”?" = "„%@“ entfernen?";
+
+"Remove…" = "Entfernen…";
+
+"Rename" = "Umbenennen";
+
+"Rename Template" = "Vorlage umbenennen";
+
+"Rename…" = "Umbenennen…";
+
+"Requires approval in System Settings" = "Erfordert eine Genehmigung in den Systemeinstellungen";
+
+"Reset" = "Zurücksetzen";
+
+"Reset Configuration…" = "Konfiguration zurücksetzen…";
+
+"Reset the configuration?" = "Konfiguration zurücksetzen?";
+
+"Return creates the selected template." = "Return erstellt die ausgewählte Vorlage.";
+
+"Reveal Config" = "Konfiguration aufdecken";
+
+"Reveal in Finder" = "Im Finder anzeigen";
+
+"Reveal Log" = "Reveal-Protokoll";
+
+"Reveal Selected Template" = "Ausgewählte Vorlage anzeigen";
+
+"Reveal Template" = "Reveal-Vorlage";
+
+"Reveal the new file in Finder" = "Zeigen Sie die neue Datei im Finder an";
+
+"Right-click in Finder and choose New File from the template list." = "Klicken Sie mit der rechten Maustaste in den Finder und wählen Sie „Neue Datei“ aus der Vorlagenliste.";
+
+"Run nfc create \"Text File\" to make a file anywhere." = "Führen Sie nfc create „Text File“ aus, um an einer beliebigen Stelle eine Datei zu erstellen.";
+
+"Search" = "Suchen";
+
+"Search Templates" = "Suchvorlagen";
+
+"Search templates" = "Suchvorlagen";
+
+"Select a template" = "Wählen Sie eine Vorlage aus";
+
+"Select All" = "Alle auswählen";
+
+"Services" = "Dienstleistungen";
+
+"Set as Default" = "Als Standard festlegen";
+
+"Settings" = "Einstellungen";
+
+"Settings and the template library are reset. Template files in the Templates folder are kept." = "Einstellungen und die Vorlagenbibliothek werden zurückgesetzt. Vorlagendateien im Ordner „Templates“ bleiben erhalten.";
+
+"Settings › Finder enables Finder menus." = "Einstellungen › Finder aktiviert Finder-Menüs.";
+
+"Settings › Help explains every workflow." = "Einstellungen › Die Hilfe erklärt jeden Arbeitsablauf.";
+
+"Settings › Templates manages categories and sorting." = "Einstellungen › Vorlagen verwaltet Kategorien und Sortierung.";
+
+"Settings…" = "Einstellungen…";
+
+"Shift" = "Verschiebung";
+
+"Show" = "Anzeigen";
+
+"Show a confirmation in the app window" = "Bestätigung im App-Fenster anzeigen";
+
+"Show All" = "Alle anzeigen";
+
+"Show favorites first" = "Favoriten zuerst anzeigen";
+
+"Show Get Started" = "Erste Schritte anzeigen";
+
+"Show Get Started details" = "Details zum Einstieg anzeigen";
+
+"Show or Hide Inspector" = "Inspektor ein- oder ausblenden";
+
+"Show or Hide Sidebar" = "Seitenleiste anzeigen oder ausblenden";
+
+"Show or hide the inspector" = "Den Inspektor anzeigen oder ausblenden";
+
+"Show template icons" = "Vorlagensymbole anzeigen";
+
+"Show the menu bar icon" = "Zeigt das Menüleistensymbol an";
+
+"Show Welcome" = "Willkommen anzeigen";
+
+"Show Welcome Again" = "Willkommen noch einmal anzeigen";
+
+"Sort by:" = "Sortieren nach:";
+
+"Sound:" = "Ton:";
+
+"Spreadsheets" = "Tabellen";
+
+"Template: %@" = "Vorlage: %@";
+
+"Templates" = "Vorlagen";
+
+"Templates included in the library" = "In der Bibliothek enthaltene Vorlagen";
+
+"The app and nfc coordinate writes with a lock and atomic replacement. The Finder extension reads the configuration only." = "Die App und NFC koordinieren Schreibvorgänge mit einer Sperre und einem atomaren Ersatz. Die Finder-Erweiterung liest nur die Konfiguration.";
+
+"The bundled nfc helper is missing. Rebuild or reinstall the app." = "Der mitgelieferte NFC-Helfer fehlt. Erstellen Sie die App neu oder installieren Sie sie neu.";
+
+"The category will be removed from the library." = "Die Kategorie wird aus der Bibliothek entfernt.";
+
+"The configuration is damaged." = "Die Konfiguration ist beschädigt.";
+
+"The default name is used by the app, the Finder extension, and the nfc command. Existing files are never overwritten." = "Der Standardname wird von der App, der Finder-Erweiterung und dem NFC-Befehl verwendet. Vorhandene Dateien werden niemals überschrieben.";
+
+"The existing nfc is not a symlink managed by this app." = "Der vorhandene NFC ist kein symbolischer Link, der von dieser App verwaltet wird.";
+
+"The file is not valid JSON." = "Die Datei ist kein gültiges JSON.";
+
+"The Finder extension could not be enabled" = "Die Finder-Erweiterung konnte nicht aktiviert werden";
+
+"The Finder extension reads the shared configuration and creates files in the selected folder. If the extension is not listed, open System Settings › General › Login Items & Extensions › Finder Extensions." = "Die Finder-Erweiterung liest die freigegebene Konfiguration und erstellt Dateien im ausgewählten Ordner. Wenn die Erweiterung nicht aufgeführt ist, öffnen Sie Systemeinstellungen › Allgemein › Anmeldeelemente und Erweiterungen › Finder-Erweiterungen.";
+
+"The menu bar icon stays available so you can always create files." = "Das Menüleistensymbol bleibt verfügbar, sodass Sie jederzeit Dateien erstellen können.";
+
+"The shortcut could not be registered (Carbon error %d). It may conflict with another app." = "Die Verknüpfung konnte nicht registriert werden (Carbon-Fehler %d). Es kann zu Konflikten mit einer anderen App kommen.";
+
+"The shortcut is unavailable" = "Die Verknüpfung ist nicht verfügbar";
+
+"The template file keeps its current name. This changes the display name only." = "Die Vorlagendatei behält ihren aktuellen Namen. Dadurch ändert sich nur der Anzeigename.";
+
+"The template is removed from the library and its file is moved to Trash." = "Die Vorlage wird aus der Bibliothek entfernt und ihre Datei wird in den Papierkorb verschoben.";
+
+"The template “%@” was not found." = "Die Vorlage „%@“ wurde nicht gefunden.";
+
+"Tip: the global shortcut opens Quick New File from any app. Change it in Settings › General." = "Tipp: Die globale Verknüpfung öffnet Quick New File aus jeder App. Ändern Sie es unter „Einstellungen“ > „Allgemein“.";
+
+"Unavailable" = "Nicht verfügbar";
+
+"Undo" = "Rückgängig machen";
+
+"Uninstall nfc" = "NFC deinstallieren";
+
+"Unsupported shortcut key “%@”." = "Nicht unterstützte Tastenkombination „%@“.";
+
+"Untitled" = "Ohne Titel";
+
+"Use the command line" = "Verwenden Sie die Befehlszeile";
+
+"Use the menu bar icon or the global shortcut for the quick panel." = "Verwenden Sie das Menüleistensymbol oder die globale Verknüpfung für das Quick Panel.";
+
+"Used %ld time" = "%ld Zeit verwendet";
+
+"Used %ld times" = "%ld Mal verwendet";
+
+"Version %@" = "Version %@";
+
+"Video" = "Video";
+
+"View" = "Ansicht";
+
+"View License" = "Lizenz anzeigen";
+
+"Welcome to New File Creation 2" = "Willkommen bei New File Creation 2";
+
+"Window" = "Fenster";
+
+"You can reopen this window from Settings › Help or from the menu bar." = "Sie können dieses Fenster über Einstellungen › Hilfe oder über die Menüleiste erneut öffnen.";
+
+"Zoom" = "Zoom";
+
+"↩ Create file    ⠿ Drag to Finder    esc Close" = "↩ Datei erstellen ⠿ In den Finder ziehen, esc Schließen";

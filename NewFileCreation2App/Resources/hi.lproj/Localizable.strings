@@ -1,0 +1,545 @@
+/* hi localization. Generated from the English source strings. */
+
+" (not on PATH)" = " (not on PATH)";
+
+"%@ (%@)\nDouble-click to create a file." = "%@ (%@)\nफ़ाइल बनाने के लिए डबल-क्लिक करें।";
+
+"%@ already exists and is not a symlink. Remove it manually or choose another location." = "%@ पहले से मौजूद है और कोई सिम्लिंक नहीं है। इसे मैन्युअल रूप से हटाएं या कोई अन्य स्थान चुनें.";
+
+"%@ template" = "%@ टेम्पलेट";
+
+"%@ template, drag to create a file" = "%@ टेम्पलेट, फ़ाइल बनाने के लिए खींचें";
+
+"%@ — drag to create %@" = "%@ — %@ बनाने के लिए खींचें";
+
+"%ld template(s) will move to Other." = "%ld टेम्प्लेट अन्य में चले जाएंगे।";
+
+"%lu templates in the library" = "लाइब्रेरी में%lu टेम्पलेट्स";
+
+"About" = "के बारे में";
+
+"About New File Creation 2" = "New File Creation 2 के बारे में";
+
+"Add" = "जोड़ें";
+
+"Add a file to use it as a template, or restore the included set." = "टेम्पलेट के रूप में उपयोग करने के लिए एक फ़ाइल जोड़ें, या शामिल सेट को पुनर्स्थापित करें।";
+
+"Add as Template" = "टेम्पलेट के रूप में जोड़ें";
+
+"Add Category" = "श्रेणी जोड़ें";
+
+"Add files as templates" = "फ़ाइलों को टेम्प्लेट के रूप में जोड़ें";
+
+"Add files in Settings › Templates, assign categories, remove categories you no longer need, choose a sort order, or drag templates to the Desktop and Finder." = "सेटिंग्स ›टेम्प्लेट्स में फ़ाइलें जोड़ें, श्रेणियां निर्दिष्ट करें, वे श्रेणियां हटाएं जिनकी आपको अब आवश्यकता नहीं है, सॉर्ट क्रम चुनें, या टेम्प्लेट्स को डेस्कटॉप और फाइंडर पर खींचें।";
+
+"Add Template" = "टेम्पलेट जोड़ें";
+
+"Add Templates" = "टेम्प्लेट जोड़ें";
+
+"Add Template…" = "टेम्पलेट जोड़ें…";
+
+"Add “Add as Template” for selected files" = "चयनित फ़ाइलों के लिए \"टेम्पलेट के रूप में जोड़ें\" जोड़ें";
+
+"Add “New File” to Finder menus" = "फाइंडर मेनू में \"नई फ़ाइल\" जोड़ें";
+
+"Added %lu template" = "%lu टेम्पलेट जोड़ा गया";
+
+"Added %lu templates" = "%lu टेम्पलेट जोड़े गए";
+
+"Add…" = "जोड़ें...";
+
+"Advanced" = "उन्नत";
+
+"After creating" = "बनाने के बाद";
+
+"All Templates" = "सभी टेम्पलेट";
+
+"Allow New File Creation 2 in System Settings › General › Login Items." = "सिस्टम सेटिंग्स › सामान्य › लॉगिन आइटम्स में New File Creation 2 की अनुमति दें।";
+
+"An unexpected error occurred." = "एक अप्रत्याशित त्रुटि उत्पन्न हुई।";
+
+"Application" = "आवेदन";
+
+"Approval required" = "अनुमोदन आवश्यक है";
+
+"Archives" = "अभिलेखागार";
+
+"Ask for a name" = "नाम पूछें";
+
+"Assign a global shortcut in Settings" = "सेटिंग्स में एक वैश्विक शॉर्टकट निर्दिष्ट करें";
+
+"At a glance" = "एक नज़र में";
+
+"Audio" = "ऑडियो";
+
+"Bring All to Front" = "सभी को सामने लाओ";
+
+"Cancel" = "रद्द करें";
+
+"Categories" = "श्रेणियाँ";
+
+"Category" = "श्रेणी";
+
+"Category:" = "श्रेणी:";
+
+"Choose" = "चुनें";
+
+"Choose a name and location for the new file" = "नई फ़ाइल के लिए एक नाम और स्थान चुनें";
+
+"Choose files or packages to use as templates." = "टेम्प्लेट के रूप में उपयोग करने के लिए फ़ाइलें या पैकेज चुनें।";
+
+"Choose Name and Location…" = "नाम और स्थान चुनें…";
+
+"Choose the folder where new files are created by default." = "वह फ़ोल्डर चुनें जहां डिफ़ॉल्ट रूप से नई फ़ाइलें बनाई जाती हैं।";
+
+"Choose…" = "चुनें...";
+
+"Close" = "बंद करें";
+
+"Code" = "कोड";
+
+"Command" = "आदेश";
+
+"Command-line tool" = "कमांड-लाइन टूल";
+
+"Configuration and command line" = "कॉन्फ़िगरेशन और कमांड लाइन";
+
+"Continue" = "जारी रखें";
+
+"Control" = "नियंत्रण";
+
+"Copy" = "कॉपी करें";
+
+"Copyright © 2024–2026 Sergio Martinez-Losa\nMIT License" = "कॉपीराइट © 2024-2026 सर्जियो मार्टिनेज़-लोसा\nएमआईटी लाइसेंस";
+
+"Copyright © 2024–2026 Sergio Martinez-Losa. Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files, to deal in the Software without restriction." = "कॉपीराइट © 2024-2026 सर्जियो मार्टिनेज-लोसा। इस सॉफ़्टवेयर और संबंधित दस्तावेज़ फ़ाइलों की एक प्रति प्राप्त करने वाले किसी भी व्यक्ति को बिना किसी प्रतिबंध के सॉफ़्टवेयर में सौदा करने की अनुमति निःशुल्क दी जाती है।";
+
+"Could not add the category" = "श्रेणी नहीं जोड़ी जा सकी";
+
+"Could not change the login item" = "लॉगिन आइटम नहीं बदला जा सका";
+
+"Could not create the file" = "फ़ाइल नहीं बनाई जा सकी";
+
+"Could not enable the Finder extension" = "फाइंडर एक्सटेंशन को सक्षम नहीं किया जा सका";
+
+"Could not export the configuration" = "कॉन्फ़िगरेशन निर्यात नहीं किया जा सका";
+
+"Could not import the configuration" = "कॉन्फ़िगरेशन आयात नहीं किया जा सका";
+
+"Could not install nfc" = "एनएफसी स्थापित नहीं किया जा सका";
+
+"Could not reset the configuration" = "कॉन्फिगरेशन रीसेट नहीं किया जा सका";
+
+"Could not uninstall nfc" = "एनएफसी को अनइंस्टॉल नहीं किया जा सका";
+
+"Create" = "बनाएं";
+
+"Create a file from a template in Finder, from the menu bar, from the template library, or with the nfc command." = "फाइंडर में किसी टेम्प्लेट से, मेनू बार से, टेम्प्लेट लाइब्रेरी से, या एनएफसी कमांड से एक फ़ाइल बनाएं।";
+
+"Create a new file from a template" = "टेम्पलेट से एक नई फ़ाइल बनाएं";
+
+"Create File" = "फ़ाइल बनाएं";
+
+"Create files from templates in Finder, from the menu bar, from the library, or with the nfc command.\n\n• ⌘N creates a file from the selected template.\n• ⇧⌘N lets you choose a name and location.\n• The menu bar icon opens templates and the quick panel.\n• Right-click in Finder for Finder menu items.\n• Run “nfc help” in Terminal for command-line usage." = "फाइंडर में टेम्प्लेट से, मेनू बार से, लाइब्रेरी से, या एनएफसी कमांड से फ़ाइलें बनाएं।\n\n• ⌘N चयनित टेम्पलेट से एक फ़ाइल बनाता है।\n• ⇧⌘N आपको एक नाम और स्थान चुनने की सुविधा देता है।\n• मेनू बार आइकन टेम्प्लेट और त्वरित पैनल खोलता है।\n• फाइंडर मेनू आइटम के लिए फाइंडर में राइट-क्लिक करें।\n• कमांड-लाइन उपयोग के लिए टर्मिनल में \"एनएफसी सहायता\" चलाएँ।";
+
+"Create files from templates in Finder, the menu bar, the library, and the command line." = "फाइंडर, मेनू बार, लाइब्रेरी और कमांड लाइन में टेम्प्लेट से फ़ाइलें बनाएं।";
+
+"Create from Finder" = "फाइंडर से बनाएं";
+
+"Create from the menu bar" = "मेनू बार से बनाएं";
+
+"Create immediately" = "तुरंत बनाएं";
+
+"Create in Default Folder" = "डिफ़ॉल्ट फ़ोल्डर में बनाएं";
+
+"Create the file in “%@”." = "फ़ाइल को “%@” में बनाएं।";
+
+"Create the selected template in the default folder" = "डिफ़ॉल्ट फ़ोल्डर में चयनित टेम्पलेट बनाएं";
+
+"Create with Name…" = "नाम से बनाएं...";
+
+"Created %@" = "%@बनाया गया";
+
+"Creation:" = "सृजन:";
+
+"Cut" = "काटें";
+
+"Default folder:" = "डिफ़ॉल्ट फ़ोल्डर:";
+
+"Default name:" = "डिफ़ॉल्ट नाम:";
+
+"Default template:" = "डिफ़ॉल्ट टेम्पलेट:";
+
+"Desktop" = "डेस्कटॉप";
+
+"Disabled templates do not appear in the app, the menu bar, or Finder menus." = "अक्षम टेम्पलेट ऐप, मेनू बार या फ़ाइंडर मेनू में दिखाई नहीं देते हैं।";
+
+"Documents" = "दस्तावेज़";
+
+"Drag a template row to Finder or the Desktop." = "टेम्पलेट पंक्ति को फाइंडर या डेस्कटॉप पर खींचें।";
+
+"Drag a template to a folder or the Desktop." = "एक टेम्पलेट को किसी फ़ोल्डर या डेस्कटॉप पर खींचें।";
+
+"Edit" = "संपादित करें";
+
+"Enable Extension" = "एक्सटेंशन सक्षम करें";
+
+"Enable the Finder extension, then right-click in a folder or on a file and choose New File. The new file is created in the folder you are browsing." = "फाइंडर एक्सटेंशन सक्षम करें, फिर किसी फ़ोल्डर में या फ़ाइल पर राइट-क्लिक करें और नई फ़ाइल चुनें। नई फ़ाइल आपके द्वारा ब्राउज़ किए जा रहे फ़ोल्डर में बनाई गई है।";
+
+"Enabled" = "सक्षम";
+
+"Enter a category name." = "श्रेणी का नाम दर्ज करें।";
+
+"Enter Full Screen" = "पूर्ण स्क्रीन दर्ज करें";
+
+"Everything stays on your Mac. No network, analytics, or telemetry." = "हर चीज़ आपके मैक पर रहती है। कोई नेटवर्क, एनालिटिक्स या टेलीमेट्री नहीं।";
+
+"Export…" = "निर्यात करें…";
+
+"Extension: %@" = "एक्सटेंशन: %@";
+
+"Favorite" = "पसंदीदा";
+
+"Favorites" = "पसंदीदा";
+
+"File" = "फ़ाइल";
+
+"File type" = "फ़ाइल प्रकार";
+
+"Finder" = "खोजकर्ता";
+
+"Finder extension" = "फाइंडर एक्सटेंशन";
+
+"Finder extension status unavailable" = "फाइंडर एक्सटेंशन स्थिति अनुपलब्ध है";
+
+"Finder extension: disabled" = "खोजक एक्सटेंशन: अक्षम";
+
+"Finder extension: enabled" = "फाइंडर एक्सटेंशन: सक्षम";
+
+"Finder extension: not registered. Build and open the app once." = "खोजक एक्सटेंशन: पंजीकृत नहीं है। एक बार ऐप बनाएं और खोलें।";
+
+"Finder extension: registered" = "खोजक एक्सटेंशन: पंजीकृत";
+
+"General" = "सामान्य";
+
+"Get Started" = "आरंभ करें";
+
+"Get Started…" = "आरंभ करें…";
+
+"Global shortcut:" = "वैश्विक शॉर्टकट:";
+
+"Global shortcut: %@" = "वैश्विक शॉर्टकट: %@";
+
+"Group templates by category" = "टेम्पलेट को श्रेणी के अनुसार समूहित करें";
+
+"Help" = "मदद करें";
+
+"Help and getting started" = "सहायता और आरंभ करना";
+
+"Hide New File Creation 2" = "New File Creation 2 छिपाएँ";
+
+"Hide Others" = "दूसरों को छुपाएं";
+
+"Images" = "छवियां";
+
+"Import…" = "आयात करें…";
+
+"Inspector" = "इंस्पेक्टर";
+
+"Install nfc" = "एनएफसी स्थापित करें";
+
+"Install nfc from Settings › Advanced, then run nfc create \"Text File\" in Terminal to create a file in the current folder." = "सेटिंग्स › एडवांस्ड से एनएफसी इंस्टॉल करें, फिर वर्तमान फ़ोल्डर में एक फ़ाइल बनाने के लिए टर्मिनल में एनएफसी क्रिएट \"टेक्स्ट फाइल\" चलाएं।";
+
+"Installed at %@%@" = "%@%@ पर स्थापित किया गया";
+
+"Keep the quick panel open after dropping a file" = "किसी फ़ाइल को छोड़ने के बाद त्वरित पैनल को खुला रखें";
+
+"Last used" = "अंतिम बार उपयोग किया गया";
+
+"Last used %@" = "अंतिम बार उपयोग किया गया %@";
+
+"Launch at login requires macOS 13 or later." = "लॉगिन पर लॉन्च के लिए macOS 13 या उसके बाद के संस्करण की आवश्यकता होती है।";
+
+"Launch New File Creation 2 at login" = "लॉगिन पर New File Creation 2 लॉन्च करें";
+
+"Left-click the menu bar icon for Quick New File." = "त्वरित नई फ़ाइल के लिए मेनू बार आइकन पर बायाँ-क्लिक करें।";
+
+"Left-click the menu bar icon to open Quick New File. Search, press Return to create, or drag a row into Finder. Right-click for the full menu and Get Started." = "त्वरित नई फ़ाइल खोलने के लिए मेनू बार आइकन पर बायाँ-क्लिक करें। खोजें, बनाने के लिए रिटर्न दबाएँ, या पंक्ति को फाइंडर में खींचें। संपूर्ण मेनू के लिए राइट-क्लिक करें और आरंभ करें।";
+
+"Library" = "पुस्तकालय";
+
+"Manage templates" = "टेम्प्लेट प्रबंधित करें";
+
+"Manual order" = "मैनुअल ऑर्डर";
+
+"Menu bar icon (always available)" = "मेनू बार आइकन (हमेशा उपलब्ध)";
+
+"Menu contents" = "मेनू सामग्री";
+
+"Minimize" = "छोटा करें";
+
+"MIT License" = "एमआईटी लाइसेंस";
+
+"Most used" = "सबसे अधिक उपयोग किया जाता है";
+
+"Name" = "नाम";
+
+"New %@" = "नया %@";
+
+"New category" = "नई श्रेणी";
+
+"New File" = "नई फ़ाइल";
+
+"New File Creation 2" = "New File Creation 2";
+
+"New File Creation 2 could not load its configuration" = "New File Creation 2 अपनी कॉन्फ़िगरेशन लोड नहीं कर सका";
+
+"New File Creation 2 Help" = "New File Creation 2 सहायता";
+
+"New File Creation 2 keeps your reusable templates in one place and creates a fresh copy wherever you are working. Everything runs locally on your Mac." = "New File Creation 2 आपके पुन: प्रयोज्य टेम्पलेट्स को एक जगह पर रखता है और जहां आप काम कर रहे हैं वहां एक नई कॉपी बनाता है। सब कुछ आपके मैक पर स्थानीय रूप से चलता है।";
+
+"New files" = "नई फ़ाइलें";
+
+"New File…" = "नई फ़ाइल…";
+
+"No accounts, network requests, analytics, or telemetry. The app, Finder extension, Today widget, and nfc helper share one local configuration folder." = "कोई खाता, नेटवर्क अनुरोध, विश्लेषण या टेलीमेट्री नहीं। ऐप, फाइंडर एक्सटेंशन, टुडे विजेट और एनएफसी हेल्पर एक स्थानीय कॉन्फ़िगरेशन फ़ोल्डर साझा करते हैं।";
+
+"no extension" = "कोई विस्तार नहीं";
+
+"No matching templates" = "कोई मेल खाता टेम्पलेट नहीं";
+
+"No Templates" = "कोई टेम्पलेट नहीं";
+
+"No templates" = "कोई टेम्पलेट नहीं";
+
+"No templates to show" = "दिखाने के लिए कोई टेम्पलेट नहीं है";
+
+"None" = "कोई नहीं";
+
+"Not found; move the app to /Applications" = "नहीं मिला; ऐप को /एप्लिकेशन पर ले जाएं";
+
+"Not installed. The bundled helper is at Contents/Helpers/nfc." = "स्थापित नहीं है। बंडल किया गया हेल्पर कंटेंट/हेल्पर्स/एनएफसी पर है।";
+
+"Not registered" = "पंजीकृत नहीं";
+
+"OK" = "ठीक है";
+
+"On" = "चालू";
+
+"Open Library" = "पुस्तकालय खोलें";
+
+"Open New File Creation 2 once, then try the Finder menu again." = "New File Creation 2 एक बार खोलें, फिर फ़ाइंडर मेनू को फिर से आज़माएँ।";
+
+"Open Settings" = "सेटिंग्स खोलें";
+
+"Open System Settings and enable “New File Creation 2 Finder” manually." = "सिस्टम सेटिंग्स खोलें और “New File Creation 2 Finder” को मैन्युअली सक्षम करें।";
+
+"Open System Settings…" = "सिस्टम सेटिंग्स खोलें...";
+
+"Open Template Library" = "टेम्पलेट लाइब्रेरी खोलें";
+
+"Open Templates Folder" = "टेम्प्लेट फ़ोल्डर खोलें";
+
+"Open the new file after creating it" = "नई फ़ाइल बनाने के बाद उसे खोलें";
+
+"Option" = "विकल्प";
+
+"Other" = "अन्य";
+
+"Paste" = "चिपकाएँ";
+
+"Play a sound after creating a file" = "फ़ाइल बनाने के बाद ध्वनि चलाएं";
+
+"Presentations" = "प्रस्तुति";
+
+"Private by design" = "डिज़ाइन द्वारा निजी";
+
+"Quick New File" = "त्वरित नई फ़ाइल";
+
+"Quick New File…" = "त्वरित नई फ़ाइल…";
+
+"Quit New File Creation 2" = "New File Creation 2 से बाहर निकलें";
+
+"Recent" = "हाल ही में";
+
+"Redo" = "फिर से करें";
+
+"Remove" = "हटाएं";
+
+"Remove Category" = "श्रेणी हटाएँ";
+
+"Remove Favorite" = "पसंदीदा हटाएं";
+
+"Remove Template…" = "टेम्पलेट हटाएं...";
+
+"Remove the “%@” category?" = "“%@” श्रेणी हटाएं?";
+
+"Remove “%@”?" = "“%@” हटाएं?";
+
+"Remove…" = "हटाएं...";
+
+"Rename" = "नाम बदलें";
+
+"Rename Template" = "टेम्पलेट का नाम बदलें";
+
+"Rename…" = "नाम बदलें...";
+
+"Requires approval in System Settings" = "सिस्टम सेटिंग्स में अनुमोदन की आवश्यकता है";
+
+"Reset" = "रीसेट करें";
+
+"Reset Configuration…" = "कॉन्फ़िगरेशन रीसेट करें...";
+
+"Reset the configuration?" = "कॉन्फ़िगरेशन रीसेट करें?";
+
+"Return creates the selected template." = "रिटर्न चयनित टेम्पलेट बनाता है।";
+
+"Reveal Config" = "कॉन्फिग प्रकट करें";
+
+"Reveal in Finder" = "फाइंडर में प्रकट करें";
+
+"Reveal Log" = " लॉग प्रकट करें";
+
+"Reveal Selected Template" = "चयनित टेम्पलेट प्रकट करें";
+
+"Reveal Template" = "टेम्पलेट प्रकट करें";
+
+"Reveal the new file in Finder" = "फाइंडर में नई फ़ाइल प्रकट करें";
+
+"Right-click in Finder and choose New File from the template list." = "फाइंडर में राइट-क्लिक करें और टेम्पलेट सूची से नई फ़ाइल चुनें।";
+
+"Run nfc create \"Text File\" to make a file anywhere." = "कहीं भी फ़ाइल बनाने के लिए nfc create \"Text File\" चलाएँ।";
+
+"Search" = "खोजें";
+
+"Search Templates" = "टेम्पलेट्स खोजें";
+
+"Search templates" = "खोज टेम्प्लेट";
+
+"Select a template" = "एक टेम्पलेट चुनें";
+
+"Select All" = "सभी का चयन करें";
+
+"Services" = "सेवाएँ";
+
+"Set as Default" = "डिफ़ॉल्ट के रूप में सेट करें";
+
+"Settings" = "सेटिंग्स";
+
+"Settings and the template library are reset. Template files in the Templates folder are kept." = "सेटिंग्स और टेम्प्लेट लाइब्रेरी रीसेट हो गई हैं। टेम्प्लेट फ़ाइलें टेम्प्लेट फ़ोल्डर में रखी जाती हैं.";
+
+"Settings › Finder enables Finder menus." = "सेटिंग्स ›फाइंडर फाइंडर मेनू को सक्षम करता है।";
+
+"Settings › Help explains every workflow." = "सेटिंग्स › सहायता प्रत्येक वर्कफ़्लो को समझाती है।";
+
+"Settings › Templates manages categories and sorting." = "सेटिंग्स ›टेम्पलेट्स श्रेणियों और सॉर्टिंग का प्रबंधन करता है।";
+
+"Settings…" = "सेटिंग्स…";
+
+"Shift" = "शिफ्ट";
+
+"Show" = "दिखाएँ";
+
+"Show a confirmation in the app window" = "ऐप विंडो में एक पुष्टिकरण दिखाएं";
+
+"Show All" = "सभी दिखाएँ";
+
+"Show favorites first" = "पहले पसंदीदा दिखाएं";
+
+"Show Get Started" = "शो आरंभ करें";
+
+"Show Get Started details" = "प्रारंभ करें विवरण दिखाएं";
+
+"Show or Hide Inspector" = "इंस्पेक्टर को दिखाओ या छिपाओ";
+
+"Show or Hide Sidebar" = "साइडबार दिखाएँ या छिपाएँ";
+
+"Show or hide the inspector" = "इंस्पेक्टर को दिखाओ या छुपाओ";
+
+"Show template icons" = "टेम्पलेट आइकन दिखाएं";
+
+"Show the menu bar icon" = "मेनू बार आइकन दिखाएं";
+
+"Show Welcome" = "स्वागत दिखाएँ";
+
+"Show Welcome Again" = "फिर से स्वागत दिखाएँ";
+
+"Sort by:" = "क्रमबद्ध करें:";
+
+"Sound:" = "ध्वनि:";
+
+"Spreadsheets" = "स्प्रेडशीट";
+
+"Template: %@" = "टेम्पलेट: %@";
+
+"Templates" = "टेम्पलेट्स";
+
+"Templates included in the library" = "लाइब्रेरी में शामिल टेम्पलेट";
+
+"The app and nfc coordinate writes with a lock and atomic replacement. The Finder extension reads the configuration only." = "ऐप और एनएफसी समन्वय लॉक और परमाणु प्रतिस्थापन के साथ लिखते हैं। फाइंडर एक्सटेंशन केवल कॉन्फ़िगरेशन को पढ़ता है।";
+
+"The bundled nfc helper is missing. Rebuild or reinstall the app." = "बंडल किया गया एनएफसी हेल्पर गायब है। ऐप को दोबारा बनाएं या इंस्टॉल करें.";
+
+"The category will be removed from the library." = "श्रेणी को लाइब्रेरी से हटा दिया जाएगा।";
+
+"The configuration is damaged." = "कॉन्फ़िगरेशन क्षतिग्रस्त है।";
+
+"The default name is used by the app, the Finder extension, and the nfc command. Existing files are never overwritten." = "डिफ़ॉल्ट नाम का उपयोग ऐप, फाइंडर एक्सटेंशन और एनएफसी कमांड द्वारा किया जाता है। मौजूदा फ़ाइलें कभी भी ओवरराइट नहीं की जातीं.";
+
+"The existing nfc is not a symlink managed by this app." = "मौजूदा एनएफसी इस ऐप द्वारा प्रबंधित सिम्लिंक नहीं है।";
+
+"The file is not valid JSON." = "फ़ाइल मान्य JSON नहीं है।";
+
+"The Finder extension could not be enabled" = "फाइंडर एक्सटेंशन सक्षम नहीं किया जा सका";
+
+"The Finder extension reads the shared configuration and creates files in the selected folder. If the extension is not listed, open System Settings › General › Login Items & Extensions › Finder Extensions." = "फाइंडर एक्सटेंशन साझा कॉन्फ़िगरेशन को पढ़ता है और चयनित फ़ोल्डर में फ़ाइलें बनाता है। यदि एक्सटेंशन सूचीबद्ध नहीं है, तो सिस्टम सेटिंग्स › सामान्य › लॉगिन आइटम और एक्सटेंशन › फाइंडर एक्सटेंशन खोलें।";
+
+"The menu bar icon stays available so you can always create files." = "मेनू बार आइकन उपलब्ध रहता है ताकि आप हमेशा फ़ाइलें बना सकें।";
+
+"The shortcut could not be registered (Carbon error %d). It may conflict with another app." = "शॉर्टकट पंजीकृत नहीं किया जा सका (कार्बन त्रुटि %d)। इसका किसी अन्य ऐप के साथ विरोध हो सकता है.";
+
+"The shortcut is unavailable" = "शॉर्टकट अनुपलब्ध है";
+
+"The template file keeps its current name. This changes the display name only." = "टेम्पलेट फ़ाइल अपना वर्तमान नाम रखती है। इससे केवल प्रदर्शन नाम बदलता है.";
+
+"The template is removed from the library and its file is moved to Trash." = "टेम्पलेट को लाइब्रेरी से हटा दिया गया है और इसकी फ़ाइल को ट्रैश में ले जाया गया है।";
+
+"The template “%@” was not found." = "टेम्पलेट “%@” नहीं मिला।";
+
+"Tip: the global shortcut opens Quick New File from any app. Change it in Settings › General." = "टिप: वैश्विक शॉर्टकट किसी भी ऐप से त्वरित नई फ़ाइल खोलता है। इसे सेटिंग्स › सामान्य में बदलें।";
+
+"Unavailable" = "अनुपलब्ध";
+
+"Undo" = "पूर्ववत करें";
+
+"Uninstall nfc" = "एनएफसी अनइंस्टॉल करें";
+
+"Unsupported shortcut key “%@”." = "असमर्थित शॉर्टकट कुंजी \"%@\"।";
+
+"Untitled" = "शीर्षक रहित";
+
+"Use the command line" = "कमांड लाइन का उपयोग करें";
+
+"Use the menu bar icon or the global shortcut for the quick panel." = "त्वरित पैनल के लिए मेनू बार आइकन या वैश्विक शॉर्टकट का उपयोग करें।";
+
+"Used %ld time" = "%ld समय का उपयोग किया गया";
+
+"Used %ld times" = "%ld बार प्रयुक्त";
+
+"Version %@" = "संस्करण %@";
+
+"Video" = "वीडियो";
+
+"View" = "देखें";
+
+"View License" = "लाइसेंस देखें";
+
+"Welcome to New File Creation 2" = "New File Creation 2 में आपका स्वागत है";
+
+"Window" = "विंडो";
+
+"You can reopen this window from Settings › Help or from the menu bar." = "आप इस विंडो को सेटिंग्स › सहायता या मेनू बार से फिर से खोल सकते हैं।";
+
+"Zoom" = "ज़ूम करें";
+
+"↩ Create file    ⠿ Drag to Finder    esc Close" = "↩ फ़ाइल बनाएं ⠿ फाइंडर पर खींचें आदि बंद करें";

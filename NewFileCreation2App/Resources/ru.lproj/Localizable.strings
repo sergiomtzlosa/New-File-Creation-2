@@ -1,0 +1,545 @@
+/* ru localization. Generated from the English source strings. */
+
+" (not on PATH)" = " (not on PATH)";
+
+"%@ (%@)\nDouble-click to create a file." = "%@ (%@)\nДважды щелкните, чтобы создать файл.";
+
+"%@ already exists and is not a symlink. Remove it manually or choose another location." = "%@ уже существует и не является символической ссылкой. Удалите его вручную или выберите другое место.";
+
+"%@ template" = "%@ шаблон";
+
+"%@ template, drag to create a file" = "%@ шаблон, перетащите для создания файла";
+
+"%@ — drag to create %@" = "%@ — перетащите, чтобы создать %@";
+
+"%ld template(s) will move to Other." = "%ld шаблон(ов) будут перемещены в «Другие».";
+
+"%lu templates in the library" = "%lu шаблонов в библиотеке";
+
+"About" = "О программе";
+
+"About New File Creation 2" = "О New File Creation 2";
+
+"Add" = "Добавить";
+
+"Add a file to use it as a template, or restore the included set." = "Добавьте файл, чтобы использовать его в качестве шаблона, или восстановите включенный набор.";
+
+"Add as Template" = "Добавить как шаблон";
+
+"Add Category" = "Добавить категорию";
+
+"Add files as templates" = "Добавить файлы как шаблоны";
+
+"Add files in Settings › Templates, assign categories, remove categories you no longer need, choose a sort order, or drag templates to the Desktop and Finder." = "Добавляйте файлы в Настройки › Шаблоны, назначайте категории, удаляйте категории, которые больше не нужны, выбирайте порядок сортировки или перетаскивайте шаблоны на Рабочий стол и в Finder.";
+
+"Add Template" = "Добавить шаблон";
+
+"Add Templates" = "Добавить шаблоны";
+
+"Add Template…" = "Добавить шаблон…";
+
+"Add “Add as Template” for selected files" = "Добавить «Добавить как шаблон» для выбранных файлов";
+
+"Add “New File” to Finder menus" = "Добавить «Новый файл» в меню Finder";
+
+"Added %lu template" = "Добавлен %lu шаблон";
+
+"Added %lu templates" = "Добавлено %lu шаблонов";
+
+"Add…" = "Добавить…";
+
+"Advanced" = "Дополнительно";
+
+"After creating" = "После создания";
+
+"All Templates" = "Все шаблоны";
+
+"Allow New File Creation 2 in System Settings › General › Login Items." = "Разрешить New File Creation 2 в Настройках системы › Основные › Элементы входа.";
+
+"An unexpected error occurred." = "Произошла непредвиденная ошибка.";
+
+"Application" = "Приложение";
+
+"Approval required" = "Требуется одобрение";
+
+"Archives" = "Архивы";
+
+"Ask for a name" = "Спросить имя";
+
+"Assign a global shortcut in Settings" = "Назначить глобальное сочетание клавиш в Настройках";
+
+"At a glance" = "Взглядом";
+
+"Audio" = "Аудио";
+
+"Bring All to Front" = "Переместить всё вперед";
+
+"Cancel" = "Отмена";
+
+"Categories" = "Категории";
+
+"Category" = "Категория";
+
+"Category:" = "Категория:";
+
+"Choose" = "Выбрать";
+
+"Choose a name and location for the new file" = "Выберите имя и место для нового файла";
+
+"Choose files or packages to use as templates." = "Выберите файлы или пакеты для использования в качестве шаблонов.";
+
+"Choose Name and Location…" = "Выбрать имя и место…";
+
+"Choose the folder where new files are created by default." = "Выберите папку, где новые файлы создаются по умолчанию.";
+
+"Choose…" = "Выберите…";
+
+"Close" = "Закрыть";
+
+"Code" = "Код";
+
+"Command" = "Команда";
+
+"Command-line tool" = "Инструмент командной строки";
+
+"Configuration and command line" = "Конфигурация и командная строка";
+
+"Continue" = "Продолжить";
+
+"Control" = "Управление";
+
+"Copy" = "Копировать";
+
+"Copyright © 2024–2026 Sergio Martinez-Losa\nMIT License" = "Авторское право © 2024–2026 Серхио Мартинес-Лоса\nЛицензия MIT";
+
+"Copyright © 2024–2026 Sergio Martinez-Losa. Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files, to deal in the Software without restriction." = "Авторское право © 2024–2026 Серхио Мартинес-Лоса. Настоящим предоставляется разрешение бесплатно любому лицу, получившему копию этого программного обеспечения и сопутствующих файлов документации, использовать Программное обеспечение без ограничений.";
+
+"Could not add the category" = "Не удалось добавить категорию";
+
+"Could not change the login item" = "Не удалось изменить элемент входа";
+
+"Could not create the file" = "Не удалось создать файл";
+
+"Could not enable the Finder extension" = "Не удалось включить расширение Finder";
+
+"Could not export the configuration" = "Не удалось экспортировать конфигурацию";
+
+"Could not import the configuration" = "Не удалось импортировать конфигурацию";
+
+"Could not install nfc" = "Не удалось установить nfc";
+
+"Could not reset the configuration" = "Не удалось сбросить конфигурацию";
+
+"Could not uninstall nfc" = "Не удалось удалить nfc";
+
+"Create" = "Создать";
+
+"Create a file from a template in Finder, from the menu bar, from the template library, or with the nfc command." = "Создайте файл из шаблона в Finder, из строки меню, из библиотеки шаблонов или с помощью команды nfc.";
+
+"Create a new file from a template" = "Создать новый файл из шаблона";
+
+"Create File" = "Создать файл";
+
+"Create files from templates in Finder, from the menu bar, from the library, or with the nfc command.\n\n• ⌘N creates a file from the selected template.\n• ⇧⌘N lets you choose a name and location.\n• The menu bar icon opens templates and the quick panel.\n• Right-click in Finder for Finder menu items.\n• Run “nfc help” in Terminal for command-line usage." = "Создавайте файлы из шаблонов в Finder, из строки меню, из библиотеки или с помощью команды nfc.\n\n• ⌘N создаёт файл из выбранного шаблона.\n• ⇧⌘N позволяет выбрать имя и место.\n• Значок строки меню открывает шаблоны и быстрый панель.\n• Щёлкните правой кнопкой мыши в Finder для элементов меню Finder.\n• Выполните «nfc help» в Терминале для использования через командную строку.";
+
+"Create files from templates in Finder, the menu bar, the library, and the command line." = "Создавайте файлы из шаблонов в Finder, в строке меню, в библиотеке и через командную строку.";
+
+"Create from Finder" = "Создать из Finder";
+
+"Create from the menu bar" = "Создать из панели меню";
+
+"Create immediately" = "Создать немедленно";
+
+"Create in Default Folder" = "Создать в папке по умолчанию";
+
+"Create the file in “%@”." = "Создать файл в «%@».";
+
+"Create the selected template in the default folder" = "Создайте выбранный шаблон в папке по умолчанию";
+
+"Create with Name…" = "Создать с именем…";
+
+"Created %@" = "Создано %@";
+
+"Creation:" = "Создание:";
+
+"Cut" = "Вырезать";
+
+"Default folder:" = "Папка по умолчанию:";
+
+"Default name:" = "Имя по умолчанию:";
+
+"Default template:" = "Шаблон по умолчанию:";
+
+"Desktop" = "Рабочий стол";
+
+"Disabled templates do not appear in the app, the menu bar, or Finder menus." = "Отключённые шаблоны не отображаются в приложении, на панели меню или в меню Finder.";
+
+"Documents" = "Документы";
+
+"Drag a template row to Finder or the Desktop." = "Перетащите шаблонную строку в Finder или на рабочий стол.";
+
+"Drag a template to a folder or the Desktop." = " Перетащите шаблон в папку или на рабочий стол. ";
+
+"Edit" = " Редактирование";
+
+"Enable Extension" = " Расширение Enable";
+
+"Enable the Finder extension, then right-click in a folder or on a file and choose New File. The new file is created in the folder you are browsing." = " Включите расширение Finder, затем кликните правой кнопкой мыши в папке или на файле и выберите Новый файл. Новый файл создаётся в папке, которую вы просматриваете. ";
+
+"Enabled" = " Включено";
+
+"Enter a category name." = " Введите название категории. ";
+
+"Enter Full Screen" = " Выход на весь экран";
+
+"Everything stays on your Mac. No network, analytics, or telemetry." = " Всё остаётся на вашем Mac. Нет сети, аналитики или телеметрии. ";
+
+"Export…" = " Экспорт... ";
+
+"Extension: %@" = " Расширение: %@ ";
+
+"Favorite" = " Любимый";
+
+"Favorites" = " Избранные";
+
+"File" = "Файл";
+
+"File type" = " Тип файла";
+
+"Finder" = "Проводник";
+
+"Finder extension" = " Расширение Finder";
+
+"Finder extension status unavailable" = " Статус расширения Finder недоступен";
+
+"Finder extension: disabled" = " Расширение Finder: отключено";
+
+"Finder extension: enabled" = " Расширение Finder: включено";
+
+"Finder extension: not registered. Build and open the app once." = " Расширение Finder: не зарегистрировано. Создайте и откройте приложение один раз. ";
+
+"Finder extension: registered" = " Расширение Finder: зарегистрировано";
+
+"General" = "Общие";
+
+"Get Started" = " Начните";
+
+"Get Started…" = "Начать…";
+
+"Global shortcut:" = "Глобальное сочетание клавиш:";
+
+"Global shortcut: %@" = "Глобальное сочетание клавиш: %@";
+
+"Group templates by category" = "Группировать шаблоны по категориям";
+
+"Help" = "Помощь";
+
+"Help and getting started" = "Помощь и начало работы";
+
+"Hide New File Creation 2" = "Скрыть New File Creation 2";
+
+"Hide Others" = "Скрыть другие";
+
+"Images" = "Изображения";
+
+"Import…" = "Импорт…";
+
+"Inspector" = "Инспектор";
+
+"Install nfc" = "Установить nfc";
+
+"Install nfc from Settings › Advanced, then run nfc create \"Text File\" in Terminal to create a file in the current folder." = "Установите nfc через Настройки › Дополнительно, затем выполните nfc create \"Текстовый файл\" в Терминале, чтобы создать файл в текущей папке.";
+
+"Installed at %@%@" = "Установлено в %@%@";
+
+"Keep the quick panel open after dropping a file" = "Оставить панель быстрого доступа открытой после перетаскивания файла";
+
+"Last used" = "Использовалось в последний раз";
+
+"Last used %@" = "Использовалось в последний раз %@";
+
+"Launch at login requires macOS 13 or later." = "Запуск при входе требует macOS 13 или новее.";
+
+"Launch New File Creation 2 at login" = "Запуск New File Creation 2 при входе";
+
+"Left-click the menu bar icon for Quick New File." = "Левый клик на значок в меню для быстрого создания файла.";
+
+"Left-click the menu bar icon to open Quick New File. Search, press Return to create, or drag a row into Finder. Right-click for the full menu and Get Started." = "Левый клик на значок в меню для открытия Быстрого создания файла. Поиск, нажмите Return для создания или перетащите строку в Finder. Правый клик для полного меню и Начало работы.";
+
+"Library" = "Библиотека";
+
+"Manage templates" = "Управление шаблонами";
+
+"Manual order" = "Ручной порядок";
+
+"Menu bar icon (always available)" = "Значок на панели меню (всегда доступен)";
+
+"Menu contents" = "Содержимое меню";
+
+"Minimize" = "Свернуть";
+
+"MIT License" = "Лицензия MIT";
+
+"Most used" = "Наиболее используемые";
+
+"Name" = "Имя";
+
+"New %@" = "Новый %@";
+
+"New category" = "Новая категория";
+
+"New File" = "Новый файл";
+
+"New File Creation 2" = "New File Creation 2";
+
+"New File Creation 2 could not load its configuration" = "New File Creation 2 не удалось загрузить свою конфигурацию";
+
+"New File Creation 2 Help" = "Справка New File Creation 2";
+
+"New File Creation 2 keeps your reusable templates in one place and creates a fresh copy wherever you are working. Everything runs locally on your Mac." = "New File Creation 2 хранит ваши шаблоны в одном месте и создаёт свежую копию там, где вы работаете. Всё запускается локально на вашем Mac.";
+
+"New files" = "Новые файлы";
+
+"New File…" = "Новый файл…";
+
+"No accounts, network requests, analytics, or telemetry. The app, Finder extension, Today widget, and nfc helper share one local configuration folder." = "Нет аккаунтов, сетевых запросов, аналитики или телеметрии. Приложение, расширение Finder, виджет Today и помощник nfc используют одну локальную папку конфигурации.";
+
+"no extension" = "без расширения";
+
+"No matching templates" = "Нет подходящих шаблонов";
+
+"No Templates" = "Нет шаблонов";
+
+"No templates" = "Нет шаблонов";
+
+"No templates to show" = "Нет шаблонов для отображения";
+
+"None" = " Нет";
+
+"Not found; move the app to /Applications" = " Не найдено; переместите приложение в /Applications";
+
+"Not installed. The bundled helper is at Contents/Helpers/nfc." = " Не установлен. Вспомогательный помощник в комплекте находится в Contents/Helpers/nfc. ";
+
+"Not registered" = " Не зарегистрирован";
+
+"OK" = "ОК";
+
+"On" = " На";
+
+"Open Library" = " Открытая библиотека";
+
+"Open New File Creation 2 once, then try the Finder menu again." = " Откройте New File Creation 2 один раз, затем снова попробуйте меню Finder. ";
+
+"Open Settings" = " Открытые настройки";
+
+"Open System Settings and enable “New File Creation 2 Finder” manually." = " Откройте системные настройки и включите «New File Creation 2 Finder» вручную. ";
+
+"Open System Settings…" = " Открытые системные настройки... ";
+
+"Open Template Library" = " Открытая библиотека шаблонов";
+
+"Open Templates Folder" = " Папка «Открыть шаблоны»";
+
+"Open the new file after creating it" = " Откройте новый файл после его создания";
+
+"Option" = " Опция";
+
+"Other" = " Прочее";
+
+"Paste" = " Паста";
+
+"Play a sound after creating a file" = " Воспроизведите звук после создания файла";
+
+"Presentations" = " Презентации";
+
+"Private by design" = " Частный по замыслу";
+
+"Quick New File" = " Быстрый новый файл";
+
+"Quick New File…" = "Быстрый новый файл…";
+
+"Quit New File Creation 2" = "Выйти из New File Creation 2";
+
+"Recent" = "Недавние";
+
+"Redo" = "Повторить";
+
+"Remove" = "Удалить";
+
+"Remove Category" = "Удалить категорию";
+
+"Remove Favorite" = "Удалить из избранного";
+
+"Remove Template…" = "Удалить шаблон…";
+
+"Remove the “%@” category?" = "Удалить категорию “%@”?";
+
+"Remove “%@”?" = "Удалить “%@”?";
+
+"Remove…" = "Удалить…";
+
+"Rename" = "Переименовать";
+
+"Rename Template" = "Переименовать шаблон";
+
+"Rename…" = "Переименовать…";
+
+"Requires approval in System Settings" = "Требуется одобрение в системных настройках";
+
+"Reset" = "Сброс";
+
+"Reset Configuration…" = "Сбросить конфигурацию…";
+
+"Reset the configuration?" = "Сбросить конфигурацию?";
+
+"Return creates the selected template." = "Return создаёт выбранный шаблон.";
+
+"Reveal Config" = "Показать конфигурацию";
+
+"Reveal in Finder" = "Показать в Finder";
+
+"Reveal Log" = "Показать журнал";
+
+"Reveal Selected Template" = "Показать выбранный шаблон";
+
+"Reveal Template" = "Показать шаблон";
+
+"Reveal the new file in Finder" = "Показать новый файл в Finder";
+
+"Right-click in Finder and choose New File from the template list." = "Щелкните правой кнопкой мыши в Finder и выберите Новый файл из списка шаблонов.";
+
+"Run nfc create \"Text File\" to make a file anywhere." = "Выполните nfc create \"Текстовый файл\", чтобы создать файл в любом месте.";
+
+"Search" = "Поиск";
+
+"Search Templates" = "Поиск шаблонов";
+
+"Search templates" = "Поиск шаблонов";
+
+"Select a template" = "Выбрать шаблон";
+
+"Select All" = "Выбрать все";
+
+"Services" = "Сервисы";
+
+"Set as Default" = "Установить по умолчанию";
+
+"Settings" = "Настройки";
+
+"Settings and the template library are reset. Template files in the Templates folder are kept." = "Настройки и библиотека шаблонов сброшены. Шаблонные файлы в папке Шаблоны сохранены.";
+
+"Settings › Finder enables Finder menus." = "Настройки › Finder включает меню Finder.";
+
+"Settings › Help explains every workflow." = "Настройки › Справка объясняет каждый сценарий работы.";
+
+"Settings › Templates manages categories and sorting." = "Настройки › Шаблоны управляет категориями и сортировкой.";
+
+"Settings…" = "Настройки…";
+
+"Shift" = "Смена";
+
+"Show" = "Показать";
+
+"Show a confirmation in the app window" = "Показать подтверждение в окне приложения";
+
+"Show All" = "Показать все";
+
+"Show favorites first" = "Сначала показывать избранное";
+
+"Show Get Started" = "Показать 'Начало работы'";
+
+"Show Get Started details" = "Показать детали 'Начало работы'";
+
+"Show or Hide Inspector" = "Показать или скрыть инспектор";
+
+"Show or Hide Sidebar" = "Показать или скрыть боковую панель";
+
+"Show or hide the inspector" = "Показать или скрыть инспектор";
+
+"Show template icons" = "Показать значки шаблонов";
+
+"Show the menu bar icon" = "Показать значок в строке меню";
+
+"Show Welcome" = "Показать 'Добро пожаловать'";
+
+"Show Welcome Again" = "Показать 'Добро пожаловать' снова";
+
+"Sort by:" = "Сортировать по:";
+
+"Sound:" = "Звук:";
+
+"Spreadsheets" = "Электронные таблицы";
+
+"Template: %@" = "Шаблон: %@";
+
+"Templates" = "Шаблоны";
+
+"Templates included in the library" = "Шаблоны, включенные в библиотеку";
+
+"The app and nfc coordinate writes with a lock and atomic replacement. The Finder extension reads the configuration only." = "Приложение и NFC координируют запись с блокировкой и атомарной заменой. Расширение Finder только читает конфигурацию.";
+
+"The bundled nfc helper is missing. Rebuild or reinstall the app." = "Комплектный помощник NFC отсутствует. Пересоберите или переустановите приложение.";
+
+"The category will be removed from the library." = "Категория будет удалена из библиотеки.";
+
+"The configuration is damaged." = "Конфигурация повреждена.";
+
+"The default name is used by the app, the Finder extension, and the nfc command. Existing files are never overwritten." = "Имя по умолчанию используется приложением, расширением Finder и командой nfc. Существующие файлы никогда не перезаписываются.";
+
+"The existing nfc is not a symlink managed by this app." = "Существующий NFC не является символической ссылкой, управляемой этим приложением.";
+
+"The file is not valid JSON." = "Файл не является допустимым JSON.";
+
+"The Finder extension could not be enabled" = "Расширение Finder не удалось включить.";
+
+"The Finder extension reads the shared configuration and creates files in the selected folder. If the extension is not listed, open System Settings › General › Login Items & Extensions › Finder Extensions." = "Расширение Finder считывает общую конфигурацию и создаёт файлы в выбранной папке. Если расширение не отображается в списке, откройте Системные настройки › Основные › Элементы и расширения входа › Расширения Finder.";
+
+"The menu bar icon stays available so you can always create files." = "Значок в строке меню остаётся доступным, чтобы вы всегда могли создавать файлы.";
+
+"The shortcut could not be registered (Carbon error %d). It may conflict with another app." = "Не удалось зарегистрировать ярлык (ошибка Carbon %d). Возможно, он конфликтует с другим приложением.";
+
+"The shortcut is unavailable" = "Ярлык недоступен.";
+
+"The template file keeps its current name. This changes the display name only." = "Файл шаблона сохраняет своё текущее имя. Это изменяет только отображаемое имя.";
+
+"The template is removed from the library and its file is moved to Trash." = "Шаблон удален из библиотеки, а его файл перемещен в Корзину.";
+
+"The template “%@” was not found." = "Шаблон “%@” не найден.";
+
+"Tip: the global shortcut opens Quick New File from any app. Change it in Settings › General." = "Совет: глобальное сочетание клавиш открывает Быстрое создание файла из любого приложения. Измените его в Настройки › Основные.";
+
+"Unavailable" = "Недоступно";
+
+"Undo" = "Отменить";
+
+"Uninstall nfc" = "Удалить nfc";
+
+"Unsupported shortcut key “%@”." = "Неподдерживаемая горячая клавиша “%@”.";
+
+"Untitled" = "Без названия";
+
+"Use the command line" = "Используйте командную строку";
+
+"Use the menu bar icon or the global shortcut for the quick panel." = "Используйте значок на панели меню или глобальное сочетание клавиш для быстрого доступа.";
+
+"Used %ld time" = "Использовано %ld раз";
+
+"Used %ld times" = "Использовано %ld раз(а)";
+
+"Version %@" = "Версия %@";
+
+"Video" = "Видео";
+
+"View" = "Просмотр";
+
+"View License" = "Просмотр лицензии";
+
+"Welcome to New File Creation 2" = "Добро пожаловать в New File Creation 2";
+
+"Window" = "Окно";
+
+"You can reopen this window from Settings › Help or from the menu bar." = "Вы можете заново открыть это окно через Настройки › Справка или из панели меню.";
+
+"Zoom" = "Зум";
+
+"↩ Create file    ⠿ Drag to Finder    esc Close" = "↩ Создать файл    ⠿ Перетащить в Finder    esc Закрыть";

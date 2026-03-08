@@ -1,0 +1,545 @@
+/* zh-Hans localization. Generated from the English source strings. */
+
+" (not on PATH)" = " (not on PATH)";
+
+"%@ (%@)\nDouble-click to create a file." = "%@ (%@)\n双击以创建文件。";
+
+"%@ already exists and is not a symlink. Remove it manually or choose another location." = "%@ 已存在且不是符号链接。请手动删除它或选择其他位置。";
+
+"%@ template" = "%@ 模板";
+
+"%@ template, drag to create a file" = "%@ 模板，拖动以创建文件";
+
+"%@ — drag to create %@" = "%@ — 拖动以创建 %@";
+
+"%ld template(s) will move to Other." = "%ld 个模板将移至“其他”。";
+
+"%lu templates in the library" = "%lu 个库中的模板";
+
+"About" = "关于";
+
+"About New File Creation 2" = "关于 New File Creation 2";
+
+"Add" = "添加";
+
+"Add a file to use it as a template, or restore the included set." = "添加文件以将其用作模板，或恢复包含的模板集。";
+
+"Add as Template" = "添加为模板";
+
+"Add Category" = "添加类别";
+
+"Add files as templates" = "将文件添加为模板";
+
+"Add files in Settings › Templates, assign categories, remove categories you no longer need, choose a sort order, or drag templates to the Desktop and Finder." = "在“设置 › 模板”中添加文件，分配类别，移除不再需要的类别，选择排序顺序，或将模板拖到桌面和 Finder。";
+
+"Add Template" = "添加模板";
+
+"Add Templates" = "添加模板";
+
+"Add Template…" = "添加模板…";
+
+"Add “Add as Template” for selected files" = "为所选文件添加“添加为模板”";
+
+"Add “New File” to Finder menus" = "将“新建文件”添加到 Finder 菜单";
+
+"Added %lu template" = "已添加 %lu 模板";
+
+"Added %lu templates" = "已添加 %lu 个模板";
+
+"Add…" = "添加…";
+
+"Advanced" = "高级";
+
+"After creating" = "创建后";
+
+"All Templates" = "所有模板";
+
+"Allow New File Creation 2 in System Settings › General › Login Items." = "允许 New File Creation 2 在系统设置 › 通用 › 登录项中使用。";
+
+"An unexpected error occurred." = "发生未知错误。";
+
+"Application" = "应用程序";
+
+"Approval required" = "需要批准";
+
+"Archives" = "档案";
+
+"Ask for a name" = "请求名称";
+
+"Assign a global shortcut in Settings" = "在设置中分配全局快捷键";
+
+"At a glance" = "一目了然";
+
+"Audio" = "音频";
+
+"Bring All to Front" = "全部置于前端";
+
+"Cancel" = "取消";
+
+"Categories" = "类别";
+
+"Category" = "类别";
+
+"Category:" = "类别：";
+
+"Choose" = "选择";
+
+"Choose a name and location for the new file" = "为新文件选择名称和位置";
+
+"Choose files or packages to use as templates." = "选择要用作模板的文件或包。";
+
+"Choose Name and Location…" = "选择名称和位置…";
+
+"Choose the folder where new files are created by default." = "选择默认创建新文件的文件夹。";
+
+"Choose…" = "选择…";
+
+"Close" = "关闭";
+
+"Code" = "代码";
+
+"Command" = "命令";
+
+"Command-line tool" = "命令行工具";
+
+"Configuration and command line" = "配置和命令行";
+
+"Continue" = "继续";
+
+"Control" = "控制";
+
+"Copy" = "复制";
+
+"Copyright © 2024–2026 Sergio Martinez-Losa\nMIT License" = "版权 © 2024–2026 Sergio Martinez-Losa\nMIT 许可证";
+
+"Copyright © 2024–2026 Sergio Martinez-Losa. Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files, to deal in the Software without restriction." = "版权 © 2024–2026 Sergio Martinez-Losa。特此免费授予任何获得本软件及相关文档文件副本的人无限制使用本软件的许可。";
+
+"Could not add the category" = "无法添加类别";
+
+"Could not change the login item" = "无法更改登录项";
+
+"Could not create the file" = "无法创建文件";
+
+"Could not enable the Finder extension" = "无法启用 Finder 扩展";
+
+"Could not export the configuration" = "无法导出配置";
+
+"Could not import the configuration" = "无法导入配置";
+
+"Could not install nfc" = "无法安装 nfc";
+
+"Could not reset the configuration" = "无法重置配置";
+
+"Could not uninstall nfc" = "无法卸载 nfc";
+
+"Create" = "创建";
+
+"Create a file from a template in Finder, from the menu bar, from the template library, or with the nfc command." = "可以通过 Finder、菜单栏、模板库或使用 nfc 命令从模板创建文件。";
+
+"Create a new file from a template" = "从模板创建新文件";
+
+"Create File" = "创建文件";
+
+"Create files from templates in Finder, from the menu bar, from the library, or with the nfc command.\n\n• ⌘N creates a file from the selected template.\n• ⇧⌘N lets you choose a name and location.\n• The menu bar icon opens templates and the quick panel.\n• Right-click in Finder for Finder menu items.\n• Run “nfc help” in Terminal for command-line usage." = "在 Finder 中、从菜单栏、从库或使用 nfc 命令根据模板创建文件。\n\n• ⌘N 根据所选模板创建文件。\n• ⇧⌘N 让你选择文件名和位置。\n• 菜单栏图标打开模板和快速面板。\n• 在 Finder 中右键点击以显示 Finder 菜单项。\n• 在终端运行“nfc help”以获取命令行使用说明。";
+
+"Create files from templates in Finder, the menu bar, the library, and the command line." = "在 Finder、菜单栏、库和命令行中从模板创建文件。";
+
+"Create from Finder" = "从 Finder 创建";
+
+"Create from the menu bar" = "从菜单栏创建";
+
+"Create immediately" = "立即创建";
+
+"Create in Default Folder" = "在默认文件夹中创建";
+
+"Create the file in “%@”." = "在“%@”中创建文件。";
+
+"Create the selected template in the default folder" = "在默认文件夹中创建所选模板";
+
+"Create with Name…" = "用名称创建…";
+
+"Created %@" = "创建于 %@";
+
+"Creation:" = "创建：";
+
+"Cut" = "]切";
+
+"Default folder:" = "默认文件夹：";
+
+"Default name:" = "默认名称：";
+
+"Default template:" = "默认模板：";
+
+"Desktop" = "桌面";
+
+"Disabled templates do not appear in the app, the menu bar, or Finder menus." = "已禁用的模板不会出现在应用程序、菜单栏或 Finder 菜单中。";
+
+"Documents" = "文档";
+
+"Drag a template row to Finder or the Desktop." = "将模板行拖到访达或桌面上。";
+
+"Drag a template to a folder or the Desktop." = "将模板拖到文件夹或桌面。";
+
+"Edit" = "编辑";
+
+"Enable Extension" = "启用扩展";
+
+"Enable the Finder extension, then right-click in a folder or on a file and choose New File. The new file is created in the folder you are browsing." = "启用 Finder 扩展，然后在文件夹或文件上右键单击并选择“新建文件”。新文件将创建在您正在浏览的文件夹中。";
+
+"Enabled" = "已启用";
+
+"Enter a category name." = "输入类别名称。";
+
+"Enter Full Screen" = "进入全屏";
+
+"Everything stays on your Mac. No network, analytics, or telemetry." = "所有内容都保留在您的 Mac 上。无网络、分析或遥测。";
+
+"Export…" = "导出…";
+
+"Extension: %@" = "扩展：%@";
+
+"Favorite" = "收藏";
+
+"Favorites" = "收藏夹";
+
+"File" = "文件";
+
+"File type" = "文件类型";
+
+"Finder" = "访达";
+
+"Finder extension" = "Finder 扩展";
+
+"Finder extension status unavailable" = "Finder 扩展状态不可用";
+
+"Finder extension: disabled" = "Finder 扩展：已禁用";
+
+"Finder extension: enabled" = "Finder 扩展：已启用";
+
+"Finder extension: not registered. Build and open the app once." = "Finder 扩展：未注册。请先构建并打开应用。";
+
+"Finder extension: registered" = "Finder 扩展：已注册";
+
+"General" = "通用";
+
+"Get Started" = "开始使用";
+
+"Get Started…" = "开始使用…";
+
+"Global shortcut:" = "全局快捷键：";
+
+"Global shortcut: %@" = "全局快捷键：%@";
+
+"Group templates by category" = "按类别分组模板";
+
+"Help" = "帮助";
+
+"Help and getting started" = "帮助和入门指南";
+
+"Hide New File Creation 2" = "隐藏 New File Creation 2";
+
+"Hide Others" = "隐藏其他";
+
+"Images" = "图像";
+
+"Import…" = "导入…";
+
+"Inspector" = "检查器";
+
+"Install nfc" = "安装 nfc";
+
+"Install nfc from Settings › Advanced, then run nfc create \"Text File\" in Terminal to create a file in the current folder." = "从“设置 › 高级”安装 nfc，然后在终端运行 nfc create \"文本文件\" 在当前文件夹中创建文件。";
+
+"Installed at %@%@" = "已安装于 %@%@";
+
+"Keep the quick panel open after dropping a file" = "拖放文件后保持快速面板打开";
+
+"Last used" = "上次使用";
+
+"Last used %@" = "上次使用 %@";
+
+"Launch at login requires macOS 13 or later." = "登录时启动需要 macOS 13 或更高版本。";
+
+"Launch New File Creation 2 at login" = "登录时启动 New File Creation 2";
+
+"Left-click the menu bar icon for Quick New File." = "左键单击菜单栏图标以快速创建新文件。";
+
+"Left-click the menu bar icon to open Quick New File. Search, press Return to create, or drag a row into Finder. Right-click for the full menu and Get Started." = "左键单击菜单栏图标以打开快速新建文件。搜索，按回车键创建或将行拖入 Finder。右键单击获取完整菜单和入门指南。";
+
+"Library" = "资源库";
+
+"Manage templates" = "管理模板";
+
+"Manual order" = "手动排序";
+
+"Menu bar icon (always available)" = "菜单栏图标（始终可用）";
+
+"Menu contents" = "菜单内容";
+
+"Minimize" = "最小化";
+
+"MIT License" = "MIT 许可证";
+
+"Most used" = "最常使用";
+
+"Name" = "名称";
+
+"New %@" = "新建 %@";
+
+"New category" = "新建类别";
+
+"New File" = "新建文件";
+
+"New File Creation 2" = "New File Creation 2";
+
+"New File Creation 2 could not load its configuration" = "New File Creation 2 无法加载其配置";
+
+"New File Creation 2 Help" = "New File Creation 2 帮助";
+
+"New File Creation 2 keeps your reusable templates in one place and creates a fresh copy wherever you are working. Everything runs locally on your Mac." = "New File Creation 2 将您的可重复使用模板集中管理，并在您工作的任何地方创建新的副本。所有操作均在您的 Mac 本地进行。";
+
+"New files" = "新建文件";
+
+"New File…" = "新建文件…";
+
+"No accounts, network requests, analytics, or telemetry. The app, Finder extension, Today widget, and nfc helper share one local configuration folder." = "无账户、网络请求、分析或遥测。应用程序、Finder 扩展、今日小组件和 nfc 辅助程序共享一个本地配置文件夹。";
+
+"no extension" = "无扩展";
+
+"No matching templates" = "无匹配的模板";
+
+"No Templates" = "无模板";
+
+"No templates" = "无模板";
+
+"No templates to show" = "没有可显示的模板";
+
+"None" = "无";
+
+"Not found; move the app to /Applications" = "未找到；将应用程序移动到 /Applications";
+
+"Not installed. The bundled helper is at Contents/Helpers/nfc." = "未安装。捆绑的辅助工具位于 Contents/Helpers/nfc。";
+
+"Not registered" = "未注册";
+
+"OK" = "好的";
+
+"On" = "开启";
+
+"Open Library" = "打开库";
+
+"Open New File Creation 2 once, then try the Finder menu again." = "先打开 New File Creation 2，然后再次尝试 Finder 菜单。";
+
+"Open Settings" = "打开设置";
+
+"Open System Settings and enable “New File Creation 2 Finder” manually." = "打开系统设置并手动启用“New File Creation 2 Finder”。";
+
+"Open System Settings…" = "打开系统设置…";
+
+"Open Template Library" = "打开模板库";
+
+"Open Templates Folder" = "打开模板文件夹";
+
+"Open the new file after creating it" = "创建新文件后打开";
+
+"Option" = "选项";
+
+"Other" = "其他";
+
+"Paste" = "粘贴";
+
+"Play a sound after creating a file" = "创建文件后播放声音";
+
+"Presentations" = "演示文稿";
+
+"Private by design" = "设计为私密";
+
+"Quick New File" = "快速新建文件";
+
+"Quick New File…" = "快速新建文件…";
+
+"Quit New File Creation 2" = "退出 New File Creation 2";
+
+"Recent" = "最近";
+
+"Redo" = "重做";
+
+"Remove" = "移除";
+
+"Remove Category" = "移除类别";
+
+"Remove Favorite" = "移除收藏";
+
+"Remove Template…" = "移除模板…";
+
+"Remove the “%@” category?" = "移除“%@”类别？";
+
+"Remove “%@”?" = "移除“%@”？";
+
+"Remove…" = "移除…";
+
+"Rename" = "重命名";
+
+"Rename Template" = "重命名模板";
+
+"Rename…" = "重命名…";
+
+"Requires approval in System Settings" = "需要在系统设置中批准";
+
+"Reset" = "重置";
+
+"Reset Configuration…" = "重置配置…";
+
+"Reset the configuration?" = "要重置配置吗？";
+
+"Return creates the selected template." = "按回车创建所选模板。";
+
+"Reveal Config" = "显示配置";
+
+"Reveal in Finder" = "在 Finder 中显示";
+
+"Reveal Log" = "显示日志";
+
+"Reveal Selected Template" = "显示所选模板";
+
+"Reveal Template" = "显示模板";
+
+"Reveal the new file in Finder" = "在 Finder 中显示新文件";
+
+"Right-click in Finder and choose New File from the template list." = "在 Finder 中右键点击，然后从模板列表中选择新建文件。";
+
+"Run nfc create \"Text File\" to make a file anywhere." = "运行 nfc create \"文本文件\" 以在任意位置创建文件。";
+
+"Search" = "搜索";
+
+"Search Templates" = "搜索模板";
+
+"Search templates" = "搜索模板";
+
+"Select a template" = "选择模板";
+
+"Select All" = "全选";
+
+"Services" = "服务";
+
+"Set as Default" = "设为默认";
+
+"Settings" = "设置";
+
+"Settings and the template library are reset. Template files in the Templates folder are kept." = "设置和模板库已重置。模板文件夹中的模板文件将被保留。";
+
+"Settings › Finder enables Finder menus." = "设置 › Finder 启用 Finder 菜单。";
+
+"Settings › Help explains every workflow." = "设置 › 帮助 解释每个工作流程。";
+
+"Settings › Templates manages categories and sorting." = "设置 › 模板 管理类别和排序。";
+
+"Settings…" = "设置…";
+
+"Shift" = "切换";
+
+"Show" = "显示";
+
+"Show a confirmation in the app window" = "在应用窗口中显示确认";
+
+"Show All" = "显示全部";
+
+"Show favorites first" = "先显示收藏";
+
+"Show Get Started" = "显示入门";
+
+"Show Get Started details" = "显示入门详情";
+
+"Show or Hide Inspector" = "显示或隐藏检查器";
+
+"Show or Hide Sidebar" = "显示或隐藏侧边栏";
+
+"Show or hide the inspector" = "显示或隐藏检查器";
+
+"Show template icons" = "显示模板图标";
+
+"Show the menu bar icon" = "显示菜单栏图标";
+
+"Show Welcome" = "显示欢迎界面";
+
+"Show Welcome Again" = "再次显示欢迎界面";
+
+"Sort by:" = "排序方式：";
+
+"Sound:" = "声音：";
+
+"Spreadsheets" = "电子表格";
+
+"Template: %@" = "模板：%@";
+
+"Templates" = "模板";
+
+"Templates included in the library" = "库中包含的模板";
+
+"The app and nfc coordinate writes with a lock and atomic replacement. The Finder extension reads the configuration only." = "应用程序和 NFC 协调写入使用锁和原子替换。Finder 扩展只读取配置。";
+
+"The bundled nfc helper is missing. Rebuild or reinstall the app." = "缺少捆绑的 NFC 辅助工具。请重建或重新安装应用。";
+
+"The category will be removed from the library." = "该类别将从库中移除。";
+
+"The configuration is damaged." = "配置已损坏。";
+
+"The default name is used by the app, the Finder extension, and the nfc command. Existing files are never overwritten." = "默认名称由应用程序、Finder 扩展和 nfc 命令使用。现有文件永远不会被覆盖。";
+
+"The existing nfc is not a symlink managed by this app." = "现有的 NFC 不是由此应用管理的符号链接。";
+
+"The file is not valid JSON." = "该文件不是有效的 JSON。";
+
+"The Finder extension could not be enabled" = "无法启用 Finder 扩展";
+
+"The Finder extension reads the shared configuration and creates files in the selected folder. If the extension is not listed, open System Settings › General › Login Items & Extensions › Finder Extensions." = "Finder 扩展会读取共享配置并在所选文件夹中创建文件。如果未列出该扩展，请打开“系统设置 › 通用 › 登录项与扩展 › Finder 扩展”。";
+
+"The menu bar icon stays available so you can always create files." = "菜单栏图标保持可用，因此您始终可以创建文件。";
+
+"The shortcut could not be registered (Carbon error %d). It may conflict with another app." = "无法注册快捷方式（Carbon 错误 %d）。它可能与另一个应用程序发生冲突。";
+
+"The shortcut is unavailable" = "快捷方式不可用";
+
+"The template file keeps its current name. This changes the display name only." = "模板文件保持其当前名称。这只更改显示名称。";
+
+"The template is removed from the library and its file is moved to Trash." = "该模板已从库中移除，其文件已被移动到垃圾桶。";
+
+"The template “%@” was not found." = "未找到模板“%@”。";
+
+"Tip: the global shortcut opens Quick New File from any app. Change it in Settings › General." = "提示：全局快捷方式可以在任何应用中打开快速新建文件。可在 设置 › 通用 中更改。";
+
+"Unavailable" = "不可用";
+
+"Undo" = "撤销";
+
+"Uninstall nfc" = "卸载 NFC";
+
+"Unsupported shortcut key “%@”." = "不支持的快捷键“%@”。";
+
+"Untitled" = "未命名";
+
+"Use the command line" = "使用命令行";
+
+"Use the menu bar icon or the global shortcut for the quick panel." = "使用菜单栏图标或全局快捷键打开快速面板。";
+
+"Used %ld time" = "使用 %ld 次";
+
+"Used %ld times" = "使用 %ld 次";
+
+"Version %@" = "版本 %@";
+
+"Video" = "视频";
+
+"View" = "查看";
+
+"View License" = "查看许可";
+
+"Welcome to New File Creation 2" = "欢迎使用 New File Creation 2";
+
+"Window" = "窗口";
+
+"You can reopen this window from Settings › Help or from the menu bar." = "您可以从“设置 › 帮助”或菜单栏重新打开此窗口。";
+
+"Zoom" = "缩放";
+
+"↩ Create file    ⠿ Drag to Finder    esc Close" = "↩ 创建文件    ⠿ 拖动到 Finder    esc 关闭";

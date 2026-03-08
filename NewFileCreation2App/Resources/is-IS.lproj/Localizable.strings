@@ -1,0 +1,545 @@
+/* is-IS localization. Generated from the English source strings. */
+
+" (not on PATH)" = " (not on PATH)";
+
+"%@ (%@)\nDouble-click to create a file." = "%@ (%@)\nTvísmelltu til að búa til skrá.";
+
+"%@ already exists and is not a symlink. Remove it manually or choose another location." = "%@ er þegar til og er ekki tákntengil. Fjarlægðu það handvirkt eða veldu annan stað.";
+
+"%@ template" = "%@ sniðmát";
+
+"%@ template, drag to create a file" = "%@ sniðmát, dragðu til að búa til skrá";
+
+"%@ — drag to create %@" = "%@ — dragðu til að búa til %@";
+
+"%ld template(s) will move to Other." = "%ld sniðmát(m) mun færast í Annað.";
+
+"%lu templates in the library" = "%lu sniðmát í safninu";
+
+"About" = "Um";
+
+"About New File Creation 2" = " Um New File Creation 2";
+
+"Add" = "Bæta við";
+
+"Add a file to use it as a template, or restore the included set." = "Bættu við skrá til að nota hana sem sniðmát, eða endurheimtu meðfylgjandi sett.";
+
+"Add as Template" = "Bæta við sem sniðmát";
+
+"Add Category" = "Bæta við flokki";
+
+"Add files as templates" = "Bættu við skrám sem sniðmátum";
+
+"Add files in Settings › Templates, assign categories, remove categories you no longer need, choose a sort order, or drag templates to the Desktop and Finder." = "Bættu við skrám í Stillingar › Sniðmát, úthlutaðu flokkum, fjarlægðu flokka sem þú þarft ekki lengur, veldu flokkunarröð eða dragðu sniðmát á skjáborðið og leitarvélina.";
+
+"Add Template" = "Bæta við sniðmáti";
+
+"Add Templates" = "Bæta við sniðmátum";
+
+"Add Template…" = "Bæta við sniðmáti...";
+
+"Add “Add as Template” for selected files" = "Bættu við „Bæta við sem sniðmát“ fyrir valdar skrár";
+
+"Add “New File” to Finder menus" = "Bættu „Nýrri skrá“ við valmyndir Finder";
+
+"Added %lu template" = "Bætti við %lu sniðmáti";
+
+"Added %lu templates" = "Bætti við %lu sniðmátum";
+
+"Add…" = "Bæta við...";
+
+"Advanced" = "Ítarlegri";
+
+"After creating" = "Eftir að hafa búið til";
+
+"All Templates" = "Öll sniðmát";
+
+"Allow New File Creation 2 in System Settings › General › Login Items." = " Leyfðu New File Creation 2 í kerfisstillingum › Almennt › Innskráningaratriði. ";
+
+"An unexpected error occurred." = "Óvænt villa kom upp.";
+
+"Application" = "Umsókn";
+
+"Approval required" = "Samþykki krafist";
+
+"Archives" = "Skjalasafn";
+
+"Ask for a name" = "Biðja um nafn";
+
+"Assign a global shortcut in Settings" = "Tengdu alþjóðlega flýtileið í stillingum";
+
+"At a glance" = "Í fljótu bragði";
+
+"Audio" = "Hljóð";
+
+"Bring All to Front" = "Komdu með alla að framan";
+
+"Cancel" = "Hætta við";
+
+"Categories" = "Flokkar";
+
+"Category" = "Flokkur";
+
+"Category:" = "Flokkur:";
+
+"Choose" = "Veldu";
+
+"Choose a name and location for the new file" = "Veldu nafn og staðsetningu fyrir nýju skrána";
+
+"Choose files or packages to use as templates." = "Veldu skrár eða pakka til að nota sem sniðmát.";
+
+"Choose Name and Location…" = "Veldu nafn og staðsetningu…";
+
+"Choose the folder where new files are created by default." = "Veldu möppuna þar sem nýjar skrár eru sjálfgefnar búnar til.";
+
+"Choose…" = "Veldu...";
+
+"Close" = "Loka";
+
+"Code" = "Kóði";
+
+"Command" = " Skipun";
+
+"Command-line tool" = "Tól fyrir skipanalínu";
+
+"Configuration and command line" = "Stillingar og skipanalína";
+
+"Continue" = "Halda áfram";
+
+"Control" = "Stjórn";
+
+"Copy" = "Afrita";
+
+"Copyright © 2024–2026 Sergio Martinez-Losa\nMIT License" = " Höfundarréttur © 2024–2026 Sergio Martinez-Losa\nMIT leyfi";
+
+"Copyright © 2024–2026 Sergio Martinez-Losa. Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files, to deal in the Software without restriction." = " Höfundarréttur © 2024–2026 Sergio Martinez-Losa. Leyfi er hér með veitt, að kostnaðarlausu, hverjum þeim sem hefur afrit af þessum hugbúnaði og tengdum skjölum til að eiga viðskipti með hugbúnaðinn án takmarkana.";
+
+"Could not add the category" = "Gat ekki bætt við flokknum";
+
+"Could not change the login item" = "Gat ekki breytt innskráningaratriðinu";
+
+"Could not create the file" = "Gat ekki búið til skrána";
+
+"Could not enable the Finder extension" = "Gat ekki virkjað Finder viðbótina";
+
+"Could not export the configuration" = "Gat ekki flutt út stillinguna";
+
+"Could not import the configuration" = "Gat ekki flutt inn stillinguna";
+
+"Could not install nfc" = "Gat ekki sett upp nfc";
+
+"Could not reset the configuration" = "Gat ekki endurstillt stillinguna";
+
+"Could not uninstall nfc" = "Gat ekki fjarlægt nfc";
+
+"Create" = "Búa til";
+
+"Create a file from a template in Finder, from the menu bar, from the template library, or with the nfc command." = "Búðu til skrá úr sniðmáti í Finder, úr valmyndastikunni, úr sniðmátasafninu eða með nfc skipuninni.";
+
+"Create a new file from a template" = "Búðu til nýja skrá úr sniðmáti";
+
+"Create File" = "Búa til skrá";
+
+"Create files from templates in Finder, from the menu bar, from the library, or with the nfc command.\n\n• ⌘N creates a file from the selected template.\n• ⇧⌘N lets you choose a name and location.\n• The menu bar icon opens templates and the quick panel.\n• Right-click in Finder for Finder menu items.\n• Run “nfc help” in Terminal for command-line usage." = "Búðu til skrár úr sniðmátum í Finder, úr valmyndastikunni, úr bókasafninu eða með nfc skipuninni.\n\n• ⌘N býr til skrá úr völdu sniðmáti.\n• ⇧⌘N gerir þér kleift að velja nafn og staðsetningu.\n• Táknið fyrir valmyndarstikuna opnar sniðmát og flýtispjaldið.\n• Hægrismelltu í Finder fyrir Finder valmyndaratriði.\n• Keyrðu „nfc help“ í Terminal til að nota skipanalínu.";
+
+"Create files from templates in Finder, the menu bar, the library, and the command line." = "Búðu til skrár úr sniðmátum í Finder, valmyndastikunni, bókasafninu og skipanalínunni.";
+
+"Create from Finder" = "Búðu til úr Finder";
+
+"Create from the menu bar" = "Búðu til úr valmyndastikunni";
+
+"Create immediately" = "Búa til strax";
+
+"Create in Default Folder" = "Búa til í sjálfgefna möppu";
+
+"Create the file in “%@”." = "Búðu til skrána í „%@“.";
+
+"Create the selected template in the default folder" = "Búðu til valið sniðmát í sjálfgefna möppunni";
+
+"Create with Name…" = "Búa til með nafni...";
+
+"Created %@" = "Bjó til %@";
+
+"Creation:" = "Sköpun:";
+
+"Cut" = "Klippið";
+
+"Default folder:" = "Sjálfgefin mappa:";
+
+"Default name:" = "Sjálfgefið nafn:";
+
+"Default template:" = "Sjálfgefið sniðmát:";
+
+"Desktop" = "Skrifborð";
+
+"Disabled templates do not appear in the app, the menu bar, or Finder menus." = "Óvirk sniðmát birtast ekki í appinu, valmyndastikunni eða valmyndum Finder.";
+
+"Documents" = "Skjöl";
+
+"Drag a template row to Finder or the Desktop." = "Dragðu sniðmátsröð í Finder eða skjáborðið.";
+
+"Drag a template to a folder or the Desktop." = " Dragðu sniðmát í möppu eða á skjáborðið. ";
+
+"Edit" = "Breyta";
+
+"Enable Extension" = "Virkja viðbót";
+
+"Enable the Finder extension, then right-click in a folder or on a file and choose New File. The new file is created in the folder you are browsing." = "Virkjaðu Finder viðbótina, hægrismelltu síðan í möppu eða á skrá og veldu Ný skrá. Nýja skráin er búin til í möppunni sem þú ert að skoða.";
+
+"Enabled" = "Virkt";
+
+"Enter a category name." = "Sláðu inn flokksheiti.";
+
+"Enter Full Screen" = "Sláðu inn á allan skjáinn";
+
+"Everything stays on your Mac. No network, analytics, or telemetry." = "Allt er áfram á Mac-tölvunni þinni. Ekkert net, greiningar eða fjarmælingar.";
+
+"Export…" = "Flytja út...";
+
+"Extension: %@" = "Viðbót: %@";
+
+"Favorite" = "Uppáhalds";
+
+"Favorites" = "Uppáhalds";
+
+"File" = "Skrá";
+
+"File type" = "Skráartegund";
+
+"Finder" = "Finnandi";
+
+"Finder extension" = "Finnari viðbót";
+
+"Finder extension status unavailable" = "Staða leitarviðbótar ekki tiltæk";
+
+"Finder extension: disabled" = "Finnari viðbót: óvirk";
+
+"Finder extension: enabled" = "Finnari viðbót: virkt";
+
+"Finder extension: not registered. Build and open the app once." = "Finnandi viðbót: ekki skráð. Búðu til og opnaðu forritið einu sinni.";
+
+"Finder extension: registered" = "Finnandi viðbót: skráð";
+
+"General" = "Almennt";
+
+"Get Started" = "Byrjaðu";
+
+"Get Started…" = "Byrjaðu...";
+
+"Global shortcut:" = "Alþjóðleg flýtileið:";
+
+"Global shortcut: %@" = "Alþjóðleg flýtileið: %@";
+
+"Group templates by category" = "Flokkaðu sniðmát eftir flokkum";
+
+"Help" = "Hjálp";
+
+"Help and getting started" = "Hjálp og að byrja";
+
+"Hide New File Creation 2" = " Fela New File Creation 2";
+
+"Hide Others" = "Fela aðra";
+
+"Images" = "Myndir";
+
+"Import…" = "Flytja inn...";
+
+"Inspector" = "Eftirlitsmaður";
+
+"Install nfc" = "Settu upp nfc";
+
+"Install nfc from Settings › Advanced, then run nfc create \"Text File\" in Terminal to create a file in the current folder." = "Settu upp nfc frá Stillingar › Ítarlegt, keyrðu síðan nfc create \"Text File\" í Terminal til að búa til skrá í núverandi möppu.";
+
+"Installed at %@%@" = "Uppsett á %@%@";
+
+"Keep the quick panel open after dropping a file" = "Haltu flýtiborðinu opnu eftir að þú hefur sleppt skrá";
+
+"Last used" = "Síðast notað";
+
+"Last used %@" = "Síðast notað %@";
+
+"Launch at login requires macOS 13 or later." = "Ræsa við innskráningu krefst macOS 13 eða nýrra.";
+
+"Launch New File Creation 2 at login" = " Ræstu New File Creation 2 við innskráningu";
+
+"Left-click the menu bar icon for Quick New File." = "Vinstri smelltu á valmyndarstikuna fyrir Quick New File.";
+
+"Left-click the menu bar icon to open Quick New File. Search, press Return to create, or drag a row into Finder. Right-click for the full menu and Get Started." = "Vinstri-smelltu á valmyndarstikuna til að opna Quick New File. Leitaðu, ýttu á Return til að búa til, eða dragðu línu inn í Finder. Hægrismelltu til að fá alla valmyndina og Byrjaðu.";
+
+"Library" = "Bókasafn";
+
+"Manage templates" = "Hafa umsjón með sniðmátum";
+
+"Manual order" = "Handvirk pöntun";
+
+"Menu bar icon (always available)" = "Tákn valmyndarstikunnar (alltaf í boði)";
+
+"Menu contents" = "Innhald valmyndar";
+
+"Minimize" = "Lágmarka";
+
+"MIT License" = "MIT leyfi";
+
+"Most used" = "Mest notaða";
+
+"Name" = "Nafn";
+
+"New %@" = "Nýtt %@";
+
+"New category" = "Nýr flokkur";
+
+"New File" = "Ný skrá";
+
+"New File Creation 2" = "New File Creation 2";
+
+"New File Creation 2 could not load its configuration" = " New File Creation 2 gat ekki hlaðið inn stillingu sinni";
+
+"New File Creation 2 Help" = " New File Creation 2 hjálp";
+
+"New File Creation 2 keeps your reusable templates in one place and creates a fresh copy wherever you are working. Everything runs locally on your Mac." = " New File Creation 2 geymir endurnýtanlegu sniðmátin þín á einum stað og býr til nýtt afrit þar sem þú ert að vinna. Allt keyrir staðbundið á Mac-tölvunni þinni. ";
+
+"New files" = "Nýjar skrár";
+
+"New File…" = "Ný skrá...";
+
+"No accounts, network requests, analytics, or telemetry. The app, Finder extension, Today widget, and nfc helper share one local configuration folder." = "Engir reikningar, netbeiðnir, greiningar eða fjarmælingar. Forritið, Finder viðbótin, Today búnaðurinn og nfc helper deila einni staðbundinni stillingamöppu.";
+
+"no extension" = "engin framlenging";
+
+"No matching templates" = "Engin samsvarandi sniðmát";
+
+"No Templates" = "Engin sniðmát";
+
+"No templates" = "Engin sniðmát";
+
+"No templates to show" = " Engin sniðmát til að sýna";
+
+"None" = "Ekkert";
+
+"Not found; move the app to /Applications" = "Finn ekki; færðu forritið í /Applications";
+
+"Not installed. The bundled helper is at Contents/Helpers/nfc." = "Ekki uppsett. Meðfylgjandi hjálparinn er á Contents/Helpers/nfc.";
+
+"Not registered" = "Ekki skráð";
+
+"OK" = "Allt í lagi";
+
+"On" = "Kveikt";
+
+"Open Library" = "Opið bókasafn";
+
+"Open New File Creation 2 once, then try the Finder menu again." = " Opnaðu New File Creation 2 einu sinni og prófaðu svo Finder-valmyndina aftur. ";
+
+"Open Settings" = "Opnaðu stillingar";
+
+"Open System Settings and enable “New File Creation 2 Finder” manually." = " Opnaðu kerfisstillingar og virkjaðu \"New File Creation 2 Finder\" handvirkt. ";
+
+"Open System Settings…" = "Opna kerfisstillingar...";
+
+"Open Template Library" = "Opnaðu sniðmátasafn";
+
+"Open Templates Folder" = "Opnaðu sniðmátamöppuna";
+
+"Open the new file after creating it" = "Opnaðu nýju skrána eftir að hafa búið hana til";
+
+"Option" = "Valkostur";
+
+"Other" = "Annað";
+
+"Paste" = "Líma";
+
+"Play a sound after creating a file" = "Spilaðu hljóð eftir að skrá er búin til";
+
+"Presentations" = "Kynningar";
+
+"Private by design" = "Persónulegt að hönnun";
+
+"Quick New File" = "Fljótleg ný skrá";
+
+"Quick New File…" = "Fljótleg ný skrá...";
+
+"Quit New File Creation 2" = " Hættu í New File Creation 2";
+
+"Recent" = "Nýlegt";
+
+"Redo" = "Endurtaka";
+
+"Remove" = "Fjarlægja";
+
+"Remove Category" = "Fjarlægja flokk";
+
+"Remove Favorite" = "Fjarlægja uppáhalds";
+
+"Remove Template…" = "Fjarlægja sniðmát...";
+
+"Remove the “%@” category?" = "Fjarlægja „%@“ flokkinn?";
+
+"Remove “%@”?" = "Fjarlægja „%@“?";
+
+"Remove…" = "Fjarlægja...";
+
+"Rename" = "Endurnefna";
+
+"Rename Template" = "Endurnefna sniðmát";
+
+"Rename…" = "Endurnefna…";
+
+"Requires approval in System Settings" = "Karfst samþykkis í kerfisstillingum";
+
+"Reset" = "Endurstilla";
+
+"Reset Configuration…" = "Endurstilla stillingar...";
+
+"Reset the configuration?" = "Endurstilla stillinguna?";
+
+"Return creates the selected template." = "Return býr til valið sniðmát.";
+
+"Reveal Config" = " Sýna stillingar";
+
+"Reveal in Finder" = "Opinbera í Finder";
+
+"Reveal Log" = "Afhjúpa dagbók";
+
+"Reveal Selected Template" = "Opna valið sniðmát";
+
+"Reveal Template" = "Opinaðu sniðmát";
+
+"Reveal the new file in Finder" = "Opnaðu nýju skrána í Finder";
+
+"Right-click in Finder and choose New File from the template list." = "Hægri-smelltu í Finder og veldu Ný skrá af sniðmátalistanum.";
+
+"Run nfc create \"Text File\" to make a file anywhere." = "Hlaupaðu nfc create \"Text File\" til að búa til skrá hvar sem er.";
+
+"Search" = "Leita";
+
+"Search Templates" = "Leita sniðmát";
+
+"Search templates" = "Leita að sniðmátum";
+
+"Select a template" = "Veldu sniðmát";
+
+"Select All" = "Veldu allt";
+
+"Services" = "Þjónusta";
+
+"Set as Default" = "Velgja sem sjálfgefið";
+
+"Settings" = "Stillingar";
+
+"Settings and the template library are reset. Template files in the Templates folder are kept." = "Stillingar og sniðmátasafnið eru endurstillt. Sniðmátsskrár í möppunni Sniðmát eru geymdar.";
+
+"Settings › Finder enables Finder menus." = "Stillingar › Finder virkjar Finder valmyndir.";
+
+"Settings › Help explains every workflow." = "Stillingar › Hjálp útskýrir hvert verkflæði.";
+
+"Settings › Templates manages categories and sorting." = "Stillingar › Sniðmát stjórnar flokkum og flokkun.";
+
+"Settings…" = "Stillingar...";
+
+"Shift" = "Skift";
+
+"Show" = "Sýna";
+
+"Show a confirmation in the app window" = "Sýna staðfestingu í appglugganum";
+
+"Show All" = "Sýna allt";
+
+"Show favorites first" = "Sýna eftirlæti fyrst";
+
+"Show Get Started" = "Sýna Byrjaðu";
+
+"Show Get Started details" = "Sýna upplýsingar um Byrjaðu";
+
+"Show or Hide Inspector" = "Sýna eða fela skoðunarmann";
+
+"Show or Hide Sidebar" = "Sýna eða fela hliðarstiku";
+
+"Show or hide the inspector" = "Sýna eða fela eftirlitsmanninn";
+
+"Show template icons" = "Sýna sniðmátstákn";
+
+"Show the menu bar icon" = "Sýna valmyndarstikuna";
+
+"Show Welcome" = "Sýna velkomin";
+
+"Show Welcome Again" = "Sýna Welcome Again";
+
+"Sort by:" = "Raða eftir:";
+
+"Sound:" = "Hljóð:";
+
+"Spreadsheets" = "Töflureiknar";
+
+"Template: %@" = "Sniðmát: %@";
+
+"Templates" = "Sniðmát";
+
+"Templates included in the library" = "Sniðmát sem fylgir bókasafninu";
+
+"The app and nfc coordinate writes with a lock and atomic replacement. The Finder extension reads the configuration only." = "Forritið og nfc hnitið skrifar með lás og frumeindaskipti. Finder viðbótin les aðeins stillingarnar.";
+
+"The bundled nfc helper is missing. Rebuild or reinstall the app." = "Bunnið nfc hjálparinn vantar. Endurbyggðu eða settu upp forritið aftur.";
+
+"The category will be removed from the library." = "Flokkurinn verður fjarlægður af bókasafninu.";
+
+"The configuration is damaged." = "Stillingin er skemmd.";
+
+"The default name is used by the app, the Finder extension, and the nfc command. Existing files are never overwritten." = "Sjálfgefið nafn er notað af appinu, Finder viðbótinni og nfc skipuninni. Fyrirliggjandi skrár eru aldrei skrifaðar yfir.";
+
+"The existing nfc is not a symlink managed by this app." = "Núverandi nfc er ekki táknmynd sem er stjórnað af þessu forriti.";
+
+"The file is not valid JSON." = "Skráin er ekki gild JSON.";
+
+"The Finder extension could not be enabled" = "Ekki var hægt að virkja Finder viðbótina";
+
+"The Finder extension reads the shared configuration and creates files in the selected folder. If the extension is not listed, open System Settings › General › Login Items & Extensions › Finder Extensions." = "Finder viðbótin les samnýttu stillingarnar og býr til skrár í valda möppu. Ef viðbótin er ekki skráð skaltu opna Kerfisstillingar › Almennar › Innskráningarhlutir og viðbætur › Finder viðbætur.";
+
+"The menu bar icon stays available so you can always create files." = "Táknið valmyndarstikunnar er áfram tiltækt svo þú getur alltaf búið til skrár.";
+
+"The shortcut could not be registered (Carbon error %d). It may conflict with another app." = "Ekki tókst að skrá flýtileiðina (kolefnisvilla %d). Það gæti stangast á við annað forrit.";
+
+"The shortcut is unavailable" = "Flýtileiðin er ekki tiltæk";
+
+"The template file keeps its current name. This changes the display name only." = "Sniðmátsskráin heldur núverandi nafni sínu. Þetta breytir aðeins skjáheitinu.";
+
+"The template is removed from the library and its file is moved to Trash." = "Sniðmátið er fjarlægt úr safninu og skrá þess er færð í ruslið.";
+
+"The template “%@” was not found." = "Sniðmátið „%@“ fannst ekki.";
+
+"Tip: the global shortcut opens Quick New File from any app. Change it in Settings › General." = "Ábending: Alheimsflýtileiðin opnar Quick New File úr hvaða forriti sem er. Breyttu því í Stillingar › Almennar.";
+
+"Unavailable" = "Ekki tiltækt";
+
+"Undo" = "Afturkalla";
+
+"Uninstall nfc" = "Fjarlægðu nfc";
+
+"Unsupported shortcut key “%@”." = "Óstuddur flýtilykill „%@“.";
+
+"Untitled" = "Án titils";
+
+"Use the command line" = "Notaðu skipanalínuna";
+
+"Use the menu bar icon or the global shortcut for the quick panel." = "Notaðu valmyndarstikuna eða alþjóðlega flýtileiðina fyrir flýtiskjáinn.";
+
+"Used %ld time" = "Notuð %ld tími";
+
+"Used %ld times" = "Notað %ld sinnum";
+
+"Version %@" = "Útgáfa %@";
+
+"Video" = "Myndband";
+
+"View" = "Skoða";
+
+"View License" = "Skoða leyfi";
+
+"Welcome to New File Creation 2" = " Velkomin á New File Creation 2";
+
+"Window" = "Gluggi";
+
+"You can reopen this window from Settings › Help or from the menu bar." = "Þú getur opnað þennan glugga aftur í Stillingar › Hjálp eða úr valmyndastikunni.";
+
+"Zoom" = "Aðdráttur";
+
+"↩ Create file    ⠿ Drag to Finder    esc Close" = "↩ Búa til skrá ⠿ Dragðu í Finder esc Close";
