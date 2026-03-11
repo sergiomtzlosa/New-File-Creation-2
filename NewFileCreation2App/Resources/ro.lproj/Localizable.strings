@@ -1,0 +1,545 @@
+/* ro localization. Generated from the English source strings. */
+
+" (not on PATH)" = " (not on PATH)";
+
+"%@ (%@)\nDouble-click to create a file." = "%@ (%@)\nDublu clic pentru a crea un fișier.";
+
+"%@ already exists and is not a symlink. Remove it manually or choose another location." = "%@ deja există și nu este un link simbolic. Elimină-l manual sau alege o altă locație.";
+
+"%@ template" = "%@ șablon";
+
+"%@ template, drag to create a file" = "%@ șablon, trage pentru a crea un fișier";
+
+"%@ — drag to create %@" = "%@ — trage pentru a crea %@";
+
+"%ld template(s) will move to Other." = "%ld șablon(e) vor fi mutate în Alte.";
+
+"%lu templates in the library" = "%lu șabloane în bibliotecă";
+
+"About" = "Despre";
+
+"About New File Creation 2" = "Despre New File Creation 2";
+
+"Add" = "Adaugă";
+
+"Add a file to use it as a template, or restore the included set." = "Adaugă un fișier pentru a-l folosi ca șablon sau restaurează setul inclus.";
+
+"Add as Template" = "Adaugă ca șablon";
+
+"Add Category" = "Adaugă categorie";
+
+"Add files as templates" = "Adaugă fișiere ca șabloane";
+
+"Add files in Settings › Templates, assign categories, remove categories you no longer need, choose a sort order, or drag templates to the Desktop and Finder." = "Adaugă fișiere în Setări › Șabloane, atribuie categorii, elimină categoriile de care nu mai ai nevoie, alege ordinea de sortare sau trage șabloanele pe Desktop și Finder.";
+
+"Add Template" = "Adaugă șablon";
+
+"Add Templates" = "Adaugă șabloane";
+
+"Add Template…" = "Adaugă șablon…";
+
+"Add “Add as Template” for selected files" = "Adaugă „Adaugă ca șablon” pentru fișierele selectate";
+
+"Add “New File” to Finder menus" = "Adaugă „Fișier nou” în meniurile Finder";
+
+"Added %lu template" = "Adăugat %lu șablon";
+
+"Added %lu templates" = "Adăugat %lu șabloane";
+
+"Add…" = "Adaugă…";
+
+"Advanced" = "Avansat";
+
+"After creating" = "După creare";
+
+"All Templates" = "Toate șabloanele";
+
+"Allow New File Creation 2 in System Settings › General › Login Items." = "Permite New File Creation 2 în Setări Sistem › General › Elemente de conectare.";
+
+"An unexpected error occurred." = "A apărut o eroare neașteptată.";
+
+"Application" = "Aplicație";
+
+"Approval required" = "Aprobare necesară";
+
+"Archives" = "Arhive";
+
+"Ask for a name" = "Întreabă un nume";
+
+"Assign a global shortcut in Settings" = "Atribuie un scurtătură globală în Setări";
+
+"At a glance" = "La prima vedere";
+
+"Audio" = "Audio";
+
+"Bring All to Front" = "Adu totul în față";
+
+"Cancel" = "Anulează";
+
+"Categories" = "Categorii";
+
+"Category" = "Categorie";
+
+"Category:" = "Categorie:";
+
+"Choose" = "Alege";
+
+"Choose a name and location for the new file" = "Alege un nume și o locație pentru noul fișier";
+
+"Choose files or packages to use as templates." = "Alege fișiere sau pachete pentru a fi folosite ca șabloane.";
+
+"Choose Name and Location…" = "Alege Nume și Locație…";
+
+"Choose the folder where new files are created by default." = "Alegeți folderul în care se creează fișiere noi în mod implicit.";
+
+"Choose…" = "Alegeți…";
+
+"Close" = "Închide";
+
+"Code" = "Cod";
+
+"Command" = "Comandă";
+
+"Command-line tool" = "Instrument de linie de comandă";
+
+"Configuration and command line" = "Configurație și linie de comandă";
+
+"Continue" = "Continuă";
+
+"Control" = "Control";
+
+"Copy" = "Copiază";
+
+"Copyright © 2024–2026 Sergio Martinez-Losa\nMIT License" = "Drepturi de autor © 2024–2026 Sergio Martinez-Losa\nLicență MIT";
+
+"Copyright © 2024–2026 Sergio Martinez-Losa. Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files, to deal in the Software without restriction." = "Drepturi de autor © 2024–2026 Sergio Martinez-Losa. Prin prezenta se acordă permisiunea, gratuit, oricărei persoane care obține o copie a acestui software și a fișierelor de documentație asociate, de a utiliza software-ul fără restricții.";
+
+"Could not add the category" = "Nu s-a putut adăuga categoria";
+
+"Could not change the login item" = "Nu s-a putut schimba elementul de autentificare";
+
+"Could not create the file" = "Nu s-a putut crea fișierul";
+
+"Could not enable the Finder extension" = "Nu s-a putut activa extensia Finder";
+
+"Could not export the configuration" = "Nu s-a putut exporta configurația";
+
+"Could not import the configuration" = "Nu s-a putut importa configurația";
+
+"Could not install nfc" = "Nu s-a putut instala nfc";
+
+"Could not reset the configuration" = "Nu s-a putut reseta configurația";
+
+"Could not uninstall nfc" = "Nu s-a putut dezinstala nfc";
+
+"Create" = "Creează";
+
+"Create a file from a template in Finder, from the menu bar, from the template library, or with the nfc command." = "Creează un fișier dintr-un șablon în Finder, din bara de meniu, din biblioteca de șabloane sau cu comanda nfc.";
+
+"Create a new file from a template" = "Creează un fișier nou dintr-un șablon";
+
+"Create File" = "Creează Fișier";
+
+"Create files from templates in Finder, from the menu bar, from the library, or with the nfc command.\n\n• ⌘N creates a file from the selected template.\n• ⇧⌘N lets you choose a name and location.\n• The menu bar icon opens templates and the quick panel.\n• Right-click in Finder for Finder menu items.\n• Run “nfc help” in Terminal for command-line usage." = "Creează fișiere din șabloane în Finder, din bara de meniu, din bibliotecă sau cu comanda nfc.\n\n• ⌘N creează un fișier din șablonul selectat.\n• ⇧⌘N îți permite să alegi un nume și o locație.\n• Pictograma din bara de meniu deschide șabloanele și panoul rapid.\n• Dă clic dreapta în Finder pentru elemente din meniul Finder.\n• Rulează „nfc help” în Terminal pentru utilizarea în linia de comandă.";
+
+"Create files from templates in Finder, the menu bar, the library, and the command line." = "Creează fișiere din șabloane în Finder, în bara de meniu, în bibliotecă și din linia de comandă.";
+
+"Create from Finder" = "Creează din Finder";
+
+"Create from the menu bar" = "Creează din bara de meniu";
+
+"Create immediately" = "Creează imediat";
+
+"Create in Default Folder" = "Creează în folderul implicit";
+
+"Create the file in “%@”." = "Creează fișierul în „%@”.";
+
+"Create the selected template in the default folder" = "Creează șablonul selectat în folderul implicit";
+
+"Create with Name…" = "Creează cu Nume…";
+
+"Created %@" = "Creat %@";
+
+"Creation:" = "Creație:";
+
+"Cut" = "Tăiere";
+
+"Default folder:" = "Folder implicit:";
+
+"Default name:" = "Nume implicit:";
+
+"Default template:" = "Șablon implicit:";
+
+"Desktop" = "Desktop";
+
+"Disabled templates do not appear in the app, the menu bar, or Finder menus." = "Șabloanele dezactivate nu apar în aplicație, în bara de meniu sau în meniurile Finder.";
+
+"Documents" = "Documente";
+
+"Drag a template row to Finder or the Desktop." = "Trage un rând de șablon în Finder sau pe Desktop.";
+
+"Drag a template to a folder or the Desktop." = " Trage un șablon într-un folder sau pe Desktop. ";
+
+"Edit" = " Editare";
+
+"Enable Extension" = " Activează extinderea";
+
+"Enable the Finder extension, then right-click in a folder or on a file and choose New File. The new file is created in the folder you are browsing." = " Activează extensia Finder, apoi dă click dreapta într-un folder sau pe un fișier și alege Fișier nou. Noul fișier este creat în folderul pe care îl răsfoiești. ";
+
+"Enabled" = " Activat";
+
+"Enter a category name." = " Introduceți un nume de categorie. ";
+
+"Enter Full Screen" = " Intră în ecran complet";
+
+"Everything stays on your Mac. No network, analytics, or telemetry." = " Totul rămâne pe Mac-ul tău. Fără rețea, analize sau telemetrie. ";
+
+"Export…" = " Export... ";
+
+"Extension: %@" = " Extensie: %@ ";
+
+"Favorite" = " Preferat";
+
+"Favorites" = " Favoritele";
+
+"File" = "Fișier";
+
+"File type" = " Tip fișier";
+
+"Finder" = "Finder";
+
+"Finder extension" = " Extensia Finder";
+
+"Finder extension status unavailable" = " Starea prelungirii Finder indisponibilă";
+
+"Finder extension: disabled" = " Extensia Finder: dezactivată";
+
+"Finder extension: enabled" = " Extensia Finder: activată";
+
+"Finder extension: not registered. Build and open the app once." = " Extensia Finder: nu este înregistrată. Construiește și deschide aplicația o dată. ";
+
+"Finder extension: registered" = " Extensie Finder: înregistrată";
+
+"General" = "General";
+
+"Get Started" = " Începe";
+
+"Get Started…" = "Începeți…";
+
+"Global shortcut:" = "Comandă rapidă globală:";
+
+"Global shortcut: %@" = "Comandă rapidă globală: %@";
+
+"Group templates by category" = "Grupați șabloanele pe categorii";
+
+"Help" = "Ajutor";
+
+"Help and getting started" = "Ajutor și început";
+
+"Hide New File Creation 2" = "Ascunde New File Creation 2";
+
+"Hide Others" = "Ascunde pe alții";
+
+"Images" = "Imagini";
+
+"Import…" = "Importă…";
+
+"Inspector" = "Inspector";
+
+"Install nfc" = "Instalați nfc";
+
+"Install nfc from Settings › Advanced, then run nfc create \"Text File\" in Terminal to create a file in the current folder." = "Instalați nfc din Setări › Avansat, apoi rulați nfc create \"Fișier text\" în Terminal pentru a crea un fișier în folderul curent.";
+
+"Installed at %@%@" = "Instalat la %@%@";
+
+"Keep the quick panel open after dropping a file" = "Păstrează panoul rapid deschis după plasarea unui fișier";
+
+"Last used" = "Ultima utilizare";
+
+"Last used %@" = "Ultima utilizare %@";
+
+"Launch at login requires macOS 13 or later." = "Lansarea la conectare necesită macOS 13 sau o versiune ulterioară.";
+
+"Launch New File Creation 2 at login" = "Lansați New File Creation 2 la conectare";
+
+"Left-click the menu bar icon for Quick New File." = "Faceți clic stânga pe pictograma din bara de meniu pentru Fișier nou rapid.";
+
+"Left-click the menu bar icon to open Quick New File. Search, press Return to create, or drag a row into Finder. Right-click for the full menu and Get Started." = "Faceți clic stânga pe pictograma din bara de meniu pentru a deschide Fișier nou rapid. Căutați, apăsați Return pentru a crea sau trageți un rând în Finder. Faceți clic dreapta pentru meniul complet și Începeți.";
+
+"Library" = "Bibliotecă";
+
+"Manage templates" = "Gestionați șabloanele";
+
+"Manual order" = "Ordine manuală";
+
+"Menu bar icon (always available)" = "Pictogramă bară de meniu (întotdeauna disponibilă)";
+
+"Menu contents" = "Conținutul meniului";
+
+"Minimize" = "Minimizează";
+
+"MIT License" = "Licența MIT";
+
+"Most used" = "Cele mai folosite";
+
+"Name" = "Nume";
+
+"New %@" = "Nou %@";
+
+"New category" = "Categorie nouă";
+
+"New File" = "Fișier nou";
+
+"New File Creation 2" = "New File Creation 2";
+
+"New File Creation 2 could not load its configuration" = "New File Creation 2 nu a putut încărca configurația sa";
+
+"New File Creation 2 Help" = "Ajutor New File Creation 2";
+
+"New File Creation 2 keeps your reusable templates in one place and creates a fresh copy wherever you are working. Everything runs locally on your Mac." = "New File Creation 2 păstrează șabloanele reutilizabile într-un singur loc și creează o copie proaspătă oriunde lucrați. Totul rulează local pe Mac-ul dvs.";
+
+"New files" = "Fișiere noi";
+
+"New File…" = "Fișier nou…";
+
+"No accounts, network requests, analytics, or telemetry. The app, Finder extension, Today widget, and nfc helper share one local configuration folder." = "Fără conturi, cereri de rețea, analitice sau telemetrie. Aplicația, extensia Finder, widget-ul Today și ajutorul NFC partajează un singur folder de configurație local.";
+
+"no extension" = "fără extensie";
+
+"No matching templates" = "Fără șabloane corespunzătoare";
+
+"No Templates" = "Fără Șabloane";
+
+"No templates" = "Fără șabloane";
+
+"No templates to show" = "Nu există șabloane de afișat";
+
+"None" = "Niciunul";
+
+"Not found; move the app to /Applications" = "Nu a fost găsit; mutați aplicația în /Applications";
+
+"Not installed. The bundled helper is at Contents/Helpers/nfc." = "Nu este instalat. Asistentul inclus se află în Contents/Helpers/nfc.";
+
+"Not registered" = "Nereînregistrat";
+
+"OK" = "OK";
+
+"On" = "Pornit";
+
+"Open Library" = "Deschide Biblioteca";
+
+"Open New File Creation 2 once, then try the Finder menu again." = "Deschide o dată New File Creation 2, apoi încearcă din nou meniul Finder.";
+
+"Open Settings" = "Deschide Setările";
+
+"Open System Settings and enable “New File Creation 2 Finder” manually." = "Deschide Setările Sistemului și activează manual „New File Creation 2 Finder”.";
+
+"Open System Settings…" = "Deschide Setările Sistemului…";
+
+"Open Template Library" = "Deschide Biblioteca de Șabloane";
+
+"Open Templates Folder" = "Deschide Folderul de Șabloane";
+
+"Open the new file after creating it" = "Deschide fișierul nou după ce îl creezi";
+
+"Option" = "Opțiune";
+
+"Other" = "Altele";
+
+"Paste" = "Lipește";
+
+"Play a sound after creating a file" = "Redă un sunet după crearea unui fișier";
+
+"Presentations" = "Prezentări";
+
+"Private by design" = "Confidențial prin design";
+
+"Quick New File" = "Fișier Nou Rapid";
+
+"Quick New File…" = "Fișier Nou Rapid…";
+
+"Quit New File Creation 2" = "Ieși din New File Creation 2";
+
+"Recent" = "Recent";
+
+"Redo" = "Refă";
+
+"Remove" = "Elimină";
+
+"Remove Category" = "Elimină Categoria";
+
+"Remove Favorite" = "Elimină Favoritul";
+
+"Remove Template…" = "Elimină Șablonul…";
+
+"Remove the “%@” category?" = "Eliminăm categoria „%@”?";
+
+"Remove “%@”?" = "Eliminăm „%@”?";
+
+"Remove…" = "Elimină…";
+
+"Rename" = "Redenumește";
+
+"Rename Template" = "Redenumește Șablonul";
+
+"Rename…" = "Redenumește…";
+
+"Requires approval in System Settings" = "Necesită aprobare în Setările Sistemului";
+
+"Reset" = "Resetează";
+
+"Reset Configuration…" = "Resetează Configurația…";
+
+"Reset the configuration?" = "Resetezi configurația?";
+
+"Return creates the selected template." = "Return creează șablonul selectat.";
+
+"Reveal Config" = "Dezvăluie Config";
+
+"Reveal in Finder" = "Arată în Finder";
+
+"Reveal Log" = "Arată Log";
+
+"Reveal Selected Template" = " Dezvăluie șablonul selectat";
+
+"Reveal Template" = " Șablon de dezvăluire";
+
+"Reveal the new file in Finder" = " Dezvăluie noul fișier în Finder";
+
+"Right-click in Finder and choose New File from the template list." = " Dă click dreapta în Finder și alege Fișier Nou din lista șabloanelor. ";
+
+"Run nfc create \"Text File\" to make a file anywhere." = " Rulează nfc, creează \"Text File\" pentru a crea un fișier oriunde. ";
+
+"Search" = " Căutare";
+
+"Search Templates" = " Șabloane de căutare";
+
+"Search templates" = " Șabloane de căutare";
+
+"Select a template" = " Selectează un șablon";
+
+"Select All" = " Selectează toate";
+
+"Services" = " Servicii";
+
+"Set as Default" = " Setat ca implicit";
+
+"Settings" = " Decoruri";
+
+"Settings and the template library are reset. Template files in the Templates folder are kept." = " Setările și biblioteca de șabloane sunt resetate. Fișierele șabloane din folderul Șabloane sunt păstrate. ";
+
+"Settings › Finder enables Finder menus." = " Setări › Finder activează meniurile Finder. ";
+
+"Settings › Help explains every workflow." = " Setări › Ajutorul explică fiecare flux de lucru. ";
+
+"Settings › Templates manages categories and sorting." = " Setări › Șabloane gestionează categoriile și sortarea. ";
+
+"Settings…" = " Setări... ";
+
+"Shift" = " Schimbare";
+
+"Show" = " Emisiune";
+
+"Show a confirmation in the app window" = "Afișați o confirmare în fereastra aplicației";
+
+"Show All" = "Afișați tot";
+
+"Show favorites first" = "Afișați favoritele mai întâi";
+
+"Show Get Started" = "Afișați Începeți";
+
+"Show Get Started details" = "Afișați detaliile Începeți";
+
+"Show or Hide Inspector" = "Afișați sau Ascundeți Inspectorul";
+
+"Show or Hide Sidebar" = "Afișați sau Ascundeți Bara laterală";
+
+"Show or hide the inspector" = "Afișați sau ascundeți inspectorul";
+
+"Show template icons" = "Afișați pictogramele șablonului";
+
+"Show the menu bar icon" = "Afișați pictograma barei de meniu";
+
+"Show Welcome" = "Afișați Bun venit";
+
+"Show Welcome Again" = "Afișați Din nou Bun venit";
+
+"Sort by:" = "Sortează după:";
+
+"Sound:" = "Sunet:";
+
+"Spreadsheets" = "Foi de calcul";
+
+"Template: %@" = "Șablon: %@";
+
+"Templates" = "Șabloane";
+
+"Templates included in the library" = "Șabloanele incluse în bibliotecă";
+
+"The app and nfc coordinate writes with a lock and atomic replacement. The Finder extension reads the configuration only." = "Aplicația și NFC coordonează scrierile cu un blocaj și înlocuire atomică. Extensia Finder citește doar configurația.";
+
+"The bundled nfc helper is missing. Rebuild or reinstall the app." = "Asistentul NFC inclus lipsește. Reconstruiți sau reinstalați aplicația.";
+
+"The category will be removed from the library." = "Categoria va fi eliminată din bibliotecă.";
+
+"The configuration is damaged." = " Configurația este deteriorată.";
+
+"The default name is used by the app, the Finder extension, and the nfc command. Existing files are never overwritten." = " Numele implicit este folosit de aplicație, de extensia Finder și de comanda nfc. Fișierele existente nu sunt niciodată suprascrise.";
+
+"The existing nfc is not a symlink managed by this app." = " nfc existent nu este un link simbolic gestionat de această aplicație.";
+
+"The file is not valid JSON." = " Fișierul nu este JSON valid.";
+
+"The Finder extension could not be enabled" = " Extensia Finder nu a putut fi activată.";
+
+"The Finder extension reads the shared configuration and creates files in the selected folder. If the extension is not listed, open System Settings › General › Login Items & Extensions › Finder Extensions." = "Extensia Finder citește configurația partajată și creează fișiere în folderul selectat. Dacă extensia nu este listată, deschideți Setări System › General › Elemente de conectare & Extensii › Extensii Finder.";
+
+"The menu bar icon stays available so you can always create files." = " Pictograma din bara de meniu rămâne disponibilă pentru a putea crea fișiere în orice moment.";
+
+"The shortcut could not be registered (Carbon error %d). It may conflict with another app." = " Comanda rapidă nu a putut fi înregistrată (eroare Carbon %d). Poate fi în conflict cu o altă aplicație.";
+
+"The shortcut is unavailable" = " Comanda rapidă nu este disponibilă";
+
+"The template file keeps its current name. This changes the display name only." = "Fișierul șablon își păstrează numele actual. Aceasta schimbă doar numele afișat.";
+
+"The template is removed from the library and its file is moved to Trash." = "Șablonul a fost eliminat din bibliotecă și fișierul său a fost mutat în Coș.";
+
+"The template “%@” was not found." = "Șablonul „%@” nu a fost găsit.";
+
+"Tip: the global shortcut opens Quick New File from any app. Change it in Settings › General." = "Sfat: comanda rapidă globală deschide Fișier Nou Rapid din orice aplicație. Schimbați-o în Setări › General.";
+
+"Unavailable" = "Indisponibil";
+
+"Undo" = "Anulează";
+
+"Uninstall nfc" = "Dezinstalează nfc";
+
+"Unsupported shortcut key “%@”." = "Tastă rapidă neacceptată „%@”.";
+
+"Untitled" = "Fără titlu";
+
+"Use the command line" = "Folosește linia de comandă";
+
+"Use the menu bar icon or the global shortcut for the quick panel." = "Folosește pictograma din bara de meniu sau comanda rapidă globală pentru panoul rapid.";
+
+"Used %ld time" = "Folosit de %ld ori";
+
+"Used %ld times" = "Folosit de %ld ori";
+
+"Version %@" = "Versiunea %@";
+
+"Video" = "Video";
+
+"View" = "Vizualizare";
+
+"View License" = "Vizualizare Licență";
+
+"Welcome to New File Creation 2" = "Bine ați venit la New File Creation 2";
+
+"Window" = "Fereastră";
+
+"You can reopen this window from Settings › Help or from the menu bar." = "Puteți redeschide această fereastră din Setări › Ajutor sau din bara de meniu.";
+
+"Zoom" = "Zoom";
+
+"↩ Create file    ⠿ Drag to Finder    esc Close" = "↩ Creează fișier    ⠿ Trage în Finder    esc Închide";

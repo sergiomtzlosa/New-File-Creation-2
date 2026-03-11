@@ -1,0 +1,545 @@
+/* zh-Hant localization. Generated from the English source strings. */
+
+" (not on PATH)" = " (not on PATH)";
+
+"%@ (%@)\nDouble-click to create a file." = "%@ (%@)\n雙擊以建立檔案。";
+
+"%@ already exists and is not a symlink. Remove it manually or choose another location." = "%@ 已存在且不是符號連結。請手動移除或選擇其他位置。";
+
+"%@ template" = "%@ 範本";
+
+"%@ template, drag to create a file" = "%@ 範本，拖動以建立檔案";
+
+"%@ — drag to create %@" = "%@ — 拖動以建立 %@";
+
+"%ld template(s) will move to Other." = "%ld 個範本將移動至其他。";
+
+"%lu templates in the library" = "%lu 個範本在資料庫中";
+
+"About" = "關於";
+
+"About New File Creation 2" = "關於 New File Creation 2";
+
+"Add" = "新增";
+
+"Add a file to use it as a template, or restore the included set." = "新增檔案以用作範本，或還原內建集合。";
+
+"Add as Template" = "新增為範本";
+
+"Add Category" = "新增類別";
+
+"Add files as templates" = "將檔案新增為範本";
+
+"Add files in Settings › Templates, assign categories, remove categories you no longer need, choose a sort order, or drag templates to the Desktop and Finder." = "在「設定 › 範本」中新增檔案，分配類別，移除不再需要的類別，選擇排序方式，或將範本拖到桌面和 Finder。";
+
+"Add Template" = "新增範本";
+
+"Add Templates" = "新增範本";
+
+"Add Template…" = "新增範本…";
+
+"Add “Add as Template” for selected files" = "為選取的檔案新增 “新增為範本”";
+
+"Add “New File” to Finder menus" = "將 “新增檔案” 新增到 Finder 選單";
+
+"Added %lu template" = "已新增 %lu 範本";
+
+"Added %lu templates" = "已新增 %lu 範本";
+
+"Add…" = "新增…";
+
+"Advanced" = "進階";
+
+"After creating" = "建立後";
+
+"All Templates" = "所有範本";
+
+"Allow New File Creation 2 in System Settings › General › Login Items." = "允許 New File Creation 2 在 系統偏好設定 › 一般 › 登入項目。";
+
+"An unexpected error occurred." = "發生意外錯誤。";
+
+"Application" = "應用程式";
+
+"Approval required" = "需要批准";
+
+"Archives" = "檔案館";
+
+"Ask for a name" = "要求輸入名稱";
+
+"Assign a global shortcut in Settings" = "在設定中指定全域快速鍵";
+
+"At a glance" = "一目了然";
+
+"Audio" = "音訊";
+
+"Bring All to Front" = "全部移到最前面";
+
+"Cancel" = "取消";
+
+"Categories" = "類別";
+
+"Category" = "類別";
+
+"Category:" = "類別：";
+
+"Choose" = "選擇";
+
+"Choose a name and location for the new file" = "選擇新檔案的名稱與位置";
+
+"Choose files or packages to use as templates." = "選擇要作為範本使用的檔案或套件。";
+
+"Choose Name and Location…" = "選擇名稱與位置…";
+
+"Choose the folder where new files are created by default." = "選擇預設建立新檔案的資料夾。";
+
+"Choose…" = "選擇…";
+
+"Close" = "關閉";
+
+"Code" = "程式碼";
+
+"Command" = "命令";
+
+"Command-line tool" = "命令列工具";
+
+"Configuration and command line" = "配置與命令列";
+
+"Continue" = "繼續";
+
+"Control" = "控制";
+
+"Copy" = "複製";
+
+"Copyright © 2024–2026 Sergio Martinez-Losa\nMIT License" = "版權所有 © 2024–2026 Sergio Martinez-Losa\nMIT 許可證";
+
+"Copyright © 2024–2026 Sergio Martinez-Losa. Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files, to deal in the Software without restriction." = "版權所有 © 2024–2026 Sergio Martinez-Losa。特此免費授權任何取得此軟體及相關文件的人員，在不受限制的情況下使用本軟體。";
+
+"Could not add the category" = "無法新增分類";
+
+"Could not change the login item" = "無法更改登入項目";
+
+"Could not create the file" = "無法建立檔案";
+
+"Could not enable the Finder extension" = "無法啟用 Finder 擴充功能";
+
+"Could not export the configuration" = "無法匯出配置";
+
+"Could not import the configuration" = "無法匯入配置";
+
+"Could not install nfc" = "無法安裝 nfc";
+
+"Could not reset the configuration" = "無法重置配置";
+
+"Could not uninstall nfc" = "無法卸載 nfc";
+
+"Create" = "建立";
+
+"Create a file from a template in Finder, from the menu bar, from the template library, or with the nfc command." = "可以在 Finder 中、從選單列、從範本庫，或使用 nfc 指令，從範本建立檔案。";
+
+"Create a new file from a template" = "從範本建立新檔案";
+
+"Create File" = "建立檔案";
+
+"Create files from templates in Finder, from the menu bar, from the library, or with the nfc command.\n\n• ⌘N creates a file from the selected template.\n• ⇧⌘N lets you choose a name and location.\n• The menu bar icon opens templates and the quick panel.\n• Right-click in Finder for Finder menu items.\n• Run “nfc help” in Terminal for command-line usage." = "在 Finder 中、從選單列、從資源庫或使用 nfc 命令，從範本建立檔案。\n\n• ⌘N 從所選範本建立檔案。\n• ⇧⌘N 允許你選擇名稱和位置。\n• 選單列圖示可開啟範本與快速面板。\n• 在 Finder 中右鍵單擊以使用 Finder 選單項目。\n• 在終端機中執行 “nfc help” 以取得命令列使用方法。";
+
+"Create files from templates in Finder, the menu bar, the library, and the command line." = "在 Finder、選單列、資料庫及指令列中從範本建立檔案。";
+
+"Create from Finder" = "]從 Finder 建立";
+
+"Create from the menu bar" = "從選單列建立";
+
+"Create immediately" = "立即創建";
+
+"Create in Default Folder" = "在預設資料夾中建立";
+
+"Create the file in “%@”." = "在「%@」中建立檔案。";
+
+"Create the selected template in the default folder" = "在預設資料夾中建立所選範本";
+
+"Create with Name…" = "以名稱創建…";
+
+"Created %@" = "建立於 %@";
+
+"Creation:" = "創作：";
+
+"Cut" = "剪";
+
+"Default folder:" = "預設資料夾：";
+
+"Default name:" = "預設名稱：";
+
+"Default template:" = "預設範本：";
+
+"Desktop" = "桌面";
+
+"Disabled templates do not appear in the app, the menu bar, or Finder menus." = "已停用的範本不會出現在應用程式、選單列或 Finder 選單中。";
+
+"Documents" = "文件";
+
+"Drag a template row to Finder or the Desktop." = "將範本列拖到 Finder 或桌面。";
+
+"Drag a template to a folder or the Desktop." = "將範本拖到資料夾或桌面。";
+
+"Edit" = "編輯";
+
+"Enable Extension" = "啟用擴充功能";
+
+"Enable the Finder extension, then right-click in a folder or on a file and choose New File. The new file is created in the folder you are browsing." = "啟用 Finder 擴充功能，然後在資料夾或檔案上按右鍵，選擇「新檔案」。新檔案將建立在您正在瀏覽的資料夾中。";
+
+"Enabled" = "已啟用";
+
+"Enter a category name." = "輸入分類名稱。";
+
+"Enter Full Screen" = "進入全螢幕";
+
+"Everything stays on your Mac. No network, analytics, or telemetry." = "所有資料都保存在您的 Mac 上。無需網路、分析或遙測。";
+
+"Export…" = "匯出…";
+
+"Extension: %@" = "擴充功能：%@";
+
+"Favorite" = "最愛";
+
+"Favorites" = "最愛項目";
+
+"File" = "檔案";
+
+"File type" = "檔案類型";
+
+"Finder" = "尋找器";
+
+"Finder extension" = "Finder 擴充功能";
+
+"Finder extension status unavailable" = "Finder 擴充功能狀態不可用";
+
+"Finder extension: disabled" = "Finder 擴充功能：已停用";
+
+"Finder extension: enabled" = "Finder 擴充功能：已啟用";
+
+"Finder extension: not registered. Build and open the app once." = "Finder 擴充功能：未註冊。請先建置並開啟應用程式一次。";
+
+"Finder extension: registered" = "Finder 擴充功能：已註冊";
+
+"General" = "一般";
+
+"Get Started" = "開始使用";
+
+"Get Started…" = "開始使用…";
+
+"Global shortcut:" = "全域快速鍵：";
+
+"Global shortcut: %@" = "全域快速鍵：%@";
+
+"Group templates by category" = "按類別分組範本";
+
+"Help" = "說明";
+
+"Help and getting started" = "說明與入門指南";
+
+"Hide New File Creation 2" = "隱藏 New File Creation 2";
+
+"Hide Others" = "隱藏其他";
+
+"Images" = "圖片";
+
+"Import…" = "匯入…";
+
+"Inspector" = "檢查器";
+
+"Install nfc" = "安裝 nfc";
+
+"Install nfc from Settings › Advanced, then run nfc create \"Text File\" in Terminal to create a file in the current folder." = "從「設定 › 進階」安裝 nfc，然後在終端機執行 nfc create \"文字檔\" 以在目前資料夾建立檔案。";
+
+"Installed at %@%@" = "已安裝於 %@%@";
+
+"Keep the quick panel open after dropping a file" = "拖放檔案後保持快速面板開啟";
+
+"Last used" = "上次使用";
+
+"Last used %@" = "上次使用 %@";
+
+"Launch at login requires macOS 13 or later." = "登入時啟動需要 macOS 13 或更新版本。";
+
+"Launch New File Creation 2 at login" = "登入時啟動 New File Creation 2";
+
+"Left-click the menu bar icon for Quick New File." = "左鍵點擊選單列圖示以快速建立新檔案。";
+
+"Left-click the menu bar icon to open Quick New File. Search, press Return to create, or drag a row into Finder. Right-click for the full menu and Get Started." = "左鍵點擊選單列圖示打開快速建立新檔案。搜尋後按 Return 鍵建立檔案，或將列拖到 Finder。右鍵點擊以開啟完整選單及入門指南。";
+
+"Library" = "資料庫";
+
+"Manage templates" = "管理範本";
+
+"Manual order" = "手動排序";
+
+"Menu bar icon (always available)" = "選單列圖示（隨時可用）";
+
+"Menu contents" = "選單內容";
+
+"Minimize" = "最小化";
+
+"MIT License" = "MIT 授權";
+
+"Most used" = "最常使用";
+
+"Name" = "名稱";
+
+"New %@" = "新建 %@";
+
+"New category" = "新增分類";
+
+"New File" = "新檔案";
+
+"New File Creation 2" = "New File Creation 2";
+
+"New File Creation 2 could not load its configuration" = "New File Creation 2 無法載入其設定";
+
+"New File Creation 2 Help" = "New File Creation 2 說明";
+
+"New File Creation 2 keeps your reusable templates in one place and creates a fresh copy wherever you are working. Everything runs locally on your Mac." = "New File Creation 2 將您的可重複使用範本集中管理，並在您工作的任何地方建立新副本。所有操作均在您的 Mac 上本地執行。";
+
+"New files" = "新檔案";
+
+"New File…" = "新建檔案…";
+
+"No accounts, network requests, analytics, or telemetry. The app, Finder extension, Today widget, and nfc helper share one local configuration folder." = "無帳號、網路請求、分析或遙測資料。應用程式、Finder 擴充功能、今日小工具與 NFC 幫手共用一個本地設定資料夾。";
+
+"no extension" = "無擴充功能";
+
+"No matching templates" = "無符合範本";
+
+"No Templates" = "無範本";
+
+"No templates" = "無範本";
+
+"No templates to show" = "無範本可顯示";
+
+"None" = "無";
+
+"Not found; move the app to /Applications" = "未找到；請將應用程式移動到 /Applications";
+
+"Not installed. The bundled helper is at Contents/Helpers/nfc." = "未安裝。隨附助手位於 Contents/Helpers/nfc。";
+
+"Not registered" = "未註冊";
+
+"OK" = "好";
+
+"On" = "開啟";
+
+"Open Library" = "開啟函式庫";
+
+"Open New File Creation 2 once, then try the Finder menu again." = "請先開啟 New File Creation 2，然後再嘗試 Finder 選單。";
+
+"Open Settings" = "開啟設定";
+
+"Open System Settings and enable “New File Creation 2 Finder” manually." = "打開系統設定並手動啟用 “New File Creation 2 Finder”。";
+
+"Open System Settings…" = "打開系統設定…";
+
+"Open Template Library" = "開啟範本函式庫";
+
+"Open Templates Folder" = "開啟範本資料夾";
+
+"Open the new file after creating it" = "建立新檔案後開啟它";
+
+"Option" = "選項";
+
+"Other" = "其他";
+
+"Paste" = "貼上";
+
+"Play a sound after creating a file" = "建立檔案後播放聲音";
+
+"Presentations" = "簡報";
+
+"Private by design" = "設計上為私人";
+
+"Quick New File" = "快速建立新檔案";
+
+"Quick New File…" = "快速新檔案…";
+
+"Quit New File Creation 2" = "退出 New File Creation 2";
+
+"Recent" = "最近";
+
+"Redo" = "重做";
+
+"Remove" = "移除";
+
+"Remove Category" = "移除分類";
+
+"Remove Favorite" = "移除收藏";
+
+"Remove Template…" = "移除範本…";
+
+"Remove the “%@” category?" = "要移除「%@」分類嗎？";
+
+"Remove “%@”?" = "要移除「%@」嗎？";
+
+"Remove…" = "移除…";
+
+"Rename" = "重新命名";
+
+"Rename Template" = "重新命名範本";
+
+"Rename…" = "重新命名…";
+
+"Requires approval in System Settings" = "需要在系統設定中批准";
+
+"Reset" = "重置";
+
+"Reset Configuration…" = "重置設定…";
+
+"Reset the configuration?" = "要重置設定嗎？";
+
+"Return creates the selected template." = "按 Return 鍵建立所選的範本。";
+
+"Reveal Config" = "顯示設定";
+
+"Reveal in Finder" = "在 Finder 中顯示";
+
+"Reveal Log" = "顯示日誌";
+
+"Reveal Selected Template" = "顯示所選模板";
+
+"Reveal Template" = "顯示模板";
+
+"Reveal the new file in Finder" = "在 Finder 中顯示新檔案";
+
+"Right-click in Finder and choose New File from the template list." = "在 Finder 中右鍵點擊，從模板列表選擇新檔案。";
+
+"Run nfc create \"Text File\" to make a file anywhere." = "運行 nfc create \"文字檔\" 可以在任意位置建立檔案。";
+
+"Search" = "搜尋";
+
+"Search Templates" = "搜尋模板";
+
+"Search templates" = "搜尋模板";
+
+"Select a template" = "選擇模板";
+
+"Select All" = "全選";
+
+"Services" = "服務";
+
+"Set as Default" = "設為預設";
+
+"Settings" = "設定";
+
+"Settings and the template library are reset. Template files in the Templates folder are kept." = "設定和模板庫已重置。模板資料夾中的模板檔案保留。";
+
+"Settings › Finder enables Finder menus." = "設定 › Finder 啟用 Finder 功能表。";
+
+"Settings › Help explains every workflow." = "設定 › 說明 解釋每個工作流程。";
+
+"Settings › Templates manages categories and sorting." = "設定 › 模板 管理分類和排序。";
+
+"Settings…" = "設定…";
+
+"Shift" = "切換";
+
+"Show" = "顯示";
+
+"Show a confirmation in the app window" = "在應用程式視窗中顯示確認訊息";
+
+"Show All" = "顯示全部";
+
+"Show favorites first" = "先顯示收藏";
+
+"Show Get Started" = "顯示入門";
+
+"Show Get Started details" = "顯示入門詳細資訊";
+
+"Show or Hide Inspector" = "顯示或隱藏檢查器";
+
+"Show or Hide Sidebar" = "顯示或隱藏側邊欄";
+
+"Show or hide the inspector" = "顯示或隱藏檢查器";
+
+"Show template icons" = "顯示範本圖示";
+
+"Show the menu bar icon" = "顯示功能表列圖示";
+
+"Show Welcome" = "顯示歡迎頁";
+
+"Show Welcome Again" = "再次顯示歡迎頁";
+
+"Sort by:" = "排序方式：";
+
+"Sound:" = "聲音：";
+
+"Spreadsheets" = "試算表";
+
+"Template: %@" = "範本：%@";
+
+"Templates" = "範本";
+
+"Templates included in the library" = "包含在資料庫中的範本";
+
+"The app and nfc coordinate writes with a lock and atomic replacement. The Finder extension reads the configuration only." = "應用程式與 NFC 協調寫入，使用鎖定和原子替換。Finder 擴充功能僅讀取設定。";
+
+"The bundled nfc helper is missing. Rebuild or reinstall the app." = "附帶的 NFC 輔助程式遺失。重新建置或重新安裝應用程式。";
+
+"The category will be removed from the library." = "該類別將從資料庫中移除。";
+
+"The configuration is damaged." = "配置已損壞。";
+
+"The default name is used by the app, the Finder extension, and the nfc command. Existing files are never overwritten." = "預設名稱會被應用程式、Finder 擴充功能和 nfc 指令使用。現有的檔案永遠不會被覆蓋。";
+
+"The existing nfc is not a symlink managed by this app." = "現有的 NFC 不是由此應用程式管理的符號連結。";
+
+"The file is not valid JSON." = "該檔案不是有效的 JSON。";
+
+"The Finder extension could not be enabled" = "無法啟用 Finder 擴充功能";
+
+"The Finder extension reads the shared configuration and creates files in the selected folder. If the extension is not listed, open System Settings › General › Login Items & Extensions › Finder Extensions." = "Finder 擴充功能會讀取共享設定並在選定的資料夾中建立檔案。如果擴充功能未列出，請打開 系統設定 › 一般 › 登入項目與擴充功能 › Finder 擴充功能。";
+
+"The menu bar icon stays available so you can always create files." = "選單列圖示會保持可用，讓你隨時可以建立檔案。";
+
+"The shortcut could not be registered (Carbon error %d). It may conflict with another app." = "無法註冊快捷方式（Carbon 錯誤 %d）。它可能與其他應用程式衝突。";
+
+"The shortcut is unavailable" = "捷徑不可用";
+
+"The template file keeps its current name. This changes the display name only." = "範本檔案保留其現有名稱。這僅更改顯示名稱。";
+
+"The template is removed from the library and its file is moved to Trash." = "範本已從資料庫中移除，其檔案已被移至垃圾桶。";
+
+"The template “%@” was not found." = "找不到範本「%@」。";
+
+"Tip: the global shortcut opens Quick New File from any app. Change it in Settings › General." = "提示：全域快捷鍵可以從任何應用程式開啟「快速新建檔案」。可在設定 › 一般中更改。";
+
+"Unavailable" = "無法使用";
+
+"Undo" = "復原";
+
+"Uninstall nfc" = "卸載 NFC";
+
+"Unsupported shortcut key “%@”." = "不支援的快捷鍵 \"%@\"。";
+
+"Untitled" = "未命名";
+
+"Use the command line" = "使用命令列";
+
+"Use the menu bar icon or the global shortcut for the quick panel." = "使用選單列圖示或全域快速鍵來開啟快速面板。";
+
+"Used %ld time" = "已使用 %ld 次";
+
+"Used %ld times" = "已使用 %ld 次";
+
+"Version %@" = "版本 %@";
+
+"Video" = "影片";
+
+"View" = "檢視";
+
+"View License" = "檢視授權";
+
+"Welcome to New File Creation 2" = "歡迎使用 New File Creation 2";
+
+"Window" = "視窗";
+
+"You can reopen this window from Settings › Help or from the menu bar." = "您可以從「設定 › 說明」或選單列重新開啟此視窗。";
+
+"Zoom" = "縮放";
+
+"↩ Create file    ⠿ Drag to Finder    esc Close" = "↩ 建立檔案    ⠿ 拖曳至 Finder    esc 關閉";

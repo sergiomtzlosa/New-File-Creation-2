@@ -1,0 +1,545 @@
+/* el localization. Generated from the English source strings. */
+
+" (not on PATH)" = " (not on PATH)";
+
+"%@ (%@)\nDouble-click to create a file." = "%@ (%@)\nΚάντε διπλό κλικ για να δημιουργήσετε ένα αρχείο.\nΤο ";
+
+"%@ already exists and is not a symlink. Remove it manually or choose another location." = "%@ υπάρχει ήδη και δεν είναι συμβολικός σύνδεσμος. Καταργήστε το μη αυτόματα ή επιλέξτε άλλη τοποθεσία.";
+
+"%@ template" = "%@ πρότυπο";
+
+"%@ template, drag to create a file" = "%@ πρότυπο, σύρετε για να δημιουργήσετε ένα αρχείο";
+
+"%@ — drag to create %@" = "%@ — σύρετε για να δημιουργήσετε το %@";
+
+"%ld template(s) will move to Other." = "%ld πρότυπο(α) θα μετακινηθεί στο Other.";
+
+"%lu templates in the library" = "%lu πρότυπα στη βιβλιοθήκη";
+
+"About" = "Περίπου";
+
+"About New File Creation 2" = "Σχετικά με το New File Creation 2";
+
+"Add" = "Προσθήκη";
+
+"Add a file to use it as a template, or restore the included set." = "Προσθέστε ένα αρχείο για να το χρησιμοποιήσετε ως πρότυπο ή επαναφέρετε το παρεχόμενο σύνολο.";
+
+"Add as Template" = "Προσθήκη ως πρότυπο";
+
+"Add Category" = "Προσθήκη κατηγορίας";
+
+"Add files as templates" = "Προσθέστε αρχεία ως πρότυπα";
+
+"Add files in Settings › Templates, assign categories, remove categories you no longer need, choose a sort order, or drag templates to the Desktop and Finder." = "Προσθέστε αρχεία στις Ρυθμίσεις › Πρότυπα, εκχωρήστε κατηγορίες, καταργήστε κατηγορίες που δεν χρειάζεστε πλέον, επιλέξτε μια σειρά ταξινόμησης ή σύρετε πρότυπα στην επιφάνεια εργασίας και στο Finder.";
+
+"Add Template" = "Προσθήκη προτύπου";
+
+"Add Templates" = "Προσθήκη προτύπων";
+
+"Add Template…" = "Προσθήκη προτύπου…";
+
+"Add “Add as Template” for selected files" = "Προσθήκη \"Προσθήκη ως πρότυπο\" για επιλεγμένα αρχεία";
+
+"Add “New File” to Finder menus" = "Προσθήκη \"Νέο αρχείο\" στα μενού του Finder";
+
+"Added %lu template" = "Προστέθηκε πρότυπο %lu";
+
+"Added %lu templates" = "Προστέθηκαν %lu πρότυπα";
+
+"Add…" = "Προσθήκη…";
+
+"Advanced" = "Για προχωρημένους";
+
+"After creating" = "Μετά τη δημιουργία";
+
+"All Templates" = "Όλα τα πρότυπα";
+
+"Allow New File Creation 2 in System Settings › General › Login Items." = "Επιτρέψτε στο New File Creation 2 στις Ρυθμίσεις Συστήματος › Γενικά › Στοιχεία Σύνδεσης.";
+
+"An unexpected error occurred." = "Παρουσιάστηκε απροσδόκητο σφάλμα.";
+
+"Application" = "Αίτηση";
+
+"Approval required" = "Απαιτείται έγκριση";
+
+"Archives" = "Αρχεία";
+
+"Ask for a name" = "Ζητήστε ένα όνομα";
+
+"Assign a global shortcut in Settings" = "Ορίστε μια καθολική συντόμευση στις Ρυθμίσεις";
+
+"At a glance" = "Με μια ματιά";
+
+"Audio" = "Ήχος";
+
+"Bring All to Front" = "Φέρτε όλους μπροστά";
+
+"Cancel" = "Ακύρωση";
+
+"Categories" = "Κατηγορίες";
+
+"Category" = "Κατηγορία";
+
+"Category:" = "Κατηγορία:";
+
+"Choose" = "Επιλέξτε";
+
+"Choose a name and location for the new file" = "Επιλέξτε όνομα και τοποθεσία για το νέο αρχείο";
+
+"Choose files or packages to use as templates." = "Επιλέξτε αρχεία ή πακέτα για χρήση ως πρότυπα.";
+
+"Choose Name and Location…" = "Επιλογή ονόματος και τοποθεσίας…";
+
+"Choose the folder where new files are created by default." = "Επιλέξτε τον φάκελο στον οποίο δημιουργούνται νέα αρχεία από προεπιλογή.";
+
+"Choose…" = "Επιλέξτε…";
+
+"Close" = "Κλείσιμο";
+
+"Code" = "Κωδ";
+
+"Command" = "Εντολή";
+
+"Command-line tool" = "Εργαλείο γραμμής εντολών";
+
+"Configuration and command line" = "Διαμόρφωση και γραμμή εντολών";
+
+"Continue" = "Συνέχεια";
+
+"Control" = "Έλεγχος";
+
+"Copy" = "Αντιγραφή";
+
+"Copyright © 2024–2026 Sergio Martinez-Losa\nMIT License" = "Πνευματικά δικαιώματα © 2024–2026 Sergio Martinez-Losa\nΆδεια MIT";
+
+"Copyright © 2024–2026 Sergio Martinez-Losa. Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files, to deal in the Software without restriction." = "Πνευματικά δικαιώματα © 2024–2026 Sergio Martinez-Losa. Με το παρόν χορηγείται άδεια, δωρεάν, σε οποιοδήποτε άτομο που αποκτά αντίγραφο αυτού του λογισμικού και των σχετικών αρχείων τεκμηρίωσης, να συναλλάσσεται με το Λογισμικό χωρίς περιορισμούς.";
+
+"Could not add the category" = "Δεν ήταν δυνατή η προσθήκη της κατηγορίας";
+
+"Could not change the login item" = "Δεν ήταν δυνατή η αλλαγή του στοιχείου σύνδεσης";
+
+"Could not create the file" = "Δεν ήταν δυνατή η δημιουργία του αρχείου";
+
+"Could not enable the Finder extension" = "Δεν ήταν δυνατή η ενεργοποίηση της επέκτασης Finder";
+
+"Could not export the configuration" = "Δεν ήταν δυνατή η εξαγωγή της διαμόρφωσης";
+
+"Could not import the configuration" = "Δεν ήταν δυνατή η εισαγωγή της διαμόρφωσης";
+
+"Could not install nfc" = "Δεν ήταν δυνατή η εγκατάσταση του nfc";
+
+"Could not reset the configuration" = "Δεν ήταν δυνατή η επαναφορά της διαμόρφωσης";
+
+"Could not uninstall nfc" = "Δεν ήταν δυνατή η απεγκατάσταση του nfc";
+
+"Create" = "Δημιουργία";
+
+"Create a file from a template in Finder, from the menu bar, from the template library, or with the nfc command." = "Δημιουργήστε ένα αρχείο από ένα πρότυπο στο Finder, από τη γραμμή μενού, από τη βιβλιοθήκη προτύπων ή με την εντολή nfc.";
+
+"Create a new file from a template" = "Δημιουργήστε ένα νέο αρχείο από ένα πρότυπο";
+
+"Create File" = "Δημιουργία αρχείου";
+
+"Create files from templates in Finder, from the menu bar, from the library, or with the nfc command.\n\n• ⌘N creates a file from the selected template.\n• ⇧⌘N lets you choose a name and location.\n• The menu bar icon opens templates and the quick panel.\n• Right-click in Finder for Finder menu items.\n• Run “nfc help” in Terminal for command-line usage." = "Δημιουργήστε αρχεία από πρότυπα στο Finder, από τη γραμμή μενού, από τη βιβλιοθήκη ή με την εντολή nfc.\n\n• Το ⌘N δημιουργεί ένα αρχείο από το επιλεγμένο πρότυπο.\n• Το ⇧⌘N σάς επιτρέπει να επιλέξετε όνομα και τοποθεσία.\n• Το εικονίδιο της γραμμής μενού ανοίγει τα πρότυπα και το γρήγορο πλαίσιο.\n• Κάντε δεξί κλικ στα στοιχεία του μενού Finder for Finder.\n• Εκτελέστε το \"nfc help\" στο Terminal για χρήση της γραμμής εντολών.";
+
+"Create files from templates in Finder, the menu bar, the library, and the command line." = "Δημιουργήστε αρχεία από πρότυπα στο Finder, τη γραμμή μενού, τη βιβλιοθήκη και τη γραμμή εντολών.";
+
+"Create from Finder" = "Δημιουργία από το Finder";
+
+"Create from the menu bar" = "Δημιουργία από τη γραμμή μενού";
+
+"Create immediately" = "Δημιουργία αμέσως";
+
+"Create in Default Folder" = "Δημιουργία στον προεπιλεγμένο φάκελο";
+
+"Create the file in “%@”." = "Δημιουργήστε το αρχείο στο \"%@\".";
+
+"Create the selected template in the default folder" = "Δημιουργήστε το επιλεγμένο πρότυπο στον προεπιλεγμένο φάκελο";
+
+"Create with Name…" = "Δημιουργία με όνομα…";
+
+"Created %@" = "Δημιουργήθηκε %@";
+
+"Creation:" = "Δημιουργία:";
+
+"Cut" = "Κόψτε";
+
+"Default folder:" = "Προεπιλεγμένος φάκελος:";
+
+"Default name:" = "Προεπιλεγμένο όνομα:";
+
+"Default template:" = "Προεπιλεγμένο πρότυπο:";
+
+"Desktop" = "Επιτραπέζιος υπολογιστής";
+
+"Disabled templates do not appear in the app, the menu bar, or Finder menus." = "Τα απενεργοποιημένα πρότυπα δεν εμφανίζονται στην εφαρμογή, στη γραμμή μενού ή στα μενού του Finder.";
+
+"Documents" = "Έγγραφα";
+
+"Drag a template row to Finder or the Desktop." = "Σύρετε μια σειρά προτύπου στο Finder ή στην επιφάνεια εργασίας.";
+
+"Drag a template to a folder or the Desktop." = "Σύρετε ένα πρότυπο σε έναν φάκελο ή στην Επιφάνεια Εργασίας.";
+
+"Edit" = "Επεξεργασία";
+
+"Enable Extension" = "Ενεργοποίηση επέκτασης";
+
+"Enable the Finder extension, then right-click in a folder or on a file and choose New File. The new file is created in the folder you are browsing." = "Ενεργοποιήστε την επέκταση Finder, μετά κάντε δεξί κλικ σε έναν φάκελο ή σε ένα αρχείο και επιλέξτε Νέο αρχείο. Το νέο αρχείο δημιουργείται στο φάκελο που περιηγείστε.";
+
+"Enabled" = "Ενεργοποιήθηκε";
+
+"Enter a category name." = "Εισαγάγετε ένα όνομα κατηγορίας.";
+
+"Enter Full Screen" = "Είσοδος σε πλήρη οθόνη";
+
+"Everything stays on your Mac. No network, analytics, or telemetry." = "Τα πάντα παραμένουν στο Mac σας. Χωρίς δίκτυο, αναλυτικά στοιχεία ή τηλεμετρία.";
+
+"Export…" = "Εξαγωγή…";
+
+"Extension: %@" = "Επέκταση: %@";
+
+"Favorite" = "Αγαπημένο";
+
+"Favorites" = "Αγαπημένα";
+
+"File" = "Αρχείο";
+
+"File type" = "Τύπος αρχείου";
+
+"Finder" = "Εύρεση";
+
+"Finder extension" = "Επέκταση Finder";
+
+"Finder extension status unavailable" = "Η κατάσταση επέκτασης εύρεσης δεν είναι διαθέσιμη";
+
+"Finder extension: disabled" = "Επέκταση Finder: απενεργοποιημένη";
+
+"Finder extension: enabled" = "Επέκταση Finder: ενεργοποιημένη";
+
+"Finder extension: not registered. Build and open the app once." = "Επέκταση εύρεσης: δεν έχει καταχωρηθεί. Δημιουργήστε και ανοίξτε την εφαρμογή μία φορά.";
+
+"Finder extension: registered" = "Επέκταση εύρεσης: έχει καταχωρηθεί";
+
+"General" = "Στρατηγός";
+
+"Get Started" = "Ξεκινήστε";
+
+"Get Started…" = "Ξεκινήστε…";
+
+"Global shortcut:" = "Παγκόσμια συντόμευση:";
+
+"Global shortcut: %@" = "Παγκόσμια συντόμευση: %@";
+
+"Group templates by category" = "Ομαδοποιήστε πρότυπα ανά κατηγορία";
+
+"Help" = "Βοήθεια";
+
+"Help and getting started" = "Βοήθεια και ξεκίνημα";
+
+"Hide New File Creation 2" = "Απόκρυψη New File Creation 2";
+
+"Hide Others" = "Απόκρυψη άλλων";
+
+"Images" = "Εικόνες";
+
+"Import…" = "Εισαγωγή…";
+
+"Inspector" = "Επιθεωρητής";
+
+"Install nfc" = "Εγκαταστήστε το nfc";
+
+"Install nfc from Settings › Advanced, then run nfc create \"Text File\" in Terminal to create a file in the current folder." = "Εγκαταστήστε το nfc από τις Ρυθμίσεις › Για προχωρημένους και μετά εκτελέστε το nfc δημιουργήστε \"Αρχείο κειμένου\" στο Terminal για να δημιουργήσετε ένα αρχείο στον τρέχοντα φάκελο.";
+
+"Installed at %@%@" = "Εγκαταστάθηκε στο %@%@";
+
+"Keep the quick panel open after dropping a file" = "Διατηρήστε το γρήγορο πλαίσιο ανοιχτό μετά την απόθεση ενός αρχείου";
+
+"Last used" = "Τελευταία χρήση";
+
+"Last used %@" = "Τελευταία χρήση %@";
+
+"Launch at login requires macOS 13 or later." = "Η εκκίνηση κατά τη σύνδεση απαιτεί macOS 13 ή μεταγενέστερη έκδοση.";
+
+"Launch New File Creation 2 at login" = "Εκκίνηση New File Creation 2 κατά τη σύνδεση";
+
+"Left-click the menu bar icon for Quick New File." = "Κάντε αριστερό κλικ στο εικονίδιο της γραμμής μενού για το Γρήγορο νέο αρχείο.";
+
+"Left-click the menu bar icon to open Quick New File. Search, press Return to create, or drag a row into Finder. Right-click for the full menu and Get Started." = "Κάντε αριστερό κλικ στο εικονίδιο της γραμμής μενού για να ανοίξετε το Γρήγορο νέο αρχείο. Αναζητήστε, πατήστε Return για να δημιουργήσετε ή σύρετε μια σειρά στο Finder. Κάντε δεξί κλικ για το πλήρες μενού και ξεκινήστε.";
+
+"Library" = "Βιβλιοθήκη";
+
+"Manage templates" = "Διαχείριση προτύπων";
+
+"Manual order" = "Μη αυτόματη παραγγελία";
+
+"Menu bar icon (always available)" = "Εικονίδιο γραμμής μενού (πάντα διαθέσιμο)";
+
+"Menu contents" = "Περιεχόμενα μενού";
+
+"Minimize" = "Ελαχιστοποίηση";
+
+"MIT License" = "Άδεια MIT";
+
+"Most used" = "Πιο χρησιμοποιημένα";
+
+"Name" = "Όνομα";
+
+"New %@" = "Νέο %@";
+
+"New category" = "Νέα κατηγορία";
+
+"New File" = "Νέο αρχείο";
+
+"New File Creation 2" = "New File Creation 2";
+
+"New File Creation 2 could not load its configuration" = "Το New File Creation 2 δεν μπόρεσε να φορτώσει τη διαμόρφωσή του";
+
+"New File Creation 2 Help" = "Βοήθεια New File Creation 2";
+
+"New File Creation 2 keeps your reusable templates in one place and creates a fresh copy wherever you are working. Everything runs locally on your Mac." = "Το New File Creation 2 διατηρεί τα επαναχρησιμοποιήσιμα πρότυπά σας σε ένα μέρος και δημιουργεί ένα νέο αντίγραφο όπου κι αν εργάζεστε. Όλα λειτουργούν τοπικά στον Mac σας.";
+
+"New files" = "Νέα αρχεία";
+
+"New File…" = "Νέο αρχείο…";
+
+"No accounts, network requests, analytics, or telemetry. The app, Finder extension, Today widget, and nfc helper share one local configuration folder." = "Δεν υπάρχουν λογαριασμοί, αιτήματα δικτύου, αναλυτικά στοιχεία ή τηλεμετρία. Η εφαρμογή, η επέκταση Finder, το γραφικό στοιχείο Today και το βοηθητικό πρόγραμμα nfc μοιράζονται έναν φάκελο τοπικής διαμόρφωσης.";
+
+"no extension" = "χωρίς επέκταση";
+
+"No matching templates" = "Δεν υπάρχουν πρότυπα που να ταιριάζουν";
+
+"No Templates" = "Δεν υπάρχουν πρότυπα";
+
+"No templates" = "Δεν υπάρχουν πρότυπα";
+
+"No templates to show" = "Δεν υπάρχουν πρότυπα για εμφάνιση";
+
+"None" = "Καμία";
+
+"Not found; move the app to /Applications" = "Δεν βρέθηκε. μετακινήστε την εφαρμογή στο /Applications";
+
+"Not installed. The bundled helper is at Contents/Helpers/nfc." = "Δεν έχει εγκατασταθεί. Ο βοηθός του πακέτου βρίσκεται στο Contents/Helpers/nfc.";
+
+"Not registered" = "Δεν έχει εγγραφεί";
+
+"OK" = "Εντάξει";
+
+"On" = "Ενεργό";
+
+"Open Library" = "Ανοίξτε τη βιβλιοθήκη";
+
+"Open New File Creation 2 once, then try the Finder menu again." = "Ανοίξτε το New File Creation 2 μία φορά και έπειτα δοκιμάστε ξανά το μενού Finder.";
+
+"Open Settings" = "Ανοίξτε τις Ρυθμίσεις";
+
+"Open System Settings and enable “New File Creation 2 Finder” manually." = "Ανοίξτε τις Ρυθμίσεις Συστήματος και ενεργοποιήστε χειροκίνητα το “New File Creation 2 Finder”.";
+
+"Open System Settings…" = "Άνοιγμα ρυθμίσεων συστήματος…";
+
+"Open Template Library" = "Ανοίξτε τη βιβλιοθήκη προτύπων";
+
+"Open Templates Folder" = "Ανοίξτε το φάκελο προτύπων";
+
+"Open the new file after creating it" = "Ανοίξτε το νέο αρχείο αφού το δημιουργήσετε";
+
+"Option" = "Επιλογή";
+
+"Other" = "Άλλο";
+
+"Paste" = "Επικόλληση";
+
+"Play a sound after creating a file" = "Αναπαραγωγή ήχου μετά τη δημιουργία ενός αρχείου";
+
+"Presentations" = "Παρουσιάσεις";
+
+"Private by design" = "Ιδιωτικό βάσει σχεδίου";
+
+"Quick New File" = "Γρήγορο νέο αρχείο";
+
+"Quick New File…" = "Γρήγορο νέο αρχείο…";
+
+"Quit New File Creation 2" = "Κλείσιμο New File Creation 2";
+
+"Recent" = "Πρόσφατα";
+
+"Redo" = "Επανάληψη";
+
+"Remove" = "Κατάργηση";
+
+"Remove Category" = "Κατάργηση κατηγορίας";
+
+"Remove Favorite" = "Κατάργηση Αγαπημένου";
+
+"Remove Template…" = "Κατάργηση προτύπου…";
+
+"Remove the “%@” category?" = "Να καταργηθεί η κατηγορία \"%@\";";
+
+"Remove “%@”?" = "Να καταργηθεί το \"%@\";";
+
+"Remove…" = "Κατάργηση…";
+
+"Rename" = "Μετονομασία";
+
+"Rename Template" = "Μετονομασία προτύπου";
+
+"Rename…" = "Μετονομασία…";
+
+"Requires approval in System Settings" = "Απαιτείται έγκριση στις Ρυθμίσεις συστήματος";
+
+"Reset" = "Επαναφορά";
+
+"Reset Configuration…" = "Επαναφορά διαμόρφωσης…";
+
+"Reset the configuration?" = "Επαναφορά της διαμόρφωσης;";
+
+"Return creates the selected template." = "Το Return δημιουργεί το επιλεγμένο πρότυπο.";
+
+"Reveal Config" = "Αποκάλυψη διαμόρφωσης";
+
+"Reveal in Finder" = "Αποκάλυψη στο Finder";
+
+"Reveal Log" = "Αρχείο αποκάλυψης";
+
+"Reveal Selected Template" = "Αποκάλυψη επιλεγμένου προτύπου";
+
+"Reveal Template" = "Πρότυπο αποκάλυψης";
+
+"Reveal the new file in Finder" = "Αποκαλύψτε το νέο αρχείο στο Finder";
+
+"Right-click in Finder and choose New File from the template list." = "Κάντε δεξί κλικ στο Finder και επιλέξτε Νέο αρχείο από τη λίστα προτύπων.";
+
+"Run nfc create \"Text File\" to make a file anywhere." = "Εκτέλεση nfc δημιουργία \"Αρχείο κειμένου\" για να δημιουργήσετε ένα αρχείο οπουδήποτε.";
+
+"Search" = "Αναζήτηση";
+
+"Search Templates" = "Αναζήτηση προτύπων";
+
+"Search templates" = "Αναζήτηση προτύπων";
+
+"Select a template" = "Επιλέξτε ένα πρότυπο";
+
+"Select All" = "Επιλέξτε όλα";
+
+"Services" = "Υπηρεσίες";
+
+"Set as Default" = "Ορισμός ως προεπιλογή";
+
+"Settings" = "Ρυθμίσεις";
+
+"Settings and the template library are reset. Template files in the Templates folder are kept." = "Οι ρυθμίσεις και η βιβλιοθήκη προτύπων επαναφέρονται. Τα αρχεία προτύπων στο φάκελο Πρότυπα διατηρούνται.";
+
+"Settings › Finder enables Finder menus." = "Ρυθμίσεις › Το Finder ενεργοποιεί τα μενού του Finder.";
+
+"Settings › Help explains every workflow." = "Ρυθμίσεις › Βοήθεια εξηγεί κάθε ροή εργασίας.";
+
+"Settings › Templates manages categories and sorting." = "Ρυθμίσεις › Τα Πρότυπα διαχειρίζονται κατηγορίες και ταξινόμηση.";
+
+"Settings…" = "Ρυθμίσεις…";
+
+"Shift" = "Βάρδια";
+
+"Show" = "Εμφάνιση";
+
+"Show a confirmation in the app window" = "Εμφάνιση επιβεβαίωσης στο παράθυρο της εφαρμογής";
+
+"Show All" = "Εμφάνιση όλων";
+
+"Show favorites first" = "Εμφάνιση των αγαπημένων πρώτα";
+
+"Show Get Started" = "Εμφάνιση Get Started";
+
+"Show Get Started details" = "Εμφάνιση λεπτομερειών έναρξης";
+
+"Show or Hide Inspector" = "Εμφάνιση ή Απόκρυψη Επιθεωρητή";
+
+"Show or Hide Sidebar" = "Εμφάνιση ή απόκρυψη πλευρικής γραμμής";
+
+"Show or hide the inspector" = "Εμφάνιση ή απόκρυψη του επιθεωρητή";
+
+"Show template icons" = "Εμφάνιση εικονιδίων προτύπων";
+
+"Show the menu bar icon" = "Εμφάνιση του εικονιδίου της γραμμής μενού";
+
+"Show Welcome" = "Εμφάνιση καλωσορίσματος";
+
+"Show Welcome Again" = "Εμφάνιση Καλώς ορίσατε ξανά";
+
+"Sort by:" = "Ταξινόμηση κατά:";
+
+"Sound:" = "Ήχος:";
+
+"Spreadsheets" = "Υπολογιστικά φύλλα";
+
+"Template: %@" = "Πρότυπο: %@";
+
+"Templates" = "Πρότυπα";
+
+"Templates included in the library" = "Πρότυπα που περιλαμβάνονται στη βιβλιοθήκη";
+
+"The app and nfc coordinate writes with a lock and atomic replacement. The Finder extension reads the configuration only." = "Η εφαρμογή και η συντεταγμένη nfc εγγράφονται με κλειδαριά και ατομική αντικατάσταση. Η επέκταση Finder διαβάζει μόνο τη διαμόρφωση.";
+
+"The bundled nfc helper is missing. Rebuild or reinstall the app." = "Το πακέτο βοηθητικό nfc λείπει. Δημιουργήστε ξανά ή επανεγκαταστήστε την εφαρμογή.";
+
+"The category will be removed from the library." = "Η κατηγορία θα αφαιρεθεί από τη βιβλιοθήκη.";
+
+"The configuration is damaged." = "Η διαμόρφωση έχει καταστραφεί.";
+
+"The default name is used by the app, the Finder extension, and the nfc command. Existing files are never overwritten." = "Το προεπιλεγμένο όνομα χρησιμοποιείται από την εφαρμογή, την επέκταση Finder και την εντολή nfc. Τα υπάρχοντα αρχεία δεν αντικαθίστανται ποτέ.";
+
+"The existing nfc is not a symlink managed by this app." = "Το υπάρχον nfc δεν είναι συμβολικός σύνδεσμος που διαχειρίζεται αυτή η εφαρμογή.";
+
+"The file is not valid JSON." = "Το αρχείο δεν είναι έγκυρο JSON.";
+
+"The Finder extension could not be enabled" = "Δεν ήταν δυνατή η ενεργοποίηση της επέκτασης Finder";
+
+"The Finder extension reads the shared configuration and creates files in the selected folder. If the extension is not listed, open System Settings › General › Login Items & Extensions › Finder Extensions." = "Η επέκταση Finder διαβάζει την κοινόχρηστη διαμόρφωση και δημιουργεί αρχεία στον επιλεγμένο φάκελο. Εάν η επέκταση δεν εμφανίζεται στη λίστα, ανοίξτε τις Ρυθμίσεις συστήματος › Γενικά › Στοιχεία και επεκτάσεις σύνδεσης › Επεκτάσεις Finder.";
+
+"The menu bar icon stays available so you can always create files." = "Το εικονίδιο της γραμμής μενού παραμένει διαθέσιμο, ώστε να μπορείτε πάντα να δημιουργείτε αρχεία.";
+
+"The shortcut could not be registered (Carbon error %d). It may conflict with another app." = "Δεν ήταν δυνατή η εγγραφή της συντόμευσης (Σφάλμα άνθρακα %d). Μπορεί να έρχεται σε διένεξη με άλλη εφαρμογή.";
+
+"The shortcut is unavailable" = "Η συντόμευση δεν είναι διαθέσιμη";
+
+"The template file keeps its current name. This changes the display name only." = "Το αρχείο προτύπου διατηρεί το τρέχον όνομά του. Αυτό αλλάζει μόνο το εμφανιζόμενο όνομα.";
+
+"The template is removed from the library and its file is moved to Trash." = "Το πρότυπο αφαιρείται από τη βιβλιοθήκη και το αρχείο του μετακινείται στον Κάδο απορριμμάτων.";
+
+"The template “%@” was not found." = "Το πρότυπο \"%@\" δεν βρέθηκε.";
+
+"Tip: the global shortcut opens Quick New File from any app. Change it in Settings › General." = "Συμβουλή: η καθολική συντόμευση ανοίγει το Γρήγορο νέο αρχείο από οποιαδήποτε εφαρμογή. Αλλάξτε το στις Ρυθμίσεις › Γενικά.";
+
+"Unavailable" = "Μη διαθέσιμο";
+
+"Undo" = "Αναίρεση";
+
+"Uninstall nfc" = "Κατάργηση εγκατάστασης nfc";
+
+"Unsupported shortcut key “%@”." = "Μη υποστηριζόμενο κλειδί συντόμευσης \"%@\".";
+
+"Untitled" = "Χωρίς τίτλο";
+
+"Use the command line" = "Χρησιμοποιήστε τη γραμμή εντολών";
+
+"Use the menu bar icon or the global shortcut for the quick panel." = "Χρησιμοποιήστε το εικονίδιο της γραμμής μενού ή την καθολική συντόμευση για τον γρήγορο πίνακα.";
+
+"Used %ld time" = "Χρησιμοποιήθηκε %ld φορά";
+
+"Used %ld times" = "Χρησιμοποιήθηκε %ld φορές";
+
+"Version %@" = "Έκδοση %@";
+
+"Video" = "Βίντεο";
+
+"View" = "Προβολή";
+
+"View License" = "Προβολή άδειας";
+
+"Welcome to New File Creation 2" = "Καλώς ήρθατε στο New File Creation 2";
+
+"Window" = "Παράθυρο";
+
+"You can reopen this window from Settings › Help or from the menu bar." = "Μπορείτε να ανοίξετε ξανά αυτό το παράθυρο από τις Ρυθμίσεις › Βοήθεια ή από τη γραμμή μενού.";
+
+"Zoom" = "Ζουμ";
+
+"↩ Create file    ⠿ Drag to Finder    esc Close" = "↩ Δημιουργία αρχείου ⠿ Σύρετε στο Finder esc Κλείσιμο";

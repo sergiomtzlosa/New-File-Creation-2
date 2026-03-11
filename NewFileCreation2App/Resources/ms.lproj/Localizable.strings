@@ -1,0 +1,545 @@
+/* ms localization. Generated from the English source strings. */
+
+" (not on PATH)" = " (not on PATH)";
+
+"%@ (%@)\nDouble-click to create a file." = "%@ (%@)\nKlik dua kali untuk mencipta fail.";
+
+"%@ already exists and is not a symlink. Remove it manually or choose another location." = "%@ sudah wujud dan bukan symlink. Alih keluarnya secara manual atau pilih lokasi lain.";
+
+"%@ template" = "%@ templat";
+
+"%@ template, drag to create a file" = "%@ templat, seret untuk mencipta fail";
+
+"%@ — drag to create %@" = "%@ — seret untuk mencipta %@";
+
+"%ld template(s) will move to Other." = "%ld templat akan beralih ke Lain.";
+
+"%lu templates in the library" = "%lu templat dalam pustaka";
+
+"About" = "Kira-kira";
+
+"About New File Creation 2" = "Mengenai New File Creation 2";
+
+"Add" = "Tambah";
+
+"Add a file to use it as a template, or restore the included set." = "Tambahkan fail untuk menggunakannya sebagai templat atau pulihkan set yang disertakan.";
+
+"Add as Template" = "Tambah sebagai Templat";
+
+"Add Category" = "Tambah Kategori";
+
+"Add files as templates" = "Tambahkan fail sebagai templat";
+
+"Add files in Settings › Templates, assign categories, remove categories you no longer need, choose a sort order, or drag templates to the Desktop and Finder." = "Tambah fail dalam Tetapan › Templat, tetapkan kategori, alih keluar kategori yang anda tidak perlukan lagi, pilih susunan isihan atau seret templat ke Desktop dan Finder.";
+
+"Add Template" = "Tambah Templat";
+
+"Add Templates" = "Tambah Templat";
+
+"Add Template…" = "Tambah Templat…";
+
+"Add “Add as Template” for selected files" = "Tambah \"Tambah sebagai Templat\" untuk fail yang dipilih";
+
+"Add “New File” to Finder menus" = "Tambahkan “Fail Baharu” pada menu Finder";
+
+"Added %lu template" = "Menambahkan %lu templat";
+
+"Added %lu templates" = "Menambahkan %lu templat";
+
+"Add…" = "Tambah…";
+
+"Advanced" = "Lanjutan";
+
+"After creating" = "Selepas mencipta";
+
+"All Templates" = "Semua Templat";
+
+"Allow New File Creation 2 in System Settings › General › Login Items." = "Benarkan New File Creation 2 dalam Tetapan Sistem › Umum › Item Log Masuk.";
+
+"An unexpected error occurred." = "Ralat yang tidak dijangka berlaku.";
+
+"Application" = "Aplikasi";
+
+"Approval required" = "Kelulusan diperlukan";
+
+"Archives" = "Arkib";
+
+"Ask for a name" = "Minta nama";
+
+"Assign a global shortcut in Settings" = "Tetapkan pintasan global dalam Tetapan";
+
+"At a glance" = "Sepintas lalu";
+
+"Audio" = "Audio";
+
+"Bring All to Front" = "Bawa Semua ke Hadapan";
+
+"Cancel" = "Batal";
+
+"Categories" = "Kategori";
+
+"Category" = "Kategori";
+
+"Category:" = "Kategori:";
+
+"Choose" = "Pilih";
+
+"Choose a name and location for the new file" = "Pilih nama dan lokasi untuk fail baharu";
+
+"Choose files or packages to use as templates." = "Pilih fail atau pakej untuk digunakan sebagai templat.";
+
+"Choose Name and Location…" = "Pilih Nama dan Lokasi…";
+
+"Choose the folder where new files are created by default." = "Pilih folder tempat fail baharu dicipta secara lalai.";
+
+"Choose…" = "Pilih…";
+
+"Close" = "Tutup";
+
+"Code" = "Kod";
+
+"Command" = "Perintah";
+
+"Command-line tool" = "Alat baris perintah";
+
+"Configuration and command line" = "Tatarajah dan baris arahan";
+
+"Continue" = "Teruskan";
+
+"Control" = "Kawalan";
+
+"Copy" = "Salin";
+
+"Copyright © 2024–2026 Sergio Martinez-Losa\nMIT License" = "Hak Cipta © 2024–2026 Sergio Martinez-Losa\nLesen MIT";
+
+"Copyright © 2024–2026 Sergio Martinez-Losa. Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files, to deal in the Software without restriction." = "Hak Cipta © 2024–2026 Sergio Martinez-Losa. Kebenaran dengan ini diberikan, secara percuma, kepada mana-mana orang yang mendapatkan salinan perisian ini dan fail dokumentasi yang berkaitan, untuk berurusan dengan Perisian tanpa sekatan.";
+
+"Could not add the category" = "Tidak dapat menambah kategori";
+
+"Could not change the login item" = "Tidak dapat menukar item log masuk";
+
+"Could not create the file" = "Tidak dapat mencipta fail";
+
+"Could not enable the Finder extension" = "Tidak dapat mendayakan sambungan Finder";
+
+"Could not export the configuration" = "Tidak dapat mengeksport konfigurasi";
+
+"Could not import the configuration" = "Tidak dapat mengimport konfigurasi";
+
+"Could not install nfc" = "Tidak dapat memasang nfc";
+
+"Could not reset the configuration" = "Tidak dapat menetapkan semula konfigurasi";
+
+"Could not uninstall nfc" = "Tidak dapat menyahpasang nfc";
+
+"Create" = "Buat";
+
+"Create a file from a template in Finder, from the menu bar, from the template library, or with the nfc command." = "Buat fail daripada templat dalam Finder, daripada bar menu, daripada pustaka templat atau dengan arahan nfc.";
+
+"Create a new file from a template" = "Buat fail baharu daripada templat";
+
+"Create File" = "Buat Fail";
+
+"Create files from templates in Finder, from the menu bar, from the library, or with the nfc command.\n\n• ⌘N creates a file from the selected template.\n• ⇧⌘N lets you choose a name and location.\n• The menu bar icon opens templates and the quick panel.\n• Right-click in Finder for Finder menu items.\n• Run “nfc help” in Terminal for command-line usage." = "Buat fail daripada templat dalam Finder, daripada bar menu, daripada pustaka atau dengan arahan nfc.\n\n• ⌘N mencipta fail daripada templat yang dipilih.\n• ⇧⌘N membolehkan anda memilih nama dan lokasi.\n• Ikon bar menu membuka templat dan panel pantas.\n• Klik kanan dalam Finder untuk item menu Finder.\n• Jalankan \"bantuan nfc\" dalam Terminal untuk penggunaan baris arahan.";
+
+"Create files from templates in Finder, the menu bar, the library, and the command line." = "Buat fail daripada templat dalam Finder, bar menu, pustaka dan baris arahan.";
+
+"Create from Finder" = "Buat daripada Finder";
+
+"Create from the menu bar" = "Buat daripada bar menu";
+
+"Create immediately" = "Buat serta-merta";
+
+"Create in Default Folder" = "Buat dalam Folder Lalai";
+
+"Create the file in “%@”." = "Buat fail dalam “%@”.";
+
+"Create the selected template in the default folder" = "Buat templat yang dipilih dalam folder lalai";
+
+"Create with Name…" = "Buat dengan Nama…";
+
+"Created %@" = "Dibuat %@";
+
+"Creation:" = "Penciptaan:";
+
+"Cut" = "Potong";
+
+"Default folder:" = "Folder lalai:";
+
+"Default name:" = "Nama lalai:";
+
+"Default template:" = "Templat lalai:";
+
+"Desktop" = "Desktop";
+
+"Disabled templates do not appear in the app, the menu bar, or Finder menus." = "Templat yang dilumpuhkan tidak muncul dalam apl, bar menu atau menu Finder.";
+
+"Documents" = "Dokumen";
+
+"Drag a template row to Finder or the Desktop." = "Seret baris templat ke Finder atau Desktop.";
+
+"Drag a template to a folder or the Desktop." = "Seret templat ke dalam folder atau Desktop.";
+
+"Edit" = "Sunting";
+
+"Enable Extension" = "Dayakan Sambungan";
+
+"Enable the Finder extension, then right-click in a folder or on a file and choose New File. The new file is created in the folder you are browsing." = "Dayakan sambungan Finder, kemudian klik kanan dalam folder atau pada fail dan pilih Fail Baharu. Fail baharu dibuat dalam folder yang anda semak imbas.";
+
+"Enabled" = "Didayakan";
+
+"Enter a category name." = "Masukkan nama kategori.";
+
+"Enter Full Screen" = "Masuk Skrin Penuh";
+
+"Everything stays on your Mac. No network, analytics, or telemetry." = "Semuanya kekal pada Mac anda. Tiada rangkaian, analitik atau telemetri.";
+
+"Export…" = "Eksport…";
+
+"Extension: %@" = "Sambungan: %@";
+
+"Favorite" = "Kegemaran";
+
+"Favorites" = "Kegemaran";
+
+"File" = "Fail";
+
+"File type" = "Jenis fail";
+
+"Finder" = "Pencari";
+
+"Finder extension" = "Sambungan pencari";
+
+"Finder extension status unavailable" = "Status sambungan pencari tidak tersedia";
+
+"Finder extension: disabled" = "Sambungan pencari: dilumpuhkan";
+
+"Finder extension: enabled" = "Sambungan pencari: didayakan";
+
+"Finder extension: not registered. Build and open the app once." = "Sambungan pencari: tidak didaftarkan. Bina dan buka apl sekali.";
+
+"Finder extension: registered" = "Sambungan pencari: didaftarkan";
+
+"General" = "Umum";
+
+"Get Started" = "Mulakan";
+
+"Get Started…" = "Mulakan…";
+
+"Global shortcut:" = "Pintasan global:";
+
+"Global shortcut: %@" = "Pintasan global: %@";
+
+"Group templates by category" = "Kumpulkan templat mengikut kategori";
+
+"Help" = "Bantuan";
+
+"Help and getting started" = "Bantuan dan bermula";
+
+"Hide New File Creation 2" = "Sembunyikan New File Creation 2";
+
+"Hide Others" = "Sembunyikan Yang Lain";
+
+"Images" = "Imej";
+
+"Import…" = "Import…";
+
+"Inspector" = "Pemeriksa";
+
+"Install nfc" = "Pasang nfc";
+
+"Install nfc from Settings › Advanced, then run nfc create \"Text File\" in Terminal to create a file in the current folder." = "Pasang nfc daripada Tetapan › Lanjutan, kemudian jalankan nfc cipta \"Fail Teks\" dalam Terminal untuk mencipta fail dalam folder semasa.";
+
+"Installed at %@%@" = "Dipasang pada %@%@";
+
+"Keep the quick panel open after dropping a file" = "Pastikan panel pantas terbuka selepas menjatuhkan fail";
+
+"Last used" = "Terakhir digunakan";
+
+"Last used %@" = "Terakhir digunakan %@";
+
+"Launch at login requires macOS 13 or later." = "Pelancaran semasa log masuk memerlukan macOS 13 atau lebih baru.";
+
+"Launch New File Creation 2 at login" = "Lancarkan New File Creation 2 semasa log masuk";
+
+"Left-click the menu bar icon for Quick New File." = "Klik kiri ikon bar menu untuk Fail Baharu Pantas.";
+
+"Left-click the menu bar icon to open Quick New File. Search, press Return to create, or drag a row into Finder. Right-click for the full menu and Get Started." = "Klik kiri ikon bar menu untuk membuka Fail Baharu Pantas. Cari, tekan Return untuk mencipta atau seret satu baris ke dalam Finder. Klik kanan untuk menu penuh dan Bermula.";
+
+"Library" = "Perpustakaan";
+
+"Manage templates" = "Urus templat";
+
+"Manual order" = "Pesanan manual";
+
+"Menu bar icon (always available)" = "Ikon bar menu (sentiasa tersedia)";
+
+"Menu contents" = "Kandungan menu";
+
+"Minimize" = "Minimumkan";
+
+"MIT License" = "Lesen MIT";
+
+"Most used" = "Paling digunakan";
+
+"Name" = "Nama";
+
+"New %@" = "%@ baharu";
+
+"New category" = "Kategori baharu";
+
+"New File" = "Fail Baharu";
+
+"New File Creation 2" = "New File Creation 2";
+
+"New File Creation 2 could not load its configuration" = "New File Creation 2 tidak dapat memuat konfigurasi";
+
+"New File Creation 2 Help" = "Bantuan New File Creation 2";
+
+"New File Creation 2 keeps your reusable templates in one place and creates a fresh copy wherever you are working. Everything runs locally on your Mac." = "New File Creation 2 menyimpan templat boleh guna semula anda di satu tempat dan membuat salinan baharu di mana sahaja anda bekerja. Segalanya dijalankan secara tempatan di Mac anda.";
+
+"New files" = "Fail baharu";
+
+"New File…" = "Fail Baharu…";
+
+"No accounts, network requests, analytics, or telemetry. The app, Finder extension, Today widget, and nfc helper share one local configuration folder." = "Tiada akaun, permintaan rangkaian, analitik atau telemetri. Apl, sambungan Finder, widget Today dan nfc helper berkongsi satu folder konfigurasi setempat.";
+
+"no extension" = "tiada sambungan";
+
+"No matching templates" = "Tiada templat yang sepadan";
+
+"No Templates" = "Tiada Templat";
+
+"No templates" = "Tiada templat";
+
+"No templates to show" = "Tiada templat untuk dipaparkan";
+
+"None" = "Tiada";
+
+"Not found; move the app to /Applications" = "Tidak ditemui; alihkan apl ke /Application";
+
+"Not installed. The bundled helper is at Contents/Helpers/nfc." = "Tidak dipasang. Pembantu yang dibundel berada di Contents/Helpers/nfc.";
+
+"Not registered" = "Tidak berdaftar";
+
+"OK" = "OK";
+
+"On" = "Hidup";
+
+"Open Library" = "Buka Pustaka";
+
+"Open New File Creation 2 once, then try the Finder menu again." = "Buka New File Creation 2 sekali, kemudian cuba menu Finder sekali lagi.";
+
+"Open Settings" = "Buka Tetapan";
+
+"Open System Settings and enable “New File Creation 2 Finder” manually." = "Buka Tetapan Sistem dan aktifkan “Finder New File Creation 2” secara manual.";
+
+"Open System Settings…" = "Buka Tetapan Sistem…";
+
+"Open Template Library" = "Buka Pustaka Templat";
+
+"Open Templates Folder" = "Buka Folder Templat";
+
+"Open the new file after creating it" = "Buka fail baharu selepas menciptanya";
+
+"Option" = "Pilihan";
+
+"Other" = "Lain-lain";
+
+"Paste" = "Tampal";
+
+"Play a sound after creating a file" = "Mainkan bunyi selepas mencipta fail";
+
+"Presentations" = "Persembahan";
+
+"Private by design" = "Persendirian mengikut reka bentuk";
+
+"Quick New File" = "Fail Baharu Pantas";
+
+"Quick New File…" = "Fail Baharu Pantas…";
+
+"Quit New File Creation 2" = "Keluar dari New File Creation 2";
+
+"Recent" = "Baru-baru ini";
+
+"Redo" = "Buat semula";
+
+"Remove" = "Alih keluar";
+
+"Remove Category" = "Alih keluar Kategori";
+
+"Remove Favorite" = "Alih keluar Kegemaran";
+
+"Remove Template…" = "Alih keluar Templat…";
+
+"Remove the “%@” category?" = "Alih keluar kategori \"%@\"?";
+
+"Remove “%@”?" = "Alih keluar “%@”?";
+
+"Remove…" = "Alih keluar…";
+
+"Rename" = "Namakan semula";
+
+"Rename Template" = "Namakan semula Templat";
+
+"Rename…" = "Namakan semula…";
+
+"Requires approval in System Settings" = "Memerlukan kelulusan dalam Tetapan Sistem";
+
+"Reset" = "Tetapkan semula";
+
+"Reset Configuration…" = "Tetapkan Semula Konfigurasi…";
+
+"Reset the configuration?" = "Tetapkan semula konfigurasi?";
+
+"Return creates the selected template." = "Return mencipta templat yang dipilih.";
+
+"Reveal Config" = "Dedahkan Konfigurasi";
+
+"Reveal in Finder" = "Dedahkan dalam Finder";
+
+"Reveal Log" = "Dedahkan Log";
+
+"Reveal Selected Template" = "Dedahkan Templat Yang Dipilih";
+
+"Reveal Template" = "Dedahkan Templat";
+
+"Reveal the new file in Finder" = "Dedahkan fail baharu dalam Finder";
+
+"Right-click in Finder and choose New File from the template list." = "Klik kanan dalam Finder dan pilih Fail Baharu daripada senarai templat.";
+
+"Run nfc create \"Text File\" to make a file anywhere." = "Jalankan nfc create \"Fail Teks\" untuk membuat fail di mana-mana sahaja.";
+
+"Search" = "Cari";
+
+"Search Templates" = "Templat Carian";
+
+"Search templates" = "Cari templat";
+
+"Select a template" = "Pilih templat";
+
+"Select All" = "Pilih Semua";
+
+"Services" = "Perkhidmatan";
+
+"Set as Default" = "Tetapkan sebagai Lalai";
+
+"Settings" = "Tetapan";
+
+"Settings and the template library are reset. Template files in the Templates folder are kept." = "Tetapan dan pustaka templat ditetapkan semula. Fail templat dalam folder Templat disimpan.";
+
+"Settings › Finder enables Finder menus." = "Tetapan › Finder mendayakan menu Finder.";
+
+"Settings › Help explains every workflow." = "Tetapan › Bantuan menerangkan setiap aliran kerja.";
+
+"Settings › Templates manages categories and sorting." = "Tetapan › Templat mengurus kategori dan pengisihan.";
+
+"Settings…" = "Tetapan…";
+
+"Shift" = "Anjakan";
+
+"Show" = "Tunjukkan";
+
+"Show a confirmation in the app window" = "Tunjukkan pengesahan dalam tetingkap apl";
+
+"Show All" = "Tunjukkan Semua";
+
+"Show favorites first" = "Tunjukkan kegemaran dahulu";
+
+"Show Get Started" = "Tunjukkan Bermula";
+
+"Show Get Started details" = "Tunjukkan butiran Bermula";
+
+"Show or Hide Inspector" = "Tunjukkan atau Sembunyikan Pemeriksa";
+
+"Show or Hide Sidebar" = "Tunjukkan atau Sembunyikan Bar Sisi";
+
+"Show or hide the inspector" = "Tunjukkan atau sembunyikan pemeriksa";
+
+"Show template icons" = "Tunjukkan ikon templat";
+
+"Show the menu bar icon" = "Tunjukkan ikon bar menu";
+
+"Show Welcome" = "Tunjukkan Selamat Datang";
+
+"Show Welcome Again" = "Tunjukkan Selamat Datang Lagi";
+
+"Sort by:" = "Isih mengikut:";
+
+"Sound:" = "Bunyi:";
+
+"Spreadsheets" = "Hamparan";
+
+"Template: %@" = "Templat: %@";
+
+"Templates" = "Templat";
+
+"Templates included in the library" = "Templat disertakan dalam perpustakaan";
+
+"The app and nfc coordinate writes with a lock and atomic replacement. The Finder extension reads the configuration only." = "Apl dan koordinat nfc menulis dengan kunci dan penggantian atom. Sambungan Finder membaca konfigurasi sahaja.";
+
+"The bundled nfc helper is missing. Rebuild or reinstall the app." = "Pembantu nfc yang digabungkan hilang. Bina semula atau pasang semula apl.";
+
+"The category will be removed from the library." = "Kategori akan dialih keluar daripada perpustakaan.";
+
+"The configuration is damaged." = "Konfigurasi rosak.";
+
+"The default name is used by the app, the Finder extension, and the nfc command. Existing files are never overwritten." = "Nama lalai digunakan oleh apl, sambungan Finder dan arahan nfc. Fail sedia ada tidak pernah ditimpa.";
+
+"The existing nfc is not a symlink managed by this app." = "Nfc sedia ada bukan pautan sym yang diurus oleh apl ini.";
+
+"The file is not valid JSON." = "Fail itu bukan JSON yang sah.";
+
+"The Finder extension could not be enabled" = "Sambungan Finder tidak dapat didayakan";
+
+"The Finder extension reads the shared configuration and creates files in the selected folder. If the extension is not listed, open System Settings › General › Login Items & Extensions › Finder Extensions." = "Sambungan Finder membaca konfigurasi kongsi dan mencipta fail dalam folder yang dipilih. Jika sambungan tidak disenaraikan, buka Tetapan Sistem › Umum › Item Log Masuk & Sambungan › Sambungan Pencari.";
+
+"The menu bar icon stays available so you can always create files." = "Ikon bar menu kekal tersedia supaya anda sentiasa boleh membuat fail.";
+
+"The shortcut could not be registered (Carbon error %d). It may conflict with another app." = "Pintasan tidak dapat didaftarkan (Ralat karbon %d). Ia mungkin bercanggah dengan apl lain.";
+
+"The shortcut is unavailable" = "Pintasan tidak tersedia";
+
+"The template file keeps its current name. This changes the display name only." = "Fail templat mengekalkan nama semasanya. Ini menukar nama paparan sahaja.";
+
+"The template is removed from the library and its file is moved to Trash." = "Templat dialih keluar daripada pustaka dan failnya dialihkan ke Sampah.";
+
+"The template “%@” was not found." = "Templat “%@” tidak ditemui.";
+
+"Tip: the global shortcut opens Quick New File from any app. Change it in Settings › General." = "Petua: pintasan global membuka Fail Baharu Pantas daripada mana-mana apl. Tukarnya dalam Tetapan › Umum.";
+
+"Unavailable" = "Tidak tersedia";
+
+"Undo" = "Buat asal";
+
+"Uninstall nfc" = "Nyahpasang nfc";
+
+"Unsupported shortcut key “%@”." = "Kunci pintasan tidak disokong \"%@\".";
+
+"Untitled" = "Tidak bertajuk";
+
+"Use the command line" = "Gunakan baris arahan";
+
+"Use the menu bar icon or the global shortcut for the quick panel." = "Gunakan ikon bar menu atau pintasan global untuk panel pantas.";
+
+"Used %ld time" = "Digunakan %ld masa";
+
+"Used %ld times" = "Digunakan %ld kali";
+
+"Version %@" = "Versi %@";
+
+"Video" = "Video";
+
+"View" = "Lihat";
+
+"View License" = "Lihat Lesen";
+
+"Welcome to New File Creation 2" = "Selamat datang ke New File Creation 2";
+
+"Window" = "Tetingkap";
+
+"You can reopen this window from Settings › Help or from the menu bar." = "Anda boleh membuka semula tetingkap ini daripada Tetapan › Bantuan atau daripada bar menu.";
+
+"Zoom" = "Zum";
+
+"↩ Create file    ⠿ Drag to Finder    esc Close" = "↩ Cipta fail ⠿ Seret ke Finder esc Close";

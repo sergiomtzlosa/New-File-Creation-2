@@ -1,0 +1,545 @@
+/* nl localization. Generated from the English source strings. */
+
+" (not on PATH)" = " (not on PATH)";
+
+"%@ (%@)\nDouble-click to create a file." = "%@ (%@)\nDubbelklik om een bestand te maken.";
+
+"%@ already exists and is not a symlink. Remove it manually or choose another location." = "%@ bestaat al en is geen symbolische link. Verwijder het handmatig of kies een andere locatie.";
+
+"%@ template" = "%@ sjabloon";
+
+"%@ template, drag to create a file" = "%@ sjabloon, sleep om een bestand te maken";
+
+"%@ — drag to create %@" = "%@ — sleep om %@ te maken";
+
+"%ld template(s) will move to Other." = "%ld sjabloon(s) wordt verplaatst naar Overige.";
+
+"%lu templates in the library" = "%lu sjablonen in de bibliotheek";
+
+"About" = "Over";
+
+"About New File Creation 2" = "Over New File Creation 2";
+
+"Add" = "Toevoegen";
+
+"Add a file to use it as a template, or restore the included set." = "Voeg een bestand toe om het als sjabloon te gebruiken, of herstel de meegeleverde set.";
+
+"Add as Template" = "Toevoegen als sjabloon";
+
+"Add Category" = "Categorie toevoegen";
+
+"Add files as templates" = "Bestanden toevoegen als sjablonen";
+
+"Add files in Settings › Templates, assign categories, remove categories you no longer need, choose a sort order, or drag templates to the Desktop and Finder." = "Voeg bestanden toe in Instellingen › Sjablonen, wijs categorieën toe, verwijder categorieën die je niet langer nodig hebt, kies een sorteervolgorde of sleep sjablonen naar het bureaublad en de Finder.";
+
+"Add Template" = "Sjabloon toevoegen";
+
+"Add Templates" = "Sjablonen toevoegen";
+
+"Add Template…" = "Sjabloon toevoegen…";
+
+"Add “Add as Template” for selected files" = "Voeg “Toevoegen als sjabloon” toe voor geselecteerde bestanden";
+
+"Add “New File” to Finder menus" = "Voeg “Nieuw bestand” toe aan Finder-menu’s";
+
+"Added %lu template" = "%lu-sjabloon toegevoegd";
+
+"Added %lu templates" = "%lu-sjablonen toegevoegd";
+
+"Add…" = "Toevoegen…";
+
+"Advanced" = "Geavanceerd";
+
+"After creating" = "Na het maken";
+
+"All Templates" = "Alle sjablonen";
+
+"Allow New File Creation 2 in System Settings › General › Login Items." = "Sta New File Creation 2 toe in Systeeminstellingen › Algemeen › Inlogitems.";
+
+"An unexpected error occurred." = "Er heeft zich een onverwachte fout voorgedaan.";
+
+"Application" = "Toepassing";
+
+"Approval required" = "Goedkeuring vereist";
+
+"Archives" = "Archieven";
+
+"Ask for a name" = "Vraag om een naam";
+
+"Assign a global shortcut in Settings" = "Wijs een algemene snelkoppeling toe in Instellingen";
+
+"At a glance" = "In één oogopslag";
+
+"Audio" = "Audio";
+
+"Bring All to Front" = "Breng alles naar voren";
+
+"Cancel" = "Annuleren";
+
+"Categories" = "Categorieën";
+
+"Category" = "Categorie";
+
+"Category:" = "Categorie:";
+
+"Choose" = "Kies";
+
+"Choose a name and location for the new file" = "Kies een naam en locatie voor het nieuwe bestand";
+
+"Choose files or packages to use as templates." = "Kies bestanden of pakketten om als sjablonen te gebruiken.";
+
+"Choose Name and Location…" = "Kies naam en locatie…";
+
+"Choose the folder where new files are created by default." = "Kies de map waarin standaard nieuwe bestanden worden aangemaakt.";
+
+"Choose…" = "Kies…";
+
+"Close" = "Sluiten";
+
+"Code" = "Code";
+
+"Command" = "Opdracht";
+
+"Command-line tool" = "Opdrachtregeltool";
+
+"Configuration and command line" = "Configuratie en opdrachtregel";
+
+"Continue" = "Ga verder";
+
+"Control" = "Controle";
+
+"Copy" = "Kopiëren";
+
+"Copyright © 2024–2026 Sergio Martinez-Losa\nMIT License" = "Copyright © 2024–2026 Sergio Martinez-Losa\nMIT-licentie";
+
+"Copyright © 2024–2026 Sergio Martinez-Losa. Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files, to deal in the Software without restriction." = "Copyright © 2024–2026 Sergio Martinez-Losa. Hierbij wordt kosteloos toestemming verleend aan iedere persoon die een kopie van deze software en bijbehorende documentatiebestanden verkrijgt, om zonder beperking in de Software te handelen.";
+
+"Could not add the category" = "Kan de categorie niet toevoegen";
+
+"Could not change the login item" = "Kan het login-item niet wijzigen";
+
+"Could not create the file" = "Kan het bestand niet maken";
+
+"Could not enable the Finder extension" = "Kan de Finder-extensie niet inschakelen";
+
+"Could not export the configuration" = "Kon de configuratie niet exporteren";
+
+"Could not import the configuration" = "Kan de configuratie niet importeren";
+
+"Could not install nfc" = "Kan NFC niet installeren";
+
+"Could not reset the configuration" = "Kan de configuratie niet resetten";
+
+"Could not uninstall nfc" = "Kan NFC niet verwijderen";
+
+"Create" = "Maken";
+
+"Create a file from a template in Finder, from the menu bar, from the template library, or with the nfc command." = "Maak een bestand op basis van een sjabloon in Finder, vanuit de menubalk, vanuit de sjabloonbibliotheek of met de nfc-opdracht.";
+
+"Create a new file from a template" = "Maak een nieuw bestand op basis van een sjabloon";
+
+"Create File" = "Bestand maken";
+
+"Create files from templates in Finder, from the menu bar, from the library, or with the nfc command.\n\n• ⌘N creates a file from the selected template.\n• ⇧⌘N lets you choose a name and location.\n• The menu bar icon opens templates and the quick panel.\n• Right-click in Finder for Finder menu items.\n• Run “nfc help” in Terminal for command-line usage." = "Maak bestanden van sjablonen in Finder, vanuit de menubalk, vanuit de bibliotheek of met de nfc-opdracht.\n\n• ⌘N maakt een bestand aan van de geselecteerde sjabloon.\n• Met ⇧⌘N kun je een naam en locatie kiezen.\n• Het menubalkpictogram opent sjablonen en het snelpaneel.\n• Klik met de rechtermuisknop in Finder voor Finder-menu-items.\n• Voer “nfc help” uit in Terminal voor gebruik via de opdrachtregel.";
+
+"Create files from templates in Finder, the menu bar, the library, and the command line." = "Maak bestanden van sjablonen in Finder, de menubalk, de bibliotheek en de opdrachtregel.";
+
+"Create from Finder" = "Maak vanuit Finder";
+
+"Create from the menu bar" = "Maak vanuit de menubalk";
+
+"Create immediately" = "Onmiddellijk maken";
+
+"Create in Default Folder" = "Maken in standaardmap";
+
+"Create the file in “%@”." = "Maak het bestand in “%@”.";
+
+"Create the selected template in the default folder" = "Maak de geselecteerde sjabloon in de standaardmap";
+
+"Create with Name…" = "Maken met naam…";
+
+"Created %@" = "%@ gemaakt";
+
+"Creation:" = "Creatie:";
+
+"Cut" = "Knippen";
+
+"Default folder:" = "Standaardmap:";
+
+"Default name:" = "Standaardnaam:";
+
+"Default template:" = "Standaardsjabloon:";
+
+"Desktop" = "Bureaublad";
+
+"Disabled templates do not appear in the app, the menu bar, or Finder menus." = "Uitgeschakelde sjablonen verschijnen niet in de app, de menubalk of Finder-menu's.";
+
+"Documents" = "Documenten";
+
+"Drag a template row to Finder or the Desktop." = "Sleep een sjabloonrij naar Finder of het bureaublad.";
+
+"Drag a template to a folder or the Desktop." = "Sleep een sjabloon naar een map of het bureaublad.";
+
+"Edit" = "Bewerken";
+
+"Enable Extension" = "Extensie inschakelen";
+
+"Enable the Finder extension, then right-click in a folder or on a file and choose New File. The new file is created in the folder you are browsing." = "Schakel de Finder-extensie in, klik vervolgens met de rechtermuisknop in een map of op een bestand en kies Nieuw bestand. Het nieuwe bestand wordt gemaakt in de map waarin u bladert.";
+
+"Enabled" = "Ingeschakeld";
+
+"Enter a category name." = "Voer een categorienaam in.";
+
+"Enter Full Screen" = "Ga naar volledig scherm";
+
+"Everything stays on your Mac. No network, analytics, or telemetry." = "Alles blijft op je Mac. Geen netwerk, analyse of telemetrie.";
+
+"Export…" = "Exporteren…";
+
+"Extension: %@" = "Extensie: %@";
+
+"Favorite" = "Favoriet";
+
+"Favorites" = "Favorieten";
+
+"File" = "Bestand";
+
+"File type" = "Bestandstype";
+
+"Finder" = "Vinder";
+
+"Finder extension" = "Finder-extensie";
+
+"Finder extension status unavailable" = "Finder-extensiestatus niet beschikbaar";
+
+"Finder extension: disabled" = "Finder-extensie: uitgeschakeld";
+
+"Finder extension: enabled" = "Finder-extensie: ingeschakeld";
+
+"Finder extension: not registered. Build and open the app once." = "Finder-extensie: niet geregistreerd. Bouw en open de app één keer.";
+
+"Finder extension: registered" = "Finder-extensie: geregistreerd";
+
+"General" = "Algemeen";
+
+"Get Started" = "Aan de slag";
+
+"Get Started…" = "Aan de slag…";
+
+"Global shortcut:" = "Algemene snelkoppeling:";
+
+"Global shortcut: %@" = "Algemene snelkoppeling: %@";
+
+"Group templates by category" = "Groepeer sjablonen op categorie";
+
+"Help" = "Hulp";
+
+"Help and getting started" = "Hulp en aan de slag";
+
+"Hide New File Creation 2" = "Verberg New File Creation 2";
+
+"Hide Others" = "Verberg anderen";
+
+"Images" = "Afbeeldingen";
+
+"Import…" = "Importeren…";
+
+"Inspector" = "Inspecteur";
+
+"Install nfc" = "NFC installeren";
+
+"Install nfc from Settings › Advanced, then run nfc create \"Text File\" in Terminal to create a file in the current folder." = "Installeer nfc via Instellingen › Geavanceerd en voer vervolgens nfc create \"Text File\" uit in Terminal om een bestand in de huidige map te maken.";
+
+"Installed at %@%@" = "Geïnstalleerd op %@%@";
+
+"Keep the quick panel open after dropping a file" = "Houd het snelpaneel open nadat u een bestand hebt neergezet";
+
+"Last used" = "Laatst gebruikt";
+
+"Last used %@" = "Laatst gebruikt %@";
+
+"Launch at login requires macOS 13 or later." = "Voor starten bij inloggen is macOS 13 of hoger vereist.";
+
+"Launch New File Creation 2 at login" = "Start New File Creation 2 bij het inloggen";
+
+"Left-click the menu bar icon for Quick New File." = "Klik met de linkermuisknop op het menubalkpictogram voor Snel nieuw bestand.";
+
+"Left-click the menu bar icon to open Quick New File. Search, press Return to create, or drag a row into Finder. Right-click for the full menu and Get Started." = "Klik met de linkermuisknop op het menubalkpictogram om Snel nieuw bestand te openen. Zoek, druk op Return om een ​​rij te maken of sleep een rij naar Finder. Klik met de rechtermuisknop voor het volledige menu en ga aan de slag.";
+
+"Library" = "Bibliotheek";
+
+"Manage templates" = "Beheer sjablonen";
+
+"Manual order" = "Handmatige bestelling";
+
+"Menu bar icon (always available)" = "Menubalkpictogram (altijd beschikbaar)";
+
+"Menu contents" = "Menu-inhoud";
+
+"Minimize" = "Minimaliseren";
+
+"MIT License" = "MIT-licentie";
+
+"Most used" = "Meest gebruikt";
+
+"Name" = "Naam";
+
+"New %@" = "Nieuw %@";
+
+"New category" = "Nieuwe categorie";
+
+"New File" = "Nieuw bestand";
+
+"New File Creation 2" = "New File Creation 2";
+
+"New File Creation 2 could not load its configuration" = "New File Creation 2 kon zijn configuratie niet laden";
+
+"New File Creation 2 Help" = "Help van New File Creation 2";
+
+"New File Creation 2 keeps your reusable templates in one place and creates a fresh copy wherever you are working. Everything runs locally on your Mac." = "New File Creation 2 houdt je herbruikbare sjablonen op één plek en maakt een nieuwe kopie waar je ook aan het werk bent. Alles draait lokaal op je Mac.";
+
+"New files" = "Nieuwe bestanden";
+
+"New File…" = "Nieuw bestand…";
+
+"No accounts, network requests, analytics, or telemetry. The app, Finder extension, Today widget, and nfc helper share one local configuration folder." = "Geen accounts, netwerkverzoeken, analyses of telemetrie. De app, Finder-extensie, Today-widget en nfc-helper delen één lokale configuratiemap.";
+
+"no extension" = "geen extensie";
+
+"No matching templates" = "Geen overeenkomende sjablonen";
+
+"No Templates" = "Geen sjablonen";
+
+"No templates" = "Geen sjablonen";
+
+"No templates to show" = "Geen sjablonen om te tonen";
+
+"None" = "Geen";
+
+"Not found; move the app to /Applications" = "Niet gevonden; verplaats de app naar /Applicaties";
+
+"Not installed. The bundled helper is at Contents/Helpers/nfc." = "Niet geïnstalleerd. De gebundelde helper bevindt zich op Contents/Helpers/nfc.";
+
+"Not registered" = "Niet geregistreerd";
+
+"OK" = "Oké";
+
+"On" = "Aan";
+
+"Open Library" = "Bibliotheek openen";
+
+"Open New File Creation 2 once, then try the Finder menu again." = "Open New File Creation 2 één keer, en probeer dan opnieuw het Finder-menu.";
+
+"Open Settings" = "Open Instellingen";
+
+"Open System Settings and enable “New File Creation 2 Finder” manually." = "Open Systeeminstellingen en schakel “New File Creation 2 Finder” handmatig in.";
+
+"Open System Settings…" = "Systeeminstellingen openen...";
+
+"Open Template Library" = "Open de sjabloonbibliotheek";
+
+"Open Templates Folder" = "Open de map Sjablonen";
+
+"Open the new file after creating it" = "Open het nieuwe bestand nadat u het hebt gemaakt";
+
+"Option" = "Optie";
+
+"Other" = "Anders";
+
+"Paste" = "Plakken";
+
+"Play a sound after creating a file" = "Speel een geluid af nadat je een bestand hebt gemaakt";
+
+"Presentations" = "Presentaties";
+
+"Private by design" = "Privé door ontwerp";
+
+"Quick New File" = "Snel nieuw bestand";
+
+"Quick New File…" = "Snel nieuw bestand…";
+
+"Quit New File Creation 2" = "Stop New File Creation 2";
+
+"Recent" = "Recent";
+
+"Redo" = "Opnieuw uitvoeren";
+
+"Remove" = "Verwijderen";
+
+"Remove Category" = "Categorie verwijderen";
+
+"Remove Favorite" = "Favoriet verwijderen";
+
+"Remove Template…" = "Sjabloon verwijderen…";
+
+"Remove the “%@” category?" = "De categorie “%@” verwijderen?";
+
+"Remove “%@”?" = "“%@” verwijderen?";
+
+"Remove…" = "Verwijderen…";
+
+"Rename" = "Hernoemen";
+
+"Rename Template" = "Hernoem sjabloon";
+
+"Rename…" = "Hernoemen…";
+
+"Requires approval in System Settings" = "Vereist goedkeuring in Systeeminstellingen";
+
+"Reset" = "Resetten";
+
+"Reset Configuration…" = "Configuratie resetten…";
+
+"Reset the configuration?" = "De configuratie resetten?";
+
+"Return creates the selected template." = "Return maakt de geselecteerde sjabloon aan.";
+
+"Reveal Config" = "Reveal-config";
+
+"Reveal in Finder" = "Onthullen in Finder";
+
+"Reveal Log" = "Onthullingslogboek";
+
+"Reveal Selected Template" = "Onthul de geselecteerde sjabloon";
+
+"Reveal Template" = "Onthul sjabloon";
+
+"Reveal the new file in Finder" = "Onthul het nieuwe bestand in Finder";
+
+"Right-click in Finder and choose New File from the template list." = "Klik met de rechtermuisknop in Finder en kies Nieuw bestand in de sjablonenlijst.";
+
+"Run nfc create \"Text File\" to make a file anywhere." = "Voer nfc create \"Text File\" uit om waar dan ook een bestand te maken.";
+
+"Search" = "Zoeken";
+
+"Search Templates" = "Zoeksjablonen";
+
+"Search templates" = "Zoek sjablonen";
+
+"Select a template" = "Selecteer een sjabloon";
+
+"Select All" = "Selecteer alles";
+
+"Services" = "Diensten";
+
+"Set as Default" = "Instellen als standaard";
+
+"Settings" = "Instellingen";
+
+"Settings and the template library are reset. Template files in the Templates folder are kept." = "Instellingen en de sjabloonbibliotheek zijn gereset. Sjabloonbestanden in de map Sjablonen blijven behouden.";
+
+"Settings › Finder enables Finder menus." = "Instellingen › Finder schakelt Finder-menu's in.";
+
+"Settings › Help explains every workflow." = "Instellingen › Help legt elke workflow uit.";
+
+"Settings › Templates manages categories and sorting." = "Instellingen › Sjablonen beheert categorieën en sortering.";
+
+"Settings…" = "Instellingen…";
+
+"Shift" = "Verschuiving";
+
+"Show" = "Toon";
+
+"Show a confirmation in the app window" = "Toon een bevestiging in het app-venster";
+
+"Show All" = "Alles tonen";
+
+"Show favorites first" = "Toon eerst favorieten";
+
+"Show Get Started" = "Toon Aan de slag";
+
+"Show Get Started details" = "Toon 'Aan de slag'-details";
+
+"Show or Hide Inspector" = "Inspecteur tonen of verbergen";
+
+"Show or Hide Sidebar" = "Zijbalk tonen of verbergen";
+
+"Show or hide the inspector" = "Toon of verberg de inspecteur";
+
+"Show template icons" = "Sjabloonpictogrammen weergeven";
+
+"Show the menu bar icon" = "Toon het menubalkpictogram";
+
+"Show Welcome" = "Toon welkom";
+
+"Show Welcome Again" = "Toon Welkom opnieuw";
+
+"Sort by:" = "Sorteren op:";
+
+"Sound:" = "Geluid:";
+
+"Spreadsheets" = "Spreadsheets";
+
+"Template: %@" = "Sjabloon: %@";
+
+"Templates" = "Sjablonen";
+
+"Templates included in the library" = "Sjablonen opgenomen in de bibliotheek";
+
+"The app and nfc coordinate writes with a lock and atomic replacement. The Finder extension reads the configuration only." = "De app en NFC-coördinaat schrijven met een vergrendeling en atomaire vervanging. De Finder-extensie leest alleen de configuratie.";
+
+"The bundled nfc helper is missing. Rebuild or reinstall the app." = "De gebundelde NFC-helper ontbreekt. Herbouw of installeer de app opnieuw.";
+
+"The category will be removed from the library." = "De categorie wordt uit de bibliotheek verwijderd.";
+
+"The configuration is damaged." = "De configuratie is beschadigd.";
+
+"The default name is used by the app, the Finder extension, and the nfc command. Existing files are never overwritten." = "De standaardnaam wordt gebruikt door de app, de Finder-extensie en de nfc-opdracht. Bestaande bestanden worden nooit overschreven.";
+
+"The existing nfc is not a symlink managed by this app." = "De bestaande NFC is geen symlink die door deze app wordt beheerd.";
+
+"The file is not valid JSON." = "Het bestand is geen geldige JSON.";
+
+"The Finder extension could not be enabled" = "De Finder-extensie kan niet worden ingeschakeld";
+
+"The Finder extension reads the shared configuration and creates files in the selected folder. If the extension is not listed, open System Settings › General › Login Items & Extensions › Finder Extensions." = "De Finder-extensie leest de gedeelde configuratie en maakt bestanden aan in de geselecteerde map. Als de extensie niet in de lijst staat, opent u Systeeminstellingen › Algemeen › Inlogitems en extensies › Finder-extensies.";
+
+"The menu bar icon stays available so you can always create files." = "Het menubalkpictogram blijft beschikbaar, zodat u altijd bestanden kunt maken.";
+
+"The shortcut could not be registered (Carbon error %d). It may conflict with another app." = "De snelkoppeling kon niet worden geregistreerd (koolstoffout %d). Het kan conflicteren met een andere app.";
+
+"The shortcut is unavailable" = "De snelkoppeling is niet beschikbaar";
+
+"The template file keeps its current name. This changes the display name only." = "Het sjabloonbestand behoudt zijn huidige naam. Hierdoor wordt alleen de weergavenaam gewijzigd.";
+
+"The template is removed from the library and its file is moved to Trash." = "De sjabloon wordt uit de bibliotheek verwijderd en het bestand wordt naar de prullenmand verplaatst.";
+
+"The template “%@” was not found." = "De sjabloon “%@” is niet gevonden.";
+
+"Tip: the global shortcut opens Quick New File from any app. Change it in Settings › General." = "Tip: de algemene snelkoppeling opent Snel Nieuw Bestand vanuit elke app. Wijzig dit in Instellingen › Algemeen.";
+
+"Unavailable" = "Niet beschikbaar";
+
+"Undo" = "Ongedaan maken";
+
+"Uninstall nfc" = "NFC verwijderen";
+
+"Unsupported shortcut key “%@”." = "Niet-ondersteunde sneltoets “%@”.";
+
+"Untitled" = "Zonder titel";
+
+"Use the command line" = "Gebruik de opdrachtregel";
+
+"Use the menu bar icon or the global shortcut for the quick panel." = "Gebruik het menubalkpictogram of de algemene snelkoppeling voor het snelpaneel.";
+
+"Used %ld time" = "%ld tijd gebruikt";
+
+"Used %ld times" = "%ld keer gebruikt";
+
+"Version %@" = "Versie %@";
+
+"Video" = "Video";
+
+"View" = "Bekijken";
+
+"View License" = "Licentie bekijken";
+
+"Welcome to New File Creation 2" = "Welkom bij New File Creation 2";
+
+"Window" = "Venster";
+
+"You can reopen this window from Settings › Help or from the menu bar." = "Je kunt dit venster opnieuw openen via Instellingen › Help of via de menubalk.";
+
+"Zoom" = "Zoom";
+
+"↩ Create file    ⠿ Drag to Finder    esc Close" = "↩ Bestand maken ⠿ Sleep naar Finder esc Sluiten";

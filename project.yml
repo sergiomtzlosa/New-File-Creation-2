@@ -5,7 +5,7 @@ options:
     macOS: "13.0"
   createIntermediateGroups: true
   developmentLanguage: en
-  knownRegions: [en, es, Base]
+  knownRegions: [en, ar, ca, da, de, el, es, eu-ES, fi, fr, gl, hi, id, is-IS, it, ja, ko, ms, nb, nl, pl, pt-PT, ro, ru, sv, tr, zh-Hans, zh-Hant, Base]
 settings:
   base:
     CODE_SIGN_STYLE: Manual
@@ -67,6 +67,9 @@ targets:
       - target: NewFileCreation2Finder
         embed: true
         codeSign: true
+      - target: NewFileCreation2Today
+        embed: true
+        codeSign: true
       - target: NewFileCreation2CLI
         embed: true
         link: false
@@ -113,6 +116,30 @@ targets:
         APPLICATION_EXTENSION_API_ONLY: YES
         SKIP_INSTALL: YES
         LD_RUNPATH_SEARCH_PATHS: "$(inherited) @executable_path/../../../../Frameworks"
+  NewFileCreation2Today:
+    type: app-extension
+    platform: macOS
+    sources:
+      - path: NewFileCreation2Today
+        excludes: [Info.plist, NewFileCreation2Today.entitlements]
+      - path: NewFileCreation2Shared
+      - path: NewFileCreation2App/Resources
+        excludes: [.DS_Store]
+    dependencies:
+      - sdk: AppKit.framework
+      - sdk: Foundation.framework
+      - sdk: NotificationCenter.framework
+      - sdk: UniformTypeIdentifiers.framework
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.sid.newfilecreation2.today
+        PRODUCT_NAME: "New File Creation 2 Today"
+        INFOPLIST_FILE: NewFileCreation2Today/Info.plist
+        CODE_SIGN_ENTITLEMENTS: NewFileCreation2Today/NewFileCreation2Today.entitlements
+        GENERATE_INFOPLIST_FILE: NO
+        APPLICATION_EXTENSION_API_ONLY: YES
+        SKIP_INSTALL: YES
+        LD_RUNPATH_SEARCH_PATHS: "$(inherited) @executable_path/../../../../Frameworks"
   NewFileCreation2CLI:
     type: tool
     platform: macOS
@@ -153,7 +180,7 @@ targets:
         MACOSX_DEPLOYMENT_TARGET: "14.0"
         TEST_HOST: "$(BUILT_PRODUCTS_DIR)/New File Creation 2.app/Contents/MacOS/New File Creation 2"
         BUNDLE_LOADER: "$(TEST_HOST)"
-        HEADER_SEARCH_PATHS: "$(inherited) $(SRCROOT)/NewFileCreation2Shared $(SRCROOT)/NewFileCreation2Shared/Models $(SRCROOT)/NewFileCreation2Shared/Store $(SRCROOT)/NewFileCreation2Shared/Config $(SRCROOT)/NewFileCreation2Shared/Creation $(SRCROOT)/NewFileCreation2Shared/Requests $(SRCROOT)/NewFileCreation2Shared/Finder $(SRCROOT)/NewFileCreation2Shared/Support $(SRCROOT)/NewFileCreation2CLI $(SRCROOT)/NewFileCreation2CLI/Commands"
+        HEADER_SEARCH_PATHS: "$(inherited) $(SRCROOT)/NewFileCreation2Shared $(SRCROOT)/NewFileCreation2Shared/Models $(SRCROOT)/NewFileCreation2Shared/Store $(SRCROOT)/NewFileCreation2Shared/Config $(SRCROOT)/NewFileCreation2Shared/Creation $(SRCROOT)/NewFileCreation2Shared/Requests $(SRCROOT)/NewFileCreation2Shared/Finder $(SRCROOT)/NewFileCreation2Shared/Today $(SRCROOT)/NewFileCreation2Shared/Support $(SRCROOT)/NewFileCreation2CLI $(SRCROOT)/NewFileCreation2CLI/Commands"
   NewFileCreation2UITests:
     type: bundle.ui-testing
     platform: macOS

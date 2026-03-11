@@ -1,0 +1,545 @@
+/* eu-ES localization. Generated from the English source strings. */
+
+" (not on PATH)" = " (not on PATH)";
+
+"%@ (%@)\nDouble-click to create a file." = "%@ (%@)\nEgin klik bikoitza fitxategi bat sortzeko.";
+
+"%@ already exists and is not a symlink. Remove it manually or choose another location." = "%@ dagoeneko existitzen da eta ez da esteka sinbolikoa. Kendu eskuz edo aukeratu beste kokapen bat.";
+
+"%@ template" = "%@ txantiloia";
+
+"%@ template, drag to create a file" = "%@ txantiloia, arrastatu fitxategi bat sortzeko";
+
+"%@ — drag to create %@" = "%@ — arrastatu %@ sortzeko";
+
+"%ld template(s) will move to Other." = "%ld txantiloiak Beste batera eramango dira.";
+
+"%lu templates in the library" = "%lu txantiloiak liburutegian";
+
+"About" = "Hori buruz";
+
+"About New File Creation 2" = "New File Creation 2-i buruz";
+
+"Add" = "Gehitu";
+
+"Add a file to use it as a template, or restore the included set." = "Gehitu fitxategi bat txantiloi gisa erabiltzeko edo leheneratu sartutako multzoa.";
+
+"Add as Template" = "Gehitu txantiloi gisa";
+
+"Add Category" = "Gehitu Kategoria";
+
+"Add files as templates" = "Gehitu fitxategiak txantiloi gisa";
+
+"Add files in Settings › Templates, assign categories, remove categories you no longer need, choose a sort order, or drag templates to the Desktop and Finder." = "Gehitu fitxategiak Ezarpenak › Txantiloiak atalean, esleitu kategoriak, kendu behar ez dituzun kategoriak, aukeratu ordena bat edo arrastatu txantiloiak mahaigainera eta bilatzailera.";
+
+"Add Template" = "Gehitu txantiloia";
+
+"Add Templates" = "Gehitu txantiloiak";
+
+"Add Template…" = "Gehitu txantiloia…";
+
+"Add “Add as Template” for selected files" = "Gehitu \"Gehitu txantiloi gisa\" hautatutako fitxategietarako";
+
+"Add “New File” to Finder menus" = "Gehitu \"Fitxategi berria\" Finder menuetan";
+
+"Added %lu template" = "Gehitu da %lu txantiloia";
+
+"Added %lu templates" = "%lu txantiloiak gehitu dira";
+
+"Add…" = "Gehitu…";
+
+"Advanced" = "Aurreratua";
+
+"After creating" = "Sortu ondoren";
+
+"All Templates" = "Txantiloi guztiak";
+
+"Allow New File Creation 2 in System Settings › General › Login Items." = "Baimendu New File Creation 2 Sistema Ezarpenetan › Orokorra › Saioaren elementuak.";
+
+"An unexpected error occurred." = "Ustekabeko errore bat gertatu da.";
+
+"Application" = "Aplikazioa";
+
+"Approval required" = "Onarpena behar da";
+
+"Archives" = "Artxiboak";
+
+"Ask for a name" = "Izen bat eskatu";
+
+"Assign a global shortcut in Settings" = "Esleitu lasterbide global bat Ezarpenak atalean";
+
+"At a glance" = "Begirada batean";
+
+"Audio" = "Audioa";
+
+"Bring All to Front" = "Ekarri guztiak aurrean";
+
+"Cancel" = "Utzi";
+
+"Categories" = "Kategoriak";
+
+"Category" = "Kategoria";
+
+"Category:" = "Kategoria:";
+
+"Choose" = "Aukeratu";
+
+"Choose a name and location for the new file" = "Aukeratu fitxategi berriaren izena eta kokapena";
+
+"Choose files or packages to use as templates." = "Aukeratu txantiloi gisa erabiltzeko fitxategiak edo paketeak.";
+
+"Choose Name and Location…" = "Aukeratu izena eta kokapena…";
+
+"Choose the folder where new files are created by default." = "Aukeratu fitxategi berriak lehenespenez sortzen diren karpeta.";
+
+"Choose…" = "Aukeratu…";
+
+"Close" = "Itxi";
+
+"Code" = "Kodea";
+
+"Command" = "Komandoa";
+
+"Command-line tool" = "Komando lerroko tresna";
+
+"Configuration and command line" = "Konfigurazioa eta komando-lerroa";
+
+"Continue" = "Jarraitu";
+
+"Control" = "Kontrola";
+
+"Copy" = "Kopiatu";
+
+"Copyright © 2024–2026 Sergio Martinez-Losa\nMIT License" = "Copyright © 2024–2026 Sergio Martinez-Losa\nMIT Lizentzia";
+
+"Copyright © 2024–2026 Sergio Martinez-Losa. Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files, to deal in the Software without restriction." = "Copyright © 2024–2026 Sergio Martinez-Losa. Honen bidez, baimena ematen zaio, doan, software honen eta lotutako dokumentazio-fitxategien kopia bat eskuratzen duen edonori, Softwarearekin mugarik gabe tratatzeko.";
+
+"Could not add the category" = "Ezin izan da kategoria gehitu";
+
+"Could not change the login item" = "Ezin izan da saioa hasteko elementua aldatu";
+
+"Could not create the file" = "Ezin izan da fitxategia sortu";
+
+"Could not enable the Finder extension" = "Ezin izan da Finder luzapena gaitu";
+
+"Could not export the configuration" = "Ezin izan da konfigurazioa esportatu";
+
+"Could not import the configuration" = "Ezin izan da inportatu konfigurazioa";
+
+"Could not install nfc" = "Ezin izan da nfc instalatu";
+
+"Could not reset the configuration" = "Ezin izan da konfigurazioa berrezarri";
+
+"Could not uninstall nfc" = "Ezin izan da nfc desinstalatu";
+
+"Create" = "Sortu";
+
+"Create a file from a template in Finder, from the menu bar, from the template library, or with the nfc command." = "Sortu fitxategi bat Finder-eko txantiloi batetik, menu-barratik, txantiloien liburutegitik edo nfc komandoarekin.";
+
+"Create a new file from a template" = "Sortu fitxategi berri bat txantiloi batetik";
+
+"Create File" = "Sortu fitxategia";
+
+"Create files from templates in Finder, from the menu bar, from the library, or with the nfc command.\n\n• ⌘N creates a file from the selected template.\n• ⇧⌘N lets you choose a name and location.\n• The menu bar icon opens templates and the quick panel.\n• Right-click in Finder for Finder menu items.\n• Run “nfc help” in Terminal for command-line usage." = "Sortu fitxategiak Finder-en txantiloietatik, menu-barratik, liburutegitik edo nfc komandoarekin.\n\n• ⌘N-k fitxategi bat sortzen du hautatutako txantiloitik.\n• ⇧⌘N izena eta kokapena aukeratzeko aukera ematen dizu.\n• Menu-barraren ikonoak txantiloiak eta panel azkarra irekitzen ditu.\n• Egin klik eskuineko botoiarekin Finder menuko elementuen bilatzailean.\n• Exekutatu \"nfc help\" Terminalean komando-lerroko erabilerarako.";
+
+"Create files from templates in Finder, the menu bar, the library, and the command line." = "Sortu fitxategiak Finder-en, menu-barran, liburutegian eta komando-lerroko txantiloietatik.";
+
+"Create from Finder" = "Sortu Finder-etik";
+
+"Create from the menu bar" = "Sortu menu-barratik";
+
+"Create immediately" = "Sortu berehala";
+
+"Create in Default Folder" = "Sortu karpeta lehenetsian";
+
+"Create the file in “%@”." = "Sortu fitxategia “%@”-n.";
+
+"Create the selected template in the default folder" = "Sortu hautatutako txantiloia karpeta lehenetsian";
+
+"Create with Name…" = "Sortu izenarekin…";
+
+"Created %@" = "%@ sortu da";
+
+"Creation:" = "Sorkuntza:";
+
+"Cut" = "Moztu";
+
+"Default folder:" = "Karpeta lehenetsia:";
+
+"Default name:" = "Izen lehenetsia:";
+
+"Default template:" = "Txantiloi lehenetsia:";
+
+"Desktop" = "Mahaigaina";
+
+"Disabled templates do not appear in the app, the menu bar, or Finder menus." = "Desgaitutako txantiloiak ez dira aplikazioan, menu-barran edo Bilatzailearen menuetan agertzen.";
+
+"Documents" = "Dokumentuak";
+
+"Drag a template row to Finder or the Desktop." = "Arrastatu txantiloi-errenkada bat Bilatzailera edo Mahaigainera.";
+
+"Drag a template to a folder or the Desktop." = "Arrastatu txantiloi bat karpeta edo Mahaigainera.";
+
+"Edit" = "Editatu";
+
+"Enable Extension" = "Gaitu luzapena";
+
+"Enable the Finder extension, then right-click in a folder or on a file and choose New File. The new file is created in the folder you are browsing." = "Gaitu Finder luzapena, egin klik eskuineko botoiarekin karpeta batean edo fitxategi batean eta aukeratu Fitxategi berria. Fitxategi berria arakatzen ari zaren karpetan sortzen da.";
+
+"Enabled" = "Gaituta";
+
+"Enter a category name." = "Idatzi kategoria-izen bat.";
+
+"Enter Full Screen" = "Sartu pantaila osoan";
+
+"Everything stays on your Mac. No network, analytics, or telemetry." = "Dena zure Mac-en geratzen da. Ez dago sarerik, analisirik edo telemetriarik.";
+
+"Export…" = "Esportatu…";
+
+"Extension: %@" = "Luzapena: %@";
+
+"Favorite" = "Gogokoena";
+
+"Favorites" = "Gogokoak";
+
+"File" = "Fitxategia";
+
+"File type" = "Fitxategi mota";
+
+"Finder" = "Bilatzailea";
+
+"Finder extension" = "Bilatzaileen luzapena";
+
+"Finder extension status unavailable" = "Bilatzailearen luzapenaren egoera ez dago erabilgarri";
+
+"Finder extension: disabled" = "Bilatzaileen luzapena: desgaituta";
+
+"Finder extension: enabled" = "Bilatzaileen luzapena: gaituta";
+
+"Finder extension: not registered. Build and open the app once." = "Bilatzaileen luzapena: ez dago erregistratuta. Eraiki eta ireki aplikazioa behin.";
+
+"Finder extension: registered" = "Bilatzaileen luzapena: erregistratuta";
+
+"General" = "Orokorra";
+
+"Get Started" = "Hasi";
+
+"Get Started…" = "Hasi…";
+
+"Global shortcut:" = "Lasterbide orokorra:";
+
+"Global shortcut: %@" = "Lasterbide orokorra: %@";
+
+"Group templates by category" = "Taldekatu txantiloiak kategoriaren arabera";
+
+"Help" = "Laguntza";
+
+"Help and getting started" = "Laguntza eta hasiera";
+
+"Hide New File Creation 2" = "Ezkutatu New File Creation 2";
+
+"Hide Others" = "Ezkutatu Besteak";
+
+"Images" = "Irudiak";
+
+"Import…" = "Inportatu…";
+
+"Inspector" = "Ikuskaria";
+
+"Install nfc" = "Instalatu nfc";
+
+"Install nfc from Settings › Advanced, then run nfc create \"Text File\" in Terminal to create a file in the current folder." = "Instalatu nfc Ezarpenak › Aurreratua, gero exekutatu nfc create \"Testu Fitxategia\" Terminalean, uneko karpetan fitxategi bat sortzeko.";
+
+"Installed at %@%@" = "%@%@ helbidean instalatuta";
+
+"Keep the quick panel open after dropping a file" = "Jarri panel azkarra irekita fitxategi bat askatu ondoren";
+
+"Last used" = "Azken erabilera";
+
+"Last used %@" = "%@ erabilitako azkena";
+
+"Launch at login requires macOS 13 or later." = "Saioa hasten denean abiarazteko macOS 13 edo berriagoa behar da.";
+
+"Launch New File Creation 2 at login" = "Abiarazi New File Creation 2 saioan";
+
+"Left-click the menu bar icon for Quick New File." = "Egin klik ezkerreko botoia Fitxategi Berri azkarrerako menu-barraren ikonoan.";
+
+"Left-click the menu bar icon to open Quick New File. Search, press Return to create, or drag a row into Finder. Right-click for the full menu and Get Started." = "Egin klik ezkerreko botoiarekin menu-barraren ikonoan Fitxategi Berri azkarra irekitzeko. Bilatu, sakatu Itzuli sortzeko, edo arrastatu errenkada bat Finder-era. Egin klik eskuineko botoiarekin menu osoa ikusteko eta Hasi.";
+
+"Library" = "Liburutegia";
+
+"Manage templates" = "Kudeatu txantiloiak";
+
+"Manual order" = "Eskuzko eskaera";
+
+"Menu bar icon (always available)" = "Menu-barraren ikonoa (beti eskuragarri)";
+
+"Menu contents" = "Menuaren edukia";
+
+"Minimize" = "Minimizatu";
+
+"MIT License" = "MIT Lizentzia";
+
+"Most used" = "Erabiliena";
+
+"Name" = "Izena";
+
+"New %@" = "%@ berria";
+
+"New category" = "Kategoria berria";
+
+"New File" = "Fitxategi berria";
+
+"New File Creation 2" = "New File Creation 2";
+
+"New File Creation 2 could not load its configuration" = "Ezin izan da New File Creation 2 bere konfigurazioa kargatu";
+
+"New File Creation 2 Help" = "New File Creation 2 Laguntza";
+
+"New File Creation 2 keeps your reusable templates in one place and creates a fresh copy wherever you are working. Everything runs locally on your Mac." = "New File Creation 2 zure txantiloi berrerabilgarriak leku berean gordetzen ditu eta kopia freskoa sortzen du nonahi lanean ari zaren. Dena zure Mac-ean bertan exekutatzen da.";
+
+"New files" = "Fitxategi berriak";
+
+"New File…" = "Fitxategi berria…";
+
+"No accounts, network requests, analytics, or telemetry. The app, Finder extension, Today widget, and nfc helper share one local configuration folder." = "Ez dago konturik, sareko eskaerarik, analisirik edo telemetriarik. Aplikazioak, Finder luzapenak, Today widget-ak eta nfc laguntzaileak tokiko konfigurazio karpeta bat partekatzen dute.";
+
+"no extension" = "luzapenik ez";
+
+"No matching templates" = "Ez dago bat datorren txantiloirik";
+
+"No Templates" = "Ez dago txantiloirik";
+
+"No templates" = "Ez dago txantiloirik";
+
+"No templates to show" = "Ez da txantiloiik erakusteko";
+
+"None" = "Inor ez";
+
+"Not found; move the app to /Applications" = "Ez da aurkitu; mugitu aplikazioa /Aplikazioetara";
+
+"Not installed. The bundled helper is at Contents/Helpers/nfc." = "Ez da instalatuta. Sortutako laguntzailea Contents/Helpers/nfc helbidean dago.";
+
+"Not registered" = "Ez dago erregistratuta";
+
+"OK" = "Ados";
+
+"On" = "Aktibatuta";
+
+"Open Library" = "Ireki liburutegia";
+
+"Open New File Creation 2 once, then try the Finder menu again." = "Ireki New File Creation 2 behin, eta saiatu Finder menuarekin berriro.";
+
+"Open Settings" = "Ireki Ezarpenak";
+
+"Open System Settings and enable “New File Creation 2 Finder” manually." = "Ireki Sistema Ezarpenak eta gaitu “New File Creation 2 Finder” eskuz.";
+
+"Open System Settings…" = "Ireki sistemaren ezarpenak...";
+
+"Open Template Library" = "Ireki Txantiloi Liburutegia";
+
+"Open Templates Folder" = "Ireki Txantiloien karpeta";
+
+"Open the new file after creating it" = "Ireki fitxategi berria sortu ondoren";
+
+"Option" = "Aukera";
+
+"Other" = "Beste batzuk";
+
+"Paste" = "Itsatsi";
+
+"Play a sound after creating a file" = "Fitxategi bat sortu ondoren soinu bat erreproduzitu";
+
+"Presentations" = "Aurkezpenak";
+
+"Private by design" = "Diseinuaren arabera pribatua";
+
+"Quick New File" = "Fitxategi berria azkarra";
+
+"Quick New File…" = "Fitxategi berria azkarra...";
+
+"Quit New File Creation 2" = "Itxi New File Creation 2";
+
+"Recent" = "Azkenak";
+
+"Redo" = "Berregin";
+
+"Remove" = "Kendu";
+
+"Remove Category" = "Kendu Kategoria";
+
+"Remove Favorite" = "Kendu gogokoa";
+
+"Remove Template…" = "Kendu txantiloia…";
+
+"Remove the “%@” category?" = "“%@” kategoria kendu?";
+
+"Remove “%@”?" = "“%@” kendu?";
+
+"Remove…" = "Kendu…";
+
+"Rename" = "Aldatu izena";
+
+"Rename Template" = "Aldatu izena txantiloia";
+
+"Rename…" = "Aldatu izena...";
+
+"Requires approval in System Settings" = "Sistemaren ezarpenetan onarpena behar da";
+
+"Reset" = "Berrezarri";
+
+"Reset Configuration…" = "Berrezarri konfigurazioa…";
+
+"Reset the configuration?" = "Konfigurazioa berrezarri?";
+
+"Return creates the selected template." = "Itzuli aukeratutako txantiloia sortzen du.";
+
+"Reveal Config" = "Ikusi konfigurazioa";
+
+"Reveal in Finder" = "Ikusi Finder-en";
+
+"Reveal Log" = "Ikusi erregistroa";
+
+"Reveal Selected Template" = "Ikusi hautatutako txantiloia";
+
+"Reveal Template" = "Ikusi txantiloia";
+
+"Reveal the new file in Finder" = "Ikusi fitxategi berria Finder-en";
+
+"Right-click in Finder and choose New File from the template list." = "Egin klik eskuineko botoiarekin Bilatzailean eta aukeratu Fitxategi berria txantiloien zerrendan.";
+
+"Run nfc create \"Text File\" to make a file anywhere." = "Exekutatu nfc create \"Testu fitxategia\" fitxategi bat edonon egiteko.";
+
+"Search" = "Bilatu";
+
+"Search Templates" = "Bilatu txantiloiak";
+
+"Search templates" = "Bilatu txantiloiak";
+
+"Select a template" = "Hautatu txantiloi bat";
+
+"Select All" = "Hautatu Guztia";
+
+"Services" = "Zerbitzuak";
+
+"Set as Default" = "Lehenetsi gisa ezarri";
+
+"Settings" = "Ezarpenak";
+
+"Settings and the template library are reset. Template files in the Templates folder are kept." = "Ezarpenak eta txantiloien liburutegia berrezarri dira. Txantiloi-fitxategiak Txantiloiak karpetan gordetzen dira.";
+
+"Settings › Finder enables Finder menus." = "Ezarpenak › Bilatzaileak Finder menuak gaitzen ditu.";
+
+"Settings › Help explains every workflow." = "Ezarpenak › Laguntzak lan-fluxu guztiak azaltzen ditu.";
+
+"Settings › Templates manages categories and sorting." = "Ezarpenak › Txantiloiak kategoriak eta ordenak kudeatzen ditu.";
+
+"Settings…" = "Ezarpenak…";
+
+"Shift" = "Maius";
+
+"Show" = "Erakutsi";
+
+"Show a confirmation in the app window" = "Erakutsi baieztapen bat aplikazioaren leihoan";
+
+"Show All" = "Erakutsi guztiak";
+
+"Show favorites first" = "Erakutsi gogokoak lehenik";
+
+"Show Get Started" = "Erakutsi Hasi";
+
+"Show Get Started details" = "Erakutsi Hasteko xehetasunak";
+
+"Show or Hide Inspector" = "Erakutsi edo ezkutatu ikuskatzailea";
+
+"Show or Hide Sidebar" = "Erakutsi edo ezkutatu alboko barra";
+
+"Show or hide the inspector" = "Erakutsi edo ezkutatu ikuskatzailea";
+
+"Show template icons" = "Erakutsi txantiloien ikonoak";
+
+"Show the menu bar icon" = "Erakutsi menu-barraren ikonoa";
+
+"Show Welcome" = "Erakutsi Ongi etorria";
+
+"Show Welcome Again" = "Erakutsi ongi etorria berriro";
+
+"Sort by:" = "Ordenatu:";
+
+"Sound:" = "Soinua:";
+
+"Spreadsheets" = "Kalkulu-orriak";
+
+"Template: %@" = "Txantiloia: %@";
+
+"Templates" = "Txantiloiak";
+
+"Templates included in the library" = "Liburutegian sartutako txantiloiak";
+
+"The app and nfc coordinate writes with a lock and atomic replacement. The Finder extension reads the configuration only." = "Aplikazioa eta nfc koordenatuak blokeoarekin eta ordezkapen atomiko batekin idazten dira. Finder luzapenak konfigurazioa soilik irakurtzen du.";
+
+"The bundled nfc helper is missing. Rebuild or reinstall the app." = "Nfc laguntzailea bildutakoa falta da. Berreraiki edo berriro instalatu aplikazioa.";
+
+"The category will be removed from the library." = "Kategoria liburutegitik kenduko da.";
+
+"The configuration is damaged." = "Konfigurazioa hondatuta dago.";
+
+"The default name is used by the app, the Finder extension, and the nfc command. Existing files are never overwritten." = "Izen lehenetsia aplikazioak, Finder luzapenak eta nfc komandoak erabiltzen dute. Lehendik dauden fitxategiak ez dira inoiz gainidazten.";
+
+"The existing nfc is not a symlink managed by this app." = "Dagoeneko nfc ez da aplikazio honek kudeatzen duen esteka sinbolikoa.";
+
+"The file is not valid JSON." = "Fitxategiak ez du JSON baliozkoa.";
+
+"The Finder extension could not be enabled" = "Ezin izan da Bilatzailea luzapena gaitu";
+
+"The Finder extension reads the shared configuration and creates files in the selected folder. If the extension is not listed, open System Settings › General › Login Items & Extensions › Finder Extensions." = "Bilatzaile luzapenak partekatutako konfigurazioa irakurtzen du eta fitxategiak sortzen ditu hautatutako karpetan. Luzapena zerrendan ez badago, ireki Sistema Ezarpenak › Orokorra › Saioa hasi elementuak eta luzapenak › Finder Extensions.";
+
+"The menu bar icon stays available so you can always create files." = "Menu barraren ikonoa erabilgarri egongo da beti fitxategiak sortu ahal izateko.";
+
+"The shortcut could not be registered (Carbon error %d). It may conflict with another app." = "Ezin izan da lasterbidea erregistratu (Carbon errorea %d). Baliteke beste aplikazio batekin gatazka izatea.";
+
+"The shortcut is unavailable" = "Lasterbidea ez dago erabilgarri";
+
+"The template file keeps its current name. This changes the display name only." = "Txantiloi fitxategiak bere egungo izena mantentzen du. Honek bistaratzeko izena soilik aldatzen du.";
+
+"The template is removed from the library and its file is moved to Trash." = "Txantiloia liburutegitik kendu eta bere fitxategia Zaborrontzira eramango da.";
+
+"The template “%@” was not found." = "Ez da “%@” txantiloia aurkitu.";
+
+"Tip: the global shortcut opens Quick New File from any app. Change it in Settings › General." = "Aholkua: lasterbide orokorrak Fitxategi Berri azkarra irekitzen du edozein aplikaziotatik. Aldatu Ezarpenak > Orokorra atalean.";
+
+"Unavailable" = "Ez dago erabilgarri";
+
+"Undo" = "Desegin";
+
+"Uninstall nfc" = "Desinstalatu nfc";
+
+"Unsupported shortcut key “%@”." = "\"%@\" laster-tekla onartzen ez da.";
+
+"Untitled" = "Izenbururik gabe";
+
+"Use the command line" = "Erabili komando-lerroa";
+
+"Use the menu bar icon or the global shortcut for the quick panel." = "Erabili menu-barraren ikonoa edo lasterbide orokorra panel azkarrerako.";
+
+"Used %ld time" = "%ld denbora erabili da";
+
+"Used %ld times" = "%ld aldiz erabili da";
+
+"Version %@" = "%@ bertsioa";
+
+"Video" = "Bideoa";
+
+"View" = "Ikusi";
+
+"View License" = "Ikusi Lizentzia";
+
+"Welcome to New File Creation 2" = "Ongi etorri New File Creation 2-ra";
+
+"Window" = "Leihoa";
+
+"You can reopen this window from Settings › Help or from the menu bar." = "Leiho hau berriro ireki dezakezu Ezarpenak › Laguntzatik edo menu-barratik.";
+
+"Zoom" = "Zoagotu";
+
+"↩ Create file    ⠿ Drag to Finder    esc Close" = "↩ Sortu fitxategia ⠿ Arrastatu Finder-era esc Itxi";

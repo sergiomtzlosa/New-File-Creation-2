@@ -1,0 +1,545 @@
+/* nb localization. Generated from the English source strings. */
+
+" (not on PATH)" = " (not on PATH)";
+
+"%@ (%@)\nDouble-click to create a file." = "%@ (%@)\nDobbeltklikk for å opprette en fil.";
+
+"%@ already exists and is not a symlink. Remove it manually or choose another location." = "%@ eksisterer allerede og er ikke en symbolkobling. Fjern den manuelt eller velg en annen plassering.";
+
+"%@ template" = "%@ mal";
+
+"%@ template, drag to create a file" = "%@ mal, dra for å lage en fil";
+
+"%@ — drag to create %@" = "%@ — dra for å lage %@";
+
+"%ld template(s) will move to Other." = "%ld mal(er) flyttes til Annet.";
+
+"%lu templates in the library" = "%lu maler i biblioteket";
+
+"About" = "Omtrent";
+
+"About New File Creation 2" = "Om New File Creation 2";
+
+"Add" = "Legg til";
+
+"Add a file to use it as a template, or restore the included set." = "Legg til en fil for å bruke den som mal, eller gjenopprett det inkluderte settet.";
+
+"Add as Template" = "Legg til som mal";
+
+"Add Category" = "Legg til kategori";
+
+"Add files as templates" = "Legg til filer som maler";
+
+"Add files in Settings › Templates, assign categories, remove categories you no longer need, choose a sort order, or drag templates to the Desktop and Finder." = "Legg til filer i Innstillinger › Maler, tilordne kategorier, fjern kategorier du ikke lenger trenger, velg en sorteringsrekkefølge eller dra maler til skrivebordet og Finder.";
+
+"Add Template" = "Legg til mal";
+
+"Add Templates" = "Legg til maler";
+
+"Add Template…" = "Legg til mal...";
+
+"Add “Add as Template” for selected files" = "Legg til «Legg til som mal» for valgte filer";
+
+"Add “New File” to Finder menus" = "Legg til «Ny fil» i Finder-menyene";
+
+"Added %lu template" = "La til %lu mal";
+
+"Added %lu templates" = "La til %lu maler";
+
+"Add…" = "Legg til...";
+
+"Advanced" = "Avansert";
+
+"After creating" = "Etter å ha opprettet";
+
+"All Templates" = "Alle maler";
+
+"Allow New File Creation 2 in System Settings › General › Login Items." = "Tillat New File Creation 2 i Systeminnstillinger › Generelt › Påloggingsobjekter.";
+
+"An unexpected error occurred." = "En uventet feil oppstod.";
+
+"Application" = "Søknad";
+
+"Approval required" = "Godkjenning kreves";
+
+"Archives" = "Arkiv";
+
+"Ask for a name" = "Be om et navn";
+
+"Assign a global shortcut in Settings" = "Tildel en global snarvei i Innstillinger";
+
+"At a glance" = "Med et blikk";
+
+"Audio" = "Lyd";
+
+"Bring All to Front" = "Hent alle frem";
+
+"Cancel" = "Avbryt";
+
+"Categories" = "Kategorier";
+
+"Category" = "Kategori";
+
+"Category:" = "Kategori:";
+
+"Choose" = "Velg";
+
+"Choose a name and location for the new file" = "Velg et navn og plassering for den nye filen";
+
+"Choose files or packages to use as templates." = "Velg filer eller pakker som skal brukes som maler.";
+
+"Choose Name and Location…" = "Velg navn og plassering...";
+
+"Choose the folder where new files are created by default." = "Velg mappen der nye filer opprettes som standard.";
+
+"Choose…" = "Velg...";
+
+"Close" = "Lukk";
+
+"Code" = "Kode";
+
+"Command" = "Kommando";
+
+"Command-line tool" = "Kommandolinjeverktøy";
+
+"Configuration and command line" = "Konfigurasjon og kommandolinje";
+
+"Continue" = "Fortsett";
+
+"Control" = "Kontroll";
+
+"Copy" = "Kopier";
+
+"Copyright © 2024–2026 Sergio Martinez-Losa\nMIT License" = "Opphavsrett © 2024–2026 Sergio Martinez-Losa\nMIT-lisens";
+
+"Copyright © 2024–2026 Sergio Martinez-Losa. Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files, to deal in the Software without restriction." = "Opphavsrett © 2024–2026 Sergio Martinez-Losa. Tillatelse gis herved, gratis, til enhver person som skaffer seg en kopi av denne programvaren og tilhørende dokumentasjonsfiler, til å handle med programvaren uten begrensning.";
+
+"Could not add the category" = "Kunne ikke legge til kategorien";
+
+"Could not change the login item" = "Kunne ikke endre påloggingselementet";
+
+"Could not create the file" = "Kunne ikke opprette filen";
+
+"Could not enable the Finder extension" = "Kunne ikke aktivere Finder-utvidelsen";
+
+"Could not export the configuration" = "Kunne ikke eksportere konfigurasjonen";
+
+"Could not import the configuration" = "Kunne ikke importere konfigurasjonen";
+
+"Could not install nfc" = "Kunne ikke installere nfc";
+
+"Could not reset the configuration" = "Kunne ikke tilbakestille konfigurasjonen";
+
+"Could not uninstall nfc" = "Kunne ikke avinstallere nfc";
+
+"Create" = "Opprett";
+
+"Create a file from a template in Finder, from the menu bar, from the template library, or with the nfc command." = "Lag en fil fra en mal i Finder, fra menylinjen, fra malbiblioteket eller med nfc-kommandoen.";
+
+"Create a new file from a template" = "Opprett en ny fil fra en mal";
+
+"Create File" = "Opprett fil";
+
+"Create files from templates in Finder, from the menu bar, from the library, or with the nfc command.\n\n• ⌘N creates a file from the selected template.\n• ⇧⌘N lets you choose a name and location.\n• The menu bar icon opens templates and the quick panel.\n• Right-click in Finder for Finder menu items.\n• Run “nfc help” in Terminal for command-line usage." = "Lag filer fra maler i Finder, fra menylinjen, fra biblioteket eller med nfc-kommandoen.\n\n• ⌘N oppretter en fil fra den valgte malen.\n• ⇧⌘N lar deg velge navn og plassering.\n• Menylinjeikonet åpner maler og hurtigpanelet.\n• Høyreklikk i Finder for Finder-menyelementer.\n• Kjør \"nfc help\" i Terminal for kommandolinjebruk.";
+
+"Create files from templates in Finder, the menu bar, the library, and the command line." = "Lag filer fra maler i Finder, menylinjen, biblioteket og kommandolinjen.";
+
+"Create from Finder" = "Opprett fra Finder";
+
+"Create from the menu bar" = "Opprett fra menylinjen";
+
+"Create immediately" = "Opprett umiddelbart";
+
+"Create in Default Folder" = "Opprett i standardmappe";
+
+"Create the file in “%@”." = "Opprett filen i «%@».";
+
+"Create the selected template in the default folder" = "Opprett den valgte malen i standardmappen";
+
+"Create with Name…" = "Opprett med navn...";
+
+"Created %@" = "Opprettet %@";
+
+"Creation:" = "Opprettelse:";
+
+"Cut" = "Klipp";
+
+"Default folder:" = "Standard mappe:";
+
+"Default name:" = "Standard navn:";
+
+"Default template:" = "Standard mal:";
+
+"Desktop" = "Skrivebord";
+
+"Disabled templates do not appear in the app, the menu bar, or Finder menus." = "Deaktiverte maler vises ikke i appen, menylinjen eller Finder-menyene.";
+
+"Documents" = "Dokumenter";
+
+"Drag a template row to Finder or the Desktop." = "Dra en malrad til Finder eller skrivebordet.";
+
+"Drag a template to a folder or the Desktop." = "Dra en mal til en mappe eller til Skrivebordet.";
+
+"Edit" = "Rediger";
+
+"Enable Extension" = "Aktiver utvidelse";
+
+"Enable the Finder extension, then right-click in a folder or on a file and choose New File. The new file is created in the folder you are browsing." = "Aktiver Finder-utvidelsen, høyreklikk deretter i en mappe eller på en fil og velg Ny fil. Den nye filen opprettes i mappen du blar gjennom.";
+
+"Enabled" = "Aktivert";
+
+"Enter a category name." = "Skriv inn et kategorinavn.";
+
+"Enter Full Screen" = "Gå inn i fullskjerm";
+
+"Everything stays on your Mac. No network, analytics, or telemetry." = "Alt forblir på Mac-en din. Ingen nettverk, analyser eller telemetri.";
+
+"Export…" = "Eksporter...";
+
+"Extension: %@" = "Utvidelse: %@";
+
+"Favorite" = "Favoritt";
+
+"Favorites" = "Favoritter";
+
+"File" = "Fil";
+
+"File type" = "Filtype";
+
+"Finder" = "Finder";
+
+"Finder extension" = "Finder-utvidelse";
+
+"Finder extension status unavailable" = "Finder-utvidelsens status er ikke tilgjengelig";
+
+"Finder extension: disabled" = "Finderutvidelse: deaktivert";
+
+"Finder extension: enabled" = "Finderutvidelse: aktivert";
+
+"Finder extension: not registered. Build and open the app once." = "Finderutvidelse: ikke registrert. Bygg og åpne appen én gang.";
+
+"Finder extension: registered" = "Finderutvidelse: registrert";
+
+"General" = "Generelt";
+
+"Get Started" = "Kom i gang";
+
+"Get Started…" = "Kom i gang...";
+
+"Global shortcut:" = "Global snarvei:";
+
+"Global shortcut: %@" = "Global snarvei: %@";
+
+"Group templates by category" = "Grupper maler etter kategori";
+
+"Help" = "Hjelp";
+
+"Help and getting started" = "Hjelp og komme i gang";
+
+"Hide New File Creation 2" = "Skjul New File Creation 2";
+
+"Hide Others" = "Skjul andre";
+
+"Images" = "Bilder";
+
+"Import…" = "Importer...";
+
+"Inspector" = "Inspektør";
+
+"Install nfc" = "Installer nfc";
+
+"Install nfc from Settings › Advanced, then run nfc create \"Text File\" in Terminal to create a file in the current folder." = "Installer nfc fra Innstillinger › Avansert, kjør deretter nfc create \"Text File\" i Terminal for å lage en fil i gjeldende mappe.";
+
+"Installed at %@%@" = "Installert på %@%@";
+
+"Keep the quick panel open after dropping a file" = "Hold hurtigpanelet åpent etter at du har sluppet en fil";
+
+"Last used" = "Sist brukt";
+
+"Last used %@" = "Sist brukt %@";
+
+"Launch at login requires macOS 13 or later." = "Oppstart ved pålogging krever macOS 13 eller nyere.";
+
+"Launch New File Creation 2 at login" = "Åpne New File Creation 2 ved pålogging";
+
+"Left-click the menu bar icon for Quick New File." = "Venstreklikk på menylinjeikonet for rask ny fil.";
+
+"Left-click the menu bar icon to open Quick New File. Search, press Return to create, or drag a row into Finder. Right-click for the full menu and Get Started." = "Venstreklikk på menylinjeikonet for å åpne Quick New File. Søk, trykk på Retur for å opprette, eller dra en rad inn i Finder. Høyreklikk for hele menyen og Kom i gang.";
+
+"Library" = "Bibliotek";
+
+"Manage templates" = "Administrer maler";
+
+"Manual order" = "Manuell bestilling";
+
+"Menu bar icon (always available)" = "Menylinjeikon (alltid tilgjengelig)";
+
+"Menu contents" = "Menyinnhold";
+
+"Minimize" = "Minimer";
+
+"MIT License" = "MIT-lisens";
+
+"Most used" = "Mest brukt";
+
+"Name" = "Navn";
+
+"New %@" = "Ny %@";
+
+"New category" = "Ny kategori";
+
+"New File" = "Ny fil";
+
+"New File Creation 2" = "New File Creation 2";
+
+"New File Creation 2 could not load its configuration" = "New File Creation 2 kunne ikke laste konfigurasjonen sin";
+
+"New File Creation 2 Help" = "New File Creation 2 Hjelp";
+
+"New File Creation 2 keeps your reusable templates in one place and creates a fresh copy wherever you are working. Everything runs locally on your Mac." = "New File Creation 2 holder dine gjenbrukbare maler samlet på ett sted og lager en fersk kopi uansett hvor du arbeider. Alt kjører lokalt på din Mac.";
+
+"New files" = "Nye filer";
+
+"New File…" = "Ny fil...";
+
+"No accounts, network requests, analytics, or telemetry. The app, Finder extension, Today widget, and nfc helper share one local configuration folder." = "Ingen kontoer, nettverksforespørsler, analyser eller telemetri. Appen, Finder-utvidelsen, Today-widgeten og nfc-hjelperen deler én lokal konfigurasjonsmappe.";
+
+"no extension" = "ingen utvidelse";
+
+"No matching templates" = "Ingen samsvarende maler";
+
+"No Templates" = "Ingen maler";
+
+"No templates" = "Ingen maler";
+
+"No templates to show" = "Ingen maler å vise";
+
+"None" = "Ingen";
+
+"Not found; move the app to /Applications" = "Ikke funnet; flytt appen til /Applikasjoner";
+
+"Not installed. The bundled helper is at Contents/Helpers/nfc." = "Ikke installert. Den medfølgende hjelperen er på Contents/Helpers/nfc.";
+
+"Not registered" = "Ikke registrert";
+
+"OK" = "OK";
+
+"On" = "På";
+
+"Open Library" = "Åpne bibliotek";
+
+"Open New File Creation 2 once, then try the Finder menu again." = "Åpne New File Creation 2 én gang, og prøv deretter Finder-menyen igjen.";
+
+"Open Settings" = "Åpne Innstillinger";
+
+"Open System Settings and enable “New File Creation 2 Finder” manually." = "Åpne Systeminnstillinger og aktiver «New File Creation 2 Finder» manuelt.";
+
+"Open System Settings…" = "Åpne systeminnstillinger...";
+
+"Open Template Library" = "Åpne malbibliotek";
+
+"Open Templates Folder" = "Åpne maler-mappen";
+
+"Open the new file after creating it" = "Åpne den nye filen etter å ha opprettet den";
+
+"Option" = "Alternativ";
+
+"Other" = "Annet";
+
+"Paste" = "Lim inn";
+
+"Play a sound after creating a file" = "Spill av en lyd etter å ha opprettet en fil";
+
+"Presentations" = "Presentasjoner";
+
+"Private by design" = "Privat av design";
+
+"Quick New File" = "Hurtig ny fil";
+
+"Quick New File…" = "Hurtig ny fil...";
+
+"Quit New File Creation 2" = "Avslutt New File Creation 2";
+
+"Recent" = "Nylig";
+
+"Redo" = "Gjør om";
+
+"Remove" = "Fjern";
+
+"Remove Category" = "Fjern kategori";
+
+"Remove Favorite" = "Fjern favoritt";
+
+"Remove Template…" = "Fjern mal...";
+
+"Remove the “%@” category?" = "Vil du fjerne «%@»-kategorien?";
+
+"Remove “%@”?" = "Vil du fjerne «%@»?";
+
+"Remove…" = "Fjern...";
+
+"Rename" = "Gi nytt navn";
+
+"Rename Template" = "Gi nytt navn til mal";
+
+"Rename…" = "Gi nytt navn …";
+
+"Requires approval in System Settings" = "Krever godkjenning i systeminnstillinger";
+
+"Reset" = "Tilbakestill";
+
+"Reset Configuration…" = "Tilbakestill konfigurasjon...";
+
+"Reset the configuration?" = "Nullstille konfigurasjonen?";
+
+"Return creates the selected template." = "Retur oppretter den valgte malen.";
+
+"Reveal Config" = "Vis konfig";
+
+"Reveal in Finder" = "Avslør i Finder";
+
+"Reveal Log" = "Avslør logg";
+
+"Reveal Selected Template" = "Avslør valgt mal";
+
+"Reveal Template" = "Avslør mal";
+
+"Reveal the new file in Finder" = "Avslør den nye filen i Finder";
+
+"Right-click in Finder and choose New File from the template list." = "Høyreklikk i Finder og velg Ny fil fra mallisten.";
+
+"Run nfc create \"Text File\" to make a file anywhere." = "Kjør nfc create \"Text File\" for å lage en fil hvor som helst.";
+
+"Search" = "Søk";
+
+"Search Templates" = "Søk etter maler";
+
+"Search templates" = "Søk etter maler";
+
+"Select a template" = "Velg en mal";
+
+"Select All" = "Velg alle";
+
+"Services" = "Tjenester";
+
+"Set as Default" = "Sett som standard";
+
+"Settings" = "Innstillinger";
+
+"Settings and the template library are reset. Template files in the Templates folder are kept." = "Innstillinger og malbiblioteket er tilbakestilt. Malfiler i Maler-mappen beholdes.";
+
+"Settings › Finder enables Finder menus." = "Innstillinger › Finder aktiverer Finder-menyer.";
+
+"Settings › Help explains every workflow." = "Innstillinger › Hjelp forklarer hver arbeidsflyt.";
+
+"Settings › Templates manages categories and sorting." = "Innstillinger › Maler administrerer kategorier og sortering.";
+
+"Settings…" = "Innstillinger...";
+
+"Shift" = "Skift";
+
+"Show" = "Vis";
+
+"Show a confirmation in the app window" = "Vis en bekreftelse i appvinduet";
+
+"Show All" = "Vis alle";
+
+"Show favorites first" = "Vis favoritter først";
+
+"Show Get Started" = "Vis Kom i gang";
+
+"Show Get Started details" = "Vis Kom i gang-detaljer";
+
+"Show or Hide Inspector" = "Vis eller skjul inspektør";
+
+"Show or Hide Sidebar" = "Vis eller skjul sidefelt";
+
+"Show or hide the inspector" = "Vis eller skjul inspektøren";
+
+"Show template icons" = "Vis malikoner";
+
+"Show the menu bar icon" = "Vis menylinjeikonet";
+
+"Show Welcome" = "Vis velkommen";
+
+"Show Welcome Again" = "Vis Velkommen igjen";
+
+"Sort by:" = "Sorter etter:";
+
+"Sound:" = "Lyd:";
+
+"Spreadsheets" = "Regneark";
+
+"Template: %@" = "Mal: %@";
+
+"Templates" = "Maler";
+
+"Templates included in the library" = "Maler inkludert i biblioteket";
+
+"The app and nfc coordinate writes with a lock and atomic replacement. The Finder extension reads the configuration only." = "App- og nfc-koordinatene skriver med en lås og atomerstatning. Finder-utvidelsen leser kun konfigurasjonen.";
+
+"The bundled nfc helper is missing. Rebuild or reinstall the app." = "Den medfølgende nfc-hjelperen mangler. Gjenoppbygg eller installer appen på nytt.";
+
+"The category will be removed from the library." = "Kategorien vil bli fjernet fra biblioteket.";
+
+"The configuration is damaged." = "Konfigurasjonen er skadet.";
+
+"The default name is used by the app, the Finder extension, and the nfc command. Existing files are never overwritten." = "Standardnavnet brukes av appen, Finder-utvidelsen og nfc-kommandoen. Eksisterende filer blir aldri overskrevet.";
+
+"The existing nfc is not a symlink managed by this app." = "Den eksisterende nfc er ikke en symbolkobling som administreres av denne appen.";
+
+"The file is not valid JSON." = "Filen er ikke gyldig JSON.";
+
+"The Finder extension could not be enabled" = "Finder-utvidelsen kunne ikke aktiveres";
+
+"The Finder extension reads the shared configuration and creates files in the selected folder. If the extension is not listed, open System Settings › General › Login Items & Extensions › Finder Extensions." = "Finder-utvidelsen leser den delte konfigurasjonen og oppretter filer i den valgte mappen. Hvis utvidelsen ikke er oppført, åpner du Systeminnstillinger › Generelt › Påloggingselementer og utvidelser › Finder-utvidelser.";
+
+"The menu bar icon stays available so you can always create files." = "Menylinjeikonet forblir tilgjengelig slik at du alltid kan opprette filer.";
+
+"The shortcut could not be registered (Carbon error %d). It may conflict with another app." = "Snarveien kunne ikke registreres (karbonfeil %d). Det kan komme i konflikt med en annen app.";
+
+"The shortcut is unavailable" = "Snarveien er utilgjengelig";
+
+"The template file keeps its current name. This changes the display name only." = "Malfilen beholder sitt nåværende navn. Dette endrer kun visningsnavnet.";
+
+"The template is removed from the library and its file is moved to Trash." = "Malen fjernes fra biblioteket og filen flyttes til papirkurven.";
+
+"The template “%@” was not found." = "Malen «%@» ble ikke funnet.";
+
+"Tip: the global shortcut opens Quick New File from any app. Change it in Settings › General." = "Tips: Den globale snarveien åpner Quick New File fra en hvilken som helst app. Endre det i Innstillinger › Generelt.";
+
+"Unavailable" = "Utilgjengelig";
+
+"Undo" = "Angre";
+
+"Uninstall nfc" = "Avinstaller nfc";
+
+"Unsupported shortcut key “%@”." = "Ustøttet hurtigtast “%@”.";
+
+"Untitled" = "Uten tittel";
+
+"Use the command line" = "Bruk kommandolinjen";
+
+"Use the menu bar icon or the global shortcut for the quick panel." = "Bruk menylinjeikonet eller den globale snarveien for hurtigpanelet.";
+
+"Used %ld time" = "Brukt %ld tid";
+
+"Used %ld times" = "Brukt %ld ganger";
+
+"Version %@" = "Versjon %@";
+
+"Video" = "Video";
+
+"View" = "Se";
+
+"View License" = "Se lisens";
+
+"Welcome to New File Creation 2" = "Velkommen til New File Creation 2";
+
+"Window" = "Vindu";
+
+"You can reopen this window from Settings › Help or from the menu bar." = "Du kan åpne dette vinduet på nytt fra Innstillinger › Hjelp eller fra menylinjen.";
+
+"Zoom" = "Zoom";
+
+"↩ Create file    ⠿ Drag to Finder    esc Close" = "↩ Opprett fil ⠿ Dra til Finder esc Lukk";

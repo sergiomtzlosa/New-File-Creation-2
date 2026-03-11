@@ -1,0 +1,545 @@
+/* fi localization. Generated from the English source strings. */
+
+" (not on PATH)" = " (not on PATH)";
+
+"%@ (%@)\nDouble-click to create a file." = "%@ (%@)\nLuo tiedosto kaksoisnapsauttamalla.";
+
+"%@ already exists and is not a symlink. Remove it manually or choose another location." = "%@ on jo olemassa, eikä se ole symbolilinkki. Poista se manuaalisesti tai valitse toinen paikka.";
+
+"%@ template" = "%@-malli";
+
+"%@ template, drag to create a file" = "%@-malli, luo tiedosto vetämällä";
+
+"%@ — drag to create %@" = "%@ – luo %@ vetämällä";
+
+"%ld template(s) will move to Other." = "%ld mallia siirretään kohtaan Muut.";
+
+"%lu templates in the library" = "%lu mallia kirjastossa";
+
+"About" = "Noin";
+
+"About New File Creation 2" = "Tietoa New File Creation 2ista";
+
+"Add" = "Lisää";
+
+"Add a file to use it as a template, or restore the included set." = "Lisää tiedosto käyttääksesi sitä mallina tai palauta mukana tullut joukko.";
+
+"Add as Template" = "Lisää mallina";
+
+"Add Category" = "Lisää luokka";
+
+"Add files as templates" = "Lisää tiedostoja malleina";
+
+"Add files in Settings › Templates, assign categories, remove categories you no longer need, choose a sort order, or drag templates to the Desktop and Finder." = "Lisää tiedostoja kohdassa Asetukset › Malleja, määritä luokkia, poista luokkia, joita et enää tarvitse, valitse lajittelujärjestys tai vedä malleja työpöydälle ja Finderiin.";
+
+"Add Template" = "Lisää malli";
+
+"Add Templates" = "Lisää malleja";
+
+"Add Template…" = "Lisää malli…";
+
+"Add “Add as Template” for selected files" = "Lisää \"Add as Template\" valituille tiedostoille";
+
+"Add “New File” to Finder menus" = "Lisää \"Uusi tiedosto\" Finderin valikoihin";
+
+"Added %lu template" = " Lisätty %lu malli";
+
+"Added %lu templates" = "Lisätty %lu mallia";
+
+"Add…" = "Lisää…";
+
+"Advanced" = "Lisäasetukset";
+
+"After creating" = "Luomisen jälkeen";
+
+"All Templates" = "Kaikki mallit";
+
+"Allow New File Creation 2 in System Settings › General › Login Items." = "Salli New File Creation 2 Järjestelmäasetuksissa › Yleiset › Kirjautumiskohteet.";
+
+"An unexpected error occurred." = "Tapahtui odottamaton virhe.";
+
+"Application" = "Hakemus";
+
+"Approval required" = "Hyväksyntä vaaditaan";
+
+"Archives" = "Arkisto";
+
+"Ask for a name" = "Pyydä nimeä";
+
+"Assign a global shortcut in Settings" = "Määritä yleinen pikakuvake asetuksissa";
+
+"At a glance" = "Yhdellä silmäyksellä";
+
+"Audio" = "Ääni";
+
+"Bring All to Front" = "Tuo kaikki eteen";
+
+"Cancel" = "Peruuta";
+
+"Categories" = " Luokat";
+
+"Category" = "Luokka";
+
+"Category:" = "Luokka:";
+
+"Choose" = "Valitse";
+
+"Choose a name and location for the new file" = "Valitse uudelle tiedostolle nimi ja sijainti";
+
+"Choose files or packages to use as templates." = "Valitse malleina käytettävät tiedostot tai paketit.";
+
+"Choose Name and Location…" = "Valitse nimi ja sijainti…";
+
+"Choose the folder where new files are created by default." = "Valitse kansio, johon uudet tiedostot luodaan oletuksena.";
+
+"Choose…" = "Valitse…";
+
+"Close" = "Sulje";
+
+"Code" = "Koodi";
+
+"Command" = "Komento";
+
+"Command-line tool" = "Komentorivityökalu";
+
+"Configuration and command line" = "Määritykset ja komentorivi";
+
+"Continue" = "Jatka";
+
+"Control" = "Ohjaus";
+
+"Copy" = "Kopio";
+
+"Copyright © 2024–2026 Sergio Martinez-Losa\nMIT License" = "Tekijänoikeudet © 2024–2026 Sergio Martinez-Losa\nMIT-lisenssi";
+
+"Copyright © 2024–2026 Sergio Martinez-Losa. Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files, to deal in the Software without restriction." = "Tekijänoikeudet © 2024–2026 Sergio Martinez-Losa. Jokaiselle henkilölle, joka hankkii kopion tästä ohjelmistosta ja siihen liittyvistä dokumentaatiotiedostoista, myönnetään veloituksetta lupa käsitellä ohjelmistoa ilman rajoituksia.";
+
+"Could not add the category" = "Luokkaa ei voitu lisätä";
+
+"Could not change the login item" = "Kirjautumiskohdetta ei voitu muuttaa";
+
+"Could not create the file" = "Tiedostoa ei voitu luoda";
+
+"Could not enable the Finder extension" = "Finder-laajennusta ei voitu ottaa käyttöön";
+
+"Could not export the configuration" = " Määritystä ei voitu viedä";
+
+"Could not import the configuration" = " Määritystä ei voitu tuoda";
+
+"Could not install nfc" = "nfc:tä ei voitu asentaa";
+
+"Could not reset the configuration" = "Asetuksia ei voitu nollata";
+
+"Could not uninstall nfc" = "nfc:n asennusta ei voitu poistaa";
+
+"Create" = "Luo";
+
+"Create a file from a template in Finder, from the menu bar, from the template library, or with the nfc command." = "Luo tiedosto mallista Finderissa, valikkoriviltä, ​​mallikirjastosta tai nfc-komennolla.";
+
+"Create a new file from a template" = "Luo uusi tiedosto mallista";
+
+"Create File" = "Luo tiedosto";
+
+"Create files from templates in Finder, from the menu bar, from the library, or with the nfc command.\n\n• ⌘N creates a file from the selected template.\n• ⇧⌘N lets you choose a name and location.\n• The menu bar icon opens templates and the quick panel.\n• Right-click in Finder for Finder menu items.\n• Run “nfc help” in Terminal for command-line usage." = "Luo tiedostoja malleista Finderissa, valikkopalkista, kirjastosta tai nfc-komennolla.\n\n• ⌘N luo tiedoston valitusta mallista.\n• ⇧⌘N voit valita nimen ja sijainnin.\n• Valikkopalkin kuvake avaa mallit ja pikapaneelin.\n• Napsauta Finderissa hiiren oikealla painikkeella Finder-valikkokohteita.\n• Suorita \"nfc help\" Terminalissa komentorivin käyttöä varten.";
+
+"Create files from templates in Finder, the menu bar, the library, and the command line." = "Luo tiedostoja malleista Finderissa, valikkopalkissa, kirjastossa ja komentorivillä.";
+
+"Create from Finder" = "Luo Finderista";
+
+"Create from the menu bar" = "Luo valikkopalkista";
+
+"Create immediately" = "Luo heti";
+
+"Create in Default Folder" = "Luo oletuskansioon";
+
+"Create the file in “%@”." = "Luo tiedosto kohteeseen \"%@\".";
+
+"Create the selected template in the default folder" = "Luo valittu malli oletuskansioon";
+
+"Create with Name…" = "Luo nimellä…";
+
+"Created %@" = "Luotu %@";
+
+"Creation:" = "Luominen:";
+
+"Cut" = "Leikkaa";
+
+"Default folder:" = "Oletuskansio:";
+
+"Default name:" = "Oletusnimi:";
+
+"Default template:" = "Oletusmalli:";
+
+"Desktop" = "Työpöytä";
+
+"Disabled templates do not appear in the app, the menu bar, or Finder menus." = "Käytöstä poistetut mallit eivät näy sovelluksessa, valikkopalkissa tai Finderin valikoissa.";
+
+"Documents" = "Asiakirjat";
+
+"Drag a template row to Finder or the Desktop." = "Vedä mallirivi Finderiin tai työpöydälle.";
+
+"Drag a template to a folder or the Desktop." = "Vedä malli kansioon tai Työpöydälle.";
+
+"Edit" = "Muokkaa";
+
+"Enable Extension" = "Ota laajennus käyttöön";
+
+"Enable the Finder extension, then right-click in a folder or on a file and choose New File. The new file is created in the folder you are browsing." = "Ota Finder-laajennus käyttöön, napsauta hiiren kakkospainikkeella kansiota tai tiedostoa ja valitse Uusi tiedosto. Uusi tiedosto luodaan kansioon, jota selaat.";
+
+"Enabled" = "Käytössä";
+
+"Enter a category name." = "Anna luokan nimi.";
+
+"Enter Full Screen" = "Siirry koko näytön tilaan";
+
+"Everything stays on your Mac. No network, analytics, or telemetry." = "Kaikki pysyy Macissasi. Ei verkkoa, analytiikkaa tai telemetriaa.";
+
+"Export…" = "Vie…";
+
+"Extension: %@" = "Laajennus: %@";
+
+"Favorite" = "Suosikki";
+
+"Favorites" = "Suosikit";
+
+"File" = "Tiedosto";
+
+"File type" = "Tiedostotyyppi";
+
+"Finder" = "Etsi";
+
+"Finder extension" = "Finder-laajennus";
+
+"Finder extension status unavailable" = "Finder-laajennuksen tila ei ole saatavilla";
+
+"Finder extension: disabled" = "Finder-laajennus: poistettu käytöstä";
+
+"Finder extension: enabled" = "Finder-laajennus: käytössä";
+
+"Finder extension: not registered. Build and open the app once." = "Finder-laajennus: ei rekisteröity. Rakenna ja avaa sovellus kerran.";
+
+"Finder extension: registered" = "Finder-laajennus: rekisteröity";
+
+"General" = "Yleinen";
+
+"Get Started" = "Aloita";
+
+"Get Started…" = "Aloita…";
+
+"Global shortcut:" = "Yleinen pikanäppäin:";
+
+"Global shortcut: %@" = "Yleinen pikanäppäin: %@";
+
+"Group templates by category" = "Ryhmittele mallit luokan mukaan";
+
+"Help" = "Apua";
+
+"Help and getting started" = "Apua ja alkuun pääseminen";
+
+"Hide New File Creation 2" = "Piilota New File Creation 2";
+
+"Hide Others" = "Piilota muut";
+
+"Images" = "Kuvat";
+
+"Import…" = "Tuo…";
+
+"Inspector" = "Tarkastaja";
+
+"Install nfc" = "Asenna nfc";
+
+"Install nfc from Settings › Advanced, then run nfc create \"Text File\" in Terminal to create a file in the current folder." = "Asenna nfc kohdasta Asetukset › Lisäasetukset ja suorita sitten nfc create \"Tekstitiedosto\" Päätteessä luodaksesi tiedoston nykyiseen kansioon.";
+
+"Installed at %@%@" = "Asennettu osoitteeseen %@%@";
+
+"Keep the quick panel open after dropping a file" = "Pidä pikapaneeli auki tiedoston pudottamisen jälkeen";
+
+"Last used" = "Käytetty viimeksi";
+
+"Last used %@" = "Käytetty viimeksi %@";
+
+"Launch at login requires macOS 13 or later." = "Käynnistys sisäänkirjautumisen yhteydessä vaatii macOS 13:n tai uudemman.";
+
+"Launch New File Creation 2 at login" = "Käynnistä New File Creation 2 kirjautumisen yhteydessä";
+
+"Left-click the menu bar icon for Quick New File." = " Napsauta hiiren vasemmalla painikkeella valikkopalkin kuvaketta Quick New File -kohtaa varten.";
+
+"Left-click the menu bar icon to open Quick New File. Search, press Return to create, or drag a row into Finder. Right-click for the full menu and Get Started." = "Avaa Quick New File napsauttamalla valikkopalkin kuvaketta hiiren vasemmalla painikkeella. Hae, luo painamalla Return tai vedä rivi Finderiin. Napsauta hiiren kakkospainikkeella nähdäksesi koko valikon ja Aloita.";
+
+"Library" = "Kirjasto";
+
+"Manage templates" = "Hallinnoi malleja";
+
+"Manual order" = "Manuaalinen tilaus";
+
+"Menu bar icon (always available)" = "Valikkopalkin kuvake (aina käytettävissä)";
+
+"Menu contents" = "Valikon sisältö";
+
+"Minimize" = "Minimoi";
+
+"MIT License" = "MIT-lisenssi";
+
+"Most used" = "Käytetty";
+
+"Name" = "Nimi";
+
+"New %@" = "Uusi %@";
+
+"New category" = "Uusi luokka";
+
+"New File" = "Uusi tiedosto";
+
+"New File Creation 2" = "New File Creation 2";
+
+"New File Creation 2 could not load its configuration" = "New File Creation 2 ei voinut ladata asetuksiaan";
+
+"New File Creation 2 Help" = "New File Creation 2 Ohje";
+
+"New File Creation 2 keeps your reusable templates in one place and creates a fresh copy wherever you are working. Everything runs locally on your Mac." = "New File Creation 2 pitää uudelleenkäytettävät mallisi yhdessä paikassa ja luo uuden kopion siihen kohtaan, missä työskentelet. Kaikki tapahtuu paikallisesti Macillasi.";
+
+"New files" = "Uusia tiedostoja";
+
+"New File…" = "Uusi tiedosto…";
+
+"No accounts, network requests, analytics, or telemetry. The app, Finder extension, Today widget, and nfc helper share one local configuration folder." = "Ei tilejä, verkkopyyntöjä, analytiikkaa tai telemetriaa. Sovellus, Finder-laajennus, Today-widget ja nfc-apuohjelma jakavat yhden paikallisen määrityskansion.";
+
+"no extension" = "ei pidennystä";
+
+"No matching templates" = "Ei vastaavia malleja";
+
+"No Templates" = "Ei malleja";
+
+"No templates" = "Ei malleja";
+
+"No templates to show" = "Ei näytettäviä malleja";
+
+"None" = "Ei mitään";
+
+"Not found; move the app to /Applications" = "Ei löydy; siirrä sovellus kohtaan /Applications";
+
+"Not installed. The bundled helper is at Contents/Helpers/nfc." = "Ei asennettu. Mukana oleva apulainen on osoitteessa Contents/Helpers/nfc.";
+
+"Not registered" = "Ei rekisteröity";
+
+"OK" = "OK";
+
+"On" = "Päällä";
+
+"Open Library" = "Avaa kirjasto";
+
+"Open New File Creation 2 once, then try the Finder menu again." = "Avaa New File Creation 2 kerran ja yritä sitten uudelleen Finder-valikosta.";
+
+"Open Settings" = "Avaa Asetukset";
+
+"Open System Settings and enable “New File Creation 2 Finder” manually." = "Avaa Järjestelmäasetukset ja ota “New File Creation 2 Finder” käyttöön manuaalisesti.";
+
+"Open System Settings…" = "Avaa järjestelmäasetukset…";
+
+"Open Template Library" = "Avaa mallikirjasto";
+
+"Open Templates Folder" = "Avaa Mallit-kansio";
+
+"Open the new file after creating it" = "Avaa uusi tiedosto sen luomisen jälkeen";
+
+"Option" = "Vaihtoehto";
+
+"Other" = "Muu";
+
+"Paste" = "Liitä";
+
+"Play a sound after creating a file" = "Toista ääni tiedoston luomisen jälkeen";
+
+"Presentations" = "Esitykset";
+
+"Private by design" = "Suunnitellusti yksityinen";
+
+"Quick New File" = "Nopea uusi tiedosto";
+
+"Quick New File…" = "Nopea uusi tiedosto…";
+
+"Quit New File Creation 2" = "Sulje New File Creation 2";
+
+"Recent" = "Viimeaikainen";
+
+"Redo" = "Tee uudelleen";
+
+"Remove" = "Poista";
+
+"Remove Category" = "Poista luokka";
+
+"Remove Favorite" = "Poista suosikki";
+
+"Remove Template…" = "Poista malli…";
+
+"Remove the “%@” category?" = "Poistetaanko %@-luokka?";
+
+"Remove “%@”?" = "Poistetaanko \"%@\"?";
+
+"Remove…" = "Poista…";
+
+"Rename" = " Nimeä uudelleen";
+
+"Rename Template" = " Nimeä malli uudelleen";
+
+"Rename…" = " Nimeä uudelleen…";
+
+"Requires approval in System Settings" = "Edellyttää hyväksyntää järjestelmäasetuksissa";
+
+"Reset" = "Palauta";
+
+"Reset Configuration…" = "Palauta asetukset…";
+
+"Reset the configuration?" = "Nollataanko asetukset?";
+
+"Return creates the selected template." = "Palauta luo valitun mallin.";
+
+"Reveal Config" = "Näytä määritykset";
+
+"Reveal in Finder" = "Paljasta Finderissa";
+
+"Reveal Log" = "Näytä loki";
+
+"Reveal Selected Template" = "Näytä valittu malli";
+
+"Reveal Template" = "Näytä malli";
+
+"Reveal the new file in Finder" = "Näytä uusi tiedosto Finderissa";
+
+"Right-click in Finder and choose New File from the template list." = " Napsauta Finderissa hiiren kakkospainikkeella ja valitse malliluettelosta Uusi tiedosto.";
+
+"Run nfc create \"Text File\" to make a file anywhere." = "Suorita nfc create \"Tekstitiedosto\" luodaksesi tiedoston minne tahansa.";
+
+"Search" = "Hae";
+
+"Search Templates" = "Hakumallit";
+
+"Search templates" = "Hakumallit";
+
+"Select a template" = "Valitse malli";
+
+"Select All" = "Valitse kaikki";
+
+"Services" = "Palvelut";
+
+"Set as Default" = "Aseta oletukseksi";
+
+"Settings" = "Asetukset";
+
+"Settings and the template library are reset. Template files in the Templates folder are kept." = "Asetukset ja mallikirjasto nollataan. Mallit-kansiossa olevat mallitiedostot säilytetään.";
+
+"Settings › Finder enables Finder menus." = "Asetukset › Finder ottaa Finderin valikot käyttöön.";
+
+"Settings › Help explains every workflow." = "Asetukset › Ohje selittää jokaisen työnkulun.";
+
+"Settings › Templates manages categories and sorting." = "Asetukset › Mallit hallitsevat luokkia ja lajittelua.";
+
+"Settings…" = "Asetukset…";
+
+"Shift" = "Vaihto";
+
+"Show" = "Näytä";
+
+"Show a confirmation in the app window" = "Näytä vahvistus sovellusikkunassa";
+
+"Show All" = "Näytä kaikki";
+
+"Show favorites first" = "Näytä suosikit ensin";
+
+"Show Get Started" = "Näytä Aloitus";
+
+"Show Get Started details" = "Näytä aloitustiedot";
+
+"Show or Hide Inspector" = "Näytä tai piilota tarkastaja";
+
+"Show or Hide Sidebar" = "Näytä tai piilota sivupalkki";
+
+"Show or hide the inspector" = "Näytä tai piilota tarkastaja";
+
+"Show template icons" = "Näytä mallin kuvakkeet";
+
+"Show the menu bar icon" = "Näytä valikkopalkin kuvake";
+
+"Show Welcome" = "Näytä Tervetuloa";
+
+"Show Welcome Again" = "Näytä Tervetuloa uudelleen";
+
+"Sort by:" = "Lajitteluperuste:";
+
+"Sound:" = "Ääni:";
+
+"Spreadsheets" = "Laskentataulukot";
+
+"Template: %@" = "Malli: %@";
+
+"Templates" = "Mallit";
+
+"Templates included in the library" = "Kirjastossa olevat mallit";
+
+"The app and nfc coordinate writes with a lock and atomic replacement. The Finder extension reads the configuration only." = "Sovellus ja nfc-koordinaatit kirjoittavat lukituksella ja atomikorvauksella. Finder-laajennus lukee vain kokoonpanon.";
+
+"The bundled nfc helper is missing. Rebuild or reinstall the app." = " Mukana toimitettu nfc-apuohjelma puuttuu. Rakenna tai asenna sovellus uudelleen.";
+
+"The category will be removed from the library." = "Luokka poistetaan kirjastosta.";
+
+"The configuration is damaged." = "Kokoonpano on vaurioitunut.";
+
+"The default name is used by the app, the Finder extension, and the nfc command. Existing files are never overwritten." = "Oletusnimeä käyttävät sovellus, Finder-laajennus ja nfc-komento. Olemassa olevia tiedostoja ei koskaan korvata.";
+
+"The existing nfc is not a symlink managed by this app." = "Nykyinen nfc ei ole tämän sovelluksen hallinnoima symbolilinkki.";
+
+"The file is not valid JSON." = "Tiedosto ei ole kelvollinen JSON.";
+
+"The Finder extension could not be enabled" = "Finder-laajennusta ei voitu ottaa käyttöön";
+
+"The Finder extension reads the shared configuration and creates files in the selected folder. If the extension is not listed, open System Settings › General › Login Items & Extensions › Finder Extensions." = "Finder-laajennus lukee jaetut asetukset ja luo tiedostoja valittuun kansioon. Jos laajennusta ei ole luettelossa, avaa Järjestelmäasetukset › Yleiset › Kirjautumiskohteet ja laajennukset › Finder Extensions.";
+
+"The menu bar icon stays available so you can always create files." = "Valikkopalkin kuvake pysyy käytettävissä, joten voit aina luoda tiedostoja.";
+
+"The shortcut could not be registered (Carbon error %d). It may conflict with another app." = "Oikopolkua ei voitu rekisteröidä (hiilivirhe %d). Se voi olla ristiriidassa toisen sovelluksen kanssa.";
+
+"The shortcut is unavailable" = "Pikanäppäin ei ole käytettävissä";
+
+"The template file keeps its current name. This changes the display name only." = "Mallitiedosto säilyttää nykyisen nimensä. Tämä muuttaa vain näyttönimeä.";
+
+"The template is removed from the library and its file is moved to Trash." = "Malli poistetaan kirjastosta ja sen tiedosto siirretään roskakoriin.";
+
+"The template “%@” was not found." = "Mallista \"%@\" ei löytynyt.";
+
+"Tip: the global shortcut opens Quick New File from any app. Change it in Settings › General." = "Vinkki: yleinen pikakuvake avaa Quick New File mistä tahansa sovelluksesta. Muuta se kohdassa Asetukset › Yleiset.";
+
+"Unavailable" = "Ei saatavilla";
+
+"Undo" = "Kumoa";
+
+"Uninstall nfc" = "Poista nfc";
+
+"Unsupported shortcut key “%@”." = "Pikanäppäintä \"%@\" ei tueta.";
+
+"Untitled" = "Nimetön";
+
+"Use the command line" = "Käytä komentoriviä";
+
+"Use the menu bar icon or the global shortcut for the quick panel." = "Käytä pikapaneelin valikkorivin kuvaketta tai yleistä pikakuvaketta.";
+
+"Used %ld time" = "Käytetty %ld kertaa";
+
+"Used %ld times" = "Käytetty %ld kertaa";
+
+"Version %@" = "Versio %@";
+
+"Video" = "Video";
+
+"View" = "Näytä";
+
+"View License" = "Näytä lisenssi";
+
+"Welcome to New File Creation 2" = "Tervetuloa New File Creation 2iin";
+
+"Window" = "Ikkuna";
+
+"You can reopen this window from Settings › Help or from the menu bar." = "Voit avata tämän ikkunan uudelleen kohdasta Asetukset › Ohje tai valikkopalkista.";
+
+"Zoom" = "Zoomaa";
+
+"↩ Create file    ⠿ Drag to Finder    esc Close" = "↩ Luo tiedosto ⠿ Vedä Finderiin esc Sulje";
