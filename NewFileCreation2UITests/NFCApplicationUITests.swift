@@ -28,12 +28,24 @@ final class NFCApplicationUITests: XCTestCase {
                 "openAfterCreate": false,
                 "showToast": false,
                 "playSound": false,
-                "keepQuickPanelOpenAfterDrop": false
+                "keepQuickPanelOpenAfterDrop": false,
+                "onboardingCompleted": true
             ],
             "templates": []
         ]
         let data = try JSONSerialization.data(withJSONObject: config, options: [.prettyPrinted, .sortedKeys])
         try data.write(to: support.appendingPathComponent("config.json"))
+
+        addUIInterruptionMonitor(withDescription: "Dismiss system alerts") { alert in
+            for title in ["Don’t Allow", "Don't Allow", "OK", "Allow"] {
+                let button = alert.buttons[title]
+                if button.exists {
+                    button.click()
+                    return true
+                }
+            }
+            return false
+        }
     }
 
     override func tearDownWithError() throws {
@@ -49,6 +61,29 @@ final class NFCApplicationUITests: XCTestCase {
         app.launchEnvironment["NFC_UI_TEST_OPEN_QUICK_PANEL"] = "1"
         app.launch()
         return app
+    }
+
+    private func requireQuickPanel(in app: XCUIApplication) -> XCUIElement {
+        let quickPanel = app.dialogs["Quick New File"]
+        XCTAssertTrue(quickPanel.waitForExistence(timeout: 10), "Quick panel should open")
+        return quickPanel
+    }
+
+    private func requireWelcome(in app: XCUIApplication) -> XCUIElement {
+        let dialog = app.dialogs["Get Started"]
+        if dialog.waitForExistence(timeout: 4) {
+            return dialog
+        }
+        let window = app.windows["Get Started"]
+        XCTAssertTrue(window.waitForExistence(timeout: 4), "Get Started should open")
+        return window
+    }
+
+    private func waitForDisappearance(_ element: XCUIElement, timeout: TimeInterval) {
+        let predicate = NSPredicate(format: "exists == false")
+        let expectation = XCTNSPredicateExpectation(predicate: predicate, object: element)
+        XCTAssertEqual(XCTWaiter().wait(for: [expectation], timeout: timeout), .completed,
+                       "Element should disappear")
     }
 
     private func saveScreenshot(_ name: String) {
@@ -68,8 +103,7 @@ final class NFCApplicationUITests: XCTestCase {
 
     func testQuickPanelTitleIsCenteredAndGearOpensSettings() throws {
         let app = launchWithQuickPanel()
-        let quickPanel = app.dialogs["Quick New File"]
-        XCTAssertTrue(quickPanel.waitForExistence(timeout: 10), "Quick panel should open")
+        let quickPanel = requireQuickPanel(in: app)
         saveScreenshot("nfc-ui-quick-panel")
 
         let title = quickPanel.staticTexts.matching(identifier: "QuickPanelTitle").firstMatch
@@ -89,7 +123,6 @@ final class NFCApplicationUITests: XCTestCase {
         let settings = app.windows["Settings"]
         XCTAssertTrue(settings.waitForExistence(timeout: 5), "Gear should open Settings")
         saveScreenshot("nfc-ui-settings")
-        print("SETTINGS HIERARCHY:\n\(settings.debugDescription)")
 
         let closeSettings = settings.buttons["_XCUI:CloseWindow"]
         if closeSettings.exists {
@@ -100,5 +133,63 @@ final class NFCApplicationUITests: XCTestCase {
         XCTAssertTrue(app.wait(for: .runningBackground, timeout: 5) ||
                       app.state == .runningForeground,
                       "Closing Settings must not quit the app")
+    }
+
+    func testQuickPanelAppIconOpensGetStartedAndInspectorAside() throws {
+        let app = launchWithQuickPanel()
+        let quickPanel = requireQuickPanel(in: app)
+
+        let getStarted = quickPanel.buttons["QuickPanelGetStartedButton"]
+        XCTAssertTrue(getStarted.exists, "The app icon should open Get Started")
+        XCTAssertEqual(getStarted.label, "Get Started")
+        getStarted.click()
+
+        waitForDisappearance(quickPanel, timeout: 4)
+        let welcome = requireWelcome(in: app)
+        XCTAssertTrue(welcome.staticTexts["Welcome to New File Creation 2"].exists)
+        XCTAssertTrue(welcome.buttons["WelcomeGetStartedButton"].exists)
+        XCTAssertTrue(welcome.buttons["WelcomeSettingsButton"].exists)
+
+        let inspector = welcome.buttons["WelcomeInspectorButton"]
+        XCTAssertTrue(inspector.exists)
+        XCTAssertFalse(welcome.staticTexts["At a glance"].exists, "The aside starts hidden")
+        let widthBefore = welcome.frame.width
+
+        inspector.click()
+        XCTAssertTrue(welcome.staticTexts["At a glance"].waitForExistence(timeout: 3))
+        XCTAssertGreaterThan(welcome.frame.width, widthBefore,
+                             "Opening the aside should widen the window instead of overlapping content")
+
+        inspector.click()
+        waitForDisappearance(welcome.staticTexts["At a glance"], timeout: 3)
+        XCTAssertEqual(welcome.frame.width, widthBefore, accuracy: 1.0)
+        saveScreenshot("nfc-ui-get-started")
+    }
+
+    func testSettingsHelpTabResizesWindowAndOpensGetStarted() throws {
+        let app = launchWithQuickPanel()
+        let quickPanel = requireQuickPanel(in: app)
+
+        quickPanel.buttons["QuickPanelPreferencesButton"].click()
+        let settings = app.windows["Settings"]
+        XCTAssertTrue(settings.waitForExistence(timeout: 5))
+        let generalSize = settings.frame.size
+
+        let helpTab = settings.buttons["Help"]
+        XCTAssertTrue(helpTab.exists, "Settings should expose the Help tab")
+        helpTab.click()
+
+        XCTAssertTrue(settings.staticTexts["Help and getting started"].waitForExistence(timeout: 4))
+        XCTAssertTrue(settings.buttons["HelpShowGetStartedButton"].exists)
+        XCTAssertTrue(settings.buttons["HelpOpenTemplatesButton"].exists)
+        let helpSize = settings.frame.size
+        XCTAssertTrue(generalSize.width != helpSize.width || generalSize.height != helpSize.height,
+                      "The Settings window should resize for the selected pane")
+        saveScreenshot("nfc-ui-settings-help")
+
+        settings.buttons["HelpShowGetStartedButton"].click()
+        waitForDisappearance(settings, timeout: 4)
+        let welcome = requireWelcome(in: app)
+        XCTAssertTrue(welcome.staticTexts["Welcome to New File Creation 2"].exists)
     }
 }
