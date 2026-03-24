@@ -4,6 +4,8 @@ Create files from templates in Finder, from the menu bar, from a template librar
 
 New File Creation 2 is a native, local-first macOS utility written in Objective-C and AppKit. It never overwrites an existing file, never deletes a template without confirmation, and makes no network requests. Configuration and templates live in one shared folder so the app, the Finder extension, and the CLI always agree.
 
+It is the modern upgrade of [New File Creation](https://github.com/sergiomtzlosa/new-file-creation) by Sergio Martinez-Losa, rebuilt for current macOS with a menu-bar-only workflow, a shared command-line tool, a Finder Sync extension, and a Today widget while keeping the original template set and MIT license.
+
 ![New File Creation 2 overview](docs/images/new-file-creation-2-overview.png)
 
 **Version:** 2.0.0  
@@ -12,17 +14,32 @@ New File Creation 2 is a native, local-first macOS utility written in Objective-
 
 ## Features
 
-- **Menu bar app with no Dock icon.** The permanent menu bar icon is the entry point. The library, Settings, Welcome, and quick panel are all floating panels opened from the menu bar.
+- **Menu bar app with no Dock icon.** The permanent menu bar icon is the entry point. The library, Settings, Get Started, and quick panel are all floating panels opened from the menu bar.
 - **Template library** with a source-list sidebar, searchable card grid, inspector, favorites, recents, categories, and drag-to-Finder.
-- **Menu bar quick panel** with visual, draggable template rows, keyboard-first search, arrow-key navigation, Return to create, Esc to close, and a gear that opens Settings.
+- **Get Started window** with a guided tour, open actions, and an inline inspector aside that widens the window instead of covering the content.
+- **Menu bar quick panel** with visual, draggable template rows, keyboard-first search, arrow-key navigation, Return to create, Esc to close, and an app-icon button that opens Get Started next to the gear that opens Settings.
 - **Drag from the menu bar** into Finder or any file-promise-aware window to create a default-named file from the template.
-- **Finder Sync extension** with a New File template menu and “Add as Template” for selected Finder items.
+- **Finder Sync extension** with a New File template menu and “Add as Template” for selected Finder items, including the Desktop and the currently browsed folder.
+- **Today widget** with template buttons and draggable file promises, so a template can be dragged straight to a folder, the Desktop, or another app.
 - **`nfc` command-line tool** for scripted creation, listing, adding, removing, favoriting, enabling, diagnostics, configuration export/import, and shell completion.
-- **Shared, versioned JSON configuration** written with an interprocess lock and atomic replacement.
+- **Shared, versioned JSON configuration** written with an interprocess lock and atomic replacement. Open windows refresh when the configuration changes, and the menu bar template list reloads each time it is opened.
 - **Never overwrites** files: names are made unique with `Untitled 2`, `Untitled 3`, and so on.
-- **Custom categories and configurable sound** in Settings, with system sounds available by name.
+- **Custom categories, category removal, and template sorting** in Settings. Removed categories move their templates to **Other**; templates can be sorted by category or by file type.
+- **Help tab in Settings** with a tour of the app, shortcuts, Finder and CLI workflows, and direct links to Get Started and the templates folder. The Settings window resizes to fit each tab.
+- **Configurable sound** in Settings, with system sounds available by name.
 - **Local only:** no accounts, network, analytics, telemetry, iCloud sync, or third-party runtime dependencies.
-- **English and Spanish** app and Finder extension UI.
+- **28 languages**, matching New File Creation v1: Arabic, Catalan, Danish, German, Greek, English, Spanish, Basque, Finnish, French, Galician, Hindi, Indonesian, Icelandic, Italian, Japanese, Korean, Malay, Norwegian Bokmål, Dutch, Polish, Portuguese (Portugal), Romanian, Russian, Swedish, Turkish, Simplified Chinese, and Traditional Chinese.
+
+## Languages
+
+Every language from New File Creation v1 has a `Localizable.strings` file under [`NewFileCreation2App/Resources`](NewFileCreation2App/Resources), and the same resources are embedded in the app, Finder extension, and Today widget:
+
+```
+ar  ca  da  de  el  en  es  eu-ES  fi  fr  gl  hi  id  is-IS  it
+ja  ko  ms  nb  nl  pl  pt-PT  ro  ru  sv  tr  zh-Hans  zh-Hant
+```
+
+The English file is the source of truth. Tests and `scripts/verify.sh` check key parity, non-empty values, placeholders, and that “New File Creation 2” stays untranslated in every locale.
 
 ## Requirements
 
@@ -56,11 +73,12 @@ export PATH="$HOME/.local/bin:$PATH"
 - **⌘N** creates a file from the selected template in the default folder.
 - **⇧⌘N** opens a save panel so you can choose a name and location.
 - **⌃⌥N** (Control-Option-N) opens the quick panel from anywhere. Change it in Settings › General.
-- **Right-click in Finder** and choose a template under **New File**. Choose **Add as Template** to add selected files to the library.
-- **Menu bar icon:** left-click for the visual quick panel; drag a template row into a Finder window to create a file there; right-click for Library, Settings, Welcome, and Quit.
+- **Right-click in Finder** and choose a template under **New File**. Choose **Add as Template** to add selected files to the library. File creation works in the folder you are browsing and on the Desktop.
+- **Menu bar icon:** left-click for the visual quick panel; drag a template row into a Finder window to create a file there; click the app icon in the quick panel to open Get Started; right-click for Library, Get Started, Settings, and Quit.
+- **Today widget:** add **New File Creation 2 Today** in Notification Center, then drag a template from the widget to a folder, the Desktop, or another app to create a file there.
 - **`nfc create "Text File"`** creates a file in the current terminal directory.
 
-The app launches silently into the menu bar with no Dock icon. The first run seeds the 33 included templates into the support folder. They can be disabled, renamed, favorited, moved to custom categories, or removed like any other template.
+The app launches silently into the menu bar with no Dock icon. The first run seeds the 33 included templates into the support folder. They can be disabled, renamed, favorited, moved to custom categories, or removed like any other template. Templates can be sorted by category or file type in Settings › Templates, and custom categories can be removed; their templates move to **Other**.
 
 ## Support folder
 
@@ -106,18 +124,26 @@ See [docs/CLI.md](docs/CLI.md) for the full reference, JSON envelope, exit codes
 xcodegen generate
 ./scripts/build.sh          # Release
 CONFIG=Debug ./scripts/build.sh
-./scripts/test.sh           # XCTest suite: logic, AppKit UI, drag/drop (84 tests)
+./scripts/test.sh           # XCTest suite: logic, AppKit UI, drag/drop (93 tests, 1 environment skip)
 ./scripts/test-cli.sh       # isolated end-to-end CLI checks
 ./scripts/verify.sh         # signing, bundle, resources, tests, CLI
 ./scripts/verify.sh --quick # skip the test suites
 ./scripts/make-icon.sh      # regenerate the icon from AppIcon.svg
 ```
 
-The XCTest bundle instantiates AppKit windows and controllers directly to cover the floating library panel, quick panel, Settings, Welcome panel, menu bar menu, menus, and toasts. Drag/drop tests exercise quick-panel file promises and grid file URLs against custom drop windows, desktop-style folders, and optional real destinations:
+The XCTest bundle instantiates AppKit windows and controllers directly to cover the floating library panel, quick panel, Settings tabs, Get Started window and aside, menu bar menu, menus, and toasts. Drag/drop tests exercise quick-panel file promises and grid file URLs against custom drop windows, desktop-style folders, and optional real destinations:
 
 ```bash
 NFC_TEST_REAL_DESKTOP=1 ./scripts/test.sh              # also write to a hidden folder on the real Desktop
 NFC_TEST_EXTERNAL_VOLUME=/Volumes/MyDisk ./scripts/test.sh  # also write to a mounted external volume
+```
+
+An XCUITest suite drives the real app end to end for the quick panel, Settings, and Get Started flows:
+
+```bash
+xcodebuild -project NewFileCreation2.xcodeproj -scheme NewFileCreation2UI \
+  -configuration Debug -derivedDataPath build/DerivedData \
+  CODE_SIGN_IDENTITY=- CODE_SIGNING_REQUIRED=YES test
 ```
 
 External-volume coverage is skipped when no writable external volume is available. See [docs/TEST-MATRIX.md](docs/TEST-MATRIX.md) for suite details and the manual checks that still require OS-level gestures.
@@ -127,6 +153,7 @@ Build products:
 ```
 build/New File Creation 2.app
 build/New File Creation 2.app/Contents/PlugIns/New File Creation 2 Finder.appex
+build/New File Creation 2.app/Contents/PlugIns/New File Creation 2 Today.appex
 build/New File Creation 2.app/Contents/Helpers/nfc
 ```
 
@@ -135,9 +162,11 @@ build/New File Creation 2.app/Contents/Helpers/nfc
 ```
 NewFileCreation2App/        AppKit app, menus, library, quick panel, settings
 NewFileCreation2Finder/     Finder Sync extension
+NewFileCreation2Today/      Today widget with drag file promises
 NewFileCreation2Shared/     Models, config store, file creation, requests, menus
 NewFileCreation2CLI/        nfc command-line tool
 NewFileCreation2Tests/      XCTest unit suite
+NewFileCreation2UITests/    XCUITest end-to-end suite
 Templates/                  33 bundled templates copied into the library
 docs/                       Architecture, UI, CLI, man page, test matrix
 scripts/                    Build, test, install, uninstall, verify, icon

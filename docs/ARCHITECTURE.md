@@ -1,15 +1,17 @@
 # Architecture
 
-New File Creation 2 is a small native macOS system made of four targets that share one Objective-C core:
+New File Creation 2 is a small native macOS system made of five targets that share one Objective-C core:
 
 | Target | Product | Bundle identifier | Sandbox |
 | --- | --- | --- | --- |
 | `NewFileCreation2` | `New File Creation 2.app` | `com.sid.newfilecreation2` | No |
 | `NewFileCreation2Finder` | `New File Creation 2 Finder.appex` | `com.sid.newfilecreation2.finder` | Yes |
+| `NewFileCreation2Today` | `New File Creation 2 Today.appex` | `com.sid.newfilecreation2.today` | Yes |
 | `NewFileCreation2CLI` | `nfc` | `com.sid.newfilecreation2.cli` | No |
 | `NewFileCreation2Tests` | `NewFileCreation2Tests.xctest` | `com.sid.newfilecreation2.tests` | Hosted in the app |
+| `NewFileCreation2UITests` | `NewFileCreation2UITests.xctest` | `com.sid.newfilecreation2.uitests` | UI runner |
 
-The CLI is embedded at `New File Creation 2.app/Contents/Helpers/nfc`. The Finder extension is embedded at `Contents/PlugIns/New File Creation 2 Finder.appex`. Both are ad-hoc signed with the app (`CODE_SIGN_IDENTITY=-`); there is no Team ID, App Group, notarization, or Mac App Store submission.
+The CLI is embedded at `New File Creation 2.app/Contents/Helpers/nfc`. The Finder and Today extensions are embedded at `Contents/PlugIns/New File Creation 2 Finder.appex` and `Contents/PlugIns/New File Creation 2 Today.appex`. All are ad-hoc signed with the app (`CODE_SIGN_IDENTITY=-`); there is no Team ID, App Group, notarization, or Mac App Store submission.
 
 ## Process model
 
@@ -51,6 +53,13 @@ The CLI is embedded at `New File Creation 2.app/Contents/Helpers/nfc`. The Finde
 └──────────────────────────────────────────────┘
 
 ┌──────────────────────────────────────────────┐
+│ New File Creation 2 Today.appex (sandboxed)  │
+│ NFFTodayViewController                       │
+│  ├─ NFTodayTemplateSource  read-only config  │
+│  └─ NFFilePromiseProvider  drag source       │
+└──────────────────────────────────────────────┘
+
+┌──────────────────────────────────────────────┐
 │ nfc (separate process, headless)             │
 │ NFCCLIApplication                            │
 │  ├─ NFCCLIResolver                           │
@@ -59,13 +68,13 @@ The CLI is embedded at `New File Creation 2.app/Contents/Helpers/nfc`. The Finde
 └──────────────────────────────────────────────┘
 ```
 
-The app and `nfc` are coordinated writers. The Finder extension never writes `config.json`; it reads a snapshot for each menu request. A CLI write posts both a local and a distributed `com.sid.newfilecreation2.configchanged` notification, and the app reloads in response.
+The app and `nfc` are coordinated writers. The Finder and Today extensions never write `config.json`; they read a snapshot for each menu request or widget reload. A CLI write posts both a local and a distributed `com.sid.newfilecreation2.configchanged` notification, and the app reloads in response.
 
-The app target is an `LSUIElement` menu bar accessory. It never owns a Dock icon or a Dock-owned main window. The library, quick panel, Settings, and Welcome are all `NFCFloatingPanel` instances: floating-level `NSPanel`s opened from the status item, with `hidesOnDeactivate = NO`, `releasedWhenClosed = NO`, and no minimize button. Closing a panel leaves the status item and app running; Quit is available from the status menu.
+The app target is an `LSUIElement` menu bar accessory. It never owns a Dock icon or a Dock-owned main window. The library, quick panel, Settings, and Get Started are all `NFCFloatingPanel` instances: floating-level `NSPanel`s opened from the status item, with `hidesOnDeactivate = NO`, `releasedWhenClosed = NO`, and no minimize button. Closing a panel leaves the status item and app running; Quit is available from the status menu.
 
 ## Shared core
 
-`NewFileCreation2Shared/` is compiled directly into the app, Finder extension, CLI, and tests. There is no shared framework to embed or sign separately.
+`NewFileCreation2Shared/` is compiled directly into the app, Finder and Today extensions, CLI, and tests. There is no shared framework to embed or sign separately.
 
 | Folder | Responsibility |
 | --- | --- |
@@ -74,7 +83,8 @@ The app target is an `LSUIElement` menu bar accessory. It never owns a Dock icon
 | `Creation/` | `NFFileCreator`, `NFSanitize`, `NFFilePromiseProvider`, unique naming and safe copies |
 | `Config/` | Config path helpers and legacy migration |
 | `Requests/` | `NFRequest` URL parsing/building for the app URL scheme |
-| `Finder/` | `NFFinderMenuBuilder` menu composition and template icons |
+| `Finder/` | `NFFinderMenuBuilder` menu composition, template icons, and persisted sort modes |
+| `Today/` | `NFTodayTemplateSource` read-only config and template loading for the widget |
 | `Support/` | `NFPaths`, `NFErrors`, `NFLogger`, `NFLocalization`, `NFVersion` |
 
 One behavior is shared by every surface:
@@ -215,11 +225,12 @@ See [CLI.md](CLI.md) for the complete command reference.
 
 - `NFCFloatingPanel` is the shared floating `NSPanel` base for every app window. It uses `NSFloatingWindowLevel`, does not hide on deactivation, is not released on close, can join all Spaces, and cannot become the main window.
 - `NFCMainWindowController` owns an `NSSplitViewController` with a source-list sidebar, a collection-view card grid, and an inspector inside a floating library panel.
-- `NFCQuickPanelController` owns a floating quick panel with a search field, visual template table, gear button, and file-promise drag source.
-- `NFCMenuBarController` owns the permanent `NSStatusItem`. Left-click toggles the quick panel; right-click or Control-click opens the status menu with library, settings, welcome, about, and quit.
+- `NFCQuickPanelController` owns a floating quick panel with a search field, visual template table, app-icon Get Started button, gear button, and file-promise drag source. It reloads the shared config when shown.
+- `NFCMenuBarController` owns the permanent `NSStatusItem`. Left-click toggles the quick panel; right-click or Control-click opens the status menu with library, Get Started, settings, about, and quit. The template submenu is rebuilt on each open.
+- `NFCTodayViewController` owns the Today widget table and its file-promise drag source.
 - `NFFilePromiseProvider` writes the template copy when a drop target asks for the promised file, using `defaultBaseName` and the template extension.
-- `NFCSettingsWindowController` owns a floating utility panel with icon tabs for General, Templates, Finder, Advanced, and About. Sound name and custom-category editing live here.
-- `NFCWelcomeWindowController` owns a floating Welcome panel; it is opened from the menu bar menu, Settings, or Help rather than automatically at launch.
+- `NFCSettingsWindowController` owns a floating utility panel with icon tabs for General, Templates, Finder, Advanced, Help, and About, and resizes to each pane’s preferred size. Sound name, sort mode, custom-category editing, and category removal live here.
+- `NFCWelcomeWindowController` owns the floating Get Started window and its inline inspector aside; it is opened from the menu bar menu, the quick-panel app icon, Settings › Help, or the app menu rather than automatically at launch.
 - `NFCreateCoordinator` centralizes creation, post-create actions, the configurable sound, add-template panels, save panels, and error alerts.
 - `NFShortcutCenter` registers a Carbon global hotkey from the string stored in config.
 - `NFLoginItemManager` wraps `SMAppService.mainApp`.
@@ -229,12 +240,15 @@ The app uses semantic AppKit colors, Auto Layout, SF Symbols, and system control
 
 ## Testing architecture
 
-- The hosted `NewFileCreation2Tests.xctest` bundle imports the app controllers directly. `NFCUIComponentTests` instantiates floating panels, split views, collection views, the quick panel, settings tabs, and the Welcome panel without launching the full app UI. It also checks that the app is an `LSUIElement` accessory and that all panels use floating-level styling.
+- The hosted `NewFileCreation2Tests.xctest` bundle imports the app controllers directly. `NFCUIComponentTests` instantiates floating panels, split views, collection views, the quick panel, six settings tabs, and the Get Started window without launching the full app UI. It also checks that the app is an `LSUIElement` accessory and that all panels use floating-level styling.
+- `NFTodayTemplateSourceTests` exercises the widget’s read-only config loading, enabled/favorites filtering, and persisted sort modes without launching Notification Center.
+- `NFLocalizationTests` checks all 28 v1 languages for key parity, non-empty values, preserved placeholders, preserved product name, Finder strings, and the quick-panel drag hint.
+- `NewFileCreation2UITests` launches the real app with an isolated support folder and drives the quick panel, Settings, the Help tab, and the Get Started aside through XCUITest.
 - `NFCDragAndDropTests` models drag destinations with an `NSView` that registers for file URLs and an object that registers for file-promise types. It tests quick-panel `NFFilePromiseProvider` output and grid file-URL pasteboard writers.
 - Tests never touch the real support folder: `NFTestCase` assigns `NFPaths` a per-test temporary directory and resets `NFConfigStore` between cases.
 - Real destinations are opt-in. `NFC_TEST_REAL_DESKTOP=1` enables the real Desktop test; `NFC_TEST_EXTERNAL_VOLUME=/path/to/volume` enables the external-volume test. `scripts/test.sh` forwards both through `launchctl` for the hosted test process and clears them afterward.
 - `NSFilePromiseReceiver` is only valid inside an active drag operation, so promise tests exercise the provider delegate and destination registration rather than a synthesized OS drag session.
-- The Finder extension menu builder is tested in-process; enabling the extension and observing Finder toolbars and context menus remain manual.
+- The Finder extension menu builder is tested in-process; enabling the extension and observing Finder toolbars and context menus remain manual. Today widget drag gestures also remain a manual check because Today extensions are deprecated on current macOS.
 
 ## Build and signing
 
@@ -249,7 +263,7 @@ xcodebuild \
   CODE_SIGN_IDENTITY=- CODE_SIGNING_REQUIRED=YES build
 ```
 
-`scripts/build.sh` publishes the Release app to `build/New File Creation 2.app` and verifies the app, extension, and embedded helper with `codesign --verify --deep --strict`.
+`scripts/build.sh` publishes the Release app to `build/New File Creation 2.app` and verifies the app, Finder extension, Today extension, and embedded helper with `codesign --verify --deep --strict`.
 
 ## Failure handling
 

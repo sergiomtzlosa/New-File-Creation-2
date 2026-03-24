@@ -4,7 +4,7 @@ New File Creation 2 is a native AppKit app designed around one idea: create a fi
 
 ## Principles
 
-1. **Create where you work.** Finder menus, the menu bar, and the library can all create immediately; no app switch is required.
+1. **Create where you work.** Finder menus, the menu bar, the library, and the Today widget can all create immediately; no app switch is required.
 2. **One click, no dead ends.** The default template and default name produce a file immediately. Naming is available through a save panel when needed.
 3. **Never lose data.** Existing files are never overwritten. Removing a template requires confirmation and moves its file to Trash.
 4. **Keyboard first, mouse friendly.** Search, arrow keys, Return, and standard macOS shortcuts cover the main flows.
@@ -31,7 +31,7 @@ A 1040×660 floating panel opened from **Open Library** in the menu bar menu (an
 
 ```
 ┌────────────────────────────────────────────────────────────────────────────┐
-│  New File Creation 2   [New File] [New File…] [Add Template]  [Search] [▤] │
+│  New File Creation 2   [Create File] [Create with Name…]  [Search] [▤]     │
 ├──────────────────────┬─────────────────────────────────────┬───────────────┤
 │ LIBRARY              │  All Templates                      │  Text File    │
 │  ▣ All Templates  33 │  ┌────────┐ ┌────────┐ ┌────────┐   │  [file icon]  │
@@ -39,9 +39,9 @@ A 1040×660 floating panel opened from **Open Library** in the menu bar menu (an
 │  ↺ Recent         4 │  │ Text   │ │ Rich   │ │ HTML   │   │  DOCUMENTS    │
 │                      │  │ File   │ │ Text   │ │ Page   │   │  Used 4 times │
 │ CATEGORIES           │  └────────┘ └────────┘ └────────┘   │               │
-│  Documents        7 │  ┌────────┐ ┌────────┐ ┌────────┐   │  [New File]   │
-│  Spreadsheets     3 │  │ ...    │ │ ...    │ │ ...    │   │  [New File…]  │
-│  Presentations    3 │  └────────┘ └────────┘ └────────┘   │  ☐ Favorite   │
+│  Documents        7 │  ┌────────┐ ┌────────┐ ┌────────┐   │  [Create File]│
+│  Spreadsheets     3 │  │ ...    │ │ ...    │ │ ...    │   │  [Create with │
+│  Presentations    3 │  └────────┘ └────────┘ └────────┘   │  Name…]       │
 │  Code             6 │                                     │  ☑ Enabled    │
 │  Images           4 │                                     │  Reveal       │
 │  Audio            1 │                                     │  Remove…      │
@@ -60,8 +60,8 @@ A 1040×660 floating panel opened from **Open Library** in the menu bar menu (an
 
 ### Toolbar
 
-- **New File** — create from the selected (or default) template in the default folder.
-- **New File…** — create with a save panel so the name and location can be chosen.
+- **Create File** — create from the selected (or default) template in the default folder.
+- **Create with Name…** — create with a save panel so the name and location can be chosen.
 - **Add Template** — multi-select files, packages, or folders to copy into the library.
 - **Search** — live, case-insensitive search across display name, file name, category, and extension.
 - **Inspector** — show/hide the right pane.
@@ -72,15 +72,15 @@ A 1040×660 floating panel opened from **Open Library** in the menu bar menu (an
 - Each card shows a large file-type icon, display name, extension, and category; favorite and recency are reflected in the inspector and menus.
 - Double-click or Return creates a file immediately.
 - Drag a card to Finder to copy the template file. The drag is a standard file URL operation with a copy mask; Finder performs the copy and handles name collisions.
-- Context menu: New File, New File…, Favorite/Remove Favorite, Reveal in Finder, Rename…, Remove Template….
-- Empty state: “No Templates”, explanatory text, and **Add Template…**.
+- Context menu: Create in Default Folder, Choose Name and Location…, Favorite/Remove Favorite, Reveal in Finder, Rename…, Remove Template….
+- Empty state: “No Templates”, explanatory text, and **Add Template…**. Search-empty state keeps the same actions without losing the current sidebar selection.
 - Search with no results shows the empty state; the sidebar selection is preserved.
 
 ### Inspector
 
 - Large file icon, display name, stored file name, category.
 - Extension, use count, last-used date, and notes when present.
-- **New File** and **New File…** buttons.
+- **Create in Default Folder** and **Choose Name and Location…** buttons.
 - Favorite and Enabled checkboxes.
 - **Reveal Template** and **Remove Template…**.
 - With no selection: a placeholder icon and “Select a template”.
@@ -91,16 +91,16 @@ A 1040×660 floating panel opened from **Open Library** in the menu bar menu (an
 - **Edit:** standard Undo/Redo/Cut/Copy/Paste/Select All; Search Templates (⌘F).
 - **View:** Show/Hide Sidebar (⌃⌘S), Show/Hide Inspector (⌥⌘I), Reveal Selected Template (⌘R), Enter Full Screen (⌃⌘F).
 - **Window:** Zoom, Bring All to Front.
-- **Help:** New File Creation 2 Help (⌘?), Open Templates Folder, Show Welcome.
+- **Help:** New File Creation 2 Help (⌘?), Open Templates Folder, Show Get Started.
 
 The app menu includes About, Settings… (⌘,), Services, Hide/Hide Others/Show All, and Quit.
 
 ## Menu bar quick panel
 
-- `NSStatusItem` with the `doc.badge.plus` symbol. The status item is permanent and cannot be hidden. Left-click toggles the visual quick panel, anchored below the status item; right-click opens a menu with quick panel, New File templates, add template, library, settings, welcome, about, and quit.
+- `NSStatusItem` with the `doc.badge.plus` symbol. The status item is permanent and cannot be hidden. Left-click toggles the visual quick panel, anchored below the status item; right-click opens a menu with quick panel, New File templates, add template, library, Get Started, settings, about, and quit. The template list is rebuilt every time the menu opens, so changes from Settings or `nfc` appear immediately.
 - Floating 460×420 panel near the top of the screen (or below the status item when opened there); hides when it resigns key.
-- A trailing app icon and gear button sit in the header. The gear closes the panel and opens Settings.
-- Search field is focused automatically; the first result is selected.
+- A trailing app icon, centered title, and gear button sit in the header. The app icon closes the panel and opens Get Started; the gear closes the panel and opens Settings.
+- Search field is focused automatically; the first result is selected. The panel reloads the shared configuration when it opens, so new templates and category changes are visible without relaunching.
 - Rows show a 32×32 file icon, display name, category, extension, and a favorite star.
 - Keyboard: ↑/↓ move, Return creates, Esc closes; double-click creates.
 - Drag any row into a Finder window or another file-promise-aware drop target. The target chooses the folder; the file uses `defaultBaseName` plus the template extension, and the normal no-overwrite rules apply. The panel closes after a successful drop.
@@ -112,7 +112,7 @@ The menu bar icon is always available and Settings disables its checkbox. The ap
 
 ## Settings
 
-A floating utility panel (680×560) opened from the menu bar menu, the quick panel gear, the app menu, or the URL scheme. It stays above normal windows, remains available when the app deactivates, and never appears as a Dock window. Five tabs carry SF Symbol icons: General, Templates, Finder, Advanced, and About. Changes apply immediately; there is no Save button. All destructive actions confirm first.
+A floating utility panel opened from the menu bar menu, the quick panel gear, the app menu, or the URL scheme. It stays above normal windows, remains available when the app deactivates, and never appears as a Dock window. Six tabs carry SF Symbol icons: General, Templates, Finder, Advanced, Help, and About. The window resizes to a preferred size for each tab: General 680×620, Templates 780×620, Finder 680×600, Advanced 680×560, Help 720×640, About 560×460. Changes apply immediately; there is no Save button. All destructive actions confirm first.
 
 ### General
 
@@ -125,11 +125,12 @@ A floating utility panel (680×560) opened from the menu bar menu, the quick pan
 ### Templates
 
 - Table of all templates: enabled checkbox, name, category, stored file.
-- Category popup assigns the selected template to a category, including custom categories.
+- Category popup assigns the selected template to a category, including custom categories. **Remove Category…** removes the selected custom category after confirmation and moves its templates to **Other**; the alert states how many templates will move.
 - Inline **New category** field and **Add Category** button create a custom category and assign it to the selected template.
+- **Sort by** popup orders templates by manual order, name, category, or file type. Category sorting groups by category name, then template name; file-type sorting compares extension, then display name. Favorites remain first where the UI promises it.
 - Buttons: Add…, Remove…, Set as Default.
-- Removing removes metadata and moves the template file to Trash.
-- Disabled templates do not appear in the app grid, quick panel, menu bar, or Finder menus.
+- Removing a template removes metadata and moves the template file to Trash.
+- Disabled templates do not appear in the app grid, quick panel, menu bar, Finder menus, or Today widget.
 
 ### Finder
 
@@ -146,30 +147,40 @@ A floating utility panel (680×560) opened from the menu bar menu, the quick pan
 - Open Templates Folder.
 - **Command-line tool:** install/uninstall the `nfc` symlink, status, and PATH hint.
 - Reveal Log.
-- Show Welcome Again.
-- Note: the app and CLI coordinate writes with a lock and atomic replacement; the Finder extension only reads config.
+- Show Get Started.
+- Note: the app and CLI coordinate writes with a lock and atomic replacement; the Finder and Today extensions only read config.
+
+### Help
+
+- A short explanation of the app: reusable templates and local-only creation.
+- Step-by-step workflows for the menu bar quick panel, Finder menus, the library, the CLI, and the Today widget.
+- Keyboard reference for ⌘N, ⇧⌘N, the global shortcut, Return, and Esc.
+- **Show Get Started** opens the Get Started window; **Open Templates Folder** reveals the shared templates.
+- Notes on enabling the Finder extension and using `nfc`.
 
 ### About
 
 - App icon, name, version.
 - Tagline, MIT license/copyright, View License.
-- Link back to the welcome window.
+- Link back to Get Started.
 
-## Welcome panel
+## Get Started window
 
-- A floating panel opened from the menu bar menu (Welcome…), Settings, or Help. The app launches silently with only the menu bar icon; no window is opened automatically.
-- App icon, headline, short description of Finder, menu bar, library, and CLI access.
-- Finder extension status card.
-- **Get Started** opens the library panel; **Open Settings** opens Settings.
-- Closing the panel marks onboarding complete.
-- Reopen at any time with **Welcome…**, **Show Welcome**, or **Show Welcome Again**.
+- A floating panel opened from the menu bar menu, the quick-panel app icon, Settings › Help, or the app menu. The app launches silently with only the menu bar icon; no window is opened automatically.
+- App icon, headline, and a short description of Finder, menu bar, library, CLI, and Today widget access.
+- Four feature rows: menu bar and global shortcut, Finder menus, `nfc`, and local-only privacy.
+- **Open Template Library** opens the library panel; **Open Settings** opens Settings. Return triggers the primary action.
+- An inspector button at the top-right opens an inline right-side aside titled “At a glance”: template count, quick-panel hints, drag hint, Return hint, and pointers to Settings › Templates, Finder, and Help, plus **Open Templates Folder**.
+- The aside is part of the window rather than an overlay: opening it widens the window by 276 pt and reserves a 260 pt column, so it never covers the headline, feature rows, or buttons. Collapsing restores the original width without animation.
+- Closing the panel marks onboarding complete. Reopen it at any time from the menu bar, the quick panel app icon, Settings › Help, or the app menu.
 
 ## Window behavior
 
 - The app is an `LSUIElement` menu bar accessory. It has no Dock icon and no Dock-owned window at any point.
-- The library, Settings, Welcome, and quick panel are all `NSPanel` subclasses that float above normal windows (`NSFloatingWindowLevel`), stay visible when the app deactivates, and are released only when the app quits.
+- The library, Settings, Get Started, and quick panel are all `NSPanel` subclasses that float above normal windows (`NSFloatingWindowLevel`), stay visible when the app deactivates, and are released only when the app quits.
 - Windows are activated and keyed when opened from the menu bar icon. Closing one never quits the app; use **Quit New File Creation 2** in the menu bar menu.
 - Panels can join all Spaces and remain available as full-screen auxiliaries. None of them can be minimized into a Dock tile.
+- Open windows observe the shared config change notification: template rows, category lists, and template counts refresh when Settings, the CLI, or another process writes `config.json`. The quick panel and menu bar template list reload when opened.
 
 ## Finder menus
 
@@ -179,8 +190,18 @@ A floating utility panel (680×560) opened from the menu bar menu, the quick pan
 - **Add as Template** appears for selected items and the toolbar menu.
 - Creating from Finder uses the targeted folder; for selected files, the containing folder; for a selected folder, that folder.
 - Default behavior is instant creation. If **Ask for a name** is enabled, a small alert asks for a base name.
-- If the sandbox denies a direct copy, the extension opens the app URL scheme and the non-sandboxed app performs the copy.
+- If the sandbox denies a direct copy, the extension asks its `NSExtensionContext` to open `newfilecreation2://create`, falling back to `NSWorkspace`; the non-sandboxed app performs the copy.
+- Creation targets the currently browsed folder, the selected item’s folder, or the Desktop as appropriate.
 - Empty library: a disabled “No Templates” item.
+
+## Today widget
+
+- A legacy Notification Center Today extension (`com.apple.widget-extension`) embedded at `Contents/PlugIns/New File Creation 2 Today.appex`. Today extensions are deprecated on current macOS, so the widget may not be listed on every release; the app and Finder/CLI flows do not depend on it.
+- 320×300 layout: app icon, “New File Creation 2”, drag hint, and a plain table of enabled templates.
+- Rows use the same file-type icons, favorites-first ordering, and persisted name/category/file-type sorting as the rest of the app.
+- Dragging a row uses `NFFilePromiseProvider`, so a Finder folder, the Desktop, or another file-promise-aware app writes one default-named file with the usual no-overwrite rules.
+- Missing or damaged `config.json` shows “No templates to show”; the widget only reads the shared configuration and never writes to it.
+- The widget reloads when Notification Center asks for its view and observes the shared config change notification.
 
 ## Keyboard shortcuts
 
@@ -217,16 +238,18 @@ The global shortcut is configurable only through the presets in Settings; arbitr
 ## Localization
 
 - UI strings are looked up through `NFLocalizedString`, with English strings as keys.
-- English and Spanish `.strings` files ship in both the app and Finder extension bundles.
+- All 28 languages from New File Creation v1 ship `.strings` files in the app, Finder extension, and Today widget bundles: Arabic, Catalan, Danish, German, Greek, English, Spanish, Basque, Finnish, French, Galician, Hindi, Indonesian, Icelandic, Italian, Japanese, Korean, Malay, Norwegian Bokmål, Dutch, Polish, Portuguese (Portugal), Romanian, Russian, Swedish, Turkish, Simplified Chinese, and Traditional Chinese.
+- Arabic is the right-to-left locale; AppKit mirrors the standard layout automatically.
+- The product name “New File Creation 2” is never translated. “nfc” and technical tokens such as `config.json` are also preserved.
 - The CLI’s human output is English in v2.0; JSON keys and error codes are locale-independent.
 - Dynamic category titles are localized at display time while the stored category remains the stable English identifier.
-- The XCTest suite checks that English and Spanish have identical key sets and no empty values.
+- The XCTest and verification suites check that every language has the same keys as English, non-empty values, matching format placeholders, and the preserved product name.
 
 ## What is intentionally absent
 
 - Touch Bar support (discontinued hardware).
 - A Dock icon or Dock-owned main window; the app is menu-bar-only.
-- A Today widget (WidgetKit would require a Swift target; future work).
+- A modern WidgetKit widget. The embedded Today extension is retained for compatibility but may not surface on macOS releases that have removed Today widgets.
 - iCloud zip sync, accounts, telemetry, and network access.
 - A login helper app (`SMAppService.mainApp` is used instead).
 - A custom-drawn UI toolkit; everything is standard AppKit.
