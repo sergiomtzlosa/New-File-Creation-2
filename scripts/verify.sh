@@ -6,8 +6,12 @@ ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 APP="$ROOT/build/New File Creation 2.app"
 HELPER="$APP/Contents/Helpers/nfc"
 EXTENSION="$APP/Contents/PlugIns/New File Creation 2 Finder.appex"
+TODAY="$APP/Contents/PlugIns/New File Creation 2 Today.appex"
 SKIP_BUILD=0
 SKIP_TESTS=0
+
+# Every language that shipped with New File Creation v1, plus English.
+LANGUAGES=(ar ca da de el en es eu-ES fi fr gl hi id is-IS it ja ko ms nb nl pl pt-PT ro ru sv tr zh-Hans zh-Hant)
 
 usage() {
     cat <<'EOF'
@@ -71,11 +75,14 @@ fi
 
 check "app signature" codesign --verify --deep --strict "$APP"
 check "Finder extension signature" codesign --verify --strict "$EXTENSION"
+check "Today extension signature" codesign --verify --strict "$TODAY"
 check "nfc signature" codesign --verify --strict "$HELPER"
 check "nfc is executable" test -x "$HELPER"
 check "Finder extension embedded" test -d "$EXTENSION"
+check "Today extension embedded" test -d "$TODAY"
 check "Info.plist syntax" plutil -lint "$APP/Contents/Info.plist"
 check "Finder Info.plist syntax" plutil -lint "$EXTENSION/Contents/Info.plist"
+check "Today Info.plist syntax" plutil -lint "$TODAY/Contents/Info.plist"
 
 VERSION="$(plutil -extract CFBundleShortVersionString raw "$APP/Contents/Info.plist")"
 check "version is 2.0.0" test "$VERSION" = "2.0.0"
@@ -86,6 +93,9 @@ check "app bundle identifier" test "$BUNDLE_ID" = "com.sid.newfilecreation2"
 EXT_BUNDLE_ID="$(plutil -extract CFBundleIdentifier raw "$EXTENSION/Contents/Info.plist")"
 check "extension bundle identifier" test "$EXT_BUNDLE_ID" = "com.sid.newfilecreation2.finder"
 
+TODAY_BUNDLE_ID="$(plutil -extract CFBundleIdentifier raw "$TODAY/Contents/Info.plist")"
+check "Today bundle identifier" test "$TODAY_BUNDLE_ID" = "com.sid.newfilecreation2.today"
+
 PRINCIPAL="$(plutil -extract NSExtension.NSExtensionPrincipalClass raw "$EXTENSION/Contents/Info.plist")"
 check "Finder Sync principal class" test "$PRINCIPAL" = "NFCFinderSync"
 
@@ -93,33 +103,63 @@ SCHEME="$(plutil -extract 'CFBundleURLTypes.0.CFBundleURLSchemes.0' raw "$APP/Co
 check "URL scheme" test "$SCHEME" = "newfilecreation2"
 
 check "English localization" test -f "$APP/Contents/Resources/en.lproj/Localizable.strings"
-check "Spanish localization" test -f "$APP/Contents/Resources/es.lproj/Localizable.strings"
-check "Finder English localization" test -f "$EXTENSION/Contents/Resources/en.lproj/Localizable.strings"
-check "Finder Spanish localization" test -f "$EXTENSION/Contents/Resources/es.lproj/Localizable.strings"
+
+check_all_localizations() {
+    local bundle="$1"
+    local lang
+    for lang in "${LANGUAGES[@]}"; do
+        [ -f "$bundle/Contents/Resources/$lang.lproj/Localizable.strings" ] || return 1
+    done
+}
+check "app localization files (28 languages)" check_all_localizations "$APP"
+check "Finder localization files (28 languages)" check_all_localizations "$EXTENSION"
+check "Today localization files (28 languages)" check_all_localizations "$TODAY"
 
 check_localization() {
-    local tmp
-    tmp="$(mktemp -d "${TMPDIR:-/tmp}/nfc-l10n.XXXXXX")"
-    plutil -convert json -o "$tmp/en.json" "$APP/Contents/Resources/en.lproj/Localizable.strings"
-    plutil -convert json -o "$tmp/es.json" "$APP/Contents/Resources/es.lproj/Localizable.strings"
-    python3 - "$tmp/en.json" "$tmp/es.json" <<'PY'
+    python3 - "$APP/Contents/Resources" "$EXTENSION/Contents/Resources" "$TODAY/Contents/Resources" <<'PY'
 import json
+import re
+import subprocess
 import sys
+from pathlib import Path
 
-with open(sys.argv[1], encoding="utf-8") as handle:
-    english = json.load(handle)
-with open(sys.argv[2], encoding="utf-8") as handle:
-    spanish = json.load(handle)
-if set(english) != set(spanish):
-    raise SystemExit("localization keys differ")
-if any(not value for value in english.values()) or any(not value for value in spanish.values()):
-    raise SystemExit("a localization value is empty")
+languages = "ar ca da de el en es eu-ES fi fr gl hi id is-IS it ja ko ms nb nl pl pt-PT ro ru sv tr zh-Hans zh-Hant".split()
+product = "New File Creation 2"
+placeholder = re.compile(r"%(?:\d+\$)?[-+#0-9.]*[a-zA-Z@%]")
+
+
+def load(path):
+    result = subprocess.run(
+        ["plutil", "-convert", "json", "-o", "-", str(path)],
+        capture_output=True, check=True)
+    return json.loads(result.stdout)
+
+
+for resources in sys.argv[1:]:
+    base = Path(resources)
+    english = load(base / "en.lproj/Localizable.strings")
+    if any(not value for value in english.values()):
+        raise SystemExit(f"{base}: empty English value")
+    for language in languages:
+        if language == "en":
+            continue
+        translated = load(base / f"{language}.lproj/Localizable.strings")
+        if set(english) != set(translated):
+            raise SystemExit(f"{base}/{language}: localization keys differ")
+        for key, value in english.items():
+            text = translated[key]
+            if not text:
+                raise SystemExit(f"{base}/{language}: empty value for {key!r}")
+            if sorted(placeholder.findall(value)) != sorted(placeholder.findall(text)):
+                raise SystemExit(f"{base}/{language}: placeholders differ for {key!r}")
+            if product in value and product not in text:
+                raise SystemExit(f"{base}/{language}: product name missing for {key!r}")
 PY
-    local status=$?
-    rm -rf "$tmp"
-    return "$status"
 }
-check "localization key parity" check_localization
+check "localization parity, placeholders, product name" check_localization
+
+check "Finder sandbox entitlement" bash -c "codesign -d --entitlements :- '$EXTENSION' 2>/dev/null | grep -q com.apple.security.app-sandbox"
+check "Today sandbox entitlement" bash -c "codesign -d --entitlements :- '$TODAY' 2>/dev/null | grep -q com.apple.security.app-sandbox"
 
 check "bundled templates present" test "$(find "$APP/Contents/Resources/Templates" -maxdepth 1 -type f | wc -l | tr -d ' ')" -ge 30
 check "app icon present" test -f "$APP/Contents/Resources/AppIcon.icns"
