@@ -77,6 +77,14 @@ check "app signature" codesign --verify --deep --strict "$APP"
 check "Finder extension signature" codesign --verify --strict "$EXTENSION"
 check "Today extension signature" codesign --verify --strict "$TODAY"
 check "nfc signature" codesign --verify --strict "$HELPER"
+
+check_hardened_runtime() {
+    codesign -d --verbose=4 "$1" 2>&1 | grep -E 'flags=0x[0-9a-f]+\([^)]*runtime' >/dev/null
+}
+check "app hardened runtime" check_hardened_runtime "$APP"
+check "Finder extension hardened runtime" check_hardened_runtime "$EXTENSION"
+check "Today extension hardened runtime" check_hardened_runtime "$TODAY"
+check "nfc hardened runtime" check_hardened_runtime "$HELPER"
 check "nfc is executable" test -x "$HELPER"
 check "Finder extension embedded" test -d "$EXTENSION"
 check "Today extension embedded" test -d "$TODAY"
