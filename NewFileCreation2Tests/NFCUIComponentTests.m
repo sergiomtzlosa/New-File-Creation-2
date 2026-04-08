@@ -51,6 +51,11 @@
 - (void)welcomeAction:(id)sender;
 @end
 
+@interface NFCSettingsWindowController (NFCTesting)
+- (void)resizeWindowForPane:(NSViewController *)pane;
+- (CGFloat)measuredContentHeightForPane:(NSViewController *)pane;
+@end
+
 static NSMenuItem *NFMenuItemWithAction(NSMenu *menu, SEL action) {
     for (NSMenuItem *item in menu.itemArray) {
         if (item.action == action) {
@@ -700,6 +705,33 @@ static NSView *NFViewWithIdentifier(NSView *root, NSString *identifier) {
 
     NSViewController *about = tabs.tabViewItems[5].viewController;
     XCTAssertNotNil([self buttonWithTitle:NFLocalizedString(@"View License") inView:about.view]);
+    [settings.window orderOut:nil];
+}
+
+- (void)testSettingsWindowFitsEachTabContentHeight {
+    NFCSettingsWindowController *settings = [[NFCSettingsWindowController alloc] init];
+    NSTabViewController *tabs = [settings valueForKey:@"tabViewController"];
+    [tabs view];
+
+    for (NSUInteger index = 0; index < tabs.tabViewItems.count; index++) {
+        tabs.selectedTabViewItemIndex = (NSInteger)index;
+        [[NSRunLoop mainRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:0.01]];
+        NSViewController *pane = tabs.tabViewItems[index].viewController;
+        [settings resizeWindowForPane:pane];
+        [settings.window.contentView layoutSubtreeIfNeeded];
+
+        CGFloat contentBottom = NSMaxY(pane.view.bounds);
+        for (NSView *subview in pane.view.subviews) {
+            if (!subview.hidden && subview.alphaValue > 0) {
+                contentBottom = MIN(contentBottom, NSMinY(subview.frame));
+            }
+        }
+        CGFloat bottomGap = contentBottom - NSMinY(pane.view.bounds);
+        if (index != 1) {
+            XCTAssertEqualWithAccuracy(bottomGap, 24.0, 2.0,
+                                       @"%@ should end near the bottom of the window", tabs.tabViewItems[index].label);
+        }
+    }
     [settings.window orderOut:nil];
 }
 

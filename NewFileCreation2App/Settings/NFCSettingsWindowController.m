@@ -19,6 +19,10 @@
 
 #pragma mark - Helpers
 
+// A single width for every tab keeps the window from jumping horizontally as
+// the user switches panes, and leaves room for the widest localized controls.
+static const CGFloat NFCSettingsContentWidth = 780.0;
+
 static NSTextField *NFMakeLabel(NSString *text, NSFont *font, NSColor *color) {
     NSTextField *label = [NSTextField labelWithString:text];
     label.font = font;
@@ -30,6 +34,15 @@ static NSTextField *NFMakeLabel(NSString *text, NSFont *font, NSColor *color) {
 static NSTextField *NFMakeSectionLabel(NSString *text) {
     NSTextField *label = NFMakeLabel(text, [NSFont systemFontOfSize:11 weight:NSFontWeightSemibold], NSColor.secondaryLabelColor);
     label.stringValue = text.uppercaseString;
+    return label;
+}
+
+static NSTextField *NFMakeWrappingLabel(NSString *text, NSFont *font, NSColor *color, NSInteger maximumNumberOfLines) {
+    NSTextField *label = [NSTextField wrappingLabelWithString:text];
+    label.font = font;
+    label.textColor = color;
+    label.maximumNumberOfLines = maximumNumberOfLines;
+    label.translatesAutoresizingMaskIntoConstraints = NO;
     return label;
 }
 
@@ -77,7 +90,7 @@ static NSView *NFGridViewContainer(NSGridView *grid) {
     [NSLayoutConstraint activateConstraints:@[
         [grid.topAnchor constraintEqualToAnchor:container.topAnchor constant:24],
         [grid.leadingAnchor constraintEqualToAnchor:container.leadingAnchor constant:28],
-        [grid.trailingAnchor constraintLessThanOrEqualToAnchor:container.trailingAnchor constant:-28]
+        [grid.trailingAnchor constraintEqualToAnchor:container.trailingAnchor constant:-28]
     ]];
     return container;
 }
@@ -126,7 +139,7 @@ static void NFShowSettingsError(NSWindow *window, NSString *message, NSString *i
     self = [super initWithNibName:nil bundle:nil];
     if (self) {
         self.title = NFLocalizedString(@"General");
-        self.preferredContentSize = NSMakeSize(680, 620);
+        self.preferredContentSize = NSMakeSize(NFCSettingsContentWidth, 620);
     }
     return self;
 }
@@ -202,15 +215,14 @@ static void NFShowSettingsError(NSWindow *window, NSString *message, NSString *i
     [grid columnAtIndex:0].xPlacement = NSGridCellPlacementLeading;
 
     NSView *container = NFGridViewContainer(grid);
-    NSTextField *note = NFMakeLabel(NFLocalizedString(@"The default name is used by the app, the Finder extension, and the nfc command. Existing files are never overwritten."),
-                                    [NSFont systemFontOfSize:11], NSColor.secondaryLabelColor);
-    note.maximumNumberOfLines = 2;
-    note.translatesAutoresizingMaskIntoConstraints = NO;
+    NSTextField *note = NFMakeWrappingLabel(NFLocalizedString(@"The default name is used by the app, the Finder extension, and the nfc command. Existing files are never overwritten."),
+                                            [NSFont systemFontOfSize:11], NSColor.secondaryLabelColor, 2);
     [container addSubview:note];
     [NSLayoutConstraint activateConstraints:@[
         [note.topAnchor constraintEqualToAnchor:grid.bottomAnchor constant:20],
         [note.leadingAnchor constraintEqualToAnchor:container.leadingAnchor constant:28],
-        [note.trailingAnchor constraintEqualToAnchor:container.trailingAnchor constant:-28]
+        [note.trailingAnchor constraintEqualToAnchor:container.trailingAnchor constant:-28],
+        [note.bottomAnchor constraintLessThanOrEqualToAnchor:container.bottomAnchor constant:-24]
     ]];
 
     self.view = container;
@@ -406,7 +418,7 @@ static void NFShowSettingsError(NSWindow *window, NSString *message, NSString *i
     self = [super initWithNibName:nil bundle:nil];
     if (self) {
         self.title = NFLocalizedString(@"Templates");
-        self.preferredContentSize = NSMakeSize(780, 620);
+        self.preferredContentSize = NSMakeSize(NFCSettingsContentWidth, 620);
     }
     return self;
 }
@@ -851,7 +863,7 @@ static void NFShowSettingsError(NSWindow *window, NSString *message, NSString *i
     self = [super initWithNibName:nil bundle:nil];
     if (self) {
         self.title = NFLocalizedString(@"Finder");
-        self.preferredContentSize = NSMakeSize(680, 600);
+        self.preferredContentSize = NSMakeSize(NFCSettingsContentWidth, 600);
     }
     return self;
 }
@@ -895,10 +907,8 @@ static void NFShowSettingsError(NSWindow *window, NSString *message, NSString *i
     [grid addRowWithViews:@[NFMakeLabel(NFLocalizedString(@"Creation:"), [NSFont systemFontOfSize:13], NSColor.labelColor), self.behaviorPopup]];
 
     [container addSubview:grid];
-    NSTextField *note = NFMakeLabel(NFLocalizedString(@"The Finder extension reads the shared configuration and creates files in the selected folder. If the extension is not listed, open System Settings › General › Login Items & Extensions › Finder Extensions."),
-                                    [NSFont systemFontOfSize:11], NSColor.secondaryLabelColor);
-    note.maximumNumberOfLines = 3;
-    note.translatesAutoresizingMaskIntoConstraints = NO;
+    NSTextField *note = NFMakeWrappingLabel(NFLocalizedString(@"The Finder extension reads the shared configuration and creates files in the selected folder. If the extension is not listed, open System Settings › General › Login Items & Extensions › Finder Extensions."),
+                                            [NSFont systemFontOfSize:11], NSColor.secondaryLabelColor, 3);
     [container addSubview:note];
 
     [NSLayoutConstraint activateConstraints:@[
@@ -912,10 +922,11 @@ static void NFShowSettingsError(NSWindow *window, NSString *message, NSString *i
         [openSettings.centerYAnchor constraintEqualToAnchor:self.statusLabel.centerYAnchor],
         [grid.topAnchor constraintEqualToAnchor:self.statusLabel.bottomAnchor constant:22],
         [grid.leadingAnchor constraintEqualToAnchor:container.leadingAnchor constant:28],
-        [grid.trailingAnchor constraintLessThanOrEqualToAnchor:container.trailingAnchor constant:-28],
+        [grid.trailingAnchor constraintEqualToAnchor:container.trailingAnchor constant:-28],
         [note.topAnchor constraintEqualToAnchor:grid.bottomAnchor constant:22],
         [note.leadingAnchor constraintEqualToAnchor:container.leadingAnchor constant:28],
-        [note.trailingAnchor constraintEqualToAnchor:container.trailingAnchor constant:-28]
+        [note.trailingAnchor constraintEqualToAnchor:container.trailingAnchor constant:-28],
+        [note.bottomAnchor constraintLessThanOrEqualToAnchor:container.bottomAnchor constant:-24]
     ]];
 
     self.view = container;
@@ -1021,7 +1032,7 @@ static void NFShowSettingsError(NSWindow *window, NSString *message, NSString *i
     self = [super initWithNibName:nil bundle:nil];
     if (self) {
         self.title = NFLocalizedString(@"Advanced");
-        self.preferredContentSize = NSMakeSize(680, 560);
+        self.preferredContentSize = NSMakeSize(NFCSettingsContentWidth, 560);
     }
     return self;
 }
@@ -1089,10 +1100,8 @@ static void NFShowSettingsError(NSWindow *window, NSString *message, NSString *i
     welcome.translatesAutoresizingMaskIntoConstraints = NO;
     [container addSubview:welcome];
 
-    NSTextField *note = NFMakeLabel(NFLocalizedString(@"The app and nfc coordinate writes with a lock and atomic replacement. The Finder extension reads the configuration only."),
-                                    [NSFont systemFontOfSize:11], NSColor.secondaryLabelColor);
-    note.maximumNumberOfLines = 2;
-    note.translatesAutoresizingMaskIntoConstraints = NO;
+    NSTextField *note = NFMakeWrappingLabel(NFLocalizedString(@"The app and nfc coordinate writes with a lock and atomic replacement. The Finder extension reads the configuration only."),
+                                            [NSFont systemFontOfSize:11], NSColor.secondaryLabelColor, 2);
     [container addSubview:note];
 
     [NSLayoutConstraint activateConstraints:@[
@@ -1129,7 +1138,8 @@ static void NFShowSettingsError(NSWindow *window, NSString *message, NSString *i
         [welcome.leadingAnchor constraintEqualToAnchor:container.leadingAnchor constant:28],
         [note.topAnchor constraintEqualToAnchor:welcome.bottomAnchor constant:24],
         [note.leadingAnchor constraintEqualToAnchor:container.leadingAnchor constant:28],
-        [note.trailingAnchor constraintEqualToAnchor:container.trailingAnchor constant:-28]
+        [note.trailingAnchor constraintEqualToAnchor:container.trailingAnchor constant:-28],
+        [note.bottomAnchor constraintLessThanOrEqualToAnchor:container.bottomAnchor constant:-24]
     ]];
 
     self.view = container;
@@ -1275,7 +1285,7 @@ static void NFShowSettingsError(NSWindow *window, NSString *message, NSString *i
     self = [super initWithNibName:nil bundle:nil];
     if (self) {
         self.title = NFLocalizedString(@"Help");
-        self.preferredContentSize = NSMakeSize(720, 640);
+        self.preferredContentSize = NSMakeSize(NFCSettingsContentWidth, 640);
     }
     return self;
 }
@@ -1359,9 +1369,8 @@ static void NFShowSettingsError(NSWindow *window, NSString *message, NSString *i
     templates.bezelStyle = NSBezelStyleRounded;
     [container addSubview:templates];
 
-    NSTextField *note = NFMakeLabel(NFLocalizedString(@"Tip: the global shortcut opens Quick New File from any app. Change it in Settings › General."),
-                                    [NSFont systemFontOfSize:11], NSColor.tertiaryLabelColor);
-    note.translatesAutoresizingMaskIntoConstraints = NO;
+    NSTextField *note = NFMakeWrappingLabel(NFLocalizedString(@"Tip: the global shortcut opens Quick New File from any app. Change it in Settings › General."),
+                                            [NSFont systemFontOfSize:11], NSColor.tertiaryLabelColor, 2);
     [container addSubview:note];
 
     [NSLayoutConstraint activateConstraints:@[
@@ -1373,14 +1382,15 @@ static void NFShowSettingsError(NSWindow *window, NSString *message, NSString *i
         [intro.trailingAnchor constraintEqualToAnchor:heading.trailingAnchor],
         [rows.topAnchor constraintEqualToAnchor:intro.bottomAnchor constant:24],
         [rows.leadingAnchor constraintEqualToAnchor:heading.leadingAnchor],
-        [rows.trailingAnchor constraintLessThanOrEqualToAnchor:heading.trailingAnchor],
+        [rows.trailingAnchor constraintEqualToAnchor:heading.trailingAnchor],
         [getStarted.topAnchor constraintEqualToAnchor:rows.bottomAnchor constant:26],
         [getStarted.leadingAnchor constraintEqualToAnchor:heading.leadingAnchor],
         [templates.leadingAnchor constraintEqualToAnchor:getStarted.trailingAnchor constant:8],
         [templates.centerYAnchor constraintEqualToAnchor:getStarted.centerYAnchor],
         [note.topAnchor constraintEqualToAnchor:getStarted.bottomAnchor constant:16],
         [note.leadingAnchor constraintEqualToAnchor:heading.leadingAnchor],
-        [note.trailingAnchor constraintEqualToAnchor:heading.trailingAnchor]
+        [note.trailingAnchor constraintEqualToAnchor:heading.trailingAnchor],
+        [note.bottomAnchor constraintLessThanOrEqualToAnchor:container.bottomAnchor constant:-24]
     ]];
 
     self.view = container;
@@ -1409,7 +1419,7 @@ static void NFShowSettingsError(NSWindow *window, NSString *message, NSString *i
     self = [super initWithNibName:nil bundle:nil];
     if (self) {
         self.title = NFLocalizedString(@"About");
-        self.preferredContentSize = NSMakeSize(560, 460);
+        self.preferredContentSize = NSMakeSize(NFCSettingsContentWidth, 460);
     }
     return self;
 }
@@ -1431,18 +1441,14 @@ static void NFShowSettingsError(NSWindow *window, NSString *message, NSString *i
     versionLabel.translatesAutoresizingMaskIntoConstraints = NO;
     [container addSubview:versionLabel];
 
-    NSTextField *tagline = NFMakeLabel(NFLocalizedString(@"Create files from templates in Finder, the menu bar, the library, and the command line."),
-                                       [NSFont systemFontOfSize:13], NSColor.labelColor);
-    tagline.maximumNumberOfLines = 2;
+    NSTextField *tagline = NFMakeWrappingLabel(NFLocalizedString(@"Create files from templates in Finder, the menu bar, the library, and the command line."),
+                                               [NSFont systemFontOfSize:13], NSColor.labelColor, 2);
     tagline.alignment = NSTextAlignmentCenter;
-    tagline.translatesAutoresizingMaskIntoConstraints = NO;
     [container addSubview:tagline];
 
-    NSTextField *copyright = NFMakeLabel(NFLocalizedString(@"Copyright © 2024–2026 Sergio Martinez-Losa\nMIT License"),
-                                         [NSFont systemFontOfSize:11], NSColor.secondaryLabelColor);
-    copyright.maximumNumberOfLines = 2;
+    NSTextField *copyright = NFMakeWrappingLabel(NFLocalizedString(@"Copyright © 2024–2026 Sergio Martinez-Losa\nMIT License"),
+                                                 [NSFont systemFontOfSize:11], NSColor.secondaryLabelColor, 2);
     copyright.alignment = NSTextAlignmentCenter;
-    copyright.translatesAutoresizingMaskIntoConstraints = NO;
     [container addSubview:copyright];
 
     NSButton *license = [NSButton buttonWithTitle:NFLocalizedString(@"View License") target:self action:@selector(openLicense:)];
@@ -1464,7 +1470,8 @@ static void NFShowSettingsError(NSWindow *window, NSString *message, NSString *i
         [copyright.topAnchor constraintEqualToAnchor:tagline.bottomAnchor constant:22],
         [copyright.centerXAnchor constraintEqualToAnchor:container.centerXAnchor],
         [license.topAnchor constraintEqualToAnchor:copyright.bottomAnchor constant:14],
-        [license.centerXAnchor constraintEqualToAnchor:container.centerXAnchor]
+        [license.centerXAnchor constraintEqualToAnchor:container.centerXAnchor],
+        [license.bottomAnchor constraintLessThanOrEqualToAnchor:container.bottomAnchor constant:-24]
     ]];
 
     self.view = container;
@@ -1505,6 +1512,7 @@ static void NFShowSettingsError(NSWindow *window, NSString *message, NSString *i
 @interface NFCSettingsWindowController ()
 @property (nonatomic, strong) NFCSettingsTabViewController *tabViewController;
 @property (nonatomic, assign) BOOL didPositionWindow;
+@property (nonatomic, weak, nullable) NSViewController *pendingResizePane;
 @end
 
 @implementation NFCSettingsWindowController
@@ -1520,7 +1528,7 @@ static void NFShowSettingsError(NSWindow *window, NSString *message, NSString *i
     if (self) {
         _tabViewController = [[NFCSettingsTabViewController alloc] init];
         _tabViewController.tabStyle = NSTabViewControllerTabStyleToolbar;
-        _tabViewController.transitionOptions = NSViewControllerTransitionCrossfade;
+        _tabViewController.transitionOptions = NSViewControllerTransitionNone;
         _tabViewController.view.identifier = @"SettingsTabs";
         _tabViewController.view.accessibilityLabel = NFLocalizedString(@"Settings");
 
@@ -1532,7 +1540,7 @@ static void NFShowSettingsError(NSWindow *window, NSString *message, NSString *i
             }
         };
         _tabViewController.onSelectTab = ^(NSTabViewItem *item) {
-            [weakSelf resizeWindowForPane:item.viewController];
+            [weakSelf scheduleResizeForPane:item.viewController];
         };
         NSArray<NSViewController *> *panes = @[
             [[NFCGeneralSettingsViewController alloc] init],
@@ -1555,7 +1563,7 @@ static void NFShowSettingsError(NSWindow *window, NSString *message, NSString *i
         }
 
         window.contentViewController = _tabViewController;
-        window.contentMinSize = NSMakeSize(540, 420);
+        window.contentMinSize = NSMakeSize(540, 320);
         [self resizeWindowForPane:_tabViewController.tabViewItems.firstObject.viewController];
 
         NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
@@ -1579,24 +1587,77 @@ static void NFShowSettingsError(NSWindow *window, NSString *message, NSString *i
     });
 }
 
+- (CGFloat)measuredContentHeightForPane:(NSViewController *)pane {
+    // Templates uses a flexible scroll view: its button row is pinned to the
+    // bottom, so frame-based measurement would report the current window
+    // height instead of the content's natural height. Keep the list tall
+    // enough to browse and let it scroll.
+    if ([pane isKindOfClass:[NFCTemplatesSettingsViewController class]]) {
+        return MAX(pane.preferredContentSize.height, 520.0);
+    }
+
+    NSView *view = pane.view;
+    [view layoutSubtreeIfNeeded];
+    CGFloat contentBottom = NSMaxY(view.bounds);
+    for (NSView *subview in view.subviews) {
+        if (subview.hidden || subview.alphaValue == 0.0) {
+            continue;
+        }
+        contentBottom = MIN(contentBottom, NSMinY(subview.frame));
+    }
+    CGFloat height = NSHeight(view.bounds) - contentBottom + 24.0;
+    return ceil(MAX(height, 320.0));
+}
+
+- (void)scheduleResizeForPane:(NSViewController *)pane {
+    if (!pane || self.pendingResizePane == pane) {
+        return;
+    }
+    self.pendingResizePane = pane;
+    __weak typeof(self) weakSelf = self;
+    dispatch_async(dispatch_get_main_queue(), ^{
+        NSViewController *pending = weakSelf.pendingResizePane;
+        weakSelf.pendingResizePane = nil;
+        if (pending) {
+            [weakSelf resizeWindowForPane:pending];
+        }
+    });
+}
+
 - (void)resizeWindowForPane:(NSViewController *)pane {
-    NSSize size = pane.preferredContentSize;
-    if (size.width < 400 || size.height < 300) {
+    NSSize preferred = pane.preferredContentSize;
+    if (preferred.width < 400) {
         return;
     }
     NSWindow *window = self.window;
     if (!window) {
         return;
     }
+
+    // NSTabViewController applies each pane's preferredContentSize to the
+    // window whenever the pane is selected, so update the pane itself as well
+    // as the window. Otherwise the tab controller would immediately restore
+    // the pane's old height after the measured size is applied.
+    CGFloat width = MAX(preferred.width, 640.0);
+    NSSize current = window.contentView.bounds.size;
+    if (fabs(current.width - width) > 0.5) {
+        pane.preferredContentSize = NSMakeSize(width, MAX(current.height, 320.0));
+        [window setContentSize:NSMakeSize(width, MAX(current.height, 320.0))];
+    }
+    [pane.view layoutSubtreeIfNeeded];
+
+    NSSize target = NSMakeSize(width, [self measuredContentHeightForPane:pane]);
+    pane.preferredContentSize = target;
+    self.tabViewController.preferredContentSize = target;
     BOOL animate = window.isVisible;
-    [window setContentSize:size];
+    [window setContentSize:target];
     if (animate) {
         [window setFrame:window.frame display:YES animate:YES];
     }
 }
 
 - (void)tabViewController:(NSTabViewController *)tabViewController didSelectTabViewItem:(NSTabViewItem *)tabViewItem {
-    [self resizeWindowForPane:tabViewItem.viewController];
+    [self scheduleResizeForPane:tabViewItem.viewController];
 }
 
 - (void)showWindow:(id)sender {
@@ -1608,7 +1669,7 @@ static void NFShowSettingsError(NSWindow *window, NSString *message, NSString *i
     [super showWindow:sender];
     NSInteger index = self.tabViewController.selectedTabViewItemIndex;
     if (index >= 0 && index < (NSInteger)self.tabViewController.tabViewItems.count) {
-        [self resizeWindowForPane:self.tabViewController.tabViewItems[(NSUInteger)index].viewController];
+        [self scheduleResizeForPane:self.tabViewController.tabViewItems[(NSUInteger)index].viewController];
     }
     [NSApp activateIgnoringOtherApps:YES];
 }
