@@ -91,13 +91,15 @@
 + (NSMenuItem *)itemForTemplate:(NFTemplate *)template
                          target:(id)target
                          action:(SEL)action
-                      showIcons:(BOOL)showIcons {
+                      showIcons:(BOOL)showIcons
+                            tag:(NSInteger)tag {
     NSString *title = [NSString stringWithFormat:NFLocalizedString(@"New %@"), template.resolvedDisplayName];
     NSMenuItem *item = [[NSMenuItem alloc] initWithTitle:title
                                                   action:action
                                            keyEquivalent:@""];
     item.target = target;
     item.representedObject = template.identifier;
+    item.tag = tag;
     item.toolTip = template.fileName;
     if (showIcons) {
         item.image = [self iconForTemplate:template];
@@ -122,6 +124,7 @@
         return menu;
     }
 
+    NSInteger nextTag = 1;
     if (groupByCategory) {
         NSMutableArray<NFTemplate *> *favorites = [NSMutableArray array];
         NSMutableOrderedSet<NSString *> *categoryNames = [NSMutableOrderedSet orderedSet];
@@ -140,7 +143,7 @@
         }
         if (favorites.count > 0) {
             for (NFTemplate *template in favorites) {
-                [menu addItem:[self itemForTemplate:template target:target action:action showIcons:showIcons]];
+                [menu addItem:[self itemForTemplate:template target:target action:action showIcons:showIcons tag:nextTag++]];
             }
             if (byCategory.count > 0) {
                 [menu addItem:[NSMenuItem separatorItem]];
@@ -152,7 +155,7 @@
             NSMenuItem *categoryItem = [[NSMenuItem alloc] initWithTitle:displayName action:nil keyEquivalent:@""];
             NSMenu *submenu = [[NSMenu alloc] initWithTitle:displayName];
             for (NFTemplate *template in byCategory[category]) {
-                [submenu addItem:[self itemForTemplate:template target:target action:action showIcons:showIcons]];
+                [submenu addItem:[self itemForTemplate:template target:target action:action showIcons:showIcons tag:nextTag++]];
             }
             categoryItem.submenu = submenu;
             [menu addItem:categoryItem];
@@ -161,7 +164,7 @@
     }
 
     for (NFTemplate *template in templates) {
-        [menu addItem:[self itemForTemplate:template target:target action:action showIcons:showIcons]];
+        [menu addItem:[self itemForTemplate:template target:target action:action showIcons:showIcons tag:nextTag++]];
     }
     return menu;
 }

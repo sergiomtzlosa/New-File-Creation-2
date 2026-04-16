@@ -13,6 +13,10 @@ typedef NS_OPTIONS(NSUInteger, NFFinderMenuOptions) {
 
 @interface NFFinderMenuBuilder : NSObject
 
+/// Builds the New File menu. Template items carry a 1-based tag in addition to
+/// their representedObject so Finder Sync can resolve the template after the
+/// action crosses the extension's XPC boundary, where representedObject is
+/// discarded but integer menu-item properties survive.
 + (NSMenu *)menuForConfig:(NFConfig *)config
                    target:(nullable id)target
                    action:(SEL)action

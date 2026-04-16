@@ -3,6 +3,7 @@
 #import "NFTemplate.h"
 #import "NFFileCreator.h"
 #import "NFFinderMenuBuilder.h"
+#import "NFFinderDestination.h"
 #import "NFLocalization.h"
 #import "NFRequest.h"
 #import "NFVersion.h"
@@ -15,6 +16,8 @@ static NSString * const NFCFinderBundleIdentifier = @"com.sid.newfilecreation2";
 @interface NFCFinderSync ()
 @property (nonatomic, copy, nullable) NSString *supportDirectoryPath;
 @property (nonatomic, assign) FIMenuKind lastMenuKind;
+@property (nonatomic, copy, nullable) NSDictionary<NSNumber *, NSString *> *templateIdentifiersByTag;
+@property (nonatomic, strong, nullable) NSURL *menuDestinationURL;
 @end
 
 @implementation NFCFinderSync
@@ -112,6 +115,8 @@ static NSString * const NFCFinderBundleIdentifier = @"com.sid.newfilecreation2";
 
 - (NSMenu *)menuForMenuKind:(FIMenuKind)menuKind {
     self.lastMenuKind = menuKind;
+    self.templateIdentifiersByTag = nil;
+    self.menuDestinationURL = nil;
     NFConfig *config = [self readConfig];
     if (!config) {
         return nil;
@@ -136,6 +141,14 @@ static NSString * const NFCFinderBundleIdentifier = @"com.sid.newfilecreation2";
                                                           target:self
                                                           action:@selector(createFileFromTemplate:)
                                                          options:options];
+        // The action's sender is recreated across the Finder Sync XPC boundary,
+        // so captured representedObject values do not survive. Keep an
+        // identifier snapshot keyed by the integer tags on the local menu.
+        NSMutableDictionary<NSNumber *, NSString *> *identifiers = [NSMutableDictionary dictionary];
+        [self collectTemplateIdentifiersFromMenu:templateMenu intoDictionary:identifiers];
+        self.templateIdentifiersByTag = identifiers;
+        self.menuDestinationURL = [self destinationDirectoryForMenuKind:menuKind];
+
         NSMenuItem *newFileItem = [[NSMenuItem alloc] initWithTitle:NFLocalizedString(@"New File") action:nil keyEquivalent:@""];
         newFileItem.image = [NSImage imageWithSystemSymbolName:@"doc.badge.plus" accessibilityDescription:NFLocalizedString(@"New File")];
         newFileItem.submenu = templateMenu;
@@ -157,42 +170,52 @@ static NSString * const NFCFinderBundleIdentifier = @"com.sid.newfilecreation2";
     return menu.numberOfItems > 0 ? menu : nil;
 }
 
-- (nullable NSURL *)destinationDirectoryForMenuKind:(FIMenuKind)menuKind {
-    FIFinderSyncController *controller = [FIFinderSyncController defaultController];
-    NSURL *target = controller.targetedURL;
-    NSArray<NSURL *> *selected = controller.selectedItemURLs;
-
-    if (menuKind == FIMenuKindContextualMenuForItems && selected.count > 0) {
-        if (selected.count == 1) {
-            NSNumber *isDirectory = nil;
-            [selected[0] getResourceValue:&isDirectory forKey:NSURLIsDirectoryKey error:nil];
-            target = isDirectory.boolValue ? selected[0] : selected[0].URLByDeletingLastPathComponent;
-        } else {
-            target = selected.firstObject.URLByDeletingLastPathComponent;
+- (void)collectTemplateIdentifiersFromMenu:(NSMenu *)menu
+                          intoDictionary:(NSMutableDictionary<NSNumber *, NSString *> *)identifiers {
+    for (NSMenuItem *item in menu.itemArray) {
+        id represented = item.representedObject;
+        if (item.tag > 0 && [represented isKindOfClass:[NSString class]]) {
+            identifiers[@(item.tag)] = represented;
+        }
+        if (item.submenu) {
+            [self collectTemplateIdentifiersFromMenu:item.submenu intoDictionary:identifiers];
         }
     }
+}
 
-    if (!target) {
-        return nil;
+- (nullable NSString *)templateIdentifierForMenuItem:(NSMenuItem *)item {
+    NSString *identifier = self.templateIdentifiersByTag[@(item.tag)];
+    if (identifier) {
+        return identifier;
     }
-    NSNumber *isDirectory = nil;
-    if ([target getResourceValue:&isDirectory forKey:NSURLIsDirectoryKey error:nil] && !isDirectory.boolValue) {
-        target = target.URLByDeletingLastPathComponent;
-    }
-    return target;
+    // In-process menus (and tests) still carry representedObject.
+    id represented = item.representedObject;
+    return [represented isKindOfClass:[NSString class]] ? represented : nil;
+}
+
+- (nullable NSURL *)destinationDirectoryForMenuKind:(FIMenuKind)menuKind {
+    FIFinderSyncController *controller = [FIFinderSyncController defaultController];
+    NSURL *desktop = [NSURL fileURLWithPath:[[[self class] realHomeDirectory] stringByAppendingPathComponent:@"Desktop"]
+                                isDirectory:YES];
+    return [NFFinderDestination directoryURLForTargetedURL:controller.targetedURL
+                                             selectedURLs:controller.selectedItemURLs
+                                        useSelectedItems:(menuKind == FIMenuKindContextualMenuForItems)
+                                              fallbackURL:desktop];
 }
 
 - (void)createFileFromTemplate:(NSMenuItem *)sender {
-    NSString *identifier = sender.representedObject;
-    if (![identifier isKindOfClass:[NSString class]]) {
+    NSString *identifier = [self templateIdentifierForMenuItem:sender];
+    if (!identifier) {
+        NSBeep();
         return;
     }
     NFConfig *config = [self readConfig];
     NFTemplate *template = [config templateWithIdentifier:identifier];
     if (!template) {
+        NSBeep();
         return;
     }
-    NSURL *directory = [self destinationDirectoryForMenuKind:self.lastMenuKind];
+    NSURL *directory = self.menuDestinationURL ?: [self destinationDirectoryForMenuKind:self.lastMenuKind];
     if (!directory) {
         NSBeep();
         return;
@@ -239,30 +262,33 @@ static NSString * const NFCFinderBundleIdentifier = @"com.sid.newfilecreation2";
         return;
     }
 
-    void (^fallback)(void) = ^{
-        if (![[NSWorkspace sharedWorkspace] openURL:url]) {
-            dispatch_async(dispatch_get_main_queue(), ^{
-                NSAlert *alert = [[NSAlert alloc] init];
-                alert.messageText = NFLocalizedString(@"Could not create the file");
-                alert.informativeText = NFLocalizedString(@"Open New File Creation 2 once, then try the Finder menu again.");
-                [alert addButtonWithTitle:NFLocalizedString(@"OK")];
-                [alert runModal];
-            });
-        }
+    void (^showFailure)(void) = ^{
+        dispatch_async(dispatch_get_main_queue(), ^{
+            NSAlert *alert = [[NSAlert alloc] init];
+            alert.messageText = NFLocalizedString(@"Could not create the file");
+            alert.informativeText = NFLocalizedString(@"Open New File Creation 2 once, then try the Finder menu again.");
+            [alert addButtonWithTitle:NFLocalizedString(@"OK")];
+            [alert runModal];
+        });
     };
+
+    // NSWorkspace launches the containing app through its URL scheme. Finder
+    // extensions do not always invoke NSExtensionContext completion handlers,
+    // so only use that route as a fallback.
+    if ([[NSWorkspace sharedWorkspace] openURL:url]) {
+        return;
+    }
 
     NSExtensionContext *context = (NSExtensionContext *)[FIFinderSyncController defaultController];
     if ([context respondsToSelector:@selector(openURL:completionHandler:)]) {
         [context openURL:url completionHandler:^(BOOL success) {
             if (!success) {
-                dispatch_async(dispatch_get_main_queue(), fallback);
+                showFailure();
             }
         }];
         return;
     }
-    if (![[NSWorkspace sharedWorkspace] openURL:url]) {
-        fallback();
-    }
+    showFailure();
 }
 
 - (void)addSelectedItemsAsTemplates:(id)sender {
