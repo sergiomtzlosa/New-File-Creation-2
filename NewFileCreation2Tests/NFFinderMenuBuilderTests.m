@@ -30,6 +30,7 @@
     NSMenu *menu = [NFFinderMenuBuilder menuForConfig:config target:nil action:NSSelectorFromString(@"noop:") options:NFFinderMenuOptionNone];
     XCTAssertEqual(menu.numberOfItems, 1);
     XCTAssertEqualObjects(menu.itemArray.firstObject.representedObject, text.identifier);
+    XCTAssertEqual(menu.itemArray.firstObject.tag, 1);
     XCTAssertEqualObjects(menu.itemArray.firstObject.title, @"New Text File");
 }
 
@@ -104,6 +105,40 @@
 
     NSArray<NFTemplate *> *ordered = [NFFinderMenuBuilder orderedTemplatesForConfig:config favoritesFirst:YES];
     XCTAssertEqualObjects(ordered, (@[alpha, zeta]));
+}
+
+- (void)testTemplateMenuItemsCarryUniquePositiveTags {
+    NFConfig *config = [NFConfig defaultConfig];
+    NFTemplate *text = [self templateWithName:@"TextFile.txt" category:@"Documents" sortIndex:0 favorite:NO enabled:YES];
+    NFTemplate *swift = [self templateWithName:@"Snippet.swift" category:@"Code" sortIndex:1 favorite:NO enabled:YES];
+    NFTemplate *favorite = [self templateWithName:@"Favorite.txt" category:@"Documents" sortIndex:2 favorite:YES enabled:YES];
+    [config.templates addObjectsFromArray:@[text, swift, favorite]];
+
+    NSMenu *menu = [NFFinderMenuBuilder menuForConfig:config
+                                               target:nil
+                                               action:NSSelectorFromString(@"noop:")
+                                              options:NFFinderMenuOptionFavoritesFirst | NFFinderMenuOptionGroupByCategory];
+    NSMutableArray<NSMenuItem *> *leafItems = [NSMutableArray array];
+    [self collectTemplateItemsFromMenu:menu intoArray:leafItems];
+    XCTAssertEqual(leafItems.count, 3);
+    NSMutableSet<NSNumber *> *tags = [NSMutableSet set];
+    for (NSMenuItem *item in leafItems) {
+        XCTAssertGreaterThan(item.tag, 0);
+        XCTAssertFalse([tags containsObject:@(item.tag)], @"Tags must identify a single template");
+        [tags addObject:@(item.tag)];
+        XCTAssertTrue([item.representedObject isKindOfClass:[NSString class]]);
+    }
+    XCTAssertEqual(tags.count, 3);
+}
+
+- (void)collectTemplateItemsFromMenu:(NSMenu *)menu intoArray:(NSMutableArray<NSMenuItem *> *)items {
+    for (NSMenuItem *item in menu.itemArray) {
+        if (item.submenu) {
+            [self collectTemplateItemsFromMenu:item.submenu intoArray:items];
+        } else if (item.tag > 0) {
+            [items addObject:item];
+        }
+    }
 }
 
 @end
