@@ -1,17 +1,18 @@
 # Architecture
 
-New File Creation 2 is a small native macOS system made of five targets that share one Objective-C core:
+New File Creation 2 is a small native macOS system made of six targets built around one shared Objective-C core:
 
 | Target | Product | Bundle identifier | Sandbox |
 | --- | --- | --- | --- |
 | `NewFileCreation2` | `New File Creation 2.app` | `com.sid.newfilecreation2` | No |
 | `NewFileCreation2Finder` | `New File Creation 2 Finder.appex` | `com.sid.newfilecreation2.finder` | Yes |
 | `NewFileCreation2Today` | `New File Creation 2 Today.appex` | `com.sid.newfilecreation2.today` | Yes |
+| `NewFileCreation2Widget` | `New File Creation 2 Widget.appex` | `com.sid.newfilecreation2.widget` | Yes |
 | `NewFileCreation2CLI` | `nfc` | `com.sid.newfilecreation2.cli` | No |
 | `NewFileCreation2Tests` | `NewFileCreation2Tests.xctest` | `com.sid.newfilecreation2.tests` | Hosted in the app |
 | `NewFileCreation2UITests` | `NewFileCreation2UITests.xctest` | `com.sid.newfilecreation2.uitests` | UI runner |
 
-The CLI is embedded at `New File Creation 2.app/Contents/Helpers/nfc`. The Finder and Today extensions are embedded at `Contents/PlugIns/New File Creation 2 Finder.appex` and `Contents/PlugIns/New File Creation 2 Today.appex`. All are ad-hoc signed with the app (`CODE_SIGN_IDENTITY=-`); there is no Team ID, App Group, notarization, or Mac App Store submission.
+The CLI is embedded at `New File Creation 2.app/Contents/Helpers/nfc`. The Finder, Today, and WidgetKit extensions are embedded at `Contents/PlugIns/New File Creation 2 Finder.appex`, `Contents/PlugIns/New File Creation 2 Today.appex`, and `Contents/PlugIns/New File Creation 2 Widget.appex`. Local development builds are ad-hoc signed with the app (`CODE_SIGN_IDENTITY=-`), with no Team ID or App Group. `scripts/release.sh` can rebuild with a Developer ID Application identity, notarize the archive, and generate a Homebrew cask; the project does not target the Mac App Store.
 
 ## Process model
 
@@ -60,6 +61,14 @@ The CLI is embedded at `New File Creation 2.app/Contents/Helpers/nfc`. The Finde
 └──────────────────────────────────────────────┘
 
 ┌──────────────────────────────────────────────┐
+│ New File Creation 2 Widget.appex (sandboxed) │
+│ SwiftUI + WidgetKit                          │
+│  ├─ config.json reader (real home via pw)    │
+│  ├─ template grid, small/medium/large        │
+│  └─ Link → newfilecreation2://create?…       │
+└──────────────────────────────────────────────┘
+
+┌──────────────────────────────────────────────┐
 │ nfc (separate process, headless)             │
 │ NFCCLIApplication                            │
 │  ├─ NFCCLIResolver                           │
@@ -68,13 +77,13 @@ The CLI is embedded at `New File Creation 2.app/Contents/Helpers/nfc`. The Finde
 └──────────────────────────────────────────────┘
 ```
 
-The app and `nfc` are coordinated writers. The Finder and Today extensions never write `config.json`; they read a snapshot for each menu request or widget reload. A CLI write posts both a local and a distributed `com.sid.newfilecreation2.configchanged` notification, and the app reloads in response.
+The app and `nfc` are coordinated writers. The Finder, Today, and WidgetKit extensions never write `config.json`; they read a snapshot for each menu request or widget reload. A CLI or Settings write posts both a local and a distributed `com.sid.newfilecreation2.configchanged` notification, and the app reloads in response. When the app observes a change, it also asks WidgetKit to reload timelines through a small Swift bridge.
 
 The app target is an `LSUIElement` menu bar accessory. It never owns a Dock icon or a Dock-owned main window. The library, quick panel, Settings, and Get Started are all `NFCFloatingPanel` instances: floating-level `NSPanel`s opened from the status item, with `hidesOnDeactivate = NO`, `releasedWhenClosed = NO`, and no minimize button. Closing a panel leaves the status item and app running; Quit is available from the status menu.
 
 ## Shared core
 
-`NewFileCreation2Shared/` is compiled directly into the app, Finder and Today extensions, CLI, and tests. There is no shared framework to embed or sign separately.
+`NewFileCreation2Shared/` is compiled directly into the app, Finder and Today extensions, CLI, and tests. There is no shared framework to embed or sign separately. The WidgetKit extension is deliberately standalone SwiftUI: it decodes the few template fields it needs from `config.json` and links back into the app for creation, so it does not need the Objective-C core or a bridging header.
 
 | Folder | Responsibility |
 | --- | --- |
@@ -184,15 +193,20 @@ The save panel path uses `NSSavePanel`; because the panel owns explicit replacem
 
 ## Finder extension
 
-`NFCFinderSync` is a `FIFinderSync` subclass. It monitors `/` so its menus are available in every Finder folder, and it rebuilds its menu from a fresh config snapshot on each request.
+`NFCFinderSync` is a `FIFinderSync` subclass. It registers `/` for the boot volume and every mounted volume in `FIFinderSyncController.directoryURLs`, and refreshes that set when volumes mount, unmount, or are renamed. Finder Sync treats volumes as separate monitoring roots, so registering only `/` leaves external and removable disks without a menu. The menu is rebuilt from a fresh config snapshot on each request.
 
-- **New File** submenu: enabled templates only, optional favorites-first, optional category submenus, optional file-type icons. Titles are `New <Template Name>`.
+- **New File** submenu: enabled templates only, optional favorites-first, optional category submenus, optional file-type icons. Titles are `New <Template Name>`. Each item carries a positive integer tag, and the extension keeps a tag-to-template-identifier snapshot because `representedObject` does not survive the Finder Sync XPC boundary.
 - **Add as Template**: sends selected paths through `newfilecreation2://add-template?path=...` to the non-sandboxed app.
-- **Instant creation**: tries `NFFileCreator` directly in the targeted Finder folder.
-- **Ask for a name**: shows a small `NSAlert` with a text field, then uses the same creator.
-- **Fallback**: if the sandbox denies the copy (`NFErrorDestinationNotWritable` or `NFErrorTemplateUnreadable`), the extension opens `newfilecreation2://create?...` and the app performs the copy and post-create actions.
+- **Creation handoff**: Finder extensions are sandboxed and cannot write to arbitrary folders or the Desktop. Selecting a template builds an `NFRequest` and opens `newfilecreation2://create?...` through `NSWorkspace`; if that fails, the extension tries its `NSExtensionContext` `openURL:completionHandler:` and then shows an error. The app performs the copy, post-create actions, and recents update.
+- **Ask for a name**: shows a small `NSAlert` with a text field in the extension, then hands the request to the app with the entered base name.
 
 The extension’s sandbox entitlements include App Sandbox, user-selected read/write, and a read-only temporary exception for the current user’s `Library/Application Support/New File Creation 2/` folder. The config is read from the real home directory via `getpwuid`, because `NSHomeDirectory()` inside a sandbox points at the extension container. See [finder-extension-spike.md](finder-extension-spike.md).
+
+## WidgetKit extension
+
+`NewFileCreation2Widget` is a SwiftUI/WidgetKit target with one `StaticConfiguration` widget in small, medium, and large families. It reads `config.json` from the real home directory (again via `getpwuid`), filters disabled templates, and applies the persisted `favoritesFirst` and `sortMode` settings. Each template is a `Link` to `newfilecreation2://create?template=<id>&unique=1`; the app resolves the default folder and performs the copy, so the sandboxed widget never writes user files. The header opens the quick panel, and the empty state opens Settings.
+
+The widget uses `containerBackground(for: .widget)` on macOS 14 and later and a plain gradient background on macOS 13. A five-minute timeline policy picks up edits made while the app is not running. When the app is running, `NFCAppDelegate` calls `WidgetCenter.shared.reloadAllTimelines()` for both its own config writes and CLI writes observed through the distributed change notification. The legacy Today extension remains embedded for older releases, but macOS versions that removed `com.apple.widget-extension` use this WidgetKit extension instead.
 
 ## URL scheme
 
@@ -225,9 +239,10 @@ See [CLI.md](CLI.md) for the complete command reference.
 
 - `NFCFloatingPanel` is the shared floating `NSPanel` base for every app window. It uses `NSFloatingWindowLevel`, does not hide on deactivation, is not released on close, can join all Spaces, and cannot become the main window.
 - `NFCMainWindowController` owns an `NSSplitViewController` with a source-list sidebar, a collection-view card grid, and an inspector inside a floating library panel.
-- `NFCQuickPanelController` owns a floating quick panel with a search field, visual template table, app-icon Get Started button, gear button, and file-promise drag source. It reloads the shared config when shown.
+- `NFCQuickPanelController` owns a floating quick panel with a search field, visual template table, app-icon Get Started button, gear button, power button, and file-promise drag source. It reloads the shared config when shown.
 - `NFCMenuBarController` owns the permanent `NSStatusItem`. Left-click toggles the quick panel; right-click or Control-click opens the status menu with library, Get Started, settings, about, and quit. The template submenu is rebuilt on each open.
 - `NFCTodayViewController` owns the Today widget table and its file-promise drag source.
+- `NewFileCreation2Widget` owns the WidgetKit template grid and its `newfilecreation2://create` links.
 - `NFFilePromiseProvider` writes the template copy when a drop target asks for the promised file, using `defaultBaseName` and the template extension.
 - `NFCSettingsWindowController` owns a floating utility panel with icon tabs for General, Templates, Finder, Advanced, Help, and About, and resizes to each pane’s preferred size. Sound name, sort mode, custom-category editing, and category removal live here.
 - `NFCWelcomeWindowController` owns the floating Get Started window and its inline inspector aside; it is opened from the menu bar menu, the quick-panel app icon, Settings › Help, or the app menu rather than automatically at launch.
@@ -241,14 +256,15 @@ The app uses semantic AppKit colors, Auto Layout, SF Symbols, and system control
 ## Testing architecture
 
 - The hosted `NewFileCreation2Tests.xctest` bundle imports the app controllers directly. `NFCUIComponentTests` instantiates floating panels, split views, collection views, the quick panel, six settings tabs, and the Get Started window without launching the full app UI. It also checks that the app is an `LSUIElement` accessory and that all panels use floating-level styling.
-- `NFTodayTemplateSourceTests` exercises the widget’s read-only config loading, enabled/favorites filtering, and persisted sort modes without launching Notification Center.
+- `NFTodayTemplateSourceTests` exercises the Today widget’s read-only config loading, enabled/favorites filtering, and persisted sort modes without launching Notification Center.
+- `NFCUIComponentTests` covers the quick-panel quit button alongside the existing close, gear, Get Started, search, and drag-hint assertions.
 - `NFLocalizationTests` checks all 28 v1 languages for key parity, non-empty values, preserved placeholders, preserved product name, Finder strings, and the quick-panel drag hint.
 - `NewFileCreation2UITests` launches the real app with an isolated support folder and drives the quick panel, Settings, the Help tab, and the Get Started aside through XCUITest.
 - `NFCDragAndDropTests` models drag destinations with an `NSView` that registers for file URLs and an object that registers for file-promise types. It tests quick-panel `NFFilePromiseProvider` output and grid file-URL pasteboard writers.
 - Tests never touch the real support folder: `NFTestCase` assigns `NFPaths` a per-test temporary directory and resets `NFConfigStore` between cases.
 - Real destinations are opt-in. `NFC_TEST_REAL_DESKTOP=1` enables the real Desktop test; `NFC_TEST_EXTERNAL_VOLUME=/path/to/volume` enables the external-volume test. `scripts/test.sh` forwards both through `launchctl` for the hosted test process and clears them afterward.
 - `NSFilePromiseReceiver` is only valid inside an active drag operation, so promise tests exercise the provider delegate and destination registration rather than a synthesized OS drag session.
-- The Finder extension menu builder is tested in-process; enabling the extension and observing Finder toolbars and context menus remain manual. Today widget drag gestures also remain a manual check because Today extensions are deprecated on current macOS.
+- The Finder extension menu builder and destination logic are tested in-process; Finder toolbar interaction and creating a file from the Finder menu remain manual. Desktop, Finder-window, and external-volume menus were verified manually on 2026-11-16. Today widget drag gestures and WidgetKit gallery placement remain manual checks.
 
 ## Build and signing
 
@@ -263,7 +279,9 @@ xcodebuild \
   CODE_SIGN_IDENTITY=- CODE_SIGNING_REQUIRED=YES build
 ```
 
-`scripts/build.sh` publishes the Release app to `build/New File Creation 2.app` and verifies the app, Finder extension, Today extension, and embedded helper with `codesign --verify --deep --strict`.
+`scripts/build.sh` publishes the Release app to `build/New File Creation 2.app` and verifies the app, Finder extension, Today extension, WidgetKit extension, and embedded helper with `codesign --verify --deep --strict`. It accepts `CODE_SIGN_IDENTITY` and `DEVELOPMENT_TEAM` overrides so local builds stay ad-hoc while release builds use a Developer ID.
+
+`scripts/release.sh` wraps the build and verification, checks the hardened runtime on every executable, creates the zip and SHA-256 file, and renders the Homebrew cask from `packaging/homebrew/new-file-creation-2.rb.template`. With a Developer ID identity it can submit to `notarytool`, staple the ticket, upload the archive with `gh`, and copy the cask into a tap checkout.
 
 ## Failure handling
 

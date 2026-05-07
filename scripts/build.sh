@@ -8,6 +8,10 @@ DERIVED_DATA="${DERIVED_DATA:-$ROOT/build/DerivedData}"
 PROJECT="$ROOT/NewFileCreation2.xcodeproj"
 SCHEME="NewFileCreation2"
 APP_NAME="New File Creation 2.app"
+# Local development builds are ad-hoc signed. Release packaging can override
+# these with a Developer ID Application identity and team for notarization.
+SIGN_IDENTITY="${CODE_SIGN_IDENTITY:--}"
+DEVELOPMENT_TEAM="${DEVELOPMENT_TEAM:-}"
 
 if ! command -v xcodegen >/dev/null 2>&1; then
     echo "xcodegen is required. Install it with: brew install xcodegen" >&2
@@ -22,7 +26,8 @@ xcodebuild \
     -scheme "$SCHEME" \
     -configuration "$CONFIG" \
     -derivedDataPath "$DERIVED_DATA" \
-    CODE_SIGN_IDENTITY=- \
+    CODE_SIGN_IDENTITY="$SIGN_IDENTITY" \
+    DEVELOPMENT_TEAM="$DEVELOPMENT_TEAM" \
     CODE_SIGNING_REQUIRED=YES \
     build
 
@@ -50,8 +55,17 @@ if [ ! -x "$APP/Contents/Helpers/nfc" ]; then
 fi
 codesign --verify --strict "$APP/Contents/Helpers/nfc"
 
+WIDGET="$APP/Contents/PlugIns/New File Creation 2 Widget.appex"
+if [ ! -d "$WIDGET" ]; then
+    echo "The WidgetKit extension is missing from: $APP" >&2
+    exit 1
+fi
+codesign --verify --strict "$WIDGET"
+
 echo
 echo "Built $CONFIG:"
 echo "  $APP"
 echo "  $APP/Contents/PlugIns/New File Creation 2 Finder.appex"
+echo "  $APP/Contents/PlugIns/New File Creation 2 Today.appex"
+echo "  $WIDGET"
 echo "  $APP/Contents/Helpers/nfc"

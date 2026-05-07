@@ -19,6 +19,7 @@
 		09D3CC1C7514EBE146136E94 /* NFCTemplateGridViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D5AAE9446BC115B2BF9E41A /* NFCTemplateGridViewController.m */; };
 		0A4D1063A9081C687FA8BFA5 /* NewFileCreation2CLI in Embed Dependencies */ = {isa = PBXBuildFile; fileRef = C028B5A7EB257911C044E5FC /* NewFileCreation2CLI */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		1003320A6A0D2451D9148168 /* NFCSettingsWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C40F27D996C7EC4F166F885 /* NFCSettingsWindowController.m */; };
+		12EA4D2724E38DA24A3161A1 /* NFWidgetReloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C7F2FE7477D8524E4911894 /* NFWidgetReloader.swift */; };
 		12EB74F4EAA8E9CD9FDEFB87 /* NFVersion.m in Sources */ = {isa = PBXBuildFile; fileRef = EE80FA7461DE81E02AE98A35 /* NFVersion.m */; };
 		13829BF5B0CE5440D23CB3D3 /* NFVersion.m in Sources */ = {isa = PBXBuildFile; fileRef = EE80FA7461DE81E02AE98A35 /* NFVersion.m */; };
 		159663A6439C5E3711A84399 /* NFErrors.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B0291C6B62656FC887762A8 /* NFErrors.m */; };
@@ -42,6 +43,7 @@
 		3383291B6F2E7B62CCE39FE9 /* NFPaths.m in Sources */ = {isa = PBXBuildFile; fileRef = F8FA3B11D63BDC4F6F0B4FDE /* NFPaths.m */; };
 		3475F88C4E36B30B1AA738DA /* NFLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = AD8D116EACC2B4B8FC9B2BD9 /* NFLogger.m */; };
 		3548B866370CCA156E227E62 /* UniformTypeIdentifiers.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD4F5091BCF30C19ACB5E0C1 /* UniformTypeIdentifiers.framework */; };
+		358DE3E3DF7E87D1A43C9171 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 807340C15361EC989F18587E /* SwiftUI.framework */; };
 		35E81331EEAB26D8C01CAD05 /* NFLocalization.m in Sources */ = {isa = PBXBuildFile; fileRef = B2EF64E59A43ED6D6F9CC8B8 /* NFLocalization.m */; };
 		364262C25AEF47F5481C411A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B20559267282AD0D86939285 /* Foundation.framework */; };
 		36770A41FC3A02C2CF4931A6 /* NFCUIComponentTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D1D8A495E6FB1B18959FFC /* NFCUIComponentTests.m */; };
@@ -63,6 +65,7 @@
 		57B6DDEF9C32EED4CADA1669 /* NFCWelcomeWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = D15D29F0A7481829FB930C39 /* NFCWelcomeWindowController.m */; };
 		59DC157A9F797331310101A8 /* Templates in Resources */ = {isa = PBXBuildFile; fileRef = 8D8694103B766D413686FB33 /* Templates */; };
 		5D6E6D9AF6A8215896EA86E1 /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14429EA4EED9735256A2DBB4 /* AppKit.framework */; };
+		62EB3C246953F21A3F6110E6 /* NewFileCreation2Widget.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 0A25313845DD2C34103618B0 /* NewFileCreation2Widget.appex */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		632E1B0C32B33CD6E4D74A68 /* NFLocalization.m in Sources */ = {isa = PBXBuildFile; fileRef = B2EF64E59A43ED6D6F9CC8B8 /* NFLocalization.m */; };
 		63957BA22B3270BE6289A4B6 /* NFConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = B201F6003B073FAFBF675CE5 /* NFConfig.m */; };
 		66D0E17A20475F43037F47D5 /* NFTodayTemplateSource.m in Sources */ = {isa = PBXBuildFile; fileRef = E5655786C74588F98FBC3170 /* NFTodayTemplateSource.m */; };
@@ -102,8 +105,10 @@
 		9CE6C2D6FE8FF555ADD46722 /* NFCCLIApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = D2FC2A155262D3127ECF8D56 /* NFCCLIApplication.m */; };
 		9F909C03369AD02638798EA0 /* NFCToastPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = FF86D340975AEB2224BDE076 /* NFCToastPresenter.m */; };
 		A04D60144F3846D11559B286 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2C2322BA2FC3C1BB5DAB844 /* NotificationCenter.framework */; };
+		A19BBD140FCCB7603F979628 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 924FE891FBA83DD6EDE7842F /* WidgetKit.framework */; };
 		A216FFE5C13DB760B501976E /* NFFileCreator.m in Sources */ = {isa = PBXBuildFile; fileRef = E2F382A2848E74DE4F9A90E8 /* NFFileCreator.m */; };
 		A379680AFADCE7AC7A3E267F /* ServiceManagement.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F1701553CBC17A79D660F95 /* ServiceManagement.framework */; };
+		A3827F9C6E3C7162D964FCF4 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = C4F149C81F955521641D7972 /* Localizable.strings */; };
 		A3D790AD561B1357BC2AB32B /* NFFinderDestinationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 34BDBB07E3C6018CDBD60B11 /* NFFinderDestinationTests.m */; };
 		A5E23DB5AF87D7ABAF8282BB /* NFModelTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 730155BBFB5C887737E9F10F /* NFModelTests.m */; };
 		A733536F02DDB332137ED586 /* NFLegacyMigration.m in Sources */ = {isa = PBXBuildFile; fileRef = ECE9225390325D03B1E43638 /* NFLegacyMigration.m */; };
@@ -118,6 +123,7 @@
 		B9F9D25E6E2D6BB2657DE44B /* NFFilePromiseProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = BBC2B4D708755F5E3DCA6BED /* NFFilePromiseProvider.m */; };
 		BA6015978BE77C8575F4B5CF /* NFLock.m in Sources */ = {isa = PBXBuildFile; fileRef = BCE67682E0FBA66794128447 /* NFLock.m */; };
 		BBBCAFDF7FDD9B44DF5B3C58 /* NFCApplicationUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB3DAEBFAC91D1F14A2BCEEB /* NFCApplicationUITests.swift */; };
+		BEBB6EE62202F29D6D99E4D0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B20559267282AD0D86939285 /* Foundation.framework */; };
 		BF0F28CDBCBC3AEC4FD65AC4 /* NFCFinderSync.m in Sources */ = {isa = PBXBuildFile; fileRef = 21E171D80F10866398DBC4D0 /* NFCFinderSync.m */; };
 		BFE1792AEDC3930393EE5A61 /* NFErrors.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B0291C6B62656FC887762A8 /* NFErrors.m */; };
 		C003CC7B04ECD191CBF361C3 /* NFFinderDestination.m in Sources */ = {isa = PBXBuildFile; fileRef = F5547F3C9D59859177EABD18 /* NFFinderDestination.m */; };
@@ -138,6 +144,7 @@
 		D8A21E30052CEAEFC4B8A9D6 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = C4F149C81F955521641D7972 /* Localizable.strings */; };
 		D8D553FCDEE7B9F752ED0393 /* NFFilePromiseProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = BBC2B4D708755F5E3DCA6BED /* NFFilePromiseProvider.m */; };
 		DD6F035DB14201EB41A934C5 /* UniformTypeIdentifiers.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD4F5091BCF30C19ACB5E0C1 /* UniformTypeIdentifiers.framework */; };
+		DD86F7998FA67300CEF2594B /* NewFileCreation2Widget.swift in Sources */ = {isa = PBXBuildFile; fileRef = A41DD7EB813E0773EB57C1B4 /* NewFileCreation2Widget.swift */; };
 		DE1FB851EF4936DA0DFA15BF /* NFCStrings.m in Sources */ = {isa = PBXBuildFile; fileRef = 129C884ABAF15680AB0D4517 /* NFCStrings.m */; };
 		DE86F256EDFD836915DE2250 /* NFCCLIApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = D2FC2A155262D3127ECF8D56 /* NFCCLIApplication.m */; };
 		DFAB4457AF1511DBD88639B7 /* UniformTypeIdentifiers.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD4F5091BCF30C19ACB5E0C1 /* UniformTypeIdentifiers.framework */; };
@@ -190,6 +197,13 @@
 			remoteGlobalIDString = 6D27A9B6680DB5740A4B9AF7;
 			remoteInfo = NewFileCreation2Today;
 		};
+		D7E5A93866A83295BF57D1D5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7DED58BBB0053F28D26808F0 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CEC953EBB308101E3733A7CD;
+			remoteInfo = NewFileCreation2Widget;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -212,6 +226,7 @@
 			files = (
 				1615C331B4BB59D9503E3424 /* NewFileCreation2Finder.appex in Embed Foundation Extensions */,
 				8EBEE3837E6F6FF8705341B8 /* NewFileCreation2Today.appex in Embed Foundation Extensions */,
+				62EB3C246953F21A3F6110E6 /* NewFileCreation2Widget.appex in Embed Foundation Extensions */,
 			);
 			name = "Embed Foundation Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -225,6 +240,7 @@
 		08B9279BBFDC59FAF16B6D82 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		090CC39EF6609664213CE0DB /* gl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = gl; path = gl.lproj/Localizable.strings; sourceTree = "<group>"; };
 		09DE32C2F7716E69ECEC5A9D /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/Localizable.strings; sourceTree = "<group>"; };
+		0A25313845DD2C34103618B0 /* NewFileCreation2Widget.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = NewFileCreation2Widget.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		0B064BECFC9174755E11DDCF /* NFShortcutCenter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NFShortcutCenter.m; sourceTree = "<group>"; };
 		0B26C6B62D8B24355500FF47 /* NFCTemplateCollectionItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NFCTemplateCollectionItem.m; sourceTree = "<group>"; };
 		0B2A5F8F55091B5DDC18EC66 /* NFConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NFConfig.h; sourceTree = "<group>"; };
@@ -275,6 +291,7 @@
 		61879C862238F578FDD74957 /* NFFinderMenuBuilder.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NFFinderMenuBuilder.m; sourceTree = "<group>"; };
 		6814FF73EA05FA6A1B75487A /* NFCStrings.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NFCStrings.h; sourceTree = "<group>"; };
 		68A50C9BDA49DF2B2E3CAC89 /* NFLock.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NFLock.h; sourceTree = "<group>"; };
+		6C7F2FE7477D8524E4911894 /* NFWidgetReloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NFWidgetReloader.swift; sourceTree = "<group>"; };
 		6D96F5092BC661AFC4FD3CE1 /* pl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pl; path = pl.lproj/Localizable.strings; sourceTree = "<group>"; };
 		6E0A5EE2BFD841B2AF3B90E7 /* NFFTodayViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NFFTodayViewController.h; sourceTree = "<group>"; };
 		7040A4298949C0CF57157B40 /* NFCCLIResolver.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NFCCLIResolver.m; sourceTree = "<group>"; };
@@ -286,6 +303,7 @@
 		7D2EC20A42D6920D4E92ABE5 /* ms */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ms; path = ms.lproj/Localizable.strings; sourceTree = "<group>"; };
 		7E678D18204BE53B624287C3 /* NewFileCreation2Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NewFileCreation2Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7E80312F4AB06806A5DDE28F /* NFLoginItemManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NFLoginItemManager.h; sourceTree = "<group>"; };
+		807340C15361EC989F18587E /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 		82DF2D91918E157941D9FB59 /* NFSanitize.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NFSanitize.h; sourceTree = "<group>"; };
 		83082DB5C23C4959725E01A2 /* NFCUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NFCUITests.m; sourceTree = "<group>"; };
 		84D1D8A495E6FB1B18959FFC /* NFCUIComponentTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NFCUIComponentTests.m; sourceTree = "<group>"; };
@@ -295,6 +313,7 @@
 		89C2307229311C0BC7076CEE /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		8D8694103B766D413686FB33 /* Templates */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Templates; sourceTree = SOURCE_ROOT; };
 		8EA526B3E2BA7DE48BF8599C /* NewFileCreation2Finder.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = NewFileCreation2Finder.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		924FE891FBA83DD6EDE7842F /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		95EAF4F32C23924CD2B4AF60 /* NFCTemplateGridViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NFCTemplateGridViewController.h; sourceTree = "<group>"; };
 		95F32BB07175BC564FBD2394 /* el */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = el; path = el.lproj/Localizable.strings; sourceTree = "<group>"; };
 		9A4DB0DEFC842CDEBD19E0A1 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -303,6 +322,7 @@
 		9EB448887E3AFC352AB03BF0 /* NFLocalization.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NFLocalization.h; sourceTree = "<group>"; };
 		A021CC482C3585C5804CEDBE /* NFFinderMenuBuilder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NFFinderMenuBuilder.h; sourceTree = "<group>"; };
 		A05DF4F82D4A8B30689EC045 /* NFCInspectorViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NFCInspectorViewController.h; sourceTree = "<group>"; };
+		A41DD7EB813E0773EB57C1B4 /* NewFileCreation2Widget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewFileCreation2Widget.swift; sourceTree = "<group>"; };
 		A60DB0BA3F4260040ADFCD28 /* NFCCLIOptions.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NFCCLIOptions.m; sourceTree = "<group>"; };
 		A698DA94B24F72C95F3346FA /* fi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fi; path = fi.lproj/Localizable.strings; sourceTree = "<group>"; };
 		AB72457393EB39FA1148C63E /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
@@ -389,6 +409,16 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		7E9F37D5AC226AA8C6254618 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				358DE3E3DF7E87D1A43C9171 /* SwiftUI.framework in Frameworks */,
+				A19BBD140FCCB7603F979628 /* WidgetKit.framework in Frameworks */,
+				BEBB6EE62202F29D6D99E4D0 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A8BCC127B856CCC5ED7B2C9C /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -454,6 +484,7 @@
 				F6043677F05525BA0A36CCD4 /* NFLoginItemManager.m */,
 				CBDD27A9205E33287101910D /* NFShortcutCenter.h */,
 				0B064BECFC9174755E11DDCF /* NFShortcutCenter.m */,
+				6C7F2FE7477D8524E4911894 /* NFWidgetReloader.swift */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -467,6 +498,7 @@
 				7E678D18204BE53B624287C3 /* NewFileCreation2Tests.xctest */,
 				58E1519344309500A1838674 /* NewFileCreation2Today.appex */,
 				F6A4DF6AEFB5741157BA89DC /* NewFileCreation2UITests.xctest */,
+				0A25313845DD2C34103618B0 /* NewFileCreation2Widget.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -483,6 +515,7 @@
 				9AE89A3AD2F7B6854BDCFD77 /* NewFileCreation2Tests */,
 				B8023EF5B35C23A462FA50B1 /* NewFileCreation2Today */,
 				53B850F470455FAC6A0DA185 /* NewFileCreation2UITests */,
+				9D2A62E922120EF7FC057AA1 /* NewFileCreation2Widget */,
 				D2C1E972BB042331780D23FB /* Frameworks */,
 				2C054B1496C38713F7ADC426 /* Products */,
 			);
@@ -620,6 +653,14 @@
 			path = NewFileCreation2Tests;
 			sourceTree = "<group>";
 		};
+		9D2A62E922120EF7FC057AA1 /* NewFileCreation2Widget */ = {
+			isa = PBXGroup;
+			children = (
+				A41DD7EB813E0773EB57C1B4 /* NewFileCreation2Widget.swift */,
+			);
+			path = NewFileCreation2Widget;
+			sourceTree = "<group>";
+		};
 		AF89CB549FD8DDA808BF131A /* Settings */ = {
 			isa = PBXGroup;
 			children = (
@@ -701,7 +742,9 @@
 				B20559267282AD0D86939285 /* Foundation.framework */,
 				E2C2322BA2FC3C1BB5DAB844 /* NotificationCenter.framework */,
 				5F1701553CBC17A79D660F95 /* ServiceManagement.framework */,
+				807340C15361EC989F18587E /* SwiftUI.framework */,
 				CD4F5091BCF30C19ACB5E0C1 /* UniformTypeIdentifiers.framework */,
+				924FE891FBA83DD6EDE7842F /* WidgetKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -808,6 +851,7 @@
 			dependencies = (
 				D2C1D3B908F1407995223E79 /* PBXTargetDependency */,
 				4C47AC82464DD152ABFAF92C /* PBXTargetDependency */,
+				940F7CC4E9DD8333650A2B7F /* PBXTargetDependency */,
 				92B9BFBF23A158B93D1EF6FB /* PBXTargetDependency */,
 			);
 			name = NewFileCreation2;
@@ -816,6 +860,25 @@
 			productName = NewFileCreation2;
 			productReference = 4948B4E02679B4C5B85A67A4 /* NewFileCreation2.app */;
 			productType = "com.apple.product-type.application";
+		};
+		CEC953EBB308101E3733A7CD /* NewFileCreation2Widget */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CABB7804318DF6CAEF6C6C39 /* Build configuration list for PBXNativeTarget "NewFileCreation2Widget" */;
+			buildPhases = (
+				2561A59A257318040AB34CDE /* Sources */,
+				3158D82934D20C3BF28B7846 /* Resources */,
+				7E9F37D5AC226AA8C6254618 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = NewFileCreation2Widget;
+			packageProductDependencies = (
+			);
+			productName = NewFileCreation2Widget;
+			productReference = 0A25313845DD2C34103618B0 /* NewFileCreation2Widget.appex */;
+			productType = "com.apple.product-type.app-extension";
 		};
 		D747FA5B26451FCE88803A41 /* NewFileCreation2UITests */ = {
 			isa = PBXNativeTarget;
@@ -879,6 +942,10 @@
 						DevelopmentTeam = "";
 						ProvisioningStyle = Manual;
 					};
+					CEC953EBB308101E3733A7CD = {
+						DevelopmentTeam = "";
+						ProvisioningStyle = Manual;
+					};
 					D747FA5B26451FCE88803A41 = {
 						DevelopmentTeam = "";
 						ProvisioningStyle = Manual;
@@ -934,6 +1001,7 @@
 				95D63B76D066A06871922162 /* NewFileCreation2 */,
 				22733F3EDBF2855C2C82F248 /* NewFileCreation2Finder */,
 				6D27A9B6680DB5740A4B9AF7 /* NewFileCreation2Today */,
+				CEC953EBB308101E3733A7CD /* NewFileCreation2Widget */,
 				34F8489BA6BD5CBB3D4D9A23 /* NewFileCreation2CLI */,
 				EFF2C140888452CFF2876FA2 /* NewFileCreation2Tests */,
 				D747FA5B26451FCE88803A41 /* NewFileCreation2UITests */,
@@ -950,6 +1018,14 @@
 				C8B264DBBEEE468696F2110A /* Localizable.strings in Resources */,
 				D0262FF9A8AF375EF51A5628 /* README.md in Resources */,
 				59DC157A9F797331310101A8 /* Templates in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3158D82934D20C3BF28B7846 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A3827F9C6E3C7162D964FCF4 /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -972,6 +1048,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		2561A59A257318040AB34CDE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DD86F7998FA67300CEF2594B /* NewFileCreation2Widget.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		3A0E13F7C9723B3D76F5A54C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1095,6 +1179,7 @@
 				998EACDEA29FBC864A29C977 /* NFTemplate.m in Sources */,
 				942B0739A5D635A3A56E9C8E /* NFTodayTemplateSource.m in Sources */,
 				13829BF5B0CE5440D23CB3D3 /* NFVersion.m in Sources */,
+				12EA4D2724E38DA24A3161A1 /* NFWidgetReloader.swift in Sources */,
 				03E671C06FE5A499005143BC /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1151,6 +1236,11 @@
 			isa = PBXTargetDependency;
 			target = 34F8489BA6BD5CBB3D4D9A23 /* NewFileCreation2CLI */;
 			targetProxy = 3B443C8D821BA175B77CDAA9 /* PBXContainerItemProxy */;
+		};
+		940F7CC4E9DD8333650A2B7F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CEC953EBB308101E3733A7CD /* NewFileCreation2Widget */;
+			targetProxy = D7E5A93866A83295BF57D1D5 /* PBXContainerItemProxy */;
 		};
 		D2C1D3B908F1407995223E79 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -1210,6 +1300,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.sid.newfilecreation2;
 				PRODUCT_NAME = "New File Creation 2";
 				SDKROOT = macosx;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};
@@ -1293,6 +1384,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.sid.newfilecreation2;
 				PRODUCT_NAME = "New File Creation 2";
 				SDKROOT = macosx;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -1380,6 +1472,24 @@
 			};
 			name = Debug;
 		};
+		6B6CAFF9DC25518A75FF9F0A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CODE_SIGN_ENTITLEMENTS = NewFileCreation2Widget/NewFileCreation2Widget.entitlements;
+				COMBINE_HIDPI_IMAGES = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = NewFileCreation2Widget/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../../../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.sid.newfilecreation2.widget;
+				PRODUCT_NAME = "New File Creation 2 Widget";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_STRICT_CONCURRENCY = minimal;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
 		84C9C68688A2DA91A67F29CE /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1395,6 +1505,24 @@
 				SKIP_INSTALL = YES;
 			};
 			name = Release;
+		};
+		B72AD45AF517D74A4DA55B07 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CODE_SIGN_ENTITLEMENTS = NewFileCreation2Widget/NewFileCreation2Widget.entitlements;
+				COMBINE_HIDPI_IMAGES = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = NewFileCreation2Widget/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../../../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.sid.newfilecreation2.widget;
+				PRODUCT_NAME = "New File Creation 2 Widget";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_STRICT_CONCURRENCY = minimal;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
 		};
 		DA70C022299390DE296A9863 /* Release */ = {
 			isa = XCBuildConfiguration;
@@ -1592,6 +1720,15 @@
 			buildConfigurations = (
 				0DE757CFCE655F1D71BD2274 /* Debug */,
 				EF90058F17B34B4942C4A14B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		CABB7804318DF6CAEF6C6C39 /* Build configuration list for PBXNativeTarget "NewFileCreation2Widget" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B72AD45AF517D74A4DA55B07 /* Debug */,
+				6B6CAFF9DC25518A75FF9F0A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;

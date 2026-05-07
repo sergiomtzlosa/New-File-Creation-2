@@ -1,6 +1,6 @@
 # Test Matrix
 
-This document records how New File Creation 2 is verified. Automated suites cover the shared model, configuration store, naming, creation, URL handling, Finder menu composition and sorting, Today widget template loading, localization, the CLI, programmatic AppKit UI components, floating-panel presentation, the permanent menu bar item, and drag-and-drop file promises into custom windows and folders. An XCUITest target drives the real app through the quick panel, Settings, and Get Started flows. Manual checks cover OS-level drag gestures, Finder integration, real menu-bar interaction, and distribution behavior.
+This document records how New File Creation 2 is verified. Automated suites cover the shared model, configuration store, naming, creation, URL handling, Finder menu composition and sorting, Today widget template loading, WidgetKit bundle layout, localization, the CLI, programmatic AppKit UI components, floating-panel presentation, the permanent menu bar item, and drag-and-drop file promises into custom windows and folders. An XCUITest target drives the real app through the quick panel, Settings, and Get Started flows. Manual checks cover OS-level drag gestures, Finder integration, real menu-bar interaction, adding widgets from the gallery, and distribution behavior.
 
 ## Environment
 
@@ -19,7 +19,7 @@ This document records how New File Creation 2 is verified. Automated suites cove
 Run all automated checks with:
 
 ```bash
-./scripts/test.sh       # XCTest, 93 tests
+./scripts/test.sh       # XCTest, 103 tests
 ./scripts/test-cli.sh   # isolated end-to-end CLI checks
 ./scripts/verify.sh     # signing, bundle, resources, then both suites
 xcodebuild -project NewFileCreation2.xcodeproj -scheme NewFileCreation2UI \
@@ -27,7 +27,7 @@ xcodebuild -project NewFileCreation2.xcodeproj -scheme NewFileCreation2UI \
   CODE_SIGN_IDENTITY=- CODE_SIGNING_REQUIRED=YES test
 ```
 
-Last automated run: **2026-11-16**. XCTest: **92 passed, 1 skipped, 0 failed (~6 s)**. The skipped test is the external-volume drag test because no writable external volume was mounted (the mounted NTFS volume is not writable). Opt-in runs also passed with `NFC_TEST_REAL_DESKTOP=1` against the real Desktop and with `NFC_TEST_EXTERNAL_VOLUME` pointing at a temporary writable disk image. XCUITest: **3 passed, 0 failed**. CLI integration: **20 passed, 0 failed**. Release verification: **26 passed, 0 warnings, 0 failed**. `scripts/verify.sh --no-build --quick` reports the static bundle, entitlement, localization, and signature checks.
+Last automated run: **2026-11-16**. XCTest: **102 passed, 1 skipped, 0 failed (~10 s)**. The skipped test is the external-volume drag test because no writable external volume was mounted (the mounted NTFS volume is not writable). Opt-in runs also passed with `NFC_TEST_REAL_DESKTOP=1` against the real Desktop and with `NFC_TEST_EXTERNAL_VOLUME` pointing at a temporary writable disk image. XCUITest: **3 passed, 0 failed**. CLI integration: **20 passed, 0 failed**. Release verification: **41 passed, 0 warnings, 0 failed**. `scripts/verify.sh --no-build --quick` reports the static bundle, entitlement, localization, and signature checks. The Finder context menu was also confirmed manually on the Desktop, in a Finder window, and on a mounted removable volume. The WidgetKit Simulator discovered all three widget families and rendered a timeline from the real config with the expected template links.
 
 ### XCTest
 
@@ -39,12 +39,13 @@ Last automated run: **2026-11-16**. XCTest: **92 passed, 1 skipped, 0 failed (~6
 | `NFFilePromiseProviderTests` | 5 | Default and sanitized promise names, UTI selection and fallback, directory promises, non-overwriting copy, write callbacks. |
 | `NFSanitizeTests` | 7 | Path separators and control characters, leading punctuation, fallback name, length cap, valid names, unique destination helpers, extensions. |
 | `NFRequestTests` | 7 | Quick/library requests, create request round-trip, add-template request round-trip, scheme and host rejection, relative/traversal path rejection, missing template. |
-| `NFFinderMenuBuilderTests` | 6 | Enabled-only menus, favorites first, category submenus, empty placeholder, persisted sort modes, and ordering by name, category, and file type. |
+| `NFFinderMenuBuilderTests` | 7 | Enabled-only menus, favorites first, category submenus, empty placeholder, persisted sort modes, and ordering by name, category, and file type. |
+| `NFFinderDestinationTests` | 7 | Desktop, targeted-folder, selected-item, and fallback destination resolution for Finder menu kinds. |
 | `NFTodayTemplateSourceTests` | 3 | Enabled templates and default name, favorites-first ordering, persisted category/file-type sorts, missing or damaged config handled without writing. |
 | `NFCLITests` | 8 | Option parsing (values, flags, combined short flags, `--`), unknown/missing values, resolver by ID/name/normalized name, unique prefix, default selection, ambiguity, missing references. |
 | `NFCUITests` | 4 | Main-menu search/reveal/full-screen shortcuts, core File menu commands, bundled README for Help, menu-bar accessory policy with no Dock icon. |
 | `NFLocalizationTests` | 7 | 28-language key parity, no blank values, placeholder preservation, product-name preservation, Finder-specific translations, quick-panel drag hint, missing-key fallback. |
-| `NFCUIComponentTests` | 15 | Main menu; floating three-pane library panel and toolbar; sidebar filters and custom categories; grid search/sort/selection/empty state; context menu commands; collection card rendering and double-click; inspector metadata and commands; quick-panel rows, search, drag hint, app-icon Get Started button, gear, and Return; status-item menu, Get Started item, and permanent visibility; six Settings panes (including Help) with icons, floating panel style, adaptive window sizes, sort popup, category removal, sound name, and category assignment; Get Started panel actions, aside resize, and callbacks; toast message and action; configured post-create sound; menu bar persists after the library closes. |
+| `NFCUIComponentTests` | 16 | Main menu; floating three-pane library panel and toolbar; sidebar filters and custom categories; grid search/sort/selection/empty state; context menu commands; collection card rendering and double-click; inspector metadata and commands; quick-panel rows, search, drag hint, app-icon Get Started button, gear, quit button, and Return; status-item menu, Get Started item, and permanent visibility; six Settings panes (including Help) with icons, floating panel style, adaptive window sizes, sort popup, category removal, sound name, and category assignment; Get Started panel actions, aside resize, and callbacks; toast message and action; configured post-create sound; menu bar persists after the library closes. |
 | `NFCDragAndDropTests` | 8 | Quick-panel file promises into a Finder-style folder, a custom promise-aware window, and a desktop-style folder; grid file-URL drops into a custom drop window; opt-in real Desktop drop; opt-in external-volume drop; missing-template drag rejection; no-overwrite behavior and metadata updates; configured sound after promise completion. |
 
 Full log: `build/test.log` after `scripts/test.sh`.
@@ -109,21 +110,27 @@ The script exits non-zero on the first failed assertion.
 | --- | --- |
 | App signature | `codesign --verify --deep --strict` |
 | Finder extension signature | `codesign --verify --strict` |
+| Today extension signature | `codesign --verify --strict` |
+| WidgetKit extension signature | `codesign --verify --strict` |
 | `nfc` signature | `codesign --verify --strict` |
+| Hardened runtime | app, Finder extension, Today extension, WidgetKit extension, and `nfc` |
 | `nfc` executable | executable bit and path |
 | Finder extension embedded | `.appex` exists under `Contents/PlugIns` |
-| App / Finder plists | `plutil -lint` |
+| Today extension embedded | `.appex` exists under `Contents/PlugIns` |
+| WidgetKit extension embedded | `.appex` exists under `Contents/PlugIns` |
+| App / Finder / Today / Widget plists | `plutil -lint` |
 | Version | `CFBundleShortVersionString == 2.0.0` |
-| Bundle identifiers | app, Finder extension, Today extension |
+| Bundle identifiers | app, Finder extension, Today extension, WidgetKit extension |
 | Finder principal class | `NFCFinderSync` |
+| WidgetKit extension point | `com.apple.widgetkit-extension` |
 | URL scheme | `newfilecreation2` |
-| Localization resources | all 28 `lproj` folders in the app and Finder extension, plus Today resources |
+| Localization resources | all 28 `lproj` folders in the app, Finder, Today, and WidgetKit bundles |
 | Localization parity | matching keys, non-empty values, placeholders, and preserved product name |
 | Bundled templates | at least 30 files under `Resources/Templates` |
 | App icon | `AppIcon.icns` present |
 | Finder registration | `pluginkit -m -i com.sid.newfilecreation2.finder` |
-| Today extension embedded | `.appex` exists under `Contents/PlugIns` |
-| Sandbox entitlements | Finder and Today extensions declare App Sandbox |
+| WidgetKit registration | `pluginkit -m -i com.sid.newfilecreation2.widget` |
+| Sandbox entitlements | Finder, Today, and WidgetKit extensions declare App Sandbox |
 
 ## Manual test matrix
 
@@ -165,6 +172,7 @@ These checks are not fully automated in the repository. Run them after UI or Fin
 | Q3 | No matches | “No matching templates” is shown; Return does nothing harmful. | Pending |
 | Q4 | Left-click status icon | Toggles the visual quick panel anchored below the icon; rows show 32×32 icons, metadata, and the drag hint. | Pending |
 | Q5 | Right-click status icon | Menu shows quick panel, New File templates, Add Template, Library, Get Started, Settings, About, Quit, and reloads the template list each time it opens. | Pending |
+| Q5b | Quit button in the quick panel | The power button in the quick panel header quits the app; closing the panel does not. | Automated (component) |
 | Q6 | Menu bar icon setting | Checkbox is shown on and disabled; the status item cannot be hidden. | Automated (settings and menu bar) |
 | Q7 | Dock presence | The app never appears in the Dock or app switcher; there is no Dock-owned window. | Automated (LSUIElement and panel policy) |
 | Q8 | Hand-edited `showMenuBarIcon=false` | Status item still appears and all floating panels remain reachable. | Automated (delegate) |
@@ -195,26 +203,38 @@ These checks are not fully automated in the repository. Run them after UI or Fin
 
 | ID | Check | Expected | Status |
 | --- | --- | --- | --- |
-| F1 | Register extension | Open the Release app once; `pluginkit -m -i com.sid.newfilecreation2.finder` lists it. | Pending |
-| F2 | Enable extension | System Settings › General › Login Items & Extensions › Finder Extensions shows it enabled. | Pending |
+| F1 | Register extension | Open the Release app once; `pluginkit -m -i com.sid.newfilecreation2.finder` lists it. | Verified 2026-11-16 (`+`, installed under `/Applications`) |
+| F2 | Enable extension | System Settings › General › Login Items & Extensions › Finder Extensions shows it enabled. | Verified 2026-11-16 (`pluginkit -e use`, state `+`) |
 | F3 | Toolbar menu | Finder toolbar shows New File with enabled templates. | Pending |
-| F4 | Context menu | Right-click in a folder shows the same template menu. | Pending |
+| F4 | Context menu | Right-click in a folder shows the same template menu. | Verified 2026-11-16 (Desktop and Finder window) |
 | F5 | Instant create | Creates in the targeted folder with default naming and uniqueness, including the Desktop. | Pending |
 | F6 | Ask for a name | Alert accepts a base name and creates there. | Pending |
 | F7 | Add as Template | Selected Finder items open the app URL scheme and are added. | Pending |
 | F8 | Disabled/favorite/category options | Menus reflect Settings changes on the next open. | Pending |
-| F9 | Sandbox fallback | Direct copy denial falls back to `newfilecreation2://create` in the app through the extension context or `NSWorkspace`. | Pending |
+| F9 | Creation handoff | Template selection opens `newfilecreation2://create` in the non-sandboxed app; the extension context is used if `NSWorkspace` fails. | Pending |
 | F10 | Localized Finder UI | Menu titles and alerts follow the system language, including Spanish, German, Japanese, and right-to-left Arabic. | Pending |
+| F11 | External/removable volume | Right-clicking the background or items on a mounted external volume shows the same New File menu. | Verified 2026-11-16 (SEAGATE4, NTFS) |
 
-### Today widget
+### Today widget (legacy)
 
 | ID | Check | Expected | Status |
 | --- | --- | --- | --- |
-| T1 | Add the widget | Notification Center shows **New File Creation 2 Today** in the widget gallery on supported macOS versions. | Pending |
+| T1 | Add the widget | Notification Center shows **New File Creation 2 Today** in the widget gallery on macOS releases that still support `com.apple.widget-extension`. | Pending |
 | T2 | Template list | The widget lists enabled templates in the configured sort order and updates after Settings changes. | Automated (source loading and sorting) |
 | T3 | Drag to a folder | Dragging a template row to a Finder folder or the Desktop creates one default-named file without overwriting. | Pending |
 | T4 | Drag to another app | A file-promise-aware app accepts the dragged template as a new file. | Pending |
 | T5 | Missing or damaged config | The widget shows a clear empty state and does not write to the support folder. | Automated (source loading) |
+
+### WidgetKit widget
+
+| ID | Check | Expected | Status |
+| --- | --- | --- | --- |
+| W1 | Register extension | Open the installed app once; `pluginkit -m -i com.sid.newfilecreation2.widget` lists it with `+`. | Verified 2026-11-16 (`+`, installed under `/Applications`) |
+| W2 | Add the widget | The macOS widget gallery shows **New File** for New File Creation 2 in small, medium, and large sizes. | Partially verified 2026-11-16 (WidgetKit Simulator discovered and rendered all three sizes) |
+| W3 | Template list | The widget lists enabled templates, favorites first, in the configured sort order; opening Settings does not reorder unexpectedly. | Verified 2026-11-16 (simulator timeline contained the real templates in config order) |
+| W4 | Create from a template | Clicking a template opens `newfilecreation2://create?template=…&unique=1`; the app creates the file in the default folder without overwriting. | Partially verified 2026-11-16 (rendered links inspected; click-through pending) |
+| W5 | Header and empty state | The plus button opens the quick panel; with no templates or a damaged config, Open Settings opens Settings and no file is written. | Pending |
+| W6 | Refresh after edits | Adding, enabling, disabling, or reordering templates refreshes the timeline when the app writes the config. | Pending |
 
 ### CLI and localization
 
@@ -229,12 +249,13 @@ These checks are not fully automated in the repository. Run them after UI or Fin
 
 ## Known gaps
 
-- Finder extension enablement and menu interaction require manual confirmation. Automated UI scripting would need Accessibility permission and a stable Finder state.
+- Finder toolbar interaction, creating a file from the menu, and post-create alerts require manual confirmation; the Desktop, Finder-window, and external-volume menus were verified on 2026-11-16.
 - AppKit UI components are instantiated in-process; full app launch, screen layout, and OS-level mouse dragging still require a manual smoke test. XCUITest covers the quick panel, Settings, and Get Started pointer flows.
 - `NSFilePromiseReceiver` cannot run outside a real drag session, so the promise tests validate the delegate contract and destination registration rather than the complete gesture. The Today widget drag gesture still requires a manual check.
 - The real Desktop test is opt-in with `NFC_TEST_REAL_DESKTOP=1`; the external-volume test is skipped unless a writable external volume is mounted or `NFC_TEST_EXTERNAL_VOLUME` is set. A mounted external volume can make the opt-in test take several minutes.
 - Direct sandbox copy versus URL-scheme fallback must be observed in `Console.app` or the local log, because Finder does not display which path was used.
-- Today widget extensions are deprecated on current macOS. The appex is embedded and its data source is tested, but the system may not surface it in Notification Center on every macOS release.
+- Today widget extensions are deprecated on current macOS. The appex is embedded and its data source is tested, but the system may not surface it in Notification Center on every macOS release. The WidgetKit extension is the supported widget path; see the W rows.
+- WidgetKit gallery placement, cross-process rendering, and clicking a template link are manual checks because the system owns the widget host.
 - VoiceOver behavior is implemented and labels are inspected by tests, but the full screen-reader experience is not part of automated verification.
 
 ## Regression checklist
@@ -252,4 +273,4 @@ xcodebuild -project NewFileCreation2.xcodeproj -scheme NewFileCreation2UI \
   CODE_SIGN_IDENTITY=- CODE_SIGNING_REQUIRED=YES test
 ```
 
-Then complete the manual A, L, Q, S, F, and T rows for any area touched by the change. Update this matrix when a check becomes automated or a known gap is closed.
+Then complete the manual A, L, Q, S, F, T, and W rows for any area touched by the change. Update this matrix when a check becomes automated or a known gap is closed.

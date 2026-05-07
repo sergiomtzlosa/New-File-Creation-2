@@ -7,6 +7,7 @@ APP="$ROOT/build/New File Creation 2.app"
 HELPER="$APP/Contents/Helpers/nfc"
 EXTENSION="$APP/Contents/PlugIns/New File Creation 2 Finder.appex"
 TODAY="$APP/Contents/PlugIns/New File Creation 2 Today.appex"
+WIDGET="$APP/Contents/PlugIns/New File Creation 2 Widget.appex"
 SKIP_BUILD=0
 SKIP_TESTS=0
 
@@ -76,6 +77,7 @@ fi
 check "app signature" codesign --verify --deep --strict "$APP"
 check "Finder extension signature" codesign --verify --strict "$EXTENSION"
 check "Today extension signature" codesign --verify --strict "$TODAY"
+check "Widget extension signature" codesign --verify --strict "$WIDGET"
 check "nfc signature" codesign --verify --strict "$HELPER"
 
 check_hardened_runtime() {
@@ -84,13 +86,16 @@ check_hardened_runtime() {
 check "app hardened runtime" check_hardened_runtime "$APP"
 check "Finder extension hardened runtime" check_hardened_runtime "$EXTENSION"
 check "Today extension hardened runtime" check_hardened_runtime "$TODAY"
+check "Widget extension hardened runtime" check_hardened_runtime "$WIDGET"
 check "nfc hardened runtime" check_hardened_runtime "$HELPER"
 check "nfc is executable" test -x "$HELPER"
 check "Finder extension embedded" test -d "$EXTENSION"
 check "Today extension embedded" test -d "$TODAY"
+check "Widget extension embedded" test -d "$WIDGET"
 check "Info.plist syntax" plutil -lint "$APP/Contents/Info.plist"
 check "Finder Info.plist syntax" plutil -lint "$EXTENSION/Contents/Info.plist"
 check "Today Info.plist syntax" plutil -lint "$TODAY/Contents/Info.plist"
+check "Widget Info.plist syntax" plutil -lint "$WIDGET/Contents/Info.plist"
 
 VERSION="$(plutil -extract CFBundleShortVersionString raw "$APP/Contents/Info.plist")"
 check "version is 2.0.0" test "$VERSION" = "2.0.0"
@@ -103,6 +108,12 @@ check "extension bundle identifier" test "$EXT_BUNDLE_ID" = "com.sid.newfilecrea
 
 TODAY_BUNDLE_ID="$(plutil -extract CFBundleIdentifier raw "$TODAY/Contents/Info.plist")"
 check "Today bundle identifier" test "$TODAY_BUNDLE_ID" = "com.sid.newfilecreation2.today"
+
+WIDGET_BUNDLE_ID="$(plutil -extract CFBundleIdentifier raw "$WIDGET/Contents/Info.plist")"
+check "Widget bundle identifier" test "$WIDGET_BUNDLE_ID" = "com.sid.newfilecreation2.widget"
+
+WIDGET_POINT="$(plutil -extract NSExtension.NSExtensionPointIdentifier raw "$WIDGET/Contents/Info.plist")"
+check "WidgetKit extension point" test "$WIDGET_POINT" = "com.apple.widgetkit-extension"
 
 PRINCIPAL="$(plutil -extract NSExtension.NSExtensionPrincipalClass raw "$EXTENSION/Contents/Info.plist")"
 check "Finder Sync principal class" test "$PRINCIPAL" = "NFCFinderSync"
@@ -122,9 +133,10 @@ check_all_localizations() {
 check "app localization files (28 languages)" check_all_localizations "$APP"
 check "Finder localization files (28 languages)" check_all_localizations "$EXTENSION"
 check "Today localization files (28 languages)" check_all_localizations "$TODAY"
+check "Widget localization files (28 languages)" check_all_localizations "$WIDGET"
 
 check_localization() {
-    python3 - "$APP/Contents/Resources" "$EXTENSION/Contents/Resources" "$TODAY/Contents/Resources" <<'PY'
+    python3 - "$APP/Contents/Resources" "$EXTENSION/Contents/Resources" "$TODAY/Contents/Resources" "$WIDGET/Contents/Resources" <<'PY'
 import json
 import re
 import subprocess
@@ -168,6 +180,7 @@ check "localization parity, placeholders, product name" check_localization
 
 check "Finder sandbox entitlement" bash -c "codesign -d --entitlements :- '$EXTENSION' 2>/dev/null | grep -q com.apple.security.app-sandbox"
 check "Today sandbox entitlement" bash -c "codesign -d --entitlements :- '$TODAY' 2>/dev/null | grep -q com.apple.security.app-sandbox"
+check "Widget sandbox entitlement" bash -c "codesign -d --entitlements :- '$WIDGET' 2>/dev/null | grep -q com.apple.security.app-sandbox"
 
 check "bundled templates present" test "$(find "$APP/Contents/Resources/Templates" -maxdepth 1 -type f | wc -l | tr -d ' ')" -ge 30
 check "app icon present" test -f "$APP/Contents/Resources/AppIcon.icns"
@@ -187,6 +200,16 @@ elif printf '%s' "$PLUGIN_OUTPUT" | grep -q '^+'; then
     PASS=$((PASS + 1))
 else
     warn "Finder extension is registered but not enabled."
+fi
+
+WIDGET_OUTPUT="$(/usr/bin/pluginkit -m -i com.sid.newfilecreation2.widget 2>/dev/null || true)"
+if [ -z "$WIDGET_OUTPUT" ]; then
+    warn "WidgetKit extension is not registered yet (open the installed app once)."
+elif printf '%s' "$WIDGET_OUTPUT" | grep -q '^+'; then
+    echo "[OK]   WidgetKit extension is registered and enabled"
+    PASS=$((PASS + 1))
+else
+    warn "WidgetKit extension is registered but not enabled."
 fi
 
 echo

@@ -4,7 +4,7 @@ Create files from templates in Finder, from the menu bar, from a template librar
 
 New File Creation 2 is a native, local-first macOS utility written in Objective-C and AppKit. It never overwrites an existing file, never deletes a template without confirmation, and makes no network requests. Configuration and templates live in one shared folder so the app, the Finder extension, and the CLI always agree.
 
-It is the modern upgrade of [New File Creation](https://github.com/sergiomtzlosa/new-file-creation) by Sergio Martinez-Losa, rebuilt for current macOS with a menu-bar-only workflow, a shared command-line tool, a Finder Sync extension, and a Today widget while keeping the original template set and MIT license.
+It is the modern upgrade of [New File Creation](https://github.com/sergiomtzlosa/new-file-creation) by Sergio Martinez-Losa, rebuilt for current macOS with a menu-bar-only workflow, a shared command-line tool, a Finder Sync extension, and both a legacy Today widget and a modern WidgetKit widget while keeping the original template set and MIT license.
 
 ![New File Creation 2 overview](docs/images/new-file-creation-2-overview.png)
 
@@ -17,10 +17,10 @@ It is the modern upgrade of [New File Creation](https://github.com/sergiomtzlosa
 - **Menu bar app with no Dock icon.** The permanent menu bar icon is the entry point. The library, Settings, Get Started, and quick panel are all floating panels opened from the menu bar.
 - **Template library** with a source-list sidebar, searchable card grid, inspector, favorites, recents, categories, and drag-to-Finder.
 - **Get Started window** with a guided tour, open actions, and an inline inspector aside that widens the window instead of covering the content.
-- **Menu bar quick panel** with visual, draggable template rows, keyboard-first search, arrow-key navigation, Return to create, Esc to close, and an app-icon button that opens Get Started next to the gear that opens Settings.
+- **Menu bar quick panel** with visual, draggable template rows, keyboard-first search, arrow-key navigation, Return to create, Esc to close, an app-icon button that opens Get Started, a gear that opens Settings, and a power button that quits the app.
 - **Drag from the menu bar** into Finder or any file-promise-aware window to create a default-named file from the template.
-- **Finder Sync extension** with a New File template menu and “Add as Template” for selected Finder items, including the Desktop and the currently browsed folder.
-- **Today widget** with template buttons and draggable file promises, so a template can be dragged straight to a folder, the Desktop, or another app.
+- **Finder Sync extension** with a New File template menu and “Add as Template” for selected Finder items, including the Desktop, the currently browsed folder, and mounted external or removable volumes.
+- **Today and WidgetKit widgets.** The WidgetKit widget lists enabled templates at small, medium, and large sizes; click a template to create a file in your default folder. The legacy Today widget remains available on older macOS releases and supports dragging a template to a folder, the Desktop, or another app.
 - **`nfc` command-line tool** for scripted creation, listing, adding, removing, favoriting, enabling, diagnostics, configuration export/import, and shell completion.
 - **Shared, versioned JSON configuration** written with an interprocess lock and atomic replacement. Open windows refresh when the configuration changes, and the menu bar template list reloads each time it is opened.
 - **Never overwrites** files: names are made unique with `Untitled 2`, `Untitled 3`, and so on.
@@ -32,7 +32,7 @@ It is the modern upgrade of [New File Creation](https://github.com/sergiomtzlosa
 
 ## Languages
 
-Every language from New File Creation v1 has a `Localizable.strings` file under [`NewFileCreation2App/Resources`](NewFileCreation2App/Resources), and the same resources are embedded in the app, Finder extension, and Today widget:
+Every language from New File Creation v1 has a `Localizable.strings` file under [`NewFileCreation2App/Resources`](NewFileCreation2App/Resources), and the same resources are embedded in the app, Finder extension, Today widget, and WidgetKit widget:
 
 ```
 ar  ca  da  de  el  en  es  eu-ES  fi  fr  gl  hi  id  is-IS  it
@@ -46,7 +46,7 @@ The English file is the source of truth. Tests and `scripts/verify.sh` check key
 - macOS 13 or later.
 - Xcode 27.2 or later with the macOS SDK.
 - [XcodeGen](https://github.com/yonaskolb/XcodeGen) 2.46 or later (`brew install xcodegen`) to regenerate the project.
-- No runtime dependencies. The app, Finder extension, and CLI are all Objective-C/AppKit/Foundation.
+- No runtime dependencies. The app, Finder extension, Today extension, and CLI are Objective-C/AppKit/Foundation; the WidgetKit extension is SwiftUI.
 
 ## Install locally
 
@@ -58,9 +58,9 @@ cd new-file-creation-2
 ./scripts/install-cli.sh    # links ~/.local/bin/nfc to the embedded helper
 ```
 
-The app is ad-hoc signed and intended for local/direct distribution. It is not sandboxed; the Finder extension is sandboxed. No Apple Developer Team ID or App Group is required.
+The app is ad-hoc signed and intended for local/direct distribution. It is not sandboxed; the Finder extension, Today widget, and WidgetKit widget are sandboxed. No Apple Developer Team ID or App Group is required.
 
-After installing, open the app once so macOS registers the Finder extension, then enable **New File Creation 2 Finder** in **System Settings › General › Login Items & Extensions › Finder Extensions**.
+After installing, open the app once so macOS registers its extensions, then enable **New File Creation 2 Finder** in **System Settings › General › Login Items & Extensions › Finder Extensions**. The **New File Creation 2** widget becomes available in the widget gallery after the app has been opened once from `/Applications`.
 
 If `~/.local/bin` is not on your `PATH`, the CLI installer prints the line to add to your shell profile:
 
@@ -73,9 +73,9 @@ export PATH="$HOME/.local/bin:$PATH"
 - **⌘N** creates a file from the selected template in the default folder.
 - **⇧⌘N** opens a save panel so you can choose a name and location.
 - **⌃⌥N** (Control-Option-N) opens the quick panel from anywhere. Change it in Settings › General.
-- **Right-click in Finder** and choose a template under **New File**. Choose **Add as Template** to add selected files to the library. File creation works in the folder you are browsing and on the Desktop.
-- **Menu bar icon:** left-click for the visual quick panel; drag a template row into a Finder window to create a file there; click the app icon in the quick panel to open Get Started; right-click for Library, Get Started, Settings, and Quit.
-- **Today widget:** add **New File Creation 2 Today** in Notification Center, then drag a template from the widget to a folder, the Desktop, or another app to create a file there.
+- **Right-click in Finder** and choose a template under **New File**. Choose **Add as Template** to add selected files to the library. File creation works in the folder you are browsing, on the Desktop, and on mounted external volumes.
+- **Menu bar icon:** left-click for the visual quick panel; drag a template row into a Finder window to create a file there; click the app icon in the quick panel to open Get Started; use the power button in the quick panel header to quit; right-click for Library, Get Started, Settings, and Quit.
+- **Widget:** add **New File Creation 2** from the macOS widget gallery, then click a template to create a file in the default folder. On older macOS releases, the **New File Creation 2 Today** widget can also drag a template to a folder, the Desktop, or another app.
 - **`nfc create "Text File"`** creates a file in the current terminal directory.
 
 The app launches silently into the menu bar with no Dock icon. The first run seeds the 33 included templates into the support folder. They can be disabled, renamed, favorited, moved to custom categories, or removed like any other template. Templates can be sorted by category or file type in Settings › Templates, and custom categories can be removed; their templates move to **Other**.
@@ -124,7 +124,7 @@ See [docs/CLI.md](docs/CLI.md) for the full reference, JSON envelope, exit codes
 xcodegen generate
 ./scripts/build.sh          # Release
 CONFIG=Debug ./scripts/build.sh
-./scripts/test.sh           # XCTest suite: logic, AppKit UI, drag/drop (93 tests, 1 environment skip)
+./scripts/test.sh           # XCTest suite: logic, AppKit UI, drag/drop (103 tests, 1 environment skip)
 ./scripts/test-cli.sh       # isolated end-to-end CLI checks
 ./scripts/verify.sh         # signing, bundle, resources, tests, CLI
 ./scripts/verify.sh --quick # skip the test suites
@@ -154,15 +154,33 @@ Build products:
 build/New File Creation 2.app
 build/New File Creation 2.app/Contents/PlugIns/New File Creation 2 Finder.appex
 build/New File Creation 2.app/Contents/PlugIns/New File Creation 2 Today.appex
+build/New File Creation 2.app/Contents/PlugIns/New File Creation 2 Widget.appex
 build/New File Creation 2.app/Contents/Helpers/nfc
 ```
+
+## Release packaging
+
+`scripts/release.sh` turns a verified Release build into a GitHub release archive and a Homebrew cask:
+
+```bash
+./scripts/release.sh --no-build              # local archive + cask preview in build/release/
+./scripts/release.sh \
+  --identity "Developer ID Application: Your Name (TEAMID)" --team-id TEAMID \
+  --notarize --notary-profile nfc-notary \
+  --publish --tap-dir ../homebrew-tap
+```
+
+The script rebuilds and verifies the app, Finder extension, Today extension, WidgetKit extension, and embedded `nfc` helper; checks the hardened runtime, the widget extension point and sandbox entitlement; creates `New-File-Creation-2-<version>.zip` with a SHA-256 file; and renders `packaging/homebrew/new-file-creation-2.rb.template`. It only uploads with `--publish` (requires `gh auth login`) and only copies the cask into a tap checkout when `--tap-dir` is supplied. Ad-hoc builds are useful for local smoke tests but cannot be notarized; a Developer ID Application identity and team are required for a distributable release. The defaults are the `sergiomtzlosa/new-file-creation-2` repository and the `sergiomtzlosa/homebrew-tap` tap; override them with `--github-repo` and `--tap-repo`.
+
+Homebrew requires casks to live in a tap, so validate the generated file with `ruby -c`; `brew style` only accepts it after it has been copied into a tap checkout.
 
 ## Project layout
 
 ```
 NewFileCreation2App/        AppKit app, menus, library, quick panel, settings
 NewFileCreation2Finder/     Finder Sync extension
-NewFileCreation2Today/      Today widget with drag file promises
+NewFileCreation2Today/      Legacy Today widget with drag file promises
+NewFileCreation2Widget/     WidgetKit widget for current macOS
 NewFileCreation2Shared/     Models, config store, file creation, requests, menus
 NewFileCreation2CLI/        nfc command-line tool
 NewFileCreation2Tests/      XCTest unit suite
@@ -183,7 +201,7 @@ project.yml                 XcodeGen specification
 
 ## Privacy
 
-New File Creation 2 makes no network connections. It has no analytics, telemetry, crash reporting, accounts, or update checker. Everything stays in the support folder on your Mac. The Finder extension only reads the shared configuration and creates files in the folder you target.
+New File Creation 2 makes no network connections. It has no analytics, telemetry, crash reporting, accounts, or update checker. Everything stays in the support folder on your Mac. The Finder extension only reads the shared configuration and creates files in the folder you target. The widgets only read the shared configuration and never write to it.
 
 ## Uninstall
 
