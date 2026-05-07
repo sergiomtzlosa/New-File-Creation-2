@@ -74,13 +74,39 @@ static NSString * const NFCFinderBundleIdentifier = @"com.sid.newfilecreation2";
 
 - (void)configureDirectoryURLs {
     FIFinderSyncController *controller = [FIFinderSyncController defaultController];
-    controller.directoryURLs = [NSSet setWithObject:[NSURL fileURLWithPath:@"/" isDirectory:YES]];
+    NSMutableSet<NSURL *> *directories = [NSMutableSet setWithObject:[NSURL fileURLWithPath:@"/" isDirectory:YES]];
+    NSArray<NSURL *> *volumes = [[NSFileManager defaultManager]
+                                 mountedVolumeURLsIncludingResourceValuesForKeys:nil
+                                 options:NSVolumeEnumerationSkipHiddenVolumes];
+    for (NSURL *volume in volumes) {
+        if (volume.path.length > 0) {
+            [directories addObject:volume];
+        }
+    }
+    controller.directoryURLs = directories;
+}
+
+- (void)volumesDidChange:(NSNotification *)notification {
+    [self configureDirectoryURLs];
 }
 
 - (instancetype)init {
     self = [super init];
     if (self) {
         [self configureDirectoryURLs];
+        NSNotificationCenter *workspaceCenter = [[NSWorkspace sharedWorkspace] notificationCenter];
+        [workspaceCenter addObserver:self
+                            selector:@selector(volumesDidChange:)
+                                name:NSWorkspaceDidMountNotification
+                              object:nil];
+        [workspaceCenter addObserver:self
+                            selector:@selector(volumesDidChange:)
+                                name:NSWorkspaceDidUnmountNotification
+                              object:nil];
+        [workspaceCenter addObserver:self
+                            selector:@selector(volumesDidChange:)
+                                name:NSWorkspaceDidRenameVolumeNotification
+                              object:nil];
         [[NSDistributedNotificationCenter defaultCenter] addObserver:self
                                                             selector:@selector(configDidChange:)
                                                                 name:@"com.sid.newfilecreation2.configchanged"
@@ -90,6 +116,7 @@ static NSString * const NFCFinderBundleIdentifier = @"com.sid.newfilecreation2";
 }
 
 - (void)dealloc {
+    [[[NSWorkspace sharedWorkspace] notificationCenter] removeObserver:self];
     [[NSDistributedNotificationCenter defaultCenter] removeObserver:self];
 }
 
