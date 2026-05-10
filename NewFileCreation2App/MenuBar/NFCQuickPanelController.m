@@ -8,6 +8,9 @@
 #import "NFLocalization.h"
 
 static NSScreen *NFCScreenContainingPoint(NSPoint point) {
+    if ([NSProcessInfo.processInfo.environment[@"NFC_UI_TEST_MAIN_SCREEN"] boolValue]) {
+        return NSScreen.screens.firstObject ?: NSScreen.mainScreen;
+    }
     for (NSScreen *screen in NSScreen.screens) {
         if (NSMouseInRect(point, screen.frame, NO)) {
             return screen;

@@ -19,6 +19,9 @@
 }
 
 + (nullable NSScreen *)screenContainingMouse {
+    if ([NSProcessInfo.processInfo.environment[@"NFC_UI_TEST_MAIN_SCREEN"] boolValue]) {
+        return NSScreen.screens.firstObject ?: NSScreen.mainScreen;
+    }
     NSPoint mouse = NSEvent.mouseLocation;
     for (NSScreen *screen in NSScreen.screens) {
         if (NSMouseInRect(mouse, screen.frame, NO)) {

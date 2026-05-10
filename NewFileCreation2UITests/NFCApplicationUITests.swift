@@ -1,5 +1,4 @@
 import AppKit
-import CoreGraphics
 import XCTest
 
 final class NFCApplicationUITests: XCTestCase {
@@ -56,17 +55,51 @@ final class NFCApplicationUITests: XCTestCase {
     }
 
     private func launchWithQuickPanel() -> XCUIApplication {
+        launch(opening: "NFC_UI_TEST_OPEN_QUICK_PANEL", mainScreen: true)
+    }
+
+    private func launch(opening environmentVariable: String, mainScreen: Bool = false) -> XCUIApplication {
         let app = XCUIApplication()
         app.launchEnvironment["NFC_SUPPORT_DIR"] = support.path
-        app.launchEnvironment["NFC_UI_TEST_OPEN_QUICK_PANEL"] = "1"
+        app.launchEnvironment[environmentVariable] = "1"
+        if mainScreen {
+            app.launchEnvironment["NFC_UI_TEST_MAIN_SCREEN"] = "1"
+        }
         app.launch()
         return app
+    }
+
+    private func useReadmeConfiguration() throws {
+        let configURL = support.appendingPathComponent("config.json")
+        let data = try Data(contentsOf: configURL)
+        guard var config = try JSONSerialization.jsonObject(with: data) as? [String: Any],
+              var settings = config["settings"] as? [String: Any] else {
+            return
+        }
+        let home = getpwuid(getuid()).map { String(cString: $0.pointee.pw_dir) }
+            ?? FileManager.default.homeDirectoryForCurrentUser.path
+        settings["defaultDirectory"] = URL(fileURLWithPath: home, isDirectory: true)
+            .appendingPathComponent("Desktop", isDirectory: true).path
+        config["settings"] = settings
+        let updated = try JSONSerialization.data(withJSONObject: config,
+                                                 options: [.prettyPrinted, .sortedKeys])
+        try updated.write(to: configURL)
     }
 
     private func requireQuickPanel(in app: XCUIApplication) -> XCUIElement {
         let quickPanel = app.dialogs["Quick New File"]
         XCTAssertTrue(quickPanel.waitForExistence(timeout: 10), "Quick panel should open")
         return quickPanel
+    }
+
+    private func requireFloatingWindow(in app: XCUIApplication, title: String) -> XCUIElement {
+        let dialog = app.dialogs[title]
+        if dialog.waitForExistence(timeout: 5) {
+            return dialog
+        }
+        let window = app.windows[title]
+        XCTAssertTrue(window.waitForExistence(timeout: 5), "\(title) should open")
+        return window
     }
 
     private func requireWelcome(in app: XCUIApplication) -> XCUIElement {
@@ -99,6 +132,75 @@ final class NFCApplicationUITests: XCTestCase {
         attachment.name = name
         attachment.lifetime = .keepAlways
         add(attachment)
+    }
+
+    private func saveElementScreenshot(_ element: XCUIElement, _ name: String) {
+        let screenshot = XCUIScreen.main.screenshot()
+        guard let screen = NSScreen.main,
+              let image = screenshot.image.cgImage(forProposedRect: nil, context: nil, hints: nil) else {
+            print("ELEMENT SCREENSHOT FAILED: no screenshot image")
+            return
+        }
+        let scale = CGFloat(image.width) / screen.frame.width
+        let frame = element.frame
+        var crop = CGRect(x: frame.minX * scale,
+                          y: frame.minY * scale,
+                          width: frame.width * scale,
+                          height: frame.height * scale)
+        crop = crop.intersection(CGRect(x: 0, y: 0, width: image.width, height: image.height))
+        guard !crop.isNull, !crop.isEmpty, let cropped = image.cropping(to: crop) else {
+            print("ELEMENT SCREENSHOT FAILED: crop outside the main screen: \(frame)")
+            return
+        }
+        let representation = NSBitmapImageRep(cgImage: cropped)
+        guard let data = representation.representation(using: .png, properties: [:]) else {
+            print("ELEMENT SCREENSHOT FAILED: PNG encoding")
+            return
+        }
+        let url = FileManager.default.temporaryDirectory.appendingPathComponent("\(name).png")
+        do {
+            try data.write(to: url)
+            print("ELEMENT SCREENSHOT: \(url.path) frame=\(frame)")
+        } catch {
+            print("ELEMENT SCREENSHOT FAILED: \(error)")
+        }
+        let attachment = XCTAttachment(data: data, uniformTypeIdentifier: "public.png")
+        attachment.name = name
+        attachment.lifetime = .keepAlways
+        add(attachment)
+    }
+
+    func testCaptureReadmeScreenshots() throws {
+        try useReadmeConfiguration()
+
+        // Pin every window to the primary display so the captures always come
+        // from XCUIScreen.main, regardless of where the pointer is.
+        let quickApp = launch(opening: "NFC_UI_TEST_OPEN_QUICK_PANEL", mainScreen: true)
+        let quickPanel = requireQuickPanel(in: quickApp)
+        quickApp.activate()
+        let quickTitle = quickPanel.staticTexts.matching(identifier: "QuickPanelTitle").firstMatch
+        XCTAssertTrue(quickTitle.exists, "Quick panel title should be accessible")
+        quickTitle.click()
+        Thread.sleep(forTimeInterval: 0.8)
+        saveElementScreenshot(quickPanel, "nfc-readme-quick-panel")
+        quickApp.terminate()
+
+        let libraryApp = launch(opening: "NFC_UI_TEST_OPEN_LIBRARY", mainScreen: true)
+        let library = requireFloatingWindow(in: libraryApp, title: "New File Creation 2")
+        libraryApp.activate()
+        let template = library.staticTexts["ePub"].firstMatch
+        if template.waitForExistence(timeout: 3) {
+            template.click()
+        }
+        Thread.sleep(forTimeInterval: 0.8)
+        saveElementScreenshot(library, "nfc-readme-library")
+        libraryApp.terminate()
+
+        let settingsApp = launch(opening: "NFC_UI_TEST_OPEN_SETTINGS", mainScreen: true)
+        let settings = requireFloatingWindow(in: settingsApp, title: "Settings")
+        settingsApp.activate()
+        Thread.sleep(forTimeInterval: 0.8)
+        saveElementScreenshot(settings, "nfc-readme-settings")
     }
 
     func testQuickPanelTitleIsCenteredAndGearOpensSettings() throws {
