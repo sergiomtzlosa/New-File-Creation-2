@@ -76,6 +76,9 @@ targets:
       - target: NewFileCreation2Today
         embed: true
         codeSign: true
+      - target: NewFileCreation2Widget
+        embed: true
+        codeSign: true
       - target: NewFileCreation2CLI
         embed: true
         link: false
@@ -97,6 +100,7 @@ targets:
         ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
         COMBINE_HIDPI_IMAGES: YES
         GENERATE_INFOPLIST_FILE: NO
+        SWIFT_VERSION: "5.0"
         LD_RUNPATH_SEARCH_PATHS: "$(inherited) @executable_path/../Frameworks"
   NewFileCreation2Finder:
     type: app-extension
@@ -145,6 +149,30 @@ targets:
         GENERATE_INFOPLIST_FILE: NO
         APPLICATION_EXTENSION_API_ONLY: YES
         SKIP_INSTALL: YES
+        LD_RUNPATH_SEARCH_PATHS: "$(inherited) @executable_path/../../../../Frameworks"
+  NewFileCreation2Widget:
+    type: app-extension
+    platform: macOS
+    sources:
+      - path: NewFileCreation2Widget
+        excludes: [Info.plist, NewFileCreation2Widget.entitlements]
+      - path: NewFileCreation2App/Resources
+        excludes: [.DS_Store]
+    dependencies:
+      - sdk: SwiftUI.framework
+      - sdk: WidgetKit.framework
+      - sdk: Foundation.framework
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.sid.newfilecreation2.widget
+        PRODUCT_NAME: "New File Creation 2 Widget"
+        INFOPLIST_FILE: NewFileCreation2Widget/Info.plist
+        CODE_SIGN_ENTITLEMENTS: NewFileCreation2Widget/NewFileCreation2Widget.entitlements
+        GENERATE_INFOPLIST_FILE: NO
+        APPLICATION_EXTENSION_API_ONLY: YES
+        SKIP_INSTALL: YES
+        SWIFT_VERSION: "5.0"
+        SWIFT_STRICT_CONCURRENCY: minimal
         LD_RUNPATH_SEARCH_PATHS: "$(inherited) @executable_path/../../../../Frameworks"
   NewFileCreation2CLI:
     type: tool
@@ -209,6 +237,7 @@ schemes:
       targets:
         NewFileCreation2: all
         NewFileCreation2Finder: all
+        NewFileCreation2Widget: all
         NewFileCreation2CLI: all
         NewFileCreation2Tests: [test]
     run:

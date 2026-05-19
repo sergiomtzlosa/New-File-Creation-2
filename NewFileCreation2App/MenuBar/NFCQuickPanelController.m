@@ -123,6 +123,17 @@ static NSScreen *NFCScreenContainingPoint(NSPoint point) {
     preferences.accessibilityLabel = NFLocalizedString(@"Settings…");
     [content addSubview:preferences];
 
+    NSImage *quitImage = [NSImage imageWithSystemSymbolName:@"power"
+                                  accessibilityDescription:NFLocalizedString(@"Quit New File Creation 2")];
+    NSButton *quit = [NSButton buttonWithImage:quitImage target:self action:@selector(quitAction:)];
+    quit.identifier = @"QuickPanelQuitButton";
+    quit.translatesAutoresizingMaskIntoConstraints = NO;
+    quit.bordered = NO;
+    quit.imagePosition = NSImageOnly;
+    quit.toolTip = NFLocalizedString(@"Quit New File Creation 2");
+    quit.accessibilityLabel = NFLocalizedString(@"Quit New File Creation 2");
+    [content addSubview:quit];
+
     self.searchField = [[NSSearchField alloc] init];
     self.searchField.translatesAutoresizingMaskIntoConstraints = NO;
     self.searchField.identifier = @"QuickPanelSearchField";
@@ -191,10 +202,14 @@ static NSScreen *NFCScreenContainingPoint(NSPoint point) {
         [getStarted.centerYAnchor constraintEqualToAnchor:title.centerYAnchor],
         [getStarted.widthAnchor constraintEqualToConstant:22],
         [getStarted.heightAnchor constraintEqualToConstant:22],
-        [preferences.trailingAnchor constraintEqualToAnchor:content.trailingAnchor constant:-16],
+        [preferences.trailingAnchor constraintEqualToAnchor:quit.leadingAnchor constant:-4],
         [preferences.centerYAnchor constraintEqualToAnchor:title.centerYAnchor],
         [preferences.widthAnchor constraintEqualToConstant:24],
         [preferences.heightAnchor constraintEqualToConstant:24],
+        [quit.trailingAnchor constraintEqualToAnchor:content.trailingAnchor constant:-16],
+        [quit.centerYAnchor constraintEqualToAnchor:title.centerYAnchor],
+        [quit.widthAnchor constraintEqualToConstant:24],
+        [quit.heightAnchor constraintEqualToConstant:24],
         [self.searchField.topAnchor constraintEqualToAnchor:title.bottomAnchor constant:10],
         [self.searchField.leadingAnchor constraintEqualToAnchor:content.leadingAnchor constant:20],
         [self.searchField.trailingAnchor constraintEqualToAnchor:content.trailingAnchor constant:-20],
@@ -348,6 +363,10 @@ static NSScreen *NFCScreenContainingPoint(NSPoint point) {
     if (self.onOpenGetStarted) {
         self.onOpenGetStarted();
     }
+}
+
+- (void)quitAction:(id)sender {
+    [NSApp terminate:nil];
 }
 
 - (void)tableView:(NSTableView *)tableView

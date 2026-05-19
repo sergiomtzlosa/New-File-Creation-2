@@ -4,7 +4,7 @@ New File Creation 2 is a native AppKit app designed around one idea: create a fi
 
 ## Principles
 
-1. **Create where you work.** Finder menus, the menu bar, the library, and the Today widget can all create immediately; no app switch is required.
+1. **Create where you work.** Finder menus, the menu bar, the library, the Today widget, and the WidgetKit widget can all create immediately; no app switch is required.
 2. **One click, no dead ends.** The default template and default name produce a file immediately. Naming is available through a save panel when needed.
 3. **Never lose data.** Existing files are never overwritten. Removing a template requires confirmation and moves its file to Trash.
 4. **Keyboard first, mouse friendly.** Search, arrow keys, Return, and standard macOS shortcuts cover the main flows.
@@ -99,7 +99,7 @@ The app menu includes About, Settings… (⌘,), Services, Hide/Hide Others/Show
 
 - `NSStatusItem` with the `doc.badge.plus` symbol. The status item is permanent and cannot be hidden. Left-click toggles the visual quick panel, anchored below the status item; right-click opens a menu with quick panel, New File templates, add template, library, Get Started, settings, about, and quit. The template list is rebuilt every time the menu opens, so changes from Settings or `nfc` appear immediately.
 - Floating 460×420 panel near the top of the screen (or below the status item when opened there); hides when it resigns key.
-- A trailing app icon, centered title, and gear button sit in the header. The app icon closes the panel and opens Get Started; the gear closes the panel and opens Settings.
+- A trailing app icon, centered title, gear button, and power button sit in the header. The app icon closes the panel and opens Get Started; the gear closes the panel and opens Settings; the power button quits the app. All three icon-only controls have tooltips and accessibility labels.
 - Search field is focused automatically; the first result is selected. The panel reloads the shared configuration when it opens, so new templates and category changes are visible without relaunching.
 - Rows show a 32×32 file icon, display name, category, extension, and a favorite star.
 - Keyboard: ↑/↓ move, Return creates, Esc closes; double-click creates.
@@ -130,7 +130,7 @@ A floating utility panel opened from the menu bar menu, the quick panel gear, th
 - **Sort by** popup orders templates by manual order, name, category, or file type. Category sorting groups by category name, then template name; file-type sorting compares extension, then display name. Favorites remain first where the UI promises it.
 - Buttons: Add…, Remove…, Set as Default.
 - Removing a template removes metadata and moves the template file to Trash.
-- Disabled templates do not appear in the app grid, quick panel, menu bar, Finder menus, or Today widget.
+- Disabled templates do not appear in the app grid, quick panel, menu bar, Finder menus, Today widget, or WidgetKit widget.
 
 ### Finder
 
@@ -148,12 +148,12 @@ A floating utility panel opened from the menu bar menu, the quick panel gear, th
 - **Command-line tool:** install/uninstall the `nfc` symlink, status, and PATH hint.
 - Reveal Log.
 - Show Get Started.
-- Note: the app and CLI coordinate writes with a lock and atomic replacement; the Finder and Today extensions only read config.
+- Note: the app and CLI coordinate writes with a lock and atomic replacement; the Finder, Today, and WidgetKit extensions only read config.
 
 ### Help
 
 - A short explanation of the app: reusable templates and local-only creation.
-- Step-by-step workflows for the menu bar quick panel, Finder menus, the library, the CLI, and the Today widget.
+- Step-by-step workflows for the menu bar quick panel, Finder menus, the library, the CLI, and both widgets.
 - Keyboard reference for ⌘N, ⇧⌘N, the global shortcut, Return, and Esc.
 - **Show Get Started** opens the Get Started window; **Open Templates Folder** reveals the shared templates.
 - Notes on enabling the Finder extension and using `nfc`.
@@ -167,7 +167,7 @@ A floating utility panel opened from the menu bar menu, the quick panel gear, th
 ## Get Started window
 
 - A floating panel opened from the menu bar menu, the quick-panel app icon, Settings › Help, or the app menu. The app launches silently with only the menu bar icon; no window is opened automatically.
-- App icon, headline, and a short description of Finder, menu bar, library, CLI, and Today widget access.
+- App icon, headline, and a short description of Finder, menu bar, library, CLI, Today widget, and WidgetKit widget access.
 - Four feature rows: menu bar and global shortcut, Finder menus, `nfc`, and local-only privacy.
 - **Open Template Library** opens the library panel; **Open Settings** opens Settings. Return triggers the primary action.
 - An inspector button at the top-right opens an inline right-side aside titled “At a glance”: template count, quick-panel hints, drag hint, Return hint, and pointers to Settings › Templates, Finder, and Help, plus **Open Templates Folder**.
@@ -190,18 +190,27 @@ A floating utility panel opened from the menu bar menu, the quick panel gear, th
 - **Add as Template** appears for selected items and the toolbar menu.
 - Creating from Finder uses the targeted folder; for selected files, the containing folder; for a selected folder, that folder.
 - Default behavior is instant creation. If **Ask for a name** is enabled, a small alert asks for a base name.
-- If the sandbox denies a direct copy, the extension asks its `NSExtensionContext` to open `newfilecreation2://create`, falling back to `NSWorkspace`; the non-sandboxed app performs the copy.
+- The extension never writes the destination itself. Choosing a template opens `newfilecreation2://create` with `NSWorkspace`; if that fails, it asks its `NSExtensionContext` and then shows an error. The non-sandboxed app performs the copy.
 - Creation targets the currently browsed folder, the selected item’s folder, or the Desktop as appropriate.
 - Empty library: a disabled “No Templates” item.
 
 ## Today widget
 
-- A legacy Notification Center Today extension (`com.apple.widget-extension`) embedded at `Contents/PlugIns/New File Creation 2 Today.appex`. Today extensions are deprecated on current macOS, so the widget may not be listed on every release; the app and Finder/CLI flows do not depend on it.
+- A legacy Notification Center Today extension (`com.apple.widget-extension`) embedded at `Contents/PlugIns/New File Creation 2 Today.appex`. Today extensions are deprecated on current macOS, so the widget may not be listed on every release; the app, Finder, CLI, and WidgetKit flows do not depend on it.
 - 320×300 layout: app icon, “New File Creation 2”, drag hint, and a plain table of enabled templates.
 - Rows use the same file-type icons, favorites-first ordering, and persisted name/category/file-type sorting as the rest of the app.
 - Dragging a row uses `NFFilePromiseProvider`, so a Finder folder, the Desktop, or another file-promise-aware app writes one default-named file with the usual no-overwrite rules.
 - Missing or damaged `config.json` shows “No templates to show”; the widget only reads the shared configuration and never writes to it.
 - The widget reloads when Notification Center asks for its view and observes the shared config change notification.
+
+## WidgetKit widget
+
+- A modern WidgetKit extension (`com.apple.widgetkit-extension`) embedded at `Contents/PlugIns/New File Creation 2 Widget.appex`, for macOS releases that no longer register legacy Today extensions.
+- Small: one column of four templates. Medium: two columns of three. Large: three columns of four. The grid is intentionally compact so template names remain legible at widget scale.
+- Header: `doc.badge.plus` symbol, “New File”, and a plus button that opens the quick panel. Empty state: tray symbol, product name, and Open Settings.
+- Each row is a `Link` to `newfilecreation2://create?template=<id>&unique=1`, using the same semantic file-type symbol and color as the rest of the app. Creating opens the app; the widget itself never writes files.
+- Favorites-first and the persisted sort mode are honored. A five-minute timeline refresh and a `WidgetCenter` reload after observed config changes keep the list current.
+- Uses `containerBackground(for: .widget)` on macOS 14+ and a plain gradient background on macOS 13. No custom motion or hardcoded light/dark fills.
 
 ## Keyboard shortcuts
 
@@ -228,7 +237,7 @@ The global shortcut is configurable only through the presets in Settings; arbitr
 
 ## Empty, loading, and error states
 
-- **No templates:** grid empty state with Add Template…; Finder shows “No Templates”; quick panel shows “No matching templates”.
+- **No templates:** grid empty state with Add Template…; Finder shows “No Templates”; quick panel shows “No matching templates”; the WidgetKit widget shows its Open Settings empty state.
 - **Missing template file:** creation reports a clear error and leaves no partial destination.
 - **Unwritable destination:** error names the folder; Finder falls back to the app URL scheme.
 - **Config load failure:** warning alert at launch with Continue; corrupt config is quarantined under `Backups/` and `config.json.bak` is preferred when valid.
@@ -238,7 +247,7 @@ The global shortcut is configurable only through the presets in Settings; arbitr
 ## Localization
 
 - UI strings are looked up through `NFLocalizedString`, with English strings as keys.
-- All 28 languages from New File Creation v1 ship `.strings` files in the app, Finder extension, and Today widget bundles: Arabic, Catalan, Danish, German, Greek, English, Spanish, Basque, Finnish, French, Galician, Hindi, Indonesian, Icelandic, Italian, Japanese, Korean, Malay, Norwegian Bokmål, Dutch, Polish, Portuguese (Portugal), Romanian, Russian, Swedish, Turkish, Simplified Chinese, and Traditional Chinese.
+- All 28 languages from New File Creation v1 ship `.strings` files in the app, Finder extension, Today widget, and WidgetKit widget bundles: Arabic, Catalan, Danish, German, Greek, English, Spanish, Basque, Finnish, French, Galician, Hindi, Indonesian, Icelandic, Italian, Japanese, Korean, Malay, Norwegian Bokmål, Dutch, Polish, Portuguese (Portugal), Romanian, Russian, Swedish, Turkish, Simplified Chinese, and Traditional Chinese.
 - Arabic is the right-to-left locale; AppKit mirrors the standard layout automatically.
 - The product name “New File Creation 2” is never translated. “nfc” and technical tokens such as `config.json` are also preserved.
 - The CLI’s human output is English in v2.0; JSON keys and error codes are locale-independent.
@@ -249,7 +258,6 @@ The global shortcut is configurable only through the presets in Settings; arbitr
 
 - Touch Bar support (discontinued hardware).
 - A Dock icon or Dock-owned main window; the app is menu-bar-only.
-- A modern WidgetKit widget. The embedded Today extension is retained for compatibility but may not surface on macOS releases that have removed Today widgets.
 - iCloud zip sync, accounts, telemetry, and network access.
 - A login helper app (`SMAppService.mainApp` is used instead).
 - A custom-drawn UI toolkit; everything is standard AppKit.

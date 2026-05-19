@@ -471,6 +471,16 @@ static NSView *NFViewWithIdentifier(NSView *root, NSString *identifier) {
     [preferences performClick:nil];
     XCTAssertTrue(openedPreferences);
 
+    NSButton *quit = (NSButton *)NFViewWithIdentifier(panel.window.contentView, @"QuickPanelQuitButton");
+    XCTAssertTrue([quit isKindOfClass:[NSButton class]]);
+    XCTAssertEqualObjects(quit.identifier, @"QuickPanelQuitButton");
+    XCTAssertEqualObjects(quit.toolTip, NFLocalizedString(@"Quit New File Creation 2"));
+    XCTAssertEqualObjects(quit.accessibilityLabel, NFLocalizedString(@"Quit New File Creation 2"));
+    XCTAssertEqual(quit.target, panel);
+    XCTAssertEqualObjects(NSStringFromSelector(quit.action), @"quitAction:");
+    XCTAssertGreaterThan(NSMinX(quit.frame), NSMaxX(preferences.frame),
+                         @"The quit button should sit to the right of the gear");
+
     __block NFTemplate *returnedTemplate = nil;
     panel.onCreateTemplate = ^(NFTemplate *selected) {
         returnedTemplate = selected;

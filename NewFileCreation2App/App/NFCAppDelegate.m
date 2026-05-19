@@ -201,6 +201,16 @@
     dispatch_async(dispatch_get_main_queue(), ^{
         NFConfig *config = [[NFConfigStore sharedStore] readOnlySnapshot];
         [self applyConfiguration:config];
+        // The WidgetKit extension caches its timeline in a separate process.
+        // Refresh it for both local writes and CLI writes observed here.
+        Class reloader = NSClassFromString(@"NFWidgetReloader");
+        SEL selector = NSSelectorFromString(@"reloadWidgets");
+        if (reloader && [reloader respondsToSelector:selector]) {
+            IMP implementation = [reloader methodForSelector:selector];
+            if (implementation) {
+                ((void (*)(id, SEL))implementation)(reloader, selector);
+            }
+        }
     });
 }
 
