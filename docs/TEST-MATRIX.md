@@ -27,7 +27,7 @@ xcodebuild -project NewFileCreation2.xcodeproj -scheme NewFileCreation2UI \
   CODE_SIGN_IDENTITY=- CODE_SIGNING_REQUIRED=YES test
 ```
 
-Last automated run: **2026-11-16**. XCTest: **102 passed, 1 skipped, 0 failed (~10 s)**. The skipped test is the external-volume drag test because no writable external volume was mounted (the mounted NTFS volume is not writable). Opt-in runs also passed with `NFC_TEST_REAL_DESKTOP=1` against the real Desktop and with `NFC_TEST_EXTERNAL_VOLUME` pointing at a temporary writable disk image. XCUITest: **3 passed, 0 failed**. CLI integration: **20 passed, 0 failed**. Release verification: **41 passed, 0 warnings, 0 failed**. `scripts/verify.sh --no-build --quick` reports the static bundle, entitlement, localization, and signature checks. The Finder context menu was also confirmed manually on the Desktop, in a Finder window, and on a mounted removable volume. The WidgetKit Simulator discovered all three widget families and rendered a timeline from the real config with the expected template links.
+Last automated run: **2026-11-16**. XCTest: **102 passed, 1 skipped, 0 failed (~10 s)**. The skipped test is the external-volume drag test because no writable external volume was mounted (the mounted NTFS volume is not writable). Opt-in runs also passed with `NFC_TEST_REAL_DESKTOP=1` against the real Desktop and with `NFC_TEST_EXTERNAL_VOLUME` pointing at a temporary writable disk image. XCUITest: **4 passed, 0 failed**. CLI integration: **20 passed, 0 failed**. Release verification: **41 passed, 0 warnings, 0 failed**. `scripts/verify.sh --no-build --quick` reports the static bundle, entitlement, localization, and signature checks. The Finder context menu was also confirmed manually on the Desktop, in a Finder window, and on a mounted removable volume. The WidgetKit Simulator discovered all three widget families and rendered a timeline from the real config with the expected template links.
 
 ### XCTest
 
@@ -71,8 +71,9 @@ Drag destinations are modeled without OS-level mouse automation:
 1. Quick panel opens; the title is centered between the close button and the gear; the gear closes the panel and opens Settings; closing Settings does not quit the menu-bar app.
 2. The app icon left of the gear opens Get Started; the Get Started inspector aside widens the window without overlapping content, then collapses back to the original width.
 3. The Settings Help tab resizes the window, shows the Help actions, and “Show Get Started” opens Get Started.
+4. The README screenshot test opens the quick panel, library, and Settings on the primary display, selects a template, and writes the three app PNGs.
 
-Screenshots are attached to each test and written to the runner’s temporary folder. If a `com.apple.UserNotificationCenter` permission dialog blocks clicks, run `killall UserNotificationCenter` before the suite.
+Screenshots are attached to each test and written to the runner’s temporary folder. The README app images are produced by `testCaptureReadmeScreenshots`; run it with `-only-testing:NewFileCreation2UITests/NFCApplicationUITests/testCaptureReadmeScreenshots` and copy the three PNGs into `docs/images/`. The widget image is produced by `scripts/render-readme-widget.sh` from the real SwiftUI widget view. If a `com.apple.UserNotificationCenter` permission dialog blocks clicks, run `killall UserNotificationCenter` before the suite.
 
 
 ### CLI integration

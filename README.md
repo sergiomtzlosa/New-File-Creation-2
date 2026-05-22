@@ -6,7 +6,15 @@ New File Creation 2 is a native, local-first macOS utility written in Objective-
 
 It is the modern upgrade of [New File Creation](https://github.com/sergiomtzlosa/new-file-creation) by Sergio Martinez-Losa, rebuilt for current macOS with a menu-bar-only workflow, a shared command-line tool, a Finder Sync extension, and both a legacy Today widget and a modern WidgetKit widget while keeping the original template set and MIT license.
 
-![New File Creation 2 overview](docs/images/new-file-creation-2-overview.png)
+![New File Creation 2 template library](docs/images/new-file-creation-2-library.png)
+
+| Menu bar quick panel | Settings |
+|:---:|:---:|
+| [![Menu bar quick panel](docs/images/new-file-creation-2-quick-panel.png)](docs/images/new-file-creation-2-quick-panel.png) | [![Settings](docs/images/new-file-creation-2-settings.png)](docs/images/new-file-creation-2-settings.png) |
+
+<p align="center">
+  <img src="docs/images/new-file-creation-2-widget.png" alt="New File Creation 2 WidgetKit widget" width="658">
+</p>
 
 **Version:** 2.0.0  
 **Minimum macOS:** 13.0 Ventura  
