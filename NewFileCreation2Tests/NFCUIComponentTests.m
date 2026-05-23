@@ -30,6 +30,7 @@
 @interface NFCTemplateGridViewController (NFCTesting)
 - (void)toggleContextFavorite:(id)sender;
 - (void)createContextTemplate:(id)sender;
+- (void)searchChanged:(NSSearchField *)sender;
 @end
 
 @interface NFCTemplateCollectionItem (NFCTesting)
@@ -173,12 +174,41 @@ static NSView *NFViewWithIdentifier(NSView *root, NSString *identifier) {
     XCTAssertTrue([defaults containsObject:@"NFCToolbarNewFile"]);
     XCTAssertTrue([defaults containsObject:@"NFCToolbarNewFilePanel"]);
     XCTAssertTrue([defaults containsObject:@"NFCToolbarAddTemplate"]);
-    XCTAssertTrue([defaults containsObject:@"NFCToolbarSearch"]);
+    XCTAssertFalse([defaults containsObject:@"NFCToolbarSearch"],
+                   @"Search belongs to the grid column so it cannot cross the inspector divider");
     XCTAssertTrue([defaults containsObject:@"NFCToolbarInspector"]);
 
     NFCTemplateGridViewController *grid = [controller valueForKey:@"gridViewController"];
     [grid view];
     [controller reloadAll];
+
+    NSSearchField *searchField = grid.searchField;
+    XCTAssertNotNil(searchField);
+    XCTAssertEqualObjects(searchField.identifier, @"TemplateLibrarySearchField");
+    XCTAssertEqualObjects(searchField.placeholderString, NFLocalizedString(@"Search templates"));
+    XCTAssertEqual(searchField.superview, grid.view);
+    [window.contentView layoutSubtreeIfNeeded];
+
+    NSRect searchInWindow = [searchField convertRect:searchField.bounds toView:nil];
+    NSView *inspectorView = split.splitViewItems[2].viewController.view;
+    NSRect inspectorInWindow = [inspectorView convertRect:inspectorView.bounds toView:nil];
+    XCTAssertLessThanOrEqual(NSMaxX(searchInWindow), NSMinX(inspectorInWindow) + 0.5,
+                             @"The search field must stay inside the content column");
+
+    [window setContentSize:window.contentMinSize];
+    [window.contentView layoutSubtreeIfNeeded];
+    [searchField.superview layoutSubtreeIfNeeded];
+    searchInWindow = [searchField convertRect:searchField.bounds toView:nil];
+    inspectorInWindow = [inspectorView convertRect:inspectorView.bounds toView:nil];
+    XCTAssertLessThanOrEqual(NSMaxX(searchInWindow), NSMinX(inspectorInWindow) + 0.5,
+                             @"The search field must not overlap the inspector at minimum width");
+    XCTAssertEqual(split.splitViewItems[2].collapsed, NO);
+
+    searchField.stringValue = self.config.enabledTemplates.firstObject.fileName;
+    [grid searchChanged:searchField];
+    XCTAssertEqual(NFNumberOfItemsShownByGrid(grid), 1);
+    searchField.stringValue = @"";
+    [grid searchChanged:searchField];
 
     NFTemplate *template = self.config.enabledTemplates.lastObject;
     XCTAssertNotNil(template);
@@ -755,6 +785,17 @@ static NSView *NFViewWithIdentifier(NSView *root, NSString *identifier) {
     XCTAssertFalse(window.hidesOnDeactivate);
     XCTAssertFalse(window.releasedWhenClosed);
     XCTAssertGreaterThanOrEqual(window.minSize.width, 600.0);
+    [welcome showWindow:nil];
+    XCTAssertLessThanOrEqual(window.contentView.bounds.size.height, 500.0,
+                             @"Get Started should fit its content instead of leaving a large empty area");
+    XCTAssertLessThanOrEqual(window.contentMinSize.height, 500.0);
+
+    NSView *mainView = [welcome valueForKey:@"mainView"];
+    NSTextField *note = [self labelWithString:NFLocalizedString(@"You can reopen this window from Settings › Help or from the menu bar.")
+                                       inView:mainView];
+    XCTAssertNotNil(note);
+    XCTAssertEqualWithAccuracy(NSMinY(note.frame), 24.0, 2.0,
+                               @"The footer should sit near the bottom edge of the content");
 
     NSButton *getStarted = [self buttonWithTitle:NFLocalizedString(@"Open Template Library") inView:window.contentView];
     NSButton *openSettings = [self buttonWithTitle:NFLocalizedString(@"Open Settings") inView:window.contentView];
@@ -768,10 +809,13 @@ static NSView *NFViewWithIdentifier(NSView *root, NSString *identifier) {
     XCTAssertNotNil(aside);
     XCTAssertTrue(aside.hidden);
     CGFloat widthBefore = window.frame.size.width;
+    CGFloat heightBefore = window.frame.size.height;
     [inspector performClick:nil];
     [self spinMainRunLoopForInterval:0.4];
     XCTAssertFalse(aside.hidden);
     XCTAssertGreaterThan(window.frame.size.width, widthBefore);
+    XCTAssertEqualWithAccuracy(window.frame.size.height, heightBefore, 0.5,
+                               @"Opening the aside must not change the window height");
     [inspector performClick:nil];
     [self spinMainRunLoopForInterval:0.4];
     XCTAssertTrue(aside.hidden);

@@ -6,6 +6,7 @@
 
 @interface NFCWelcomeWindowController () <NSWindowDelegate>
 @property (nonatomic, assign) BOOL didPositionWindow;
+@property (nonatomic, assign) BOOL didSizeWindow;
 @property (nonatomic, strong) NSView *mainView;
 @property (nonatomic, strong) NSView *asideView;
 @property (nonatomic, strong) NSLayoutConstraint *asideWidthConstraint;
@@ -15,11 +16,11 @@
 @implementation NFCWelcomeWindowController
 
 - (instancetype)init {
-    NFCFloatingPanel *window = [NFCFloatingPanel floatingPanelWithContentRect:NSMakeRect(0, 0, 640, 540)
+    NFCFloatingPanel *window = [NFCFloatingPanel floatingPanelWithContentRect:NSMakeRect(0, 0, 640, 460)
                                                                   styleMask:NSWindowStyleMaskTitled | NSWindowStyleMaskClosable |
                                                                             NSWindowStyleMaskResizable];
     window.title = NFLocalizedString(@"Get Started");
-    window.minSize = NSMakeSize(600, 500);
+    window.contentMinSize = NSMakeSize(600, 440);
 
     self = [super initWithWindow:window];
     if (self) {
@@ -30,6 +31,10 @@
 }
 
 - (void)showWindow:(id)sender {
+    if (!self.didSizeWindow) {
+        [self sizeWindowToFitContent];
+        self.didSizeWindow = YES;
+    }
     if (!self.didPositionWindow) {
         [(NFCFloatingPanel *)self.window centerOnActiveScreen];
         self.didPositionWindow = YES;
@@ -166,6 +171,7 @@
         [settings.leadingAnchor constraintEqualToAnchor:getStarted.trailingAnchor constant:10],
         [note.topAnchor constraintEqualToAnchor:getStarted.bottomAnchor constant:14],
         [note.centerXAnchor constraintEqualToAnchor:self.mainView.centerXAnchor],
+        [note.bottomAnchor constraintLessThanOrEqualToAnchor:self.mainView.bottomAnchor constant:-24],
         [self.inspectorButton.topAnchor constraintEqualToAnchor:self.mainView.topAnchor],
         [self.inspectorButton.trailingAnchor constraintEqualToAnchor:self.mainView.trailingAnchor],
         [self.inspectorButton.widthAnchor constraintEqualToConstant:28],
@@ -173,6 +179,33 @@
     ]];
 
     [self setupAsideView];
+}
+
+- (CGFloat)naturalContentHeightForWidth:(CGFloat)width {
+    NSWindow *window = self.window;
+    [window setContentSize:NSMakeSize(width, 640)];
+    [self.mainView layoutSubtreeIfNeeded];
+
+    CGFloat lowest = NSMaxY(self.mainView.bounds);
+    for (NSView *subview in self.mainView.subviews) {
+        if (subview.hidden || subview.alphaValue == 0.0) {
+            continue;
+        }
+        lowest = MIN(lowest, NSMinY(subview.frame));
+    }
+
+    CGFloat mainHeight = NSMaxY(self.mainView.bounds) - lowest + 24.0;
+    return ceil(mainHeight + 48.0);
+}
+
+- (void)sizeWindowToFitContent {
+    CGFloat defaultWidth = 640.0;
+    CGFloat minimumWidth = 600.0;
+    CGFloat defaultHeight = [self naturalContentHeightForWidth:defaultWidth];
+    CGFloat minimumHeight = [self naturalContentHeightForWidth:minimumWidth];
+
+    self.window.contentMinSize = NSMakeSize(minimumWidth, minimumHeight);
+    [self.window setContentSize:NSMakeSize(defaultWidth, defaultHeight)];
 }
 
 - (void)setupAsideView {
@@ -230,7 +263,6 @@
     frame.size.width += delta;
     frame.origin.y -= 0;
     [self.window setFrame:frame display:YES animate:NO];
-    [self.window.contentView layoutSubtreeIfNeeded];
 }
 
 - (void)markOnboardingComplete {

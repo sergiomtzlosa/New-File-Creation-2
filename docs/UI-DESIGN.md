@@ -63,8 +63,9 @@ A 1040×660 floating panel opened from **Open Library** in the menu bar menu (an
 - **Create File** — create from the selected (or default) template in the default folder.
 - **Create with Name…** — create with a save panel so the name and location can be chosen.
 - **Add Template** — multi-select files, packages, or folders to copy into the library.
-- **Search** — live, case-insensitive search across display name, file name, category, and extension.
 - **Inspector** — show/hide the right pane.
+
+The search field lives in a header above the card grid rather than in the toolbar. Keeping it inside the content column means it cannot run underneath the inspector when the inspector is open, and ⌘F focuses the same field without inserting or removing a toolbar item.
 
 ### Card grid
 
@@ -172,6 +173,7 @@ A floating utility panel opened from the menu bar menu, the quick panel gear, th
 - **Open Template Library** opens the library panel; **Open Settings** opens Settings. Return triggers the primary action.
 - An inspector button at the top-right opens an inline right-side aside titled “At a glance”: template count, quick-panel hints, drag hint, Return hint, and pointers to Settings › Templates, Finder, and Help, plus **Open Templates Folder**.
 - The aside is part of the window rather than an overlay: opening it widens the window by 276 pt and reserves a 260 pt column, so it never covers the headline, feature rows, or buttons. Collapsing restores the original width without animation.
+- The window measures its natural content height at startup instead of using a fixed tall frame, then uses the height measured at the minimum width as its minimum size. The result is a compact footer with a 24 pt bottom inset that still accommodates wrapped translations.
 - Closing the panel marks onboarding complete. Reopen it at any time from the menu bar, the quick panel app icon, Settings › Help, or the app menu.
 
 ## Window behavior

@@ -115,11 +115,11 @@
     [self.placeholderView addSubview:placeholderLabel];
 
     [NSLayoutConstraint activateConstraints:@[
-        [self.contentView.topAnchor constraintEqualToAnchor:root.topAnchor],
+        [self.contentView.topAnchor constraintEqualToAnchor:root.safeAreaLayoutGuide.topAnchor],
         [self.contentView.leadingAnchor constraintEqualToAnchor:root.leadingAnchor],
         [self.contentView.trailingAnchor constraintEqualToAnchor:root.trailingAnchor],
         [self.contentView.bottomAnchor constraintEqualToAnchor:root.bottomAnchor],
-        [self.placeholderView.topAnchor constraintEqualToAnchor:root.topAnchor],
+        [self.placeholderView.topAnchor constraintEqualToAnchor:root.safeAreaLayoutGuide.topAnchor],
         [self.placeholderView.leadingAnchor constraintEqualToAnchor:root.leadingAnchor],
         [self.placeholderView.trailingAnchor constraintEqualToAnchor:root.trailingAnchor],
         [self.placeholderView.bottomAnchor constraintEqualToAnchor:root.bottomAnchor],

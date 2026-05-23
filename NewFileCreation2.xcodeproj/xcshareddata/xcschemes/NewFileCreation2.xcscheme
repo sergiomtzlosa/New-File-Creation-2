@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
    LastUpgradeVersion = "1430"
-   version = "1.7">
+   version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
-      buildImplicitDependencies = "YES"
-      runPostActionsOnFailure = "NO">
+      buildImplicitDependencies = "YES">
       <BuildActionEntries>
          <BuildActionEntry
             buildForTesting = "YES"
@@ -16,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "95D63B76D066A06871922162"
-               BuildableName = "NewFileCreation2.app"
+               BuildableName = "New File Creation 2.app"
                BlueprintName = "NewFileCreation2"
                ReferencedContainer = "container:NewFileCreation2.xcodeproj">
             </BuildableReference>
@@ -30,7 +29,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "34F8489BA6BD5CBB3D4D9A23"
-               BuildableName = "NewFileCreation2CLI"
+               BuildableName = "nfc"
                BlueprintName = "NewFileCreation2CLI"
                ReferencedContainer = "container:NewFileCreation2.xcodeproj">
             </BuildableReference>
@@ -44,7 +43,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "22733F3EDBF2855C2C82F248"
-               BuildableName = "NewFileCreation2Finder.appex"
+               BuildableName = "New File Creation 2 Finder.appex"
                BlueprintName = "NewFileCreation2Finder"
                ReferencedContainer = "container:NewFileCreation2.xcodeproj">
             </BuildableReference>
@@ -72,7 +71,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "CEC953EBB308101E3733A7CD"
-               BuildableName = "NewFileCreation2Widget.appex"
+               BuildableName = "New File Creation 2 Widget.appex"
                BlueprintName = "NewFileCreation2Widget"
                ReferencedContainer = "container:NewFileCreation2.xcodeproj">
             </BuildableReference>
@@ -83,13 +82,12 @@
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
-      shouldUseLaunchSchemeArgsEnv = "YES"
-      onlyGenerateCoverageForSpecifiedTargets = "NO">
+      shouldUseLaunchSchemeArgsEnv = "YES">
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "95D63B76D066A06871922162"
-            BuildableName = "NewFileCreation2.app"
+            BuildableName = "New File Creation 2.app"
             BlueprintName = "NewFileCreation2"
             ReferencedContainer = "container:NewFileCreation2.xcodeproj">
          </BuildableReference>
@@ -107,8 +105,6 @@
             </BuildableReference>
          </TestableReference>
       </Testables>
-      <CommandLineArguments>
-      </CommandLineArguments>
    </TestAction>
    <LaunchAction
       buildConfiguration = "Debug"
@@ -125,13 +121,11 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "95D63B76D066A06871922162"
-            BuildableName = "NewFileCreation2.app"
+            BuildableName = "New File Creation 2.app"
             BlueprintName = "NewFileCreation2"
             ReferencedContainer = "container:NewFileCreation2.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
-      <CommandLineArguments>
-      </CommandLineArguments>
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"
@@ -144,7 +138,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "95D63B76D066A06871922162"
-            BuildableName = "NewFileCreation2.app"
+            BuildableName = "New File Creation 2.app"
             BlueprintName = "NewFileCreation2"
             ReferencedContainer = "container:NewFileCreation2.xcodeproj">
          </BuildableReference>
