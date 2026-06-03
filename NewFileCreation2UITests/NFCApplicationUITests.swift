@@ -170,6 +170,30 @@ final class NFCApplicationUITests: XCTestCase {
         add(attachment)
     }
 
+    func testLibrarySearchStaysInsideContentColumn() throws {
+        let app = launch(opening: "NFC_UI_TEST_OPEN_LIBRARY", mainScreen: true)
+        let library = requireFloatingWindow(in: app, title: "New File Creation 2")
+        app.activate()
+
+        let search = library.searchFields["TemplateLibrarySearchField"]
+        XCTAssertTrue(search.waitForExistence(timeout: 4), "The library should expose its own search field")
+
+        let template = library.staticTexts["ePub"].firstMatch
+        XCTAssertTrue(template.waitForExistence(timeout: 4))
+        template.click()
+
+        let createButton = library.buttons["Create in Default Folder"]
+        XCTAssertTrue(createButton.waitForExistence(timeout: 4))
+
+        XCTAssertGreaterThan(search.frame.minY, library.frame.minY + 40,
+                             "Search must sit below the toolbar, not over the window title")
+        XCTAssertGreaterThan(search.frame.minX, library.frame.minX + 170,
+                             "Search must sit in the content column, not the sidebar")
+        XCTAssertLessThan(search.frame.maxX, createButton.frame.minX,
+                          "Search must not cross into the inspector pane")
+        saveScreenshot("nfc-ui-library-search")
+    }
+
     func testCaptureReadmeScreenshots() throws {
         try useReadmeConfiguration()
 
@@ -256,11 +280,16 @@ final class NFCApplicationUITests: XCTestCase {
         XCTAssertTrue(inspector.exists)
         XCTAssertFalse(welcome.staticTexts["At a glance"].exists, "The aside starts hidden")
         let widthBefore = welcome.frame.width
+        let heightBefore = welcome.frame.height
+        XCTAssertLessThan(heightBefore, 520, "Get Started should fit its content without a large empty footer")
+        XCTAssertGreaterThan(heightBefore, 400)
 
         inspector.click()
         XCTAssertTrue(welcome.staticTexts["At a glance"].waitForExistence(timeout: 3))
         XCTAssertGreaterThan(welcome.frame.width, widthBefore,
                              "Opening the aside should widen the window instead of overlapping content")
+        XCTAssertEqual(welcome.frame.height, heightBefore, accuracy: 1.0,
+                       "Opening the aside must not make the window taller")
 
         inspector.click()
         waitForDisappearance(welcome.staticTexts["At a glance"], timeout: 3)

@@ -51,6 +51,7 @@
 @interface NFCTemplateGridViewController () <NSCollectionViewDataSource, NSCollectionViewDelegate>
 @property (nonatomic, strong) NFCTemplateCollectionView *collectionView;
 @property (nonatomic, strong) NSScrollView *scrollView;
+@property (nonatomic, strong) NSSearchField *searchField;
 @property (nonatomic, strong) NSArray<NFTemplate *> *displayedTemplates;
 @property (nonatomic, strong) NSView *emptyStateView;
 @property (nonatomic, strong) NFTemplate *contextTemplate;
@@ -71,6 +72,16 @@
 - (void)loadView {
     NSView *root = [[NSView alloc] initWithFrame:NSMakeRect(0, 0, 620, 600)];
     self.view = root;
+
+    self.searchField = [[NSSearchField alloc] init];
+    self.searchField.identifier = @"TemplateLibrarySearchField";
+    self.searchField.translatesAutoresizingMaskIntoConstraints = NO;
+    self.searchField.placeholderString = NFLocalizedString(@"Search templates");
+    self.searchField.sendsWholeSearchString = NO;
+    self.searchField.sendsSearchStringImmediately = YES;
+    self.searchField.target = self;
+    self.searchField.action = @selector(searchChanged:);
+    [root addSubview:self.searchField];
 
     NSCollectionViewFlowLayout *layout = [[NSCollectionViewFlowLayout alloc] init];
     layout.itemSize = NSMakeSize(168, 150);
@@ -141,8 +152,15 @@
     addButton.controlSize = NSControlSizeLarge;
     [self.emptyStateView addSubview:addButton];
 
+    NSLayoutConstraint *searchWidth = [self.searchField.widthAnchor constraintEqualToConstant:320];
+    searchWidth.priority = NSLayoutPriorityDefaultHigh;
     [NSLayoutConstraint activateConstraints:@[
-        [self.scrollView.topAnchor constraintEqualToAnchor:root.topAnchor],
+        [self.searchField.topAnchor constraintEqualToAnchor:root.safeAreaLayoutGuide.topAnchor constant:14],
+        [self.searchField.leadingAnchor constraintEqualToAnchor:root.leadingAnchor constant:22],
+        searchWidth,
+        [self.searchField.widthAnchor constraintLessThanOrEqualToAnchor:root.widthAnchor constant:-44],
+        [self.searchField.heightAnchor constraintEqualToConstant:28],
+        [self.scrollView.topAnchor constraintEqualToAnchor:self.searchField.bottomAnchor constant:14],
         [self.scrollView.leadingAnchor constraintEqualToAnchor:root.leadingAnchor],
         [self.scrollView.trailingAnchor constraintEqualToAnchor:root.trailingAnchor],
         [self.scrollView.bottomAnchor constraintEqualToAnchor:root.bottomAnchor],
@@ -278,6 +296,10 @@
 - (void)setSearchQuery:(NSString *)searchQuery {
     _searchQuery = [searchQuery copy];
     [self reloadData];
+}
+
+- (void)searchChanged:(NSSearchField *)sender {
+    self.searchQuery = sender.stringValue;
 }
 
 - (void)setSortMode:(NFTemplateSortMode)sortMode {

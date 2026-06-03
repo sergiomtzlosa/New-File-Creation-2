@@ -4,9 +4,9 @@ Create files from templates in Finder, from the menu bar, from a template librar
 
 New File Creation 2 is a native, local-first macOS utility written in Objective-C and AppKit. It never overwrites an existing file, never deletes a template without confirmation, and makes no network requests. Configuration and templates live in one shared folder so the app, the Finder extension, and the CLI always agree.
 
-It is the modern upgrade of [New File Creation](https://github.com/sergiomtzlosa/new-file-creation) by Sergio Martinez-Losa, rebuilt for current macOS with a menu-bar-only workflow, a shared command-line tool, a Finder Sync extension, and both a legacy Today widget and a modern WidgetKit widget while keeping the original template set and MIT license.
+It is the modern upgrade of [New File Creation](https://github.com/sergiomtzlosa/new-file-creation), rebuilt for current macOS with a menu-bar-only workflow, a shared command-line tool, a Finder Sync extension, and both a legacy Today widget and a modern WidgetKit widget while keeping the original template set and MIT license.
 
-![New File Creation 2 template library](docs/images/new-file-creation-2-library.png)
+![New File Creation 2 presentation](docs/images/new-file-creation-2-presentation.png)
 
 | Menu bar quick panel | Settings |
 |:---:|:---:|
@@ -146,7 +146,7 @@ NFC_TEST_REAL_DESKTOP=1 ./scripts/test.sh              # also write to a hidden 
 NFC_TEST_EXTERNAL_VOLUME=/Volumes/MyDisk ./scripts/test.sh  # also write to a mounted external volume
 ```
 
-An XCUITest suite drives the real app end to end for the quick panel, Settings, and Get Started flows:
+An XCUITest suite drives the real app end to end for the quick panel, Settings, Get Started, and the library search/inspector geometry:
 
 ```bash
 xcodebuild -project NewFileCreation2.xcodeproj -scheme NewFileCreation2UI \
@@ -155,6 +155,8 @@ xcodebuild -project NewFileCreation2.xcodeproj -scheme NewFileCreation2UI \
 ```
 
 External-volume coverage is skipped when no writable external volume is available. See [docs/TEST-MATRIX.md](docs/TEST-MATRIX.md) for suite details and the manual checks that still require OS-level gestures.
+
+README images come from the running app: `testCaptureReadmeScreenshots` writes the quick-panel, library, and Settings PNGs into the UI-test runner's temporary folder, `scripts/render-readme-presentation.py` composes the presentation hero from those files and the widget image, and `scripts/render-readme-widget.sh` renders the widget from the real SwiftUI view.
 
 Build products:
 

@@ -18,6 +18,7 @@ typedef NS_ENUM(NSInteger, NFCTemplateFilter) {
 @property (nonatomic, assign) NFTemplateSortMode sortMode;
 
 @property (nonatomic, readonly, nullable) NFTemplate *selectedTemplate;
+@property (nonatomic, readonly, strong) NSSearchField *searchField;
 @property (nonatomic, copy, nullable) void (^onCreate)(NFTemplate *template);
 @property (nonatomic, copy, nullable) void (^onAddTemplates)(void);
 @property (nonatomic, copy, nullable) void (^onSelectionChanged)(NFTemplate * _Nullable template);

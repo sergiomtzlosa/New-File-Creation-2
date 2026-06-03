@@ -27,7 +27,7 @@ xcodebuild -project NewFileCreation2.xcodeproj -scheme NewFileCreation2UI \
   CODE_SIGN_IDENTITY=- CODE_SIGNING_REQUIRED=YES test
 ```
 
-Last automated run: **2026-11-16**. XCTest: **102 passed, 1 skipped, 0 failed (~10 s)**. The skipped test is the external-volume drag test because no writable external volume was mounted (the mounted NTFS volume is not writable). Opt-in runs also passed with `NFC_TEST_REAL_DESKTOP=1` against the real Desktop and with `NFC_TEST_EXTERNAL_VOLUME` pointing at a temporary writable disk image. XCUITest: **4 passed, 0 failed**. CLI integration: **20 passed, 0 failed**. Release verification: **41 passed, 0 warnings, 0 failed**. `scripts/verify.sh --no-build --quick` reports the static bundle, entitlement, localization, and signature checks. The Finder context menu was also confirmed manually on the Desktop, in a Finder window, and on a mounted removable volume. The WidgetKit Simulator discovered all three widget families and rendered a timeline from the real config with the expected template links.
+Last automated run: **2026-11-16**. XCTest: **103 executed, 1 skipped, 0 failed (~10 s)**. The skipped test is the external-volume drag test because no writable external volume was mounted (the mounted NTFS volume is not writable). Opt-in runs also passed with `NFC_TEST_REAL_DESKTOP=1` against the real Desktop and with `NFC_TEST_EXTERNAL_VOLUME` pointing at a temporary writable disk image. XCUITest: **5 passed, 0 failed**. CLI integration: **20 passed, 0 failed**. Release verification: **41 passed, 0 warnings, 0 failed**. `scripts/verify.sh --no-build --quick` reports the static bundle, entitlement, localization, and signature checks. The Finder context menu was also confirmed manually on the Desktop, in a Finder window, and on a mounted removable volume. The WidgetKit Simulator discovered all three widget families and rendered a timeline from the real config with the expected template links.
 
 ### XCTest
 
@@ -45,7 +45,7 @@ Last automated run: **2026-11-16**. XCTest: **102 passed, 1 skipped, 0 failed (~
 | `NFCLITests` | 8 | Option parsing (values, flags, combined short flags, `--`), unknown/missing values, resolver by ID/name/normalized name, unique prefix, default selection, ambiguity, missing references. |
 | `NFCUITests` | 4 | Main-menu search/reveal/full-screen shortcuts, core File menu commands, bundled README for Help, menu-bar accessory policy with no Dock icon. |
 | `NFLocalizationTests` | 7 | 28-language key parity, no blank values, placeholder preservation, product-name preservation, Finder-specific translations, quick-panel drag hint, missing-key fallback. |
-| `NFCUIComponentTests` | 16 | Main menu; floating three-pane library panel and toolbar; sidebar filters and custom categories; grid search/sort/selection/empty state; context menu commands; collection card rendering and double-click; inspector metadata and commands; quick-panel rows, search, drag hint, app-icon Get Started button, gear, quit button, and Return; status-item menu, Get Started item, and permanent visibility; six Settings panes (including Help) with icons, floating panel style, adaptive window sizes, sort popup, category removal, sound name, and category assignment; Get Started panel actions, aside resize, and callbacks; toast message and action; configured post-create sound; menu bar persists after the library closes. |
+| `NFCUIComponentTests` | 16 | Main menu; floating three-pane library panel and toolbar; sidebar filters and custom categories; grid search/sort/selection/empty state; search field placement in the content column; context menu commands; collection card rendering and double-click; inspector metadata and commands; quick-panel rows, search, drag hint, app-icon Get Started button, gear, quit button, and Return; status-item menu, Get Started item, and permanent visibility; six Settings panes (including Help) with icons, floating panel style, adaptive window sizes, sort popup, category removal, sound name, and category assignment; Get Started fitted height, panel actions, aside resize, and callbacks; toast message and action; configured post-create sound; menu bar persists after the library closes. |
 | `NFCDragAndDropTests` | 8 | Quick-panel file promises into a Finder-style folder, a custom promise-aware window, and a desktop-style folder; grid file-URL drops into a custom drop window; opt-in real Desktop drop; opt-in external-volume drop; missing-template drag rejection; no-overwrite behavior and metadata updates; configured sound after promise completion. |
 
 Full log: `build/test.log` after `scripts/test.sh`.
@@ -69,11 +69,12 @@ Drag destinations are modeled without OS-level mouse automation:
 `NewFileCreation2UI.xcscheme` launches the real Debug app with an isolated `NFC_SUPPORT_DIR` and `NFC_UI_TEST_OPEN_QUICK_PANEL=1`. The suite covers:
 
 1. Quick panel opens; the title is centered between the close button and the gear; the gear closes the panel and opens Settings; closing Settings does not quit the menu-bar app.
-2. The app icon left of the gear opens Get Started; the Get Started inspector aside widens the window without overlapping content, then collapses back to the original width.
-3. The Settings Help tab resizes the window, shows the Help actions, and “Show Get Started” opens Get Started.
-4. The README screenshot test opens the quick panel, library, and Settings on the primary display, selects a template, and writes the three app PNGs.
+2. The app icon left of the gear opens Get Started; the Get Started inspector aside widens the window without changing its fitted height, then collapses back to the original width.
+3. The library search field stays below the toolbar and inside the content column, clear of the sidebar and inspector, including at the minimum window width.
+4. The Settings Help tab resizes the window, shows the Help actions, and “Show Get Started” opens Get Started.
+5. The README screenshot test opens the quick panel, library, and Settings on the primary display, selects a template, and writes the three app PNGs.
 
-Screenshots are attached to each test and written to the runner’s temporary folder. The README app images are produced by `testCaptureReadmeScreenshots`; run it with `-only-testing:NewFileCreation2UITests/NFCApplicationUITests/testCaptureReadmeScreenshots` and copy the three PNGs into `docs/images/`. The widget image is produced by `scripts/render-readme-widget.sh` from the real SwiftUI widget view. If a `com.apple.UserNotificationCenter` permission dialog blocks clicks, run `killall UserNotificationCenter` before the suite.
+Screenshots are attached to each test and written to the runner’s temporary folder. The README app images are produced by `testCaptureReadmeScreenshots`; run it with `-only-testing:NewFileCreation2UITests/NFCApplicationUITests/testCaptureReadmeScreenshots` and copy the three PNGs into `docs/images/`. `scripts/render-readme-presentation.py` composes `docs/images/new-file-creation-2-presentation.png` from those captures, the app icon, and the widget image. The widget image is produced by `scripts/render-readme-widget.sh` from the real SwiftUI widget view. If a `com.apple.UserNotificationCenter` permission dialog blocks clicks, run `killall UserNotificationCenter` before the suite.
 
 
 ### CLI integration
@@ -154,7 +155,7 @@ These checks are not fully automated in the repository. Run them after UI or Fin
 | L1 | Sidebar counts | All, Favorites, Recent, and category counts match `nfc list`. | Pending |
 | L2 | Open Library from the menu bar | Opens a floating panel above normal windows; no Dock icon appears; closing it leaves the menu bar icon running. | Automated (panel style) |
 | L3 | Search | Typing filters by display name, file name, category, and extension. | Pending |
-| L4 | ⌘F | Focuses the toolbar search field, inserting it if it was removed. | Pending |
+| L4 | ⌘F | Focuses the search field in the content header. | Pending |
 | L5 | Return | Creates from the selected template in the default folder. | Pending |
 | L6 | Double-click a card | Creates immediately. | Pending |
 | L7 | Drag a card to Finder | Copies the template file; Finder resolves collisions. | Automated (file URL) |
