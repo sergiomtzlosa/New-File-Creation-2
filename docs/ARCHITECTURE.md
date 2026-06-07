@@ -160,6 +160,8 @@ The file is `config.json` in the support folder. It is versioned by `schemaVersi
 
 Unknown settings are preserved when a config is read and rewritten. Missing settings are filled from defaults. A config with a newer schema is rejected rather than silently downgraded. A corrupt config is moved to `Backups/config-corrupt-<timestamp>.json`; `config.json.bak` is used as a fallback when possible.
 
+`defaultDirectory` is authoritative for **Create File**, **Create in Default Folder**, and the save panel's starting location. If it is empty or no longer resolves to a directory, creation falls back to `lastUsedDirectory` and then the Desktop. Saving a file elsewhere updates `lastUsedDirectory` for that fallback but never overrides a configured default folder.
+
 ## Locking and atomic writes
 
 `NFConfigStore` writes through this sequence:

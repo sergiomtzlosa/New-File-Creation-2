@@ -17,13 +17,14 @@ static NSToolbarItemIdentifier const NFCToolbarNewFilePanel = @"NFCToolbarNewFil
 static NSToolbarItemIdentifier const NFCToolbarAddTemplate = @"NFCToolbarAddTemplate";
 static NSToolbarItemIdentifier const NFCToolbarInspector = @"NFCToolbarInspector";
 
-@interface NFCMainWindowController () <NSToolbarDelegate>
+@interface NFCMainWindowController () <NSToolbarDelegate, NSSearchFieldDelegate>
 @property (nonatomic, strong) NSSplitViewController *splitViewController;
 @property (nonatomic, strong) NFCSidebarViewController *sidebarViewController;
 @property (nonatomic, strong) NFCTemplateGridViewController *gridViewController;
 @property (nonatomic, strong) NFCInspectorViewController *inspectorViewController;
 @property (nonatomic, strong) NSSplitViewItem *sidebarItem;
 @property (nonatomic, strong) NSSplitViewItem *inspectorItem;
+@property (nonatomic, strong) NSSearchField *searchField;
 @property (nonatomic, assign) BOOL didPositionWindow;
 @end
 
@@ -220,10 +221,20 @@ static NSToolbarItemIdentifier const NFCToolbarInspector = @"NFCToolbarInspector
 }
 
 - (void)focusSearch {
-    [self.gridViewController view];
+    NSToolbar *toolbar = self.window.toolbar;
+    BOOL hasSearchItem = NO;
+    for (NSToolbarItem *item in toolbar.items) {
+        if ([item.itemIdentifier isEqualToString:NFCToolbarSearch]) {
+            hasSearchItem = YES;
+            break;
+        }
+    }
+    if (toolbar && !hasSearchItem) {
+        [toolbar insertItemWithItemIdentifier:NFCToolbarSearch atIndex:0];
+    }
     dispatch_async(dispatch_get_main_queue(), ^{
         [self.window makeKeyAndOrderFront:nil];
-        [self.window makeFirstResponder:self.gridViewController.searchField];
+        [self.window makeFirstResponder:self.searchField];
     });
 }
 
@@ -254,12 +265,12 @@ static NSToolbarItemIdentifier const NFCToolbarInspector = @"NFCToolbarInspector
 #pragma mark - Toolbar
 
 - (NSArray<NSToolbarItemIdentifier> *)toolbarAllowedItemIdentifiers:(NSToolbar *)toolbar {
-    return @[NFCToolbarNewFile, NFCToolbarNewFilePanel, NFCToolbarAddTemplate,
+    return @[NFCToolbarSearch, NFCToolbarNewFile, NFCToolbarNewFilePanel, NFCToolbarAddTemplate,
              NSToolbarFlexibleSpaceItemIdentifier, NFCToolbarInspector];
 }
 
 - (NSArray<NSToolbarItemIdentifier> *)toolbarDefaultItemIdentifiers:(NSToolbar *)toolbar {
-    return @[NFCToolbarNewFile, NFCToolbarNewFilePanel, NFCToolbarAddTemplate,
+    return @[NFCToolbarSearch, NFCToolbarNewFile, NFCToolbarNewFilePanel, NFCToolbarAddTemplate,
              NSToolbarFlexibleSpaceItemIdentifier, NFCToolbarInspector];
 }
 
@@ -267,7 +278,24 @@ static NSToolbarItemIdentifier const NFCToolbarInspector = @"NFCToolbarInspector
      itemForItemIdentifier:(NSToolbarItemIdentifier)itemIdentifier
  willBeInsertedIntoToolbar:(BOOL)flag {
     NSToolbarItem *item = [[NSToolbarItem alloc] initWithItemIdentifier:itemIdentifier];
-    if ([itemIdentifier isEqualToString:NFCToolbarNewFile]) {
+    if ([itemIdentifier isEqualToString:NFCToolbarSearch]) {
+        NSSearchField *field = [[NSSearchField alloc] initWithFrame:NSMakeRect(0, 0, 220, 28)];
+        field.identifier = @"TemplateLibrarySearchField";
+        field.translatesAutoresizingMaskIntoConstraints = NO;
+        field.placeholderString = NFLocalizedString(@"Search templates");
+        field.delegate = self;
+        field.sendsWholeSearchString = NO;
+        field.sendsSearchStringImmediately = YES;
+        field.target = self;
+        field.action = @selector(searchChanged:);
+        self.searchField = field;
+        item.view = field;
+        item.label = NFLocalizedString(@"Search");
+        item.paletteLabel = NFLocalizedString(@"Search");
+        [field.widthAnchor constraintEqualToConstant:220].active = YES;
+        [field setContentHuggingPriority:NSLayoutPriorityRequired
+                          forOrientation:NSLayoutConstraintOrientationHorizontal];
+    } else if ([itemIdentifier isEqualToString:NFCToolbarNewFile]) {
         item.label = NFLocalizedString(@"Create File");
         item.paletteLabel = NFLocalizedString(@"Create File");
         item.toolTip = NFLocalizedString(@"Create the selected template in the default folder");
@@ -297,6 +325,10 @@ static NSToolbarItemIdentifier const NFCToolbarInspector = @"NFCToolbarInspector
         item.action = @selector(toggleInspector:);
     }
     return item;
+}
+
+- (void)searchChanged:(NSSearchField *)sender {
+    self.gridViewController.searchQuery = sender.stringValue;
 }
 
 - (void)toggleInspector:(id)sender {

@@ -132,7 +132,7 @@ See [docs/CLI.md](docs/CLI.md) for the full reference, JSON envelope, exit codes
 xcodegen generate
 ./scripts/build.sh          # Release
 CONFIG=Debug ./scripts/build.sh
-./scripts/test.sh           # XCTest suite: logic, AppKit UI, drag/drop (103 tests, 1 environment skip)
+./scripts/test.sh           # XCTest suite: logic, AppKit UI, drag/drop (104 tests, 1 environment skip)
 ./scripts/test-cli.sh       # isolated end-to-end CLI checks
 ./scripts/verify.sh         # signing, bundle, resources, tests, CLI
 ./scripts/verify.sh --quick # skip the test suites
@@ -146,7 +146,7 @@ NFC_TEST_REAL_DESKTOP=1 ./scripts/test.sh              # also write to a hidden 
 NFC_TEST_EXTERNAL_VOLUME=/Volumes/MyDisk ./scripts/test.sh  # also write to a mounted external volume
 ```
 
-An XCUITest suite drives the real app end to end for the quick panel, Settings, Get Started, and the library search/inspector geometry:
+An XCUITest suite drives the real app end to end for the quick panel, Settings, Get Started, the toolbar search placement, and creation into the configured default folder:
 
 ```bash
 xcodebuild -project NewFileCreation2.xcodeproj -scheme NewFileCreation2UI \

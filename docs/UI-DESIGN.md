@@ -60,12 +60,13 @@ A 1040×660 floating panel opened from **Open Library** in the menu bar menu (an
 
 ### Toolbar
 
+- **Search** — live, case-insensitive search across display name, file name, category, and extension.
 - **Create File** — create from the selected (or default) template in the default folder.
 - **Create with Name…** — create with a save panel so the name and location can be chosen.
 - **Add Template** — multi-select files, packages, or folders to copy into the library.
 - **Inspector** — show/hide the right pane.
 
-The search field lives in a header above the card grid rather than in the toolbar. Keeping it inside the content column means it cannot run underneath the inspector when the inspector is open, and ⌘F focuses the same field without inserting or removing a toolbar item.
+The search field is the first toolbar item, directly left of **Create File**, followed by flexible space and the **Inspector** toggle. It stays to the left of the inspector at every window width. ⌘F focuses this field and, if the item was removed through toolbar customization, re-inserts it at index 0.
 
 ### Card grid
 

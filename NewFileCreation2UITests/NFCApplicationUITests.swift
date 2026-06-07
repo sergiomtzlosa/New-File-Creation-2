@@ -170,13 +170,41 @@ final class NFCApplicationUITests: XCTestCase {
         add(attachment)
     }
 
-    func testLibrarySearchStaysInsideContentColumn() throws {
+    func testLibrarySearchSitsLeftOfCreateFile() throws {
         let app = launch(opening: "NFC_UI_TEST_OPEN_LIBRARY", mainScreen: true)
         let library = requireFloatingWindow(in: app, title: "New File Creation 2")
         app.activate()
 
         let search = library.searchFields["TemplateLibrarySearchField"]
-        XCTAssertTrue(search.waitForExistence(timeout: 4), "The library should expose its own search field")
+        XCTAssertTrue(search.waitForExistence(timeout: 4), "The library should expose its toolbar search field")
+
+        let createFile = library.buttons["Create File"].firstMatch
+        XCTAssertTrue(createFile.waitForExistence(timeout: 4), "Create File should be in the toolbar")
+
+        XCTAssertLessThanOrEqual(search.frame.maxX, createFile.frame.minX + 1.0,
+                                 "Search must sit at the left side of Create File")
+        XCTAssertGreaterThan(search.frame.maxY, createFile.frame.minY,
+                             "Search and Create File should share the toolbar row")
+        XCTAssertLessThan(search.frame.minY, createFile.frame.maxY,
+                          "Search and Create File should share the toolbar row")
+        XCTAssertLessThan(search.frame.minY, library.frame.minY + 90,
+                          "Search should stay in the toolbar, not move into the content")
+
+        let template = library.staticTexts["ePub"].firstMatch
+        XCTAssertTrue(template.waitForExistence(timeout: 4))
+        template.click()
+
+        let inspectorCreate = library.buttons["Create in Default Folder"]
+        XCTAssertTrue(inspectorCreate.waitForExistence(timeout: 4))
+        XCTAssertLessThan(search.frame.maxX, inspectorCreate.frame.minX,
+                          "The toolbar search must stay clear of the inspector pane")
+        saveScreenshot("nfc-ui-library-search")
+    }
+
+    func testCreateInDefaultFolderUsesConfiguredPreference() throws {
+        let app = launch(opening: "NFC_UI_TEST_OPEN_LIBRARY", mainScreen: true)
+        let library = requireFloatingWindow(in: app, title: "New File Creation 2")
+        app.activate()
 
         let template = library.staticTexts["ePub"].firstMatch
         XCTAssertTrue(template.waitForExistence(timeout: 4))
@@ -184,14 +212,24 @@ final class NFCApplicationUITests: XCTestCase {
 
         let createButton = library.buttons["Create in Default Folder"]
         XCTAssertTrue(createButton.waitForExistence(timeout: 4))
+        createButton.click()
 
-        XCTAssertGreaterThan(search.frame.minY, library.frame.minY + 40,
-                             "Search must sit below the toolbar, not over the window title")
-        XCTAssertGreaterThan(search.frame.minX, library.frame.minX + 170,
-                             "Search must sit in the content column, not the sidebar")
-        XCTAssertLessThan(search.frame.maxX, createButton.frame.minX,
-                          "Search must not cross into the inspector pane")
-        saveScreenshot("nfc-ui-library-search")
+        let deadline = Date().addingTimeInterval(5)
+        var created: URL?
+        while Date() < deadline {
+            let files = (try? FileManager.default.contentsOfDirectory(
+                at: inbox, includingPropertiesForKeys: nil)) ?? []
+            if let file = files.first(where: { $0.pathExtension == "epub" }) {
+                created = file
+                break
+            }
+            Thread.sleep(forTimeInterval: 0.2)
+        }
+        XCTAssertNotNil(created,
+                        "Create in Default Folder must use the folder chosen in Settings › General")
+        if let created {
+            try? FileManager.default.removeItem(at: created)
+        }
     }
 
     func testCaptureReadmeScreenshots() throws {
