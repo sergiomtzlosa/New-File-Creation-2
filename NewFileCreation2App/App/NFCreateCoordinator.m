@@ -37,9 +37,20 @@
 
 - (NSURL *)defaultCreationDirectory {
     NFConfig *config = [self config];
-    NSString *last = [config stringSettingForKey:@"lastUsedDirectory" defaultValue:@""];
     NSFileManager *fm = [NSFileManager defaultManager];
     BOOL isDir = NO;
+
+    // Settings › General stores the user's chosen folder in defaultDirectory.
+    // It must win over the last folder used by a save panel or a Finder drop;
+    // otherwise the Create File button silently drifts away from the preference.
+    NSString *configured = [[config stringSettingForKey:@"defaultDirectory" defaultValue:@""]
+                            stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+    configured = configured.stringByExpandingTildeInPath;
+    if (configured.length > 0 && [fm fileExistsAtPath:configured isDirectory:&isDir] && isDir) {
+        return [NSURL fileURLWithPath:configured isDirectory:YES];
+    }
+
+    NSString *last = [config stringSettingForKey:@"lastUsedDirectory" defaultValue:@""];
     if (last.length > 0 && [fm fileExistsAtPath:last isDirectory:&isDir] && isDir) {
         return [NSURL fileURLWithPath:last isDirectory:YES];
     }

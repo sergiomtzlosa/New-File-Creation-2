@@ -30,6 +30,9 @@
 @interface NFCTemplateGridViewController (NFCTesting)
 - (void)toggleContextFavorite:(id)sender;
 - (void)createContextTemplate:(id)sender;
+@end
+
+@interface NFCMainWindowController (NFCTesting)
 - (void)searchChanged:(NSSearchField *)sender;
 @end
 
@@ -171,29 +174,40 @@ static NSView *NFViewWithIdentifier(NSView *root, NSString *identifier) {
     XCTAssertNotNil(toolbar);
     id<NSToolbarDelegate> delegate = (id<NSToolbarDelegate>)toolbar.delegate;
     NSArray<NSToolbarItemIdentifier> *defaults = [delegate toolbarDefaultItemIdentifiers:toolbar];
-    XCTAssertTrue([defaults containsObject:@"NFCToolbarNewFile"]);
+    XCTAssertEqualObjects(defaults.firstObject, @"NFCToolbarSearch",
+                          @"The search field belongs at the left edge of the toolbar");
+    NSUInteger searchIndex = [defaults indexOfObject:@"NFCToolbarSearch"];
+    NSUInteger newFileIndex = [defaults indexOfObject:@"NFCToolbarNewFile"];
+    XCTAssertNotEqual(searchIndex, NSNotFound);
+    XCTAssertNotEqual(newFileIndex, NSNotFound);
+    XCTAssertLessThan(searchIndex, newFileIndex,
+                      @"Search must sit directly left of Create File");
     XCTAssertTrue([defaults containsObject:@"NFCToolbarNewFilePanel"]);
     XCTAssertTrue([defaults containsObject:@"NFCToolbarAddTemplate"]);
-    XCTAssertFalse([defaults containsObject:@"NFCToolbarSearch"],
-                   @"Search belongs to the grid column so it cannot cross the inspector divider");
     XCTAssertTrue([defaults containsObject:@"NFCToolbarInspector"]);
+
+    [window orderFront:nil];
+    [window.contentView layoutSubtreeIfNeeded];
+    NSArray<NSToolbarItemIdentifier> *visibleIdentifiers = [toolbar.items valueForKey:@"itemIdentifier"];
+    XCTAssertEqualObjects(visibleIdentifiers.firstObject, @"NFCToolbarSearch");
+    XCTAssertLessThan([visibleIdentifiers indexOfObject:@"NFCToolbarSearch"],
+                      [visibleIdentifiers indexOfObject:@"NFCToolbarNewFile"]);
 
     NFCTemplateGridViewController *grid = [controller valueForKey:@"gridViewController"];
     [grid view];
     [controller reloadAll];
 
-    NSSearchField *searchField = grid.searchField;
+    NSSearchField *searchField = [controller valueForKey:@"searchField"];
     XCTAssertNotNil(searchField);
     XCTAssertEqualObjects(searchField.identifier, @"TemplateLibrarySearchField");
     XCTAssertEqualObjects(searchField.placeholderString, NFLocalizedString(@"Search templates"));
-    XCTAssertEqual(searchField.superview, grid.view);
-    [window.contentView layoutSubtreeIfNeeded];
+    XCTAssertNotNil(searchField.superview);
 
     NSRect searchInWindow = [searchField convertRect:searchField.bounds toView:nil];
     NSView *inspectorView = split.splitViewItems[2].viewController.view;
     NSRect inspectorInWindow = [inspectorView convertRect:inspectorView.bounds toView:nil];
     XCTAssertLessThanOrEqual(NSMaxX(searchInWindow), NSMinX(inspectorInWindow) + 0.5,
-                             @"The search field must stay inside the content column");
+                             @"The search field must stay left of the inspector");
 
     [window setContentSize:window.contentMinSize];
     [window.contentView layoutSubtreeIfNeeded];
@@ -205,10 +219,10 @@ static NSView *NFViewWithIdentifier(NSView *root, NSString *identifier) {
     XCTAssertEqual(split.splitViewItems[2].collapsed, NO);
 
     searchField.stringValue = self.config.enabledTemplates.firstObject.fileName;
-    [grid searchChanged:searchField];
+    [controller searchChanged:searchField];
     XCTAssertEqual(NFNumberOfItemsShownByGrid(grid), 1);
     searchField.stringValue = @"";
-    [grid searchChanged:searchField];
+    [controller searchChanged:searchField];
 
     NFTemplate *template = self.config.enabledTemplates.lastObject;
     XCTAssertNotNil(template);
@@ -860,6 +874,28 @@ static NSView *NFViewWithIdentifier(NSView *root, NSString *identifier) {
     [button performClick:nil];
     XCTAssertTrue(invoked);
     [window orderOut:nil];
+}
+
+- (void)testDefaultCreationDirectoryPrefersConfiguredDefaultFolder {
+    NSURL *configured = [self makeDirectoryNamed:@"Configured Default"];
+    NSURL *lastUsed = [self makeDirectoryNamed:@"Last Used"];
+    NSError *error = nil;
+    XCTAssertTrue([[NFConfigStore sharedStore] updateConfig:^BOOL(NFConfig *config, NSError **blockError) {
+        [config setSetting:configured.path forKey:@"defaultDirectory"];
+        [config setSetting:lastUsed.path forKey:@"lastUsedDirectory"];
+        return YES;
+    } error:&error], @"%@", error);
+
+    NFCreateCoordinator *coordinator = [NFCreateCoordinator sharedCoordinator];
+    XCTAssertEqualObjects(coordinator.defaultCreationDirectory.path, configured.path,
+                          @"Create in Default Folder must use the folder chosen in Settings");
+
+    XCTAssertTrue([[NFConfigStore sharedStore] updateConfig:^BOOL(NFConfig *config, NSError **blockError) {
+        [config setSetting:@"" forKey:@"defaultDirectory"];
+        return YES;
+    } error:&error], @"%@", error);
+    XCTAssertEqualObjects(coordinator.defaultCreationDirectory.path, lastUsed.path,
+                          @"Without a configured folder, creation falls back to the last used folder");
 }
 
 - (void)testPostCreateActionsPlayConfiguredSoundName {
