@@ -33,3 +33,4 @@ fastlane/
 
 # Local-only: agent notes and the legacy reference tree
 .config/
+job-logs.txt
